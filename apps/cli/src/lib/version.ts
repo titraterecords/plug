@@ -24,7 +24,7 @@ async function checkForUpdate(currentVersion: string): Promise<string | null> {
   }
 
   try {
-    const response = await fetch("https://registry.npmjs.org/@titrate/cli/latest");
+    const response = await fetch("https://registry.npmjs.org/@titrate/plug/latest");
     if (!response.ok) return null;
     const data = (await response.json()) as { version: string };
 

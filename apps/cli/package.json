@@ -1,5 +1,5 @@
 {
-  "name": "@titrate/cli",
+  "name": "@titrate/plug",
   "version": "0.1.0",
   "private": true,
   "type": "module",
