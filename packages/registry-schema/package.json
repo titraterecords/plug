@@ -1,0 +1,14 @@
+{
+  "name": "@plug/registry-schema",
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    "./*": "./src/*.ts"
+  },
+  "files": [
+    "src"
+  ],
+  "dependencies": {
+    "zod": "^3.24.0"
+  }
+}

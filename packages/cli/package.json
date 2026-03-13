@@ -1,0 +1,25 @@
+{
+  "name": "@plug/cli",
+  "version": "0.1.0",
+  "type": "module",
+  "bin": {
+    "plug": "./dist/index.js"
+  },
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@plug/registry-schema": "workspace:*",
+    "chalk": "^5.4.0",
+    "commander": "^13.1.0",
+    "ora": "^8.2.0",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.4.0",
+    "tsx": "^4.19.0"
+  }
+}
