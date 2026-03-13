@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import type { Registry } from "@plug/registry-schema/schema";
+import type { Registry } from "@titrate/registry-schema/schema";
 import { findPlugin, searchPlugins } from "./registry.js";
 
 const testRegistry: Registry = {

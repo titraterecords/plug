@@ -14,7 +14,7 @@ const VERSION = "0.1.0";
 const cached = await loadVersionCache();
 if (cached && cached.latest !== VERSION) {
   warn(
-    `plug ${VERSION} -> ${cached.latest} available. Run \`npm update -g @plug/cli\` to update.`,
+    `plug ${VERSION} -> ${cached.latest} available. Run \`npm update -g @titrate/cli\` to update.`,
   );
 }
 

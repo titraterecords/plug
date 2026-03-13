@@ -32,7 +32,7 @@ importers:
 
   apps/cli:
     dependencies:
-      '@plug/registry-schema':
+      '@titrate/registry-schema':
         specifier: workspace:*
         version: link:../../packages/registry-schema
       chalk:

@@ -1,4 +1,4 @@
-# @plug/cli
+# @titrate/cli
 
 The `plug` command-line tool. Discovers, installs, updates, and removes free VST3, AU, and CLAP audio plugins on macOS.
 

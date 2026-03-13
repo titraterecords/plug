@@ -1,7 +1,7 @@
 import type { Command } from "commander";
 import chalk from "chalk";
 import ora from "ora";
-import type { PluginFormat } from "@plug/registry-schema/schema";
+import type { PluginFormat } from "@titrate/registry-schema/schema";
 import { type InstallTarget } from "../constants.js";
 import {
   downloadFile,

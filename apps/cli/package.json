@@ -1,5 +1,5 @@
 {
-  "name": "@plug/cli",
+  "name": "@titrate/cli",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -17,7 +17,7 @@
     "test:watch": "vitest"
   },
   "dependencies": {
-    "@plug/registry-schema": "workspace:*",
+    "@titrate/registry-schema": "workspace:*",
     "chalk": "^5.4.0",
     "commander": "^13.1.0",
     "ora": "^8.2.0"

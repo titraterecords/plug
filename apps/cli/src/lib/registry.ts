@@ -3,7 +3,7 @@ import {
   RegistrySchema,
   type Plugin,
   type Registry,
-} from "@plug/registry-schema/schema";
+} from "@titrate/registry-schema/schema";
 import { CACHE_DIR, REGISTRY_CACHE_PATH, REGISTRY_URL } from "../constants.js";
 
 const CACHE_MAX_AGE_MS = 60 * 60 * 1000; // 1 hour

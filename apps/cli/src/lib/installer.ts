@@ -3,7 +3,7 @@ import { mkdir, readdir, writeFile } from "node:fs/promises";
 import { execSync } from "node:child_process";
 import { join } from "node:path";
 import { tmpdir } from "node:os";
-import type { PluginFormat } from "@plug/registry-schema/schema";
+import type { PluginFormat } from "@titrate/registry-schema/schema";
 import { PLUGIN_PATHS, type InstallTarget } from "../constants.js";
 
 async function downloadFile(url: string): Promise<Buffer> {

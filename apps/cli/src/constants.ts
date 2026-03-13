@@ -1,6 +1,6 @@
 import { homedir } from "node:os";
 import { join } from "node:path";
-import type { PluginFormat } from "@plug/registry-schema/schema";
+import type { PluginFormat } from "@titrate/registry-schema/schema";
 
 type InstallTarget = "user" | "system";
 

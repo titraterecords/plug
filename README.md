@@ -16,7 +16,7 @@ All commands support `--json` for scripted and agent use.
 ## Install
 
 ```bash
-npm install -g @plug/cli
+npm install -g @titrate/cli
 ```
 
 ## Structure
@@ -37,5 +37,5 @@ pnpm type-check
 Run the CLI locally:
 
 ```bash
-pnpm --filter @plug/cli dev -- search reverb
+pnpm --filter @titrate/cli dev -- search reverb
 ```

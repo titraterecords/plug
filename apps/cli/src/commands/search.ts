@@ -1,6 +1,6 @@
 import type { Command } from "commander";
 import chalk from "chalk";
-import type { Plugin } from "@plug/registry-schema/schema";
+import type { Plugin } from "@titrate/registry-schema/schema";
 import { getRegistry, searchPlugins } from "../lib/registry.js";
 import { dim } from "../lib/logger.js";
 
