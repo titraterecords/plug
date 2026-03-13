@@ -6,7 +6,7 @@ import {
   computeChecksum,
   resolvePluginPath,
   verifyChecksum,
-} from "../src/lib/installer.js";
+} from "./installer.js";
 
 describe("verifyChecksum", () => {
   it("returns true for matching checksum", () => {

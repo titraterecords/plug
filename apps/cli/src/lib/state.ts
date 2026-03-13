@@ -45,4 +45,3 @@ async function markUninstalled(id: string): Promise<void> {
 }
 
 export { loadInstalled, markInstalled, markUninstalled, saveInstalled };
-export type { InstalledPlugin, InstalledState };

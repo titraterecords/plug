@@ -1,5 +1,5 @@
 import { createHash } from "node:crypto";
-import { access, mkdir, readdir, writeFile } from "node:fs/promises";
+import { mkdir, readdir, writeFile } from "node:fs/promises";
 import { execSync } from "node:child_process";
 import { join } from "node:path";
 import { tmpdir } from "node:os";
@@ -74,25 +74,10 @@ async function extractAndInstall(
   return destPath;
 }
 
-async function isPluginInstalled(
-  artifact: string,
-  format: PluginFormat,
-  target: InstallTarget,
-): Promise<boolean> {
-  const dir = resolvePluginPath(format, target);
-  try {
-    await access(join(dir, artifact));
-    return true;
-  } catch {
-    return false;
-  }
-}
-
 export {
   computeChecksum,
   downloadFile,
   extractAndInstall,
-  isPluginInstalled,
   resolvePluginPath,
   verifyChecksum,
 };

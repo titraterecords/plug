@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { FormatSchema, PluginSchema, RegistrySchema } from "../src/schema.js";
+import { FormatSchema, PluginSchema, RegistrySchema } from "./schema.js";
 
 describe("FormatSchema", () => {
   it("accepts a valid format entry", () => {

@@ -26,10 +26,9 @@ const RegistrySchema = z.object({
   plugins: z.array(PluginSchema),
 });
 
-type Format = z.infer<typeof FormatSchema>;
 type Plugin = z.infer<typeof PluginSchema>;
 type Registry = z.infer<typeof RegistrySchema>;
 type PluginFormat = (typeof FORMATS)[number];
 
-export { FORMATS, FormatSchema, PluginSchema, RegistrySchema };
-export type { Format, Plugin, PluginFormat, Registry };
+export { FormatSchema, PluginSchema, RegistrySchema };
+export type { Plugin, PluginFormat, Registry };

@@ -22,8 +22,8 @@ const PLUGIN_PATHS: Record<PluginFormat, Record<InstallTarget, string>> = {
 // Preference order when no format is specified
 const FORMAT_PREFERENCE: PluginFormat[] = ["vst3", "au", "clap"];
 
-const TAP_NAME = "titraterecords/plug";
-const REGISTRY_URL = `https://raw.githubusercontent.com/${TAP_NAME}/main/tap/registry.json`;
+const REGISTRY_URL =
+  "https://raw.githubusercontent.com/titraterecords/plug/main/tap/registry.json";
 const CACHE_DIR = join(homedir(), ".plug");
 const REGISTRY_CACHE_PATH = join(CACHE_DIR, "registry.json");
 const INSTALLED_PATH = join(CACHE_DIR, "installed.json");
@@ -36,7 +36,6 @@ export {
   PLUGIN_PATHS,
   REGISTRY_CACHE_PATH,
   REGISTRY_URL,
-  TAP_NAME,
   VERSION_CACHE_PATH,
 };
 export type { InstallTarget };

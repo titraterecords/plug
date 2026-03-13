@@ -1,0 +1,27 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "rules": {
+    "files": "error",
+    "dependencies": "error",
+    "unlisted": "error",
+    "binaries": "error",
+    "unresolved": "error",
+    "exports": "error",
+    "types": "error",
+    "enumMembers": "error",
+    "classMembers": "error",
+    "duplicates": "error"
+  },
+  "workspaces": {
+    "apps/cli": {
+      "project": ["src/**/*.ts"],
+      "vitest": true
+    },
+    "packages/registry-schema": {
+      "entry": ["src/*.ts"],
+      "project": ["src/**/*.ts"],
+      "vitest": true,
+      "includeEntryExports": true
+    }
+  }
+}

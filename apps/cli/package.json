@@ -1,6 +1,7 @@
 {
   "name": "@plug/cli",
   "version": "0.1.0",
+  "private": true,
   "type": "module",
   "bin": {
     "plug": "./dist/index.js"
@@ -8,6 +9,10 @@
   "scripts": {
     "dev": "tsx src/index.ts",
     "build": "tsup",
+    "knip": "echo 'Run knip from repo root (pnpm knip)'",
+    "lint": "eslint . --fix",
+    "format": "prettier --write . --ignore-path ../../.prettierignore",
+    "type-check": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest"
   },
@@ -15,11 +20,14 @@
     "@plug/registry-schema": "workspace:*",
     "chalk": "^5.4.0",
     "commander": "^13.1.0",
-    "ora": "^8.2.0",
-    "zod": "^3.24.0"
+    "ora": "^8.2.0"
   },
   "devDependencies": {
+    "eslint": "^9.22.0",
+    "prettier": "^3.5.0",
     "tsup": "^8.4.0",
-    "tsx": "^4.19.0"
+    "tsx": "^4.19.0",
+    "typescript": "^5.8.0",
+    "vitest": "^3.1.0"
   }
 }

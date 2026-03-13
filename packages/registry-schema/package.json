@@ -1,6 +1,7 @@
 {
   "name": "@plug/registry-schema",
   "version": "0.1.0",
+  "private": true,
   "type": "module",
   "exports": {
     "./*": "./src/*.ts"
@@ -8,7 +9,21 @@
   "files": [
     "src"
   ],
+  "scripts": {
+    "knip": "echo 'Run knip from repo root (pnpm knip)'",
+    "lint": "eslint . --fix",
+    "format": "prettier --write . --ignore-path ../../.prettierignore",
+    "type-check": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
   "dependencies": {
     "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.22.0",
+    "prettier": "^3.5.0",
+    "typescript": "^5.8.0",
+    "vitest": "^3.1.0"
   }
 }

@@ -5,7 +5,7 @@ import {
   markInstalled,
   markUninstalled,
   saveInstalled,
-} from "../src/lib/state.js";
+} from "./state.js";
 
 vi.mock("node:fs/promises", () => ({
   readFile: vi.fn(),

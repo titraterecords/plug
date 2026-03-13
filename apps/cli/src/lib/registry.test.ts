@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { Registry } from "@plug/registry-schema/schema";
-import { findPlugin, searchPlugins } from "../src/lib/registry.js";
+import { findPlugin, searchPlugins } from "./registry.js";
 
 const testRegistry: Registry = {
   version: "1",

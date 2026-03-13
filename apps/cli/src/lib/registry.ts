@@ -82,11 +82,4 @@ function searchPlugins(
   return results;
 }
 
-export {
-  cacheRegistry,
-  fetchRegistry,
-  findPlugin,
-  getRegistry,
-  loadCachedRegistry,
-  searchPlugins,
-};
+export { findPlugin, getRegistry, searchPlugins };
