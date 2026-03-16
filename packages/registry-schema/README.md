@@ -1,6 +1,6 @@
 # @titrate/registry-schema
 
-Zod schemas and TypeScript types for `tap/registry.json`.
+Zod schemas and TypeScript types for `registry.json`.
 
 ```typescript
 import { RegistrySchema, type Plugin } from "@titrate/registry-schema/schema";

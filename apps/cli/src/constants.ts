@@ -44,7 +44,7 @@ const PLUGIN_PATHS: Record<PluginFormat, Record<InstallTarget, string>> =
 const FORMAT_PREFERENCE: PluginFormat[] = ["vst3", "au", "clap"];
 
 const REGISTRY_URL =
-  "https://raw.githubusercontent.com/titraterecords/plug/main/tap/registry.json";
+  "https://raw.githubusercontent.com/titraterecords/plug/main/registry.json";
 const CACHE_DIR = HOME_DIR;
 const REGISTRY_CACHE_PATH = join(CACHE_DIR, "registry.json");
 const INSTALLED_PATH = join(CACHE_DIR, "installed.json");

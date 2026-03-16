@@ -23,7 +23,7 @@ npm install -g @titrate/plug
 
 - `apps/cli` - The `plug` CLI
 - `packages/registry-schema` - Zod schema for the plugin registry
-- `tap/` - Plugin registry (`registry.json`)
+- `registry.json` - Plugin registry (single source of truth)
 
 ## Development
 
