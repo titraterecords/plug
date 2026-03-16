@@ -35,9 +35,11 @@ if (!skipBanner && cached && isNewer(cached.latest, VERSION)) {
   const line2 = `Run: ${chalk.cyan(updateCmd)}`;
 
   const content = [line1, line2];
-  const maxLen = Math.max(...content.map((l) => l.replace(/\x1b\[[0-9;]*m/g, "").length));
+  // eslint-disable-next-line no-control-regex
+  const stripAnsi = (s: string) => s.replace(/\x1b\[[0-9;]*m/g, "");
+  const maxLen = Math.max(...content.map((l) => stripAnsi(l).length));
   const pad = (s: string) => {
-    const visible = s.replace(/\x1b\[[0-9;]*m/g, "").length;
+    const visible = stripAnsi(s).length;
     return s + " ".repeat(maxLen - visible);
   };
 
