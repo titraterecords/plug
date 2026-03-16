@@ -37,7 +37,6 @@ jobs:
       - uses: oven-sh/setup-bun@v2
 
       - run: bun install
-        working-directory: apps/cli
 
       - name: Build binary
         run: bun build src/index.ts --compile --target=${{ matrix.target }} --outfile ${{ matrix.artifact }}
