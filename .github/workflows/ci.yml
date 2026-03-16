@@ -28,6 +28,14 @@ jobs:
       - run: pnpm lint
       - run: pnpm test
 
+      - name: e2e - install OTT on macOS
+        env:
+          PLUG_HOME: ${{ runner.temp }}/plug-e2e
+        run: |
+          npx tsx apps/cli/src/index.ts install ott -f vst3
+          test -d "$PLUG_HOME/plugins/vst3/OTT.vst3" || (echo "OTT.vst3 not found" && exit 1)
+          echo "OTT.vst3 installed successfully"
+
   check-windows:
     runs-on: windows-latest
 
@@ -46,3 +54,15 @@ jobs:
       - run: pnpm install
       - run: pnpm type-check
       - run: pnpm test
+
+      - name: e2e - install OTT on Windows
+        shell: pwsh
+        env:
+          PLUG_HOME: ${{ runner.temp }}\plug-e2e
+        run: |
+          npx tsx apps/cli/src/index.ts install ott -f vst3
+          if (!(Test-Path "$env:PLUG_HOME\plugins\vst3\OTT.vst3")) {
+            Write-Error "OTT.vst3 not found after install"
+            exit 1
+          }
+          Write-Host "OTT.vst3 installed successfully"
