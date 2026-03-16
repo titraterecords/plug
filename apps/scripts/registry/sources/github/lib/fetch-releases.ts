@@ -19,8 +19,8 @@ const PRE_RELEASE_PATTERN = /alpha|beta|rc|pre|nightly|dev/i;
 // Fetches recent stable releases for a GitHub repo using the gh CLI.
 // Filters out pre-releases (both GitHub's prerelease flag and tag patterns
 // like "v1.0.0-beta") and returns at most maxStable releases.
-// Fetches 30 to have enough candidates after filtering.
-function fetchReleases(repo: string, maxStable = 5): Release[] {
+// Default 1 - just the latest stable. Increase when we need version history.
+function fetchReleases(repo: string, maxStable = 1): Release[] {
   const result = execFileSync("gh", [
     "api",
     `repos/${repo}/releases?per_page=30`,
