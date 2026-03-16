@@ -1,4 +1,4 @@
-import { mkdir, readFile, stat, writeFile } from "node:fs/promises";
+import { mkdir, readFile, rm, stat, writeFile } from "node:fs/promises";
 import {
   RegistrySchema,
   type Platform,
@@ -8,7 +8,17 @@ import {
 } from "@titrate/registry-schema/schema";
 import { CACHE_DIR, REGISTRY_CACHE_PATH, REGISTRY_URL } from "../constants.js";
 
-const CACHE_MAX_AGE_MS = 60 * 60 * 1000; // 1 hour
+const CACHE_MAX_AGE_MS = 10 * 60 * 1000; // 10 minutes
+
+function parseRegistry(data: unknown): Registry {
+  const result = RegistrySchema.safeParse(data);
+  if (result.success) return result.data;
+
+  throw new Error(
+    "Registry format has changed. Run: plug clear-cache\n" +
+      "If the error persists, update plug to the latest version.",
+  );
+}
 
 async function fetchRegistry(): Promise<Registry> {
   const response = await fetch(REGISTRY_URL);
@@ -17,8 +27,7 @@ async function fetchRegistry(): Promise<Registry> {
       `Failed to fetch registry: ${response.status} ${response.statusText}`,
     );
   }
-  const data = await response.json();
-  return RegistrySchema.parse(data);
+  return parseRegistry(await response.json());
 }
 
 async function cacheRegistry(registry: Registry): Promise<void> {
@@ -33,8 +42,10 @@ async function loadCachedRegistry(): Promise<Registry | null> {
     if (age > CACHE_MAX_AGE_MS) return null;
 
     const data = await readFile(REGISTRY_CACHE_PATH, "utf-8");
-    return RegistrySchema.parse(JSON.parse(data));
+    return parseRegistry(JSON.parse(data));
   } catch {
+    // Schema mismatch or corrupt cache - wipe it
+    await rm(REGISTRY_CACHE_PATH, { force: true });
     return null;
   }
 }
