@@ -3,11 +3,11 @@ import chalk from "chalk";
 import ora from "ora";
 import type { PluginFormat } from "@titrate/registry-schema/schema";
 import { type InstallTarget } from "../constants.js";
+import { verifyChecksum } from "../lib/checksum.js";
 import {
   downloadFile,
   extractAndInstall,
   resolvePluginPath,
-  verifyChecksum,
 } from "../lib/installer.js";
 import { dim, error, success } from "../lib/logger.js";
 import { findPlugin, getRegistry } from "../lib/registry.js";

@@ -1,6 +1,6 @@
 {
   "version": "1",
-  "updated": "2026-03-13",
+  "updated": "2026-03-16",
   "plugins": [
     {
       "id": "ott",
@@ -13,41 +13,36 @@
       "homepage": "https://xferrecords.com/freeware",
       "formats": {
         "vst3": {
-          "url": "https://xferrecords.com/downloads/OTT_v1.37_Mac.zip",
-          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "url": "https://xferrecords.com/product_downloads/24/freeware",
+          "sha256": "fe1d10b79445c44a32f365fcbf2a420a2133ae205c8d75f09ba703c7dd42ec54",
           "artifact": "OTT.vst3"
         },
         "au": {
-          "url": "https://xferrecords.com/downloads/OTT_v1.37_Mac.zip",
-          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "url": "https://xferrecords.com/product_downloads/24/freeware",
+          "sha256": "fe1d10b79445c44a32f365fcbf2a420a2133ae205c8d75f09ba703c7dd42ec54",
           "artifact": "OTT.component"
         }
       }
     },
     {
-      "id": "vital",
-      "name": "Vital",
-      "author": "Matt Tytel",
-      "description": "Spectral warping wavetable synthesizer",
-      "version": "1.5.5",
+      "id": "djmfilter",
+      "name": "DJMFilter",
+      "author": "Xfer Records",
+      "description": "DJ-style filter effect with high-pass and low-pass modes",
+      "version": "1.25",
       "license": "freeware",
-      "category": "synthesizer",
-      "homepage": "https://vital.audio",
+      "category": "filter",
+      "homepage": "https://xferrecords.com/freeware",
       "formats": {
         "vst3": {
-          "url": "https://vital.audio/releases/Vital_v1.5.5_Mac.zip",
-          "sha256": "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2",
-          "artifact": "Vital.vst3"
+          "url": "https://xferrecords.com/product_downloads/68/freeware",
+          "sha256": "4cf33265146fe9d8e38f3c72456a6bed2700c530b48c3810280c66852b054a33",
+          "artifact": "DJMFilter.vst3"
         },
         "au": {
-          "url": "https://vital.audio/releases/Vital_v1.5.5_Mac.zip",
-          "sha256": "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2",
-          "artifact": "Vital.component"
-        },
-        "clap": {
-          "url": "https://vital.audio/releases/Vital_v1.5.5_Mac.zip",
-          "sha256": "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2",
-          "artifact": "Vital.clap"
+          "url": "https://xferrecords.com/product_downloads/68/freeware",
+          "sha256": "4cf33265146fe9d8e38f3c72456a6bed2700c530b48c3810280c66852b054a33",
+          "artifact": "DJMFilter.component"
         }
       }
     },
@@ -62,18 +57,18 @@
       "homepage": "https://surge-synthesizer.github.io",
       "formats": {
         "vst3": {
-          "url": "https://github.com/surge-synthesizer/releases/download/1.3.4/SurgeXT_Mac.zip",
-          "sha256": "b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3",
+          "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.4/surge-xt-macos-1.3.4-pluginsonly.zip",
+          "sha256": "37d8d809693adc86587b7bc75a2384fc4e905f259aa9b9a21777749d36fbf8aa",
           "artifact": "Surge XT.vst3"
         },
         "au": {
-          "url": "https://github.com/surge-synthesizer/releases/download/1.3.4/SurgeXT_Mac.zip",
-          "sha256": "b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3",
+          "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.4/surge-xt-macos-1.3.4-pluginsonly.zip",
+          "sha256": "37d8d809693adc86587b7bc75a2384fc4e905f259aa9b9a21777749d36fbf8aa",
           "artifact": "Surge XT.component"
         },
         "clap": {
-          "url": "https://github.com/surge-synthesizer/releases/download/1.3.4/SurgeXT_Mac.zip",
-          "sha256": "b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3",
+          "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.4/surge-xt-macos-1.3.4-pluginsonly.zip",
+          "sha256": "37d8d809693adc86587b7bc75a2384fc4e905f259aa9b9a21777749d36fbf8aa",
           "artifact": "Surge XT.clap"
         }
       }
@@ -83,20 +78,25 @@
       "name": "Dexed",
       "author": "Digital Suburban",
       "description": "DX7 compatible FM synthesizer, accurate Yamaha DX7 emulation",
-      "version": "0.9.7",
+      "version": "1.0.1",
       "license": "gpl-3.0",
       "category": "synthesizer",
       "homepage": "https://asb2m10.github.io/dexed",
       "formats": {
         "vst3": {
-          "url": "https://github.com/asb2m10/dexed/releases/download/v0.9.7/Dexed_Mac.zip",
-          "sha256": "c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4",
+          "url": "https://github.com/asb2m10/dexed/releases/download/v1.0.1/Dexed-1.0.1-macOS.zip",
+          "sha256": "4269448bc1312424cafd29aff615d891bc5905ebfc54b42ce70c56b9b10dc401",
           "artifact": "Dexed.vst3"
         },
         "au": {
-          "url": "https://github.com/asb2m10/dexed/releases/download/v0.9.7/Dexed_Mac.zip",
-          "sha256": "c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4",
+          "url": "https://github.com/asb2m10/dexed/releases/download/v1.0.1/Dexed-1.0.1-macOS.zip",
+          "sha256": "4269448bc1312424cafd29aff615d891bc5905ebfc54b42ce70c56b9b10dc401",
           "artifact": "Dexed.component"
+        },
+        "clap": {
+          "url": "https://github.com/asb2m10/dexed/releases/download/v1.0.1/Dexed-1.0.1-macOS.zip",
+          "sha256": "4269448bc1312424cafd29aff615d891bc5905ebfc54b42ce70c56b9b10dc401",
+          "artifact": "Dexed.clap"
         }
       }
     },
@@ -105,42 +105,20 @@
       "name": "TDR Nova",
       "author": "Tokyo Dawn Records",
       "description": "Parallel dynamic equalizer with wideband dynamics processing",
-      "version": "2.1.5",
+      "version": "2.2.1",
       "license": "freeware",
       "category": "equalizer",
       "homepage": "https://www.tokyodawn.net/tdr-nova",
       "formats": {
         "vst3": {
-          "url": "https://www.tokyodawn.net/downloads/TDR_Nova_v2.1.5_Mac.zip",
-          "sha256": "d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5",
+          "url": "https://www.tokyodawn.net/labs/Nova/2.2.1/TDR%20Nova.zip",
+          "sha256": "3f52e024b3aa49c75ce55c2c0fc18363ef4caac0dca0df60277372f66de9297b",
           "artifact": "TDR Nova.vst3"
         },
         "au": {
-          "url": "https://www.tokyodawn.net/downloads/TDR_Nova_v2.1.5_Mac.zip",
-          "sha256": "d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5",
+          "url": "https://www.tokyodawn.net/labs/Nova/2.2.1/TDR%20Nova.zip",
+          "sha256": "3f52e024b3aa49c75ce55c2c0fc18363ef4caac0dca0df60277372f66de9297b",
           "artifact": "TDR Nova.component"
-        }
-      }
-    },
-    {
-      "id": "dragonfly-reverb",
-      "name": "Dragonfly Reverb",
-      "author": "Michael Willis",
-      "description": "Algorithmic reverb based on Freeverb3, four distinct reverb types",
-      "version": "3.2.10",
-      "license": "gpl-3.0",
-      "category": "reverb",
-      "homepage": "https://michaelwillis.github.io/dragonfly-reverb",
-      "formats": {
-        "vst3": {
-          "url": "https://github.com/michaelwillis/dragonfly-reverb/releases/download/3.2.10/DragonflyReverb_Mac.zip",
-          "sha256": "e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6",
-          "artifact": "DragonflyRoomReverb.vst3"
-        },
-        "clap": {
-          "url": "https://github.com/michaelwillis/dragonfly-reverb/releases/download/3.2.10/DragonflyReverb_Mac.zip",
-          "sha256": "e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6",
-          "artifact": "DragonflyRoomReverb.clap"
         }
       }
     }
