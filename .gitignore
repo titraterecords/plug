@@ -2,3 +2,7 @@ node_modules/
 dist/
 *.tsbuildinfo
 .DS_Store
+
+# Compiled binaries
+apps/cli/plug
+apps/cli/plug-*
