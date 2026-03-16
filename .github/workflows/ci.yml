@@ -32,7 +32,7 @@ jobs:
         env:
           PLUG_HOME: ${{ runner.temp }}/plug-e2e
         run: |
-          cd apps/cli && pnpm dev -- install ott -f vst3
+          cd apps/cli && pnpm exec tsx src/index.ts install ott -f vst3
           test -d "$PLUG_HOME/plugins/vst3/OTT.vst3" || (echo "OTT.vst3 not found" && exit 1)
           echo "OTT.vst3 installed successfully"
 
@@ -60,7 +60,7 @@ jobs:
         env:
           PLUG_HOME: ${{ runner.temp }}\plug-e2e
         run: |
-          cd apps/cli; pnpm dev -- install ott -f vst3
+          cd apps/cli; pnpm exec tsx src/index.ts install ott -f vst3
           if (!(Test-Path "$env:PLUG_HOME\plugins\vst3\OTT.vst3")) {
             Write-Error "OTT.vst3 not found after install"
             exit 1
