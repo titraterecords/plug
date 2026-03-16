@@ -63,12 +63,19 @@ function registerInstall(program: Command): void {
             availableFormats.includes(f),
           );
           formats = await checkbox<PluginFormat>({
-            message: `${chalk.bold(plugin.name)} formats  ${chalk.dim("(↑↓ move, space select, enter confirm)")}`,
+            message: `${chalk.bold(plugin.name)} ${chalk.dim(plugin.version)} formats`,
             choices: ordered.map((f) => ({
               name: f.toUpperCase(),
               value: f,
               checked: f === "vst3",
             })),
+            shortcuts: { all: null, invert: null },
+            theme: {
+              style: {
+                keysHelpTip: (keys) =>
+                  chalk.dim(keys.map(([key, action]) => `${key} ${action}`).join(", ")),
+              },
+            },
           });
 
           if (formats.length === 0) {
@@ -82,7 +89,7 @@ function registerInstall(program: Command): void {
         for (const format of formats) {
           const formatInfo = plugin.formats[format]!;
           const spinner = ora(
-            `Installing ${chalk.bold(plugin.name)} (${format})`,
+            `Installing ${chalk.bold(plugin.name)} ${chalk.dim(plugin.version)} (${format})`,
           ).start();
 
           try {
