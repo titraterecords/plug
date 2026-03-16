@@ -9,6 +9,7 @@
     "import:studiorack:win": "tsx registry/sources/studiorack/import-win.ts",
     "import:manual": "tsx registry/sources/manual/import.ts",
     "build:registry": "tsx registry/build.ts",
+    "validate:registry": "tsx registry/validate.ts",
     "knip": "echo 'Run knip from repo root (pnpm knip)'",
     "lint": "eslint . --fix",
     "format": "prettier --write . --ignore-path ../../.prettierignore",
