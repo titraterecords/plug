@@ -31,14 +31,23 @@ function buildGithubEntry(
     }
 
     const formats = versions[scan.version].formats;
+
+    // Group artifacts by format, then collapse single-element arrays to strings
+    const byFormat = new Map<string, string[]>();
     for (const artifact of scan.artifacts) {
-      if (!formats[artifact.format]) {
-        formats[artifact.format] = {};
+      const existing = byFormat.get(artifact.format) ?? [];
+      existing.push(artifact.artifact);
+      byFormat.set(artifact.format, existing);
+    }
+
+    for (const [format, names] of byFormat) {
+      if (!formats[format]) {
+        formats[format] = {};
       }
-      formats[artifact.format][scan.platform] = {
+      formats[format][scan.platform] = {
         url: scan.url,
         sha256: scan.sha256,
-        artifact: artifact.artifact,
+        artifact: names.length === 1 ? names[0] : names,
       };
     }
   }

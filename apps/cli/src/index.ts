@@ -61,7 +61,7 @@ const program = new Command();
 
 program
   .name("plug")
-  .description("Audio plugin manager for macOS")
+  .description("Audio plugin manager")
   .version(VERSION)
   .addHelpText("beforeAll", "");
 

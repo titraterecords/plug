@@ -39,7 +39,7 @@ function removeQuarantine(path: string): void {
 function extractZip(filePath: string, destDir: string): void {
   if (isWin) {
     execSync(
-      `powershell -NoProfile -Command "Expand-Archive -Force -Path '${filePath}' -DestinationPath '${destDir}'"`,
+      `powershell -NoProfile -Command "Expand-Archive -Force -LiteralPath '${filePath.replaceAll("'", "''")}' -DestinationPath '${destDir.replaceAll("'", "''")}'"`
     );
   } else {
     execSync(`unzip -o -q "${filePath}" -d "${destDir}"`);
