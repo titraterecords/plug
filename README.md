@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="plug.audio.png" alt="plug.audio" />
+  <img src="docs/assets/plug.audio.png" alt="plug.audio" />
 </p>
 
 # plug
