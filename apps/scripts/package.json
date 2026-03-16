@@ -4,9 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "import:mac": "tsx studiorack/import-mac.ts",
-    "import:linux": "tsx studiorack/import-linux.ts",
-    "import:win": "tsx studiorack/import-win.ts",
+    "import:studiorack:mac": "tsx registry/sources/studiorack/import-mac.ts",
+    "import:studiorack:linux": "tsx registry/sources/studiorack/import-linux.ts",
+    "import:studiorack:win": "tsx registry/sources/studiorack/import-win.ts",
+    "import:manual": "tsx registry/sources/manual/import.ts",
     "build:registry": "tsx registry/build.ts",
     "knip": "echo 'Run knip from repo root (pnpm knip)'",
     "lint": "eslint . --fix",

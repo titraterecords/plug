@@ -1,7 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
-const CURATION_PATH = join(import.meta.dirname, "../../registry/curation.json");
+const CURATION_PATH = join(import.meta.dirname, "../../../curation.json");
 
 interface Curation {
   idOverrides: Record<string, string>;

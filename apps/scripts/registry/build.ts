@@ -7,7 +7,7 @@
 
 import { readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
-import type { RegistryPlugin } from "../studiorack/lib/build-registry-entry.js";
+import type { RegistryPlugin } from "./sources/studiorack/lib/build-registry-entry.js";
 
 const REGISTRY_PATH = join(import.meta.dirname, "../../../registry.json");
 const CURATION_PATH = join(import.meta.dirname, "curation.json");

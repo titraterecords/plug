@@ -1,0 +1,23 @@
+[
+  {
+    "id": "valhalla-supermassive",
+    "name": "Valhalla Supermassive",
+    "author": "Valhalla DSP",
+    "description": "Massive reverb and delay plugin with unique algorithms",
+    "version": "5.0.0",
+    "license": "freeware",
+    "category": "effect",
+    "tags": ["effect", "reverb", "delay"],
+    "homepage": "https://valhalladsp.com/shop/supermassive/",
+    "downloads": {
+      "mac": {
+        "url": "https://valhallaproduction.s3.us-west-2.amazonaws.com/supermassive/ValhallaSupermassiveOSX_5_0_0.dmg",
+        "artifacts": ["ValhallaSupermassive.vst3", "ValhallaSupermassive.component"]
+      },
+      "win": {
+        "url": "https://valhallaproduction.s3.us-west-2.amazonaws.com/supermassive/ValhallaSupermassiveWin_V5_0_0.zip",
+        "artifacts": ["ValhallaSupermassive.vst3"]
+      }
+    }
+  }
+]

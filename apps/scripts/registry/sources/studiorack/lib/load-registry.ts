@@ -2,7 +2,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import type { RegistryPlugin } from "./build-registry-entry.js";
 
-const REGISTRY_PATH = join(import.meta.dirname, "../../../../registry.json");
+const REGISTRY_PATH = join(import.meta.dirname, "../../../../../../registry.json");
 
 interface RegistryJson {
   version: string;
