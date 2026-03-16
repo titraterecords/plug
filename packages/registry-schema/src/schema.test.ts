@@ -31,6 +31,15 @@ describe("FormatEntrySchema", () => {
     ).toThrow();
   });
 
+  it("accepts an empty sha256 for entries without a computed checksum", () => {
+    const result = FormatEntrySchema.parse({
+      url: "https://example.com/plugin.zip",
+      sha256: "",
+      artifact: "Plugin.vst3",
+    });
+    expect(result.sha256).toBe("");
+  });
+
   it("rejects a sha256 that is too short", () => {
     expect(() =>
       FormatEntrySchema.parse({

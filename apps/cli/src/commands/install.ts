@@ -118,7 +118,7 @@ function registerInstall(program: Command): void {
           try {
             const data = await downloadFile(formatEntry.url);
 
-            if (!verifyChecksum(data, formatEntry.sha256)) {
+            if (formatEntry.sha256 && !verifyChecksum(data, formatEntry.sha256)) {
               spinner.fail(`Checksum mismatch for ${plugin.name} (${format})`);
               error(
                 "The download does not match the expected checksum. This could indicate a corrupted or tampered file.",
