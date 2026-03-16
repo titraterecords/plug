@@ -8,12 +8,9 @@ import { dim } from "../lib/logger.js";
 function formatPluginRow(plugin: Plugin): string {
   const platform = currentPlatform();
   const formats = availableFormats(plugin, platform).join(", ");
-  return [
-    chalk.bold(plugin.id.padEnd(24)),
-    chalk.dim(plugin.version.padEnd(8)),
-    plugin.description,
-    chalk.dim(`[${formats}]`),
-  ].join("  ");
+  const line1 = `${chalk.bold(plugin.id)} ${chalk.dim(plugin.version)} ${chalk.dim(`[${formats}]`)}`;
+  const line2 = `  ${plugin.description}`;
+  return `${line1}\n${line2}`;
 }
 
 function registerSearch(program: Command): void {
@@ -53,8 +50,10 @@ Examples:
           return;
         }
 
+        console.log();
         for (const plugin of results) {
           console.log(formatPluginRow(plugin));
+          console.log();
         }
       },
     );
