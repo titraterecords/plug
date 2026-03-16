@@ -46,3 +46,5 @@ pnpm dev -- search reverb
 To the plugin developers who build and give away their work for free - Xfer Records, Surge Synth Team, Digital Suburban, Tokyo Dawn Labs, and everyone else making tools for musicians without asking for anything in return. This project exists because of your generosity.
 
 To the maintainers of Homebrew, npm, and the broader ecosystem of package managers whose design and decades of work shaped how we think about software distribution. The DMG and PKG handling in plug draws directly from patterns established by Homebrew Cask.
+
+To [StudioRack](https://studiorack.github.io/studiorack-site/) and the [Open Audio Stack](https://github.com/open-audio-stack) project for doing God's work building an open, CC0-licensed plugin registry and specification. We only discovered their project after starting plug, and their registry data and cross-platform thinking directly shaped our multi-platform support. The import scripts in `apps/scripts/studiorack/` pull from their registry. If you care about open audio infrastructure, check out their work.
