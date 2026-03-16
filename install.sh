@@ -1,11 +1,14 @@
 #!/bin/sh
-# Install plug - audio plugin manager for macOS and Linux.
+# Install or update plug - audio plugin manager for macOS and Linux.
 # Usage: curl -fsSL plug.audio/install.sh | sh
 #
-# Downloads a standalone binary from the latest GitHub release
-# and adds it to PATH. No Node.js or other dependencies required.
+# What this script does:
+# 1. Checks if plug was previously installed via npm - if so, updates via npm
+# 2. Otherwise, detects your OS and architecture (macOS/Linux, arm64/x64)
+# 3. Downloads the matching standalone binary from the latest GitHub release
+# 4. Installs to ~/.plug/bin/ and adds it to your PATH
 #
-# Binaries: darwin-arm64, darwin-x64, linux-x64, linux-arm64
+# No Node.js or other dependencies required for the binary install.
 # Windows users: npm install -g @titrate/plug
 
 set -e
