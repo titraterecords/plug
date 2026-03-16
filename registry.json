@@ -67,6 +67,42 @@
       "recommended": true
     },
     {
+      "id": "djmfilter",
+      "name": "DJMFilter",
+      "author": "Xfer Records",
+      "description": "DJ-style filter effect with high-pass and low-pass modes",
+      "version": "1.25",
+      "license": "freeware",
+      "category": "filter",
+      "tags": [
+        "effect",
+        "filter",
+        "dj"
+      ],
+      "homepage": "https://xferrecords.com/freeware",
+      "versions": {
+        "1.25": {
+          "formats": {
+            "vst3": {
+              "mac": {
+                "url": "https://xferrecords.com/product_downloads/68/freeware",
+                "sha256": "4cf33265146fe9d8e38f3c72456a6bed2700c530b48c3810280c66852b054a33",
+                "artifact": "DJMFilter.vst3"
+              }
+            },
+            "au": {
+              "mac": {
+                "url": "https://xferrecords.com/product_downloads/68/freeware",
+                "sha256": "4cf33265146fe9d8e38f3c72456a6bed2700c530b48c3810280c66852b054a33",
+                "artifact": "DJMFilter.component"
+              }
+            }
+          }
+        }
+      },
+      "recommended": true
+    },
+    {
       "id": "dragonfly-reverb",
       "name": "Dragonfly Reverb",
       "author": "Michael Willis",
@@ -789,41 +825,6 @@
                 "url": "https://github.com/Garneek/crunchy/releases/download/v0.2.3/crunchy-0.2.3-windows.zip",
                 "sha256": "8aa21c074b0252b4bcf3e53367c546dcf928eff45daa90ed47e42c87d6f7df63",
                 "artifact": "crunchy-plugin.vst3"
-              }
-            }
-          }
-        }
-      }
-    },
-    {
-      "id": "djmfilter",
-      "name": "DJMFilter",
-      "author": "Xfer Records",
-      "description": "DJ-style filter effect with high-pass and low-pass modes",
-      "version": "1.25",
-      "license": "freeware",
-      "category": "filter",
-      "tags": [
-        "effect",
-        "filter",
-        "dj"
-      ],
-      "homepage": "https://xferrecords.com/freeware",
-      "versions": {
-        "1.25": {
-          "formats": {
-            "vst3": {
-              "mac": {
-                "url": "https://xferrecords.com/product_downloads/68/freeware",
-                "sha256": "4cf33265146fe9d8e38f3c72456a6bed2700c530b48c3810280c66852b054a33",
-                "artifact": "DJMFilter.vst3"
-              }
-            },
-            "au": {
-              "mac": {
-                "url": "https://xferrecords.com/product_downloads/68/freeware",
-                "sha256": "4cf33265146fe9d8e38f3c72456a6bed2700c530b48c3810280c66852b054a33",
-                "artifact": "DJMFilter.component"
               }
             }
           }
