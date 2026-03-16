@@ -24,7 +24,7 @@ const OAS_TYPE_MAP: Record<string, string> = {
 interface RegistryFormatEntry {
   url: string;
   sha256: string;
-  artifact: string;
+  artifact: string | string[];
 }
 
 interface RegistryVersionEntry {
@@ -84,8 +84,10 @@ function buildRegistryEntry(
 
     const formats: Record<string, Record<string, RegistryFormatEntry>> = {};
 
+    // Group artifacts by format, then collapse single-element arrays to strings
+    const byFormat = new Map<string, string[]>();
+
     for (const artifact of artifacts) {
-      // Only include formats that OAS says are in this file
       const oasFormat = Object.entries(OAS_FORMAT_MAP).find(
         ([, v]) => v === artifact.format,
       );
@@ -94,14 +96,19 @@ function buildRegistryEntry(
 
       if (!file.contains.includes(oasKey)) continue;
 
-      if (!formats[artifact.format]) {
-        formats[artifact.format] = {};
-      }
+      const existing = byFormat.get(artifact.format) ?? [];
+      existing.push(artifact.artifact);
+      byFormat.set(artifact.format, existing);
+    }
 
-      formats[artifact.format][platform] = {
+    for (const [format, names] of byFormat) {
+      if (!formats[format]) {
+        formats[format] = {};
+      }
+      formats[format][platform] = {
         url: file.url,
         sha256: file.sha256,
-        artifact: artifact.artifact,
+        artifact: names.length === 1 ? names[0] : names,
       };
     }
 

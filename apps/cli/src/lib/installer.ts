@@ -34,92 +34,89 @@ function removeQuarantine(path: string): void {
   execSync(`xattr -rd com.apple.quarantine "${path}" 2>/dev/null || true`);
 }
 
+async function extractToDir(
+  data: Buffer,
+  tmpDir: string,
+): Promise<string> {
+  const downloadType = detectDownloadType(data);
+
+  if (downloadType === "zip") {
+    const filePath = join(tmpDir, "download.zip");
+    await writeFile(filePath, data);
+    execSync(`unzip -o -q "${filePath}" -d "${tmpDir}"`);
+    return tmpDir;
+  }
+
+  if (downloadType === "dmg") {
+    const dmgPath = join(tmpDir, "download.dmg");
+    await writeFile(dmgPath, data);
+    const mountPoint = join(tmpDir, "mount");
+    await mkdir(mountPoint, { recursive: true });
+    mountDmg(dmgPath, mountPoint);
+    return mountPoint;
+  }
+
+  if (downloadType === "pkg") {
+    const pkgPath = join(tmpDir, "download.pkg");
+    await writeFile(pkgPath, data);
+    const expandDir = join(tmpDir, "pkg-expanded");
+    expandPkg(pkgPath, expandDir);
+    return expandDir;
+  }
+
+  throw new Error("Unknown download format");
+}
+
+async function findInExtracted(
+  searchDir: string,
+  tmpDir: string,
+  artifactName: string,
+): Promise<string> {
+  const found = await findArtifact(searchDir, artifactName);
+  if (found) return found;
+
+  // Try inside a nested .pkg
+  const entries = await readdir(searchDir);
+  const pkg = entries.find((e) => e.endsWith(".pkg"));
+  if (pkg) {
+    const expandDir = join(tmpDir, `pkg-expanded-${Date.now()}`);
+    expandPkg(join(searchDir, pkg), expandDir);
+    const pkgFound = await findArtifactInPkg(expandDir, artifactName, findArtifact);
+    if (pkgFound) return pkgFound;
+  }
+
+  throw new Error(`Artifact "${artifactName}" not found in download`);
+}
+
 async function extractAndInstall(
   data: Buffer,
-  artifact: string,
+  artifact: string | string[],
   destDir: string,
-): Promise<string> {
+): Promise<string[]> {
+  const artifacts = Array.isArray(artifact) ? artifact : [artifact];
   const tmpDir = join(tmpdir(), `plug-${Date.now()}`);
   await mkdir(tmpDir, { recursive: true });
 
-  const downloadType = detectDownloadType(data);
-
   try {
-    let artifactPath: string | null = null;
+    const searchDir = await extractToDir(data, tmpDir);
+    const isDmg = searchDir.endsWith("/mount");
 
-    if (downloadType === "zip") {
-      const filePath = join(tmpDir, "download.zip");
-      await writeFile(filePath, data);
-      execSync(`unzip -o -q "${filePath}" -d "${tmpDir}"`);
+    try {
+      await mkdir(destDir, { recursive: true });
+      const destPaths: string[] = [];
 
-      // ZIP might contain raw bundles or a PKG
-      const found = await findArtifact(tmpDir, artifact);
-      if (found) {
-        artifactPath = found;
-      } else {
-        const entries = await readdir(tmpDir);
-        const pkg = entries.find((e) => e.endsWith(".pkg"));
-        if (pkg) {
-          const expandDir = join(tmpDir, "pkg-expanded");
-          expandPkg(join(tmpDir, pkg), expandDir);
-          artifactPath = await findArtifactInPkg(
-            expandDir,
-            artifact,
-            findArtifact,
-          );
-        }
+      for (const name of artifacts) {
+        const artifactPath = await findInExtracted(searchDir, tmpDir, name);
+        const destPath = join(destDir, name);
+        removeQuarantine(artifactPath);
+        execSync(`cp -pR "${artifactPath}" "${destPath}"`);
+        destPaths.push(destPath);
       }
-    } else if (downloadType === "dmg") {
-      const dmgPath = join(tmpDir, "download.dmg");
-      await writeFile(dmgPath, data);
 
-      const mountPoint = join(tmpDir, "mount");
-      await mkdir(mountPoint, { recursive: true });
-      mountDmg(dmgPath, mountPoint);
-
-      try {
-        artifactPath = await findArtifact(mountPoint, artifact);
-
-        if (!artifactPath) {
-          const entries = await readdir(mountPoint);
-          const pkg = entries.find((e) => e.endsWith(".pkg"));
-          if (pkg) {
-            const expandDir = join(tmpDir, "pkg-expanded");
-            expandPkg(join(mountPoint, pkg), expandDir);
-            artifactPath = await findArtifactInPkg(
-              expandDir,
-              artifact,
-              findArtifact,
-            );
-          }
-        }
-      } finally {
-        ejectDmg(mountPoint);
-      }
-    } else if (downloadType === "pkg") {
-      const pkgPath = join(tmpDir, "download.pkg");
-      await writeFile(pkgPath, data);
-
-      const expandDir = join(tmpDir, "pkg-expanded");
-      expandPkg(pkgPath, expandDir);
-      artifactPath = await findArtifactInPkg(
-        expandDir,
-        artifact,
-        findArtifact,
-      );
+      return destPaths;
+    } finally {
+      if (isDmg) ejectDmg(searchDir);
     }
-
-    if (!artifactPath) {
-      throw new Error(`Artifact "${artifact}" not found in download`);
-    }
-
-    await mkdir(destDir, { recursive: true });
-    const destPath = join(destDir, artifact);
-
-    removeQuarantine(artifactPath);
-    execSync(`cp -pR "${artifactPath}" "${destPath}"`);
-
-    return destPath;
   } finally {
     execSync(`rm -rf "${tmpDir}"`);
   }

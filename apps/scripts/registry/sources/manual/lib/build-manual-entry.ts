@@ -16,17 +16,31 @@ function buildManualEntry(
   plugin: ManualPlugin,
   scans: PlatformScanResult[],
 ): RegistryPlugin | null {
-  const formats: Record<string, Record<string, { url: string; sha256: string; artifact: string }>> = {};
+  const formats: Record<string, Record<string, { url: string; sha256: string; artifact: string | string[] }>> = {};
+
+  // Group artifacts by format+platform, then collapse single-element arrays
+  const grouped = new Map<string, Map<string, string[]>>();
 
   for (const scan of scans) {
     for (const artifact of scan.artifacts) {
-      if (!formats[artifact.format]) {
-        formats[artifact.format] = {};
+      if (!grouped.has(artifact.format)) {
+        grouped.set(artifact.format, new Map());
       }
-      formats[artifact.format][scan.platform] = {
+      const platformMap = grouped.get(artifact.format)!;
+      const existing = platformMap.get(scan.platform) ?? [];
+      existing.push(artifact.artifact);
+      platformMap.set(scan.platform, existing);
+    }
+  }
+
+  for (const [format, platformMap] of grouped) {
+    formats[format] = {};
+    for (const [platform, names] of platformMap) {
+      const scan = scans.find((s) => s.platform === platform)!;
+      formats[format][platform] = {
         url: scan.url,
         sha256: scan.sha256,
-        artifact: artifact.artifact,
+        artifact: names.length === 1 ? names[0] : names,
       };
     }
   }

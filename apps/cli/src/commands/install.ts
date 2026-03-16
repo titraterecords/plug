@@ -111,7 +111,7 @@ Examples:
           }
         }
 
-        const results: Array<{ format: string; path: string }> = [];
+        const results: Array<{ format: string; paths: string[] }> = [];
 
         for (const format of formats) {
           // Safe to assert - availableFormats already confirmed this format+platform exists
@@ -132,18 +132,20 @@ Examples:
             }
 
             const destDir = paths[format][target];
-            const destPath = await extractAndInstall(
+            const destPaths = await extractAndInstall(
               data,
               formatEntry.artifact,
               destDir,
             );
 
-            await markInstalled(plugin.id, version, format, destPath);
-            results.push({ format, path: destPath });
+            await markInstalled(plugin.id, version, format, destPaths);
+            results.push({ format, paths: destPaths });
             spinner.stop();
-            success(
-              `${chalk.bold(plugin.name)} ${version} ${format} -> ${chalk.dim(destPath)}`,
-            );
+            for (const p of destPaths) {
+              success(
+                `${chalk.bold(plugin.name)} ${version} ${format} -> ${chalk.dim(p)}`,
+              );
+            }
           } catch (err) {
             spinner.fail(`Failed to install ${plugin.name} (${format})`);
             error(err instanceof Error ? err.message : String(err));

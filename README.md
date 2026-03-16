@@ -1,6 +1,10 @@
+<p align="center">
+  <img src="plug.audio.png" alt="plug.audio" />
+</p>
+
 # plug
 
-CLI plugin manager for free audio plugins on macOS.
+Open source CLI tool and plugin registry for [plug.audio](https://plug.audio).
 
 ```bash
 plug search reverb

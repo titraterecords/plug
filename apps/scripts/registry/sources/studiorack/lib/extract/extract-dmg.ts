@@ -29,7 +29,8 @@ async function extractDmg(
     if (artifacts.length > 0) return artifacts;
 
     // No plugins found directly - look for PKGs inside the DMG and expand them
-    return expandAnyPkgs(mountPoint);
+    const pkgArtifacts = await expandAnyPkgs(mountPoint);
+    return pkgArtifacts;
   } finally {
     execSync(`hdiutil detach "${mountPoint}" -quiet 2>/dev/null || true`);
   }
