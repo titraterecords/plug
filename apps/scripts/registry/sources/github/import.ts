@@ -2,9 +2,11 @@
 //
 // Why: Many plugins in our registry come from GitHub releases (52 of 63).
 // StudioRack also sources from GitHub but updates slowly. This import
-// goes straight to the source, catching new releases faster.
+// goes straight to the source, catching new releases faster. Unlike the
+// manual source (which has hardcoded version URLs), re-running this
+// script automatically picks up new releases.
 //
-// How: For each repo in repos.json, fetches the latest 5 stable releases
+// How: For each repo in repos.json, fetches the latest stable release
 // (filters out betas/RCs/alphas), matches assets to platforms by filename,
 // downloads each archive, scans for plugin artifacts, computes sha256,
 // and merges into registry.json with source: "github".
@@ -12,6 +14,10 @@
 // Repos that only have repo + id in repos.json inherit metadata (name,
 // author, description, etc.) from whatever is already in the registry
 // (typically from a prior StudioRack import).
+//
+// Auth: Uses the gh CLI which authenticates via the user's GitHub login.
+// Raw fetch to the GitHub API would hit rate limits (60 req/hour
+// unauthenticated). gh provides 5000 req/hour.
 //
 // Skips version/platform pairs already in the registry.
 //
