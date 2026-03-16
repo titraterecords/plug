@@ -1,7 +1,19 @@
-// Imports plugins directly from GitHub releases.
-// Downloads each platform asset, scans for plugin artifacts, computes sha256,
+// Imports plugins directly from GitHub releases via the gh CLI.
+//
+// Why: Many plugins in our registry come from GitHub releases (52 of 63).
+// StudioRack also sources from GitHub but updates slowly. This import
+// goes straight to the source, catching new releases faster.
+//
+// How: For each repo in repos.json, fetches the latest 5 stable releases
+// (filters out betas/RCs/alphas), matches assets to platforms by filename,
+// downloads each archive, scans for plugin artifacts, computes sha256,
 // and merges into registry.json with source: "github".
-// Skips versions already in the registry.
+//
+// Repos that only have repo + id in repos.json inherit metadata (name,
+// author, description, etc.) from whatever is already in the registry
+// (typically from a prior StudioRack import).
+//
+// Skips version/platform pairs already in the registry.
 //
 // Usage: pnpm import:github
 

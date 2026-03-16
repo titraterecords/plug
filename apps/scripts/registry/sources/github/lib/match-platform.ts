@@ -1,3 +1,8 @@
+// Maps GitHub release asset filenames to platforms.
+// GitHub releases don't have structured platform metadata - we infer
+// it from naming conventions (e.g. "plugin-macOS.zip" -> "mac").
+// Skips source code archives which GitHub auto-generates for every release.
+
 import type { Platform } from "@titrate/registry-schema/schema";
 
 const PLATFORM_PATTERNS: [RegExp, Platform][] = [

@@ -13,7 +13,9 @@ interface VersionScanResult {
 }
 
 // Builds a registry plugin entry from GitHub release scan results.
-// Merges metadata from repos.json and falls back to existing registry data.
+// Metadata priority: repos.json overrides > existing registry data > defaults.
+// This lets repos.json be minimal (just repo + id) for plugins that already
+// have metadata from a StudioRack import.
 function buildGithubEntry(
   repoEntry: RepoEntry,
   scans: VersionScanResult[],
@@ -52,7 +54,7 @@ function buildGithubEntry(
     author: repoEntry.author ?? existing?.author ?? "",
     description: repoEntry.description ?? existing?.description ?? "",
     version: latestVersion,
-    license: existing?.license ?? "open-source",
+    license: existing?.license ?? "",
     category: repoEntry.category ?? existing?.category ?? "effect",
     tags: repoEntry.tags ?? existing?.tags ?? [],
     homepage: existing?.homepage ?? `https://github.com/${repoEntry.repo}`,
