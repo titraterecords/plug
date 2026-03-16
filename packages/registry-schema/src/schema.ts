@@ -6,7 +6,7 @@ const PLATFORMS = ["mac", "win", "linux"] as const;
 // A single downloadable file for one format on one platform
 const FormatEntrySchema = z.object({
   url: z.string().url(),
-  sha256: z.union([z.string().length(64), z.literal("")]),
+  sha256: z.string().min(64).max(64),
   artifact: z.string(),
 });
 
