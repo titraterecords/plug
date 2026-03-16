@@ -58,6 +58,14 @@ add_to_path() {
 }
 
 main() {
+  # Warn if plug was previously installed via npm
+  existing=$(command -v plug 2>/dev/null || true)
+  if [ -n "$existing" ] && [ "$existing" != "${INSTALL_DIR}/plug" ]; then
+    echo "Note: plug already exists at ${existing}"
+    echo "You may want to remove it: npm uninstall -g @titrate/plug"
+    echo ""
+  fi
+
   platform=$(detect_platform)
   artifact="plug-${platform}"
 
