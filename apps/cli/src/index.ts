@@ -6,6 +6,7 @@ import { registerSearch } from "./commands/search.js";
 import { registerUninstall } from "./commands/uninstall.js";
 import { registerUpgrade } from "./commands/upgrade.js";
 import { registerClearCache } from "./commands/clear-cache.js";
+import { registerUpdate } from "./commands/update.js";
 import chalk from "chalk";
 import { printBanner } from "./lib/banner.js";
 import { checkForUpdate, loadVersionCache } from "./lib/version.js";
@@ -72,6 +73,7 @@ registerInfo(program);
 registerUpgrade(program);
 registerUninstall(program);
 registerClearCache(program);
+registerUpdate(program);
 
 // Show banner when running `plug` with no args
 if (args.length === 0) {
