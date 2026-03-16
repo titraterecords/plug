@@ -137,6 +137,19 @@ async function findInExtracted(
     }
   }
 
+  // Try inside a nested .exe (Windows: zip often wraps an installer)
+  if (isWin) {
+    const entries = await readdir(searchDir);
+    const exe = entries.find((e) => e.endsWith(".exe"));
+    if (exe) {
+      const expandDir = join(tmpDir, `exe-expanded-${Date.now()}`);
+      await mkdir(expandDir, { recursive: true });
+      extractExe(join(searchDir, exe), expandDir);
+      const exeFound = await findArtifact(expandDir, artifactName);
+      if (exeFound) return exeFound;
+    }
+  }
+
   throw new Error(`Artifact "${artifactName}" not found in download`);
 }
 
