@@ -7,7 +7,7 @@
 
 import type { Platform } from "@titrate/registry-schema/schema";
 import { fetchOasRegistry } from "./lib/fetch-oas-registry.js";
-import { scanArtifactsFromUrl } from "./lib/scan-artifacts.js";
+import { scanArtifactsFromUrl, type FoundArtifact } from "./lib/scan-artifacts.js";
 import { buildRegistryEntry, findFileForPlatform } from "./lib/build-registry-entry.js";
 import { loadRegistry, mergePlugins, saveRegistry } from "./lib/merge-registry.js";
 import { hasVersionPlatformData, loadIdOverrides, resolveId } from "./lib/should-skip.js";
@@ -54,7 +54,7 @@ async function main(): Promise<void> {
     const id = resolveId(slug, idOverrides);
     const existing = existingById.get(id);
 
-    const artifactsByVersion: Record<string, Awaited<ReturnType<typeof scanArtifactsFromUrl>>> = {};
+    const artifactsByVersion: Record<string, FoundArtifact[]> = {};
     let scannedAny = false;
 
     for (const [ver, versionData] of Object.entries(pkg.versions)) {
