@@ -1,4 +1,4 @@
-import type { Platform, PluginFormat } from "@titrate/registry-schema/schema";
+import type { Platform, PluginFormat, Source } from "@titrate/registry-schema/schema";
 import type { OasPackage, OasVersionEntry } from "./fetch-oas-registry.js";
 import { findFileForPlatform } from "./find-file-for-platform.js";
 import { slugToId } from "./slug-to-id.js";
@@ -29,6 +29,7 @@ interface RegistryFormatEntry {
 
 interface RegistryVersionEntry {
   date?: string;
+  source?: Source;
   formats: Record<string, Record<string, RegistryFormatEntry>>;
 }
 

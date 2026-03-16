@@ -10,14 +10,20 @@
 //    Runs per-platform: import:studiorack:mac, import:studiorack:linux, import:studiorack:win
 //    Skips versions already in the registry (keyed by plugin ID + version + platform).
 //
-// 2. IMPORT: MANUAL (sources/manual/)
+// 2. IMPORT: GITHUB (sources/github/)
+//    Imports plugins directly from GitHub releases via gh api.
+//    Downloads platform assets, scans for artifacts, computes sha256.
+//    Runs after StudioRack (inherits metadata), before manual.
+//    Run: import:github
+//
+// 3. IMPORT: MANUAL (sources/manual/)
 //    Hand-curated plugins not in OAS (Valhalla, Xfer, etc.).
 //    Reads plugins.json, downloads archives, computes sha256, scans artifacts.
 //    Overwrites existing entries for the same plugin - used to fix broken data
 //    or add plugins from vendor sites that OAS doesn't cover.
 //    Run: import:manual
 //
-// 3. BUILD (this file)
+// 4. BUILD (this file)
 //    Applies curation from curation.json:
 //    - Renames IDs (OAS slug "surge" -> our ID "surge-xt")
 //    - Deduplicates entries that map to the same final ID (merges version data)
@@ -26,7 +32,7 @@
 //    - Sorts: recommended first, then alphabetical
 //    Run: build:registry
 //
-// 4. VALIDATE (validate.ts)
+// 5. VALIDATE (validate.ts)
 //    Checks every URL in the registry:
 //    - Download URLs: HEAD request, falls back to GET for signed CDN URLs.
 //      404/unreachable entries get removed from the registry.
@@ -39,6 +45,7 @@
 //   pnpm import:studiorack:mac
 //   pnpm import:studiorack:linux
 //   pnpm import:studiorack:win
+//   pnpm import:github
 //   pnpm import:manual
 //   pnpm build:registry
 //   pnpm validate:registry

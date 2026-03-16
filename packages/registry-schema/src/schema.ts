@@ -13,8 +13,11 @@ const FormatEntrySchema = z.object({
 // Maps platform -> download entry, so one format can have different binaries per OS
 const PlatformFormatsSchema = z.record(z.enum(PLATFORMS), FormatEntrySchema);
 
+const SOURCES = ["studiorack", "github", "manual"] as const;
+
 const VersionEntrySchema = z.object({
   date: z.string().optional(),
+  source: z.enum(SOURCES).optional(),
   formats: z.record(z.enum(FORMATS), PlatformFormatsSchema),
 });
 
@@ -46,6 +49,7 @@ type Plugin = z.infer<typeof PluginSchema>;
 type Registry = z.infer<typeof RegistrySchema>;
 type PluginFormat = (typeof FORMATS)[number];
 type Platform = (typeof PLATFORMS)[number];
+type Source = (typeof SOURCES)[number];
 
 export {
   FORMATS,
@@ -54,6 +58,7 @@ export {
   PlatformFormatsSchema,
   PluginSchema,
   RegistrySchema,
+  SOURCES,
   VersionEntrySchema,
 };
 export type {
@@ -62,5 +67,6 @@ export type {
   Plugin,
   PluginFormat,
   Registry,
+  Source,
   VersionEntry,
 };

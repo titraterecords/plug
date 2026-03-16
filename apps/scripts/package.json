@@ -7,6 +7,7 @@
     "import:studiorack:mac": "tsx registry/sources/studiorack/import-mac.ts",
     "import:studiorack:linux": "tsx registry/sources/studiorack/import-linux.ts",
     "import:studiorack:win": "tsx registry/sources/studiorack/import-win.ts",
+    "import:github": "tsx registry/sources/github/import.ts",
     "import:manual": "tsx registry/sources/manual/import.ts",
     "build:registry": "tsx registry/build.ts",
     "build:registry:fresh": "tsx registry/reset.ts && pnpm import:studiorack:mac && pnpm import:studiorack:linux && pnpm import:studiorack:win && pnpm import:manual && pnpm build:registry",
@@ -14,13 +15,16 @@
     "knip": "echo 'Run knip from repo root (pnpm knip)'",
     "lint": "eslint . --fix",
     "format": "prettier --write . --ignore-path ../../.prettierignore",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "devDependencies": {
     "@titrate/registry-schema": "workspace:*",
     "eslint": "^9.22.0",
     "prettier": "^3.5.0",
     "tsx": "^4.19.0",
-    "typescript": "^5.8.0"
+    "typescript": "^5.8.0",
+    "vitest": "^3.1.0"
   }
 }

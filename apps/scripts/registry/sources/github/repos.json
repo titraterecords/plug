@@ -1,0 +1,211 @@
+[
+  {
+    "repo": "bdejong/smartelectronix",
+    "id": "smartelectronix",
+    "name": "Smartelectronix Plugins",
+    "author": "Bram de Jong",
+    "description": "Classic audio effect plugins collection",
+    "category": "effect",
+    "tags": ["effect", "collection", "classic"]
+  },
+  {
+    "repo": "michaelwillis/dragonfly-reverb",
+    "id": "dragonfly-reverb"
+  },
+  {
+    "repo": "surge-synthesizer/releases-xt",
+    "id": "surge-xt"
+  },
+  {
+    "repo": "asb2m10/dexed",
+    "id": "dexed"
+  },
+  {
+    "repo": "sdatkinson/NeuralAmpModelerPlugin",
+    "id": "nam"
+  },
+  {
+    "repo": "baconpaul/six-sines",
+    "id": "six-sines"
+  },
+  {
+    "repo": "ardura/Actuate",
+    "id": "actuate"
+  },
+  {
+    "repo": "tiagolr/time12",
+    "id": "time12"
+  },
+  {
+    "repo": "tiagolr/gate12",
+    "id": "gate12"
+  },
+  {
+    "repo": "tiagolr/filtr",
+    "id": "filtr"
+  },
+  {
+    "repo": "DISTRHO/Cardinal",
+    "id": "cardinal",
+    "name": "Cardinal",
+    "author": "DISTRHO",
+    "description": "Virtual modular synthesizer - VCV Rack as a plugin",
+    "category": "synthesizer",
+    "tags": ["instrument", "modular", "synthesizer"]
+  },
+  {
+    "repo": "TheWaveWarden/odin2",
+    "id": "odin2",
+    "name": "Odin 2",
+    "author": "The Wave Warden",
+    "description": "Polyphonic synthesizer with multiple oscillator types and modulation",
+    "category": "synthesizer",
+    "tags": ["instrument", "synthesizer", "polyphonic"]
+  },
+  {
+    "repo": "essej/paulxstretch",
+    "id": "paulxstretch",
+    "name": "PaulXStretch",
+    "author": "Jesse Chappell",
+    "description": "Extreme timestretching plugin for ambient and textural processing",
+    "category": "effect",
+    "tags": ["effect", "timestretch", "ambient", "texture"]
+  },
+  {
+    "repo": "surge-synthesizer/stochas",
+    "id": "stochas",
+    "name": "Stochas",
+    "author": "Surge Synth Team",
+    "description": "Stochastic MIDI drum sequencer with probability-based patterns",
+    "category": "tool",
+    "tags": ["instrument", "sequencer", "drums", "midi"]
+  },
+  {
+    "repo": "surge-synthesizer/OB-Xf",
+    "id": "ob-xf",
+    "name": "OB-Xf",
+    "author": "Surge Synth Team",
+    "description": "Oberheim OB-X inspired virtual analog synthesizer",
+    "category": "synthesizer",
+    "tags": ["instrument", "synthesizer", "analog", "oberheim"]
+  },
+  {
+    "repo": "surge-synthesizer/shortcircuit-xt",
+    "id": "shortcircuit-xt",
+    "name": "Shortcircuit XT",
+    "author": "Surge Synth Team",
+    "description": "Advanced sampler plugin with filters, modulation, and effects",
+    "category": "sampler",
+    "tags": ["instrument", "sampler"]
+  },
+  {
+    "repo": "Chowdhury-DSP/ChowKick",
+    "id": "chow-kick",
+    "name": "ChowKick",
+    "author": "Chowdhury DSP",
+    "description": "Kick drum synthesizer modeled on analog drum machine circuits",
+    "category": "synthesizer",
+    "tags": ["instrument", "drums", "kick", "analog"]
+  },
+  {
+    "repo": "Chowdhury-DSP/BYOD",
+    "id": "byod",
+    "name": "BYOD",
+    "author": "Chowdhury DSP",
+    "description": "Build-Your-Own-Distortion modular guitar effects plugin",
+    "category": "effect",
+    "tags": ["effect", "distortion", "guitar", "modular"]
+  },
+  {
+    "repo": "xunil-cloud/CloudReverb",
+    "id": "cloud-reverb",
+    "name": "CloudReverb",
+    "author": "xunil-cloud",
+    "description": "Algorithmic reverb based on CloudSeed",
+    "category": "effect",
+    "tags": ["effect", "reverb", "algorithmic"]
+  },
+  {
+    "repo": "zamaudio/zam-plugins",
+    "id": "zam-plugins",
+    "name": "ZAM Plugins",
+    "author": "Damien Zammit",
+    "description": "Collection of production plugins - compressors, EQs, limiters, delays",
+    "category": "effect",
+    "tags": ["effect", "collection", "compressor", "equalizer", "mixing"]
+  },
+  {
+    "repo": "GuitarML/Proteus",
+    "id": "proteus",
+    "name": "Proteus",
+    "author": "GuitarML",
+    "description": "Neural network guitar amp and pedal capture plugin",
+    "category": "effect",
+    "tags": ["effect", "guitar", "amp-sim", "neural-network"]
+  },
+  {
+    "repo": "GuitarML/SmartGuitarPedal",
+    "id": "smart-guitar-pedal",
+    "name": "SmartGuitarPedal",
+    "author": "GuitarML",
+    "description": "Guitar pedal emulator using neural networks",
+    "category": "effect",
+    "tags": ["effect", "guitar", "pedal", "neural-network"]
+  },
+  {
+    "repo": "JanosGit/Schrammel_OJD",
+    "id": "schrammel-ojd",
+    "name": "Schrammel OJD",
+    "author": "Janos Buttgereit",
+    "description": "Guitar overdrive pedal model",
+    "category": "effect",
+    "tags": ["effect", "guitar", "overdrive", "distortion"]
+  },
+  {
+    "repo": "jatinchowdhury18/ChowPhaser",
+    "id": "chow-phaser",
+    "name": "ChowPhaser",
+    "author": "Chowdhury DSP",
+    "description": "Phaser modeled on Schulte Compact Phasing A",
+    "category": "effect",
+    "tags": ["effect", "phaser", "modulation"]
+  },
+  {
+    "repo": "surge-synthesizer/monique-monosynth",
+    "id": "monique"
+  },
+  {
+    "repo": "DamRsn/NeuralNote",
+    "id": "neural-note"
+  },
+  {
+    "repo": "Birch-san/juicysfplugin",
+    "id": "juicysfplugin"
+  },
+  {
+    "repo": "jatinchowdhury18/AnalogTapeModel",
+    "id": "chow-tape-model"
+  },
+  {
+    "repo": "Chowdhury-DSP/ChowMatrix",
+    "id": "chow-matrix"
+  },
+  {
+    "repo": "werman/noise-suppression-for-voice",
+    "id": "rnnoise",
+    "name": "Noise Suppression",
+    "author": "Werman",
+    "description": "Real-time noise suppression plugin based on RNNoise",
+    "category": "effect",
+    "tags": ["effect", "noise-reduction", "voice", "rnnoise"]
+  },
+  {
+    "repo": "VASTDynamics/Vaporizer2",
+    "id": "vaporizer2",
+    "name": "Vaporizer2",
+    "author": "VAST Dynamics",
+    "description": "Hybrid wavetable additive/subtractive synthesizer",
+    "category": "synthesizer",
+    "tags": ["instrument", "synthesizer", "wavetable"]
+  }
+]

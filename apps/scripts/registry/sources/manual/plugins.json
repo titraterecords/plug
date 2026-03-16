@@ -126,27 +126,6 @@
     }
   },
   {
-    "id": "surge-xt",
-    "name": "Surge XT",
-    "author": "Surge Synth Team",
-    "description": "Open-source hybrid synthesizer with a deep feature set",
-    "version": "1.3.4",
-    "license": "gpl-3.0",
-    "category": "synthesizer",
-    "tags": ["instrument", "synthesizer", "open-source"],
-    "homepage": "https://surge-synthesizer.github.io/",
-    "downloads": {
-      "mac": {
-        "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.4/surge-xt-macos-1.3.4-pluginsonly.zip",
-        "artifacts": ["Surge XT.vst3", "Surge XT.component", "Surge XT.clap"]
-      },
-      "win": {
-        "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.4/surge-xt-win64-1.3.4-pluginsonly.zip",
-        "artifacts": ["Surge XT.vst3", "Surge XT.clap"]
-      }
-    }
-  },
-  {
     "id": "tdr-nova",
     "name": "TDR Nova",
     "author": "Tokyo Dawn Records",
@@ -164,107 +143,6 @@
       "win": {
         "url": "https://www.tokyodawn.net/labs/Nova/2.2.1/TDR%20Nova%20(no%20installer).zip",
         "artifacts": ["TDR Nova.vst3"]
-      }
-    }
-  },
-  {
-    "id": "dexed",
-    "name": "Dexed",
-    "author": "Digital Suburban",
-    "description": "DX7 compatible FM synthesizer, accurate Yamaha DX7 emulation",
-    "version": "1.0.1",
-    "license": "gpl-3.0",
-    "category": "synthesizer",
-    "tags": ["instrument", "synthesizer", "fm", "dx7"],
-    "homepage": "https://asb2m10.github.io/dexed",
-    "downloads": {
-      "mac": {
-        "url": "https://github.com/asb2m10/dexed/releases/download/v1.0.1/Dexed-1.0.1-macOS.zip",
-        "artifacts": ["Dexed.vst3", "Dexed.component", "Dexed.clap"]
-      },
-      "win": {
-        "url": "https://github.com/asb2m10/dexed/releases/download/v1.0.1/Dexed-1.0.1-win.zip",
-        "artifacts": ["Dexed.vst3", "Dexed.clap"]
-      }
-    }
-  },
-  {
-    "id": "chow-tape-model",
-    "name": "Chow Tape Model",
-    "author": "Chowdhury DSP",
-    "description": "Physical model of an analog tape machine with wow, flutter, and saturation",
-    "version": "2.11.4",
-    "license": "gpl-3.0",
-    "category": "effect",
-    "tags": ["effect", "tape", "saturation", "analog"],
-    "homepage": "https://github.com/jatinchowdhury18/AnalogTapeModel",
-    "downloads": {
-      "mac": {
-        "url": "https://github.com/jatinchowdhury18/AnalogTapeModel/releases/download/v2.11.4/ChowTapeModel-Mac-2.11.4.dmg",
-        "artifacts": ["CHOWTapeModel.vst3", "CHOWTapeModel.component", "CHOWTapeModel.clap"]
-      }
-    }
-  },
-  {
-    "id": "chow-matrix",
-    "name": "CHOW Matrix",
-    "author": "Chowdhury DSP",
-    "description": "Infinitely growable matrix of delay lines for complex feedback effects",
-    "version": "1.3.0",
-    "license": "gpl-3.0",
-    "category": "effect",
-    "tags": ["effect", "delay", "matrix", "feedback"],
-    "homepage": "https://github.com/Chowdhury-DSP/ChowMatrix",
-    "downloads": {
-      "mac": {
-        "url": "https://github.com/Chowdhury-DSP/ChowMatrix/releases/download/v1.3.0/ChowMatrix-Mac-1.3.0.dmg",
-        "artifacts": ["ChowMatrix.vst3", "ChowMatrix.component", "ChowMatrix.clap"]
-      }
-    }
-  },
-  {
-    "id": "nam",
-    "name": "Neural Amp Modeler",
-    "author": "Steven Atkinson",
-    "description": "AI-powered amp modeling plugin using neural network captures",
-    "version": "0.7.13",
-    "license": "mit",
-    "category": "effect",
-    "tags": ["effect", "amp-sim", "guitar", "neural-network"],
-    "homepage": "https://github.com/sdatkinson/NeuralAmpModelerPlugin",
-    "downloads": {
-      "mac": {
-        "url": "https://github.com/sdatkinson/NeuralAmpModelerPlugin/releases/download/v0.7.13/NeuralAmpModeler-v0.7.13-mac.dmg",
-        "artifacts": ["NeuralAmpModeler.vst3", "NeuralAmpModeler.component"]
-      },
-      "win": {
-        "url": "https://github.com/sdatkinson/NeuralAmpModelerPlugin/releases/download/v0.7.13/NeuralAmpModeler-v0.7.13-win.zip",
-        "artifacts": ["NeuralAmpModeler.vst3"]
-      }
-    }
-  },
-  {
-    "id": "smartelectronix",
-    "name": "Smartelectronix",
-    "author": "Bram de Jong",
-    "description": "Vintage open-source plugin collection: Bouncy, CrazyIvan, Cyanide2, H2O, MadShifta, Smexoscope, SupaPhaser, SupaTrigga and more",
-    "version": "1.0.0",
-    "license": "gpl-3.0",
-    "category": "effect",
-    "tags": ["effect", "collection", "open-source", "vintage", "delay", "compressor", "phaser", "oscilloscope"],
-    "homepage": "https://github.com/bdejong/smartelectronix",
-    "downloads": {
-      "mac": {
-        "url": "https://github.com/bdejong/smartelectronix/releases/download/latest/smartelectronix-macOS.zip",
-        "artifacts": []
-      },
-      "win": {
-        "url": "https://github.com/bdejong/smartelectronix/releases/download/latest/smartelectronix-Windows.zip",
-        "artifacts": []
-      },
-      "linux": {
-        "url": "https://github.com/bdejong/smartelectronix/releases/download/latest/smartelectronix-Linux.zip",
-        "artifacts": []
       }
     }
   }
