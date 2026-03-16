@@ -8,7 +8,7 @@ import { registerUpgrade } from "./commands/upgrade.js";
 import chalk from "chalk";
 import { checkForUpdate, loadVersionCache } from "./lib/version.js";
 
-const VERSION = "0.1.2";
+const VERSION = "0.1.3";
 
 // Show cached update notice (fast, no network)
 const cached = await loadVersionCache();
