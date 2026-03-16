@@ -10,6 +10,10 @@ function registerInfo(program: Command): void {
     .command("info <name>")
     .description("Show plugin details")
     .option("--json", "Output as JSON")
+    .addHelpText("after", `
+Examples:
+  plug info ott
+  plug info surge-xt`)
     .action(async (name: string, options: { json?: boolean }) => {
       const platform = currentPlatform();
       const registry = await getRegistry();

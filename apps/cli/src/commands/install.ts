@@ -23,6 +23,11 @@ function registerInstall(program: Command): void {
     .option("-f, --format <format>", "Plugin format (vst3, au, clap, lv2)")
     .option("-t, --target <target>", "Install target (user, system)", "user")
     .option("--json", "Output as JSON")
+    .addHelpText("after", `
+Examples:
+  plug install ott
+  plug install surge-xt -f vst3
+  plug install dexed@1.0.1`)
     .action(
       async (
         input: string,

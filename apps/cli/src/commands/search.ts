@@ -23,6 +23,11 @@ function registerSearch(program: Command): void {
     .option("-c, --category <category>", "Filter by category")
     .option("-f, --format <format>", "Filter by format (vst3, au, clap, lv2)")
     .option("--json", "Output as JSON")
+    .addHelpText("after", `
+Examples:
+  plug search reverb
+  plug search --category synthesizer
+  plug search --format au`)
     .action(
       async (
         query: string | undefined,

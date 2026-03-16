@@ -9,7 +9,7 @@ import chalk from "chalk";
 import { printBanner } from "./lib/banner.js";
 import { checkForUpdate, loadVersionCache } from "./lib/version.js";
 
-const VERSION = "0.2.3";
+const VERSION = "0.2.4";
 
 // Skip update banner for --version and --help
 const args = process.argv.slice(2);

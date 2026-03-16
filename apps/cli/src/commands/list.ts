@@ -10,6 +10,10 @@ function registerList(program: Command): void {
     .description("List installed plugins")
     .option("--outdated", "Show only plugins with updates available")
     .option("--json", "Output as JSON")
+    .addHelpText("after", `
+Examples:
+  plug list
+  plug list --outdated`)
     .action(async (options: { outdated?: boolean; json?: boolean }) => {
       const installed = await loadInstalled();
       const ids = Object.keys(installed);

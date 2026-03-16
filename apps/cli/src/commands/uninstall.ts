@@ -9,6 +9,10 @@ function registerUninstall(program: Command): void {
     .command("uninstall <name>")
     .description("Remove an installed plugin")
     .option("--json", "Output as JSON")
+    .addHelpText("after", `
+Examples:
+  plug uninstall ott
+  plug uninstall surge-xt`)
     .action(async (name: string, options: { json?: boolean }) => {
       const installed = await loadInstalled();
       const entry = installed[name];
