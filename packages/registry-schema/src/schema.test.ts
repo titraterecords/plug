@@ -151,6 +151,55 @@ describe("PluginSchema", () => {
     expect(result.versions["1.37"].date).toBe("2024-06-01");
   });
 
+  it("accepts a version entry with a source field", () => {
+    const result = PluginSchema.parse({
+      ...validPlugin,
+      versions: {
+        "1.37": {
+          source: "github",
+          formats: validPlugin.versions["1.37"].formats,
+        },
+      },
+    });
+
+    expect(result.versions["1.37"].source).toBe("github");
+  });
+
+  it("accepts all valid source values", () => {
+    for (const source of ["studiorack", "github", "manual"] as const) {
+      const result = PluginSchema.parse({
+        ...validPlugin,
+        versions: {
+          "1.37": {
+            source,
+            formats: validPlugin.versions["1.37"].formats,
+          },
+        },
+      });
+
+      expect(result.versions["1.37"].source).toBe(source);
+    }
+  });
+
+  it("rejects an invalid source value", () => {
+    expect(() =>
+      PluginSchema.parse({
+        ...validPlugin,
+        versions: {
+          "1.37": {
+            source: "unknown",
+            formats: validPlugin.versions["1.37"].formats,
+          },
+        },
+      }),
+    ).toThrow();
+  });
+
+  it("accepts a version entry without source", () => {
+    const result = PluginSchema.parse(validPlugin);
+    expect(result.versions["1.37"].source).toBeUndefined();
+  });
+
   it("rejects empty id", () => {
     expect(() => PluginSchema.parse({ ...validPlugin, id: "" })).toThrow();
   });

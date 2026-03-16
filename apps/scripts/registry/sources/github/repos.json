@@ -1,0 +1,47 @@
+[
+  {
+    "repo": "bdejong/smartelectronix",
+    "id": "smartelectronix",
+    "name": "Smartelectronix Plugins",
+    "author": "Bram de Jong",
+    "description": "Classic audio effect plugins collection",
+    "category": "effect",
+    "tags": ["effect", "classic"]
+  },
+  {
+    "repo": "michaelwillis/dragonfly-reverb",
+    "id": "dragonfly-reverb"
+  },
+  {
+    "repo": "surge-synthesizer/releases-xt",
+    "id": "surge-xt"
+  },
+  {
+    "repo": "asb2m10/dexed",
+    "id": "dexed"
+  },
+  {
+    "repo": "sdatkinson/NeuralAmpModelerPlugin",
+    "id": "nam"
+  },
+  {
+    "repo": "baconpaul/six-sines",
+    "id": "six-sines"
+  },
+  {
+    "repo": "ardura/Actuate",
+    "id": "actuate"
+  },
+  {
+    "repo": "tiagolr/time12",
+    "id": "time12"
+  },
+  {
+    "repo": "tiagolr/gate12",
+    "id": "gate12"
+  },
+  {
+    "repo": "tiagolr/filtr",
+    "id": "filtr"
+  }
+]
