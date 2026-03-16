@@ -16,21 +16,23 @@ function formatPluginRow(plugin: Plugin): string {
 
 function registerSearch(program: Command): void {
   program
-    .command("search <query>")
+    .command("search [query]")
     .description("Search for audio plugins")
     .option("-c, --category <category>", "Filter by category")
     .option("-f, --format <format>", "Filter by format (vst3, au, clap)")
     .option("--json", "Output as JSON")
     .action(
       async (
-        query: string,
+        query: string | undefined,
         options: { category?: string; format?: string; json?: boolean },
       ) => {
         const registry = await getRegistry();
-        const results = searchPlugins(registry, query, {
-          category: options.category,
-          format: options.format,
-        });
+        const results = query
+          ? searchPlugins(registry, query, {
+              category: options.category,
+              format: options.format,
+            })
+          : registry.plugins;
 
         if (options.json) {
           console.log(JSON.stringify(results, null, 2));

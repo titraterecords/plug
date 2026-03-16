@@ -5,19 +5,36 @@ import { registerList } from "./commands/list.js";
 import { registerSearch } from "./commands/search.js";
 import { registerUninstall } from "./commands/uninstall.js";
 import { registerUpgrade } from "./commands/upgrade.js";
-import { warn } from "./lib/logger.js";
+import chalk from "chalk";
 import { checkForUpdate, loadVersionCache } from "./lib/version.js";
 
-const VERSION = "0.1.1";
+const VERSION = "0.1.2";
 
 // Show cached update notice (fast, no network)
 const cached = await loadVersionCache();
 if (cached && cached.latest !== VERSION) {
   const isStandalone = process.argv[1]?.includes(".plug/bin");
   const updateCmd = isStandalone
-    ? "curl -fsSL https://plug.audio/install.sh | sh"
+    ? "curl -fsSL plug.audio/install.sh | sh"
     : "npm update -g @titrate/plug";
-  warn(`plug ${VERSION} -> ${cached.latest} available. Run \`${updateCmd}\` to update.`);
+
+  const line1 = `Update available  ${chalk.dim(VERSION)} ${chalk.white("→")} ${chalk.green(cached.latest)}`;
+  const line2 = `Run: ${chalk.cyan(updateCmd)}`;
+
+  const content = [line1, line2];
+  const maxLen = Math.max(...content.map((l) => l.replace(/\x1b\[[0-9;]*m/g, "").length));
+  const pad = (s: string) => {
+    const visible = s.replace(/\x1b\[[0-9;]*m/g, "").length;
+    return s + " ".repeat(maxLen - visible);
+  };
+
+  console.log();
+  console.log(`  ${chalk.green("╭")}${"─".repeat(maxLen + 2)}${chalk.green("╮")}`);
+  for (const line of content) {
+    console.log(`  ${chalk.green("│")} ${pad(line)} ${chalk.green("│")}`);
+  }
+  console.log(`  ${chalk.green("╰")}${"─".repeat(maxLen + 2)}${chalk.green("╯")}`);
+  console.log();
 }
 
 // Background check for next run (non-blocking, fire-and-forget)
