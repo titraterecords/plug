@@ -1,10 +1,12 @@
-import { mkdir, readdir, writeFile } from "node:fs/promises";
+import { cp, mkdir, readdir, rm, writeFile } from "node:fs/promises";
 import { execSync } from "node:child_process";
 import { join } from "node:path";
 import { tmpdir } from "node:os";
 import { detectDownloadType } from "./detect-download-type.js";
 import { ejectDmg, mountDmg } from "./dmg.js";
 import { expandPkg, findArtifactInPkg } from "./pkg.js";
+
+const isWin = process.platform === "win32";
 
 async function downloadFile(url: string): Promise<Buffer> {
   const response = await fetch(url);
@@ -34,6 +36,16 @@ function removeQuarantine(path: string): void {
   execSync(`xattr -rd com.apple.quarantine "${path}" 2>/dev/null || true`);
 }
 
+function extractZip(filePath: string, destDir: string): void {
+  if (isWin) {
+    execSync(
+      `powershell -NoProfile -Command "Expand-Archive -Force -Path '${filePath}' -DestinationPath '${destDir}'"`,
+    );
+  } else {
+    execSync(`unzip -o -q "${filePath}" -d "${destDir}"`);
+  }
+}
+
 async function extractToDir(
   data: Buffer,
   tmpDir: string,
@@ -43,11 +55,12 @@ async function extractToDir(
   if (downloadType === "zip") {
     const filePath = join(tmpDir, "download.zip");
     await writeFile(filePath, data);
-    execSync(`unzip -o -q "${filePath}" -d "${tmpDir}"`);
+    extractZip(filePath, tmpDir);
     return tmpDir;
   }
 
   if (downloadType === "dmg") {
+    if (isWin) throw new Error("DMG files are not supported on Windows");
     const dmgPath = join(tmpDir, "download.dmg");
     await writeFile(dmgPath, data);
     const mountPoint = join(tmpDir, "mount");
@@ -57,6 +70,7 @@ async function extractToDir(
   }
 
   if (downloadType === "pkg") {
+    if (isWin) throw new Error("PKG files are not supported on Windows");
     const pkgPath = join(tmpDir, "download.pkg");
     await writeFile(pkgPath, data);
     const expandDir = join(tmpDir, "pkg-expanded");
@@ -75,14 +89,16 @@ async function findInExtracted(
   const found = await findArtifact(searchDir, artifactName);
   if (found) return found;
 
-  // Try inside a nested .pkg
-  const entries = await readdir(searchDir);
-  const pkg = entries.find((e) => e.endsWith(".pkg"));
-  if (pkg) {
-    const expandDir = join(tmpDir, `pkg-expanded-${Date.now()}`);
-    expandPkg(join(searchDir, pkg), expandDir);
-    const pkgFound = await findArtifactInPkg(expandDir, artifactName, findArtifact);
-    if (pkgFound) return pkgFound;
+  // Try inside a nested .pkg (macOS only)
+  if (!isWin) {
+    const entries = await readdir(searchDir);
+    const pkg = entries.find((e) => e.endsWith(".pkg"));
+    if (pkg) {
+      const expandDir = join(tmpDir, `pkg-expanded-${Date.now()}`);
+      expandPkg(join(searchDir, pkg), expandDir);
+      const pkgFound = await findArtifactInPkg(expandDir, artifactName, findArtifact);
+      if (pkgFound) return pkgFound;
+    }
   }
 
   throw new Error(`Artifact "${artifactName}" not found in download`);
@@ -109,7 +125,7 @@ async function extractAndInstall(
         const artifactPath = await findInExtracted(searchDir, tmpDir, name);
         const destPath = join(destDir, name);
         removeQuarantine(artifactPath);
-        execSync(`cp -pR "${artifactPath}" "${destPath}"`);
+        await cp(artifactPath, destPath, { recursive: true });
         destPaths.push(destPath);
       }
 
@@ -118,7 +134,7 @@ async function extractAndInstall(
       if (isDmg) ejectDmg(searchDir);
     }
   } finally {
-    execSync(`rm -rf "${tmpDir}"`);
+    await rm(tmpDir, { recursive: true, force: true });
   }
 }
 
