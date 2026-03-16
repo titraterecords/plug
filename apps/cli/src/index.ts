@@ -1,4 +1,3 @@
-import { createRequire } from "node:module";
 import { Command } from "commander";
 import { registerInfo } from "./commands/info.js";
 import { registerInstall } from "./commands/install.js";
@@ -10,8 +9,7 @@ import chalk from "chalk";
 import { printBanner } from "./lib/banner.js";
 import { checkForUpdate, loadVersionCache } from "./lib/version.js";
 
-const require = createRequire(import.meta.url);
-const { version: VERSION } = require("../../package.json");
+const VERSION = "0.2.3";
 
 // Skip update banner for --version and --help
 const args = process.argv.slice(2);
