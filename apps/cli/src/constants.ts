@@ -72,13 +72,11 @@ const LINUX_PATHS: PluginPaths = {
   },
 };
 
-// AU and LV2 don't exist on Windows - paths are placeholders to satisfy the type.
+// Windows has no reliable per-user plugin path that DAWs scan.
+// Both user and system targets install to the standard system path.
 const WIN_PATHS: PluginPaths = {
   vst3: {
-    user: join(
-      process.env.LOCALAPPDATA ?? "",
-      "Programs/Common/VST3",
-    ),
+    user: "C:\\Program Files\\Common Files\\VST3",
     system: "C:\\Program Files\\Common Files\\VST3",
   },
   au: {
@@ -86,10 +84,7 @@ const WIN_PATHS: PluginPaths = {
     system: "",
   },
   clap: {
-    user: join(
-      process.env.LOCALAPPDATA ?? "",
-      "Programs/Common/CLAP",
-    ),
+    user: "C:\\Program Files\\Common Files\\CLAP",
     system: "C:\\Program Files\\Common Files\\CLAP",
   },
   lv2: {
