@@ -8,14 +8,16 @@ import { registerUpgrade } from "./commands/upgrade.js";
 import { warn } from "./lib/logger.js";
 import { checkForUpdate, loadVersionCache } from "./lib/version.js";
 
-const VERSION = "0.1.0";
+const VERSION = "0.1.1";
 
 // Show cached update notice (fast, no network)
 const cached = await loadVersionCache();
 if (cached && cached.latest !== VERSION) {
-  warn(
-    `plug ${VERSION} -> ${cached.latest} available. Run \`npm update -g @titrate/plug\` to update.`,
-  );
+  const isStandalone = process.argv[1]?.includes(".plug/bin");
+  const updateCmd = isStandalone
+    ? "curl -fsSL https://plug.audio/install.sh | sh"
+    : "npm update -g @titrate/plug";
+  warn(`plug ${VERSION} -> ${cached.latest} available. Run \`${updateCmd}\` to update.`);
 }
 
 // Background check for next run (non-blocking, fire-and-forget)

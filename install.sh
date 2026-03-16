@@ -2,7 +2,7 @@
 set -e
 
 REPO="titraterecords/plug"
-INSTALL_DIR="/usr/local/bin"
+INSTALL_DIR="${HOME}/.plug/bin"
 
 detect_platform() {
   os=$(uname -s)
@@ -31,13 +31,27 @@ detect_platform() {
   esac
 }
 
+add_to_path() {
+  case "$SHELL" in
+    */zsh) profile="$HOME/.zshrc" ;;
+    */bash) profile="$HOME/.bashrc" ;;
+    *) profile="$HOME/.profile" ;;
+  esac
+
+  if ! echo "$PATH" | tr ':' '\n' | grep -qx "$INSTALL_DIR"; then
+    echo "" >> "$profile"
+    echo "export PATH=\"${INSTALL_DIR}:\$PATH\"" >> "$profile"
+    echo "Added ${INSTALL_DIR} to PATH in ${profile}"
+    echo "Run: source ${profile} (or open a new terminal)"
+  fi
+}
+
 main() {
   platform=$(detect_platform)
   artifact="plug-${platform}"
 
   echo "Downloading plug for ${platform}..."
 
-  # Get latest release download URL
   download_url=$(curl -fsSL "https://api.github.com/repos/${REPO}/releases/latest" \
     | grep "browser_download_url.*${artifact}\"" \
     | cut -d '"' -f 4)
@@ -48,21 +62,15 @@ main() {
     exit 1
   fi
 
-  # Download to temp file
-  tmp=$(mktemp)
-  curl -fsSL "$download_url" -o "$tmp"
-  chmod +x "$tmp"
+  mkdir -p "$INSTALL_DIR"
 
-  # Move to install dir (may need sudo)
-  if [ -w "$INSTALL_DIR" ]; then
-    mv "$tmp" "${INSTALL_DIR}/plug"
-  else
-    echo "Installing to ${INSTALL_DIR} (requires sudo)..."
-    sudo mv "$tmp" "${INSTALL_DIR}/plug"
-  fi
+  curl -fsSL "$download_url" -o "${INSTALL_DIR}/plug"
+  chmod +x "${INSTALL_DIR}/plug"
+
+  add_to_path
 
   echo "plug installed to ${INSTALL_DIR}/plug"
-  plug --version
+  "${INSTALL_DIR}/plug" --version
 }
 
 main
