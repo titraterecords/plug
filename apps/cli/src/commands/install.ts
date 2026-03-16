@@ -1,5 +1,6 @@
 import type { Command } from "commander";
 import chalk from "chalk";
+import { checkbox } from "@inquirer/prompts";
 import ora from "ora";
 import type { PluginFormat } from "@titrate/registry-schema/schema";
 import { FORMAT_PREFERENCE, type InstallTarget } from "../constants.js";
@@ -54,11 +55,26 @@ function registerInstall(program: Command): void {
             process.exit(1);
           }
           formats = [fmt];
+        } else if (availableFormats.length === 1) {
+          formats = availableFormats;
         } else {
-          // Install all available formats, ordered by preference
-          formats = FORMAT_PREFERENCE.filter((f) =>
+          // Interactive format selection, VST3 pre-selected
+          const ordered = FORMAT_PREFERENCE.filter((f) =>
             availableFormats.includes(f),
           );
+          formats = await checkbox<PluginFormat>({
+            message: `${chalk.bold(plugin.name)} formats  ${chalk.dim("(↑↓ move, space select, enter confirm)")}`,
+            choices: ordered.map((f) => ({
+              name: f.toUpperCase(),
+              value: f,
+              checked: f === "vst3",
+            })),
+          });
+
+          if (formats.length === 0) {
+            error("No formats selected.");
+            process.exit(1);
+          }
         }
 
         const results: Array<{ format: string; path: string }> = [];
