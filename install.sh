@@ -60,6 +60,25 @@ add_to_path() {
   fi
 }
 
+# Braille art generated with drawille (npm) from favicon-transparent.png
+# Text generated with figlet (npm) using the "Calvin S" font
+banner() {
+  cat <<'BANNER'
+
+       ⣀⣠⣤⣴⣶⣶⣶⣦⣤⣀
+    ⢀⣴⠟⠛⠛⠛⠿⣿⣿⣿⣿⣿⣿⣿⣦⡄
+   ⣴⠋      ⠈⠻⣿⣿⣿⣿⣿⣿⣿⣦
+  ⣸⠇         ⢹⣿⣿⣿⣿⣿⣿⣿⣇
+  ⣿          ⠈⣿⣿⣿⣿⣿⣿⣿⣿   ┌─┐┬  ┬ ┬┌─┐ ┌─┐┬ ┬┌┬┐┬┌─┐
+  ⣿          ⢀⣿⣿⣿⣿⣿⣿⣿⡿   ├─┘│  │ ││ ┬ ├─┤│ │ ││││ │
+  ⠸⡆         ⣸⣿⣿⣿⣿⣿⣿⣿⠇   ┴  ┴─┘└─┘└─┘o┴ ┴└─┘─┴┘┴└─┘
+   ⠹⣦⡀     ⢀⣴⣿⣿⣿⣿⣿⣿⡿⠋
+    ⠈⠻⢶⣤⣤⣤⣶⣿⣿⣿⣿⣿⣿⠿⠋
+       ⠈⠉⠛⠛⠛⠛⠛⠉⠉
+
+BANNER
+}
+
 main() {
   # If already installed via npm, update through npm instead
   if command -v npm >/dev/null 2>&1 && npm list -g @titrate/plug >/dev/null 2>&1; then
@@ -93,8 +112,10 @@ main() {
 
   add_to_path
 
-  echo "plug installed to ${INSTALL_DIR}/plug"
-  "${INSTALL_DIR}/plug" --version
+  banner
+  echo "  plug installed to ${INSTALL_DIR}/plug"
+  echo "  $("${INSTALL_DIR}/plug" --version)"
+  echo
 }
 
 main

@@ -6,6 +6,7 @@ import { registerSearch } from "./commands/search.js";
 import { registerUninstall } from "./commands/uninstall.js";
 import { registerUpgrade } from "./commands/upgrade.js";
 import chalk from "chalk";
+import { printBanner } from "./lib/banner.js";
 import { checkForUpdate, loadVersionCache } from "./lib/version.js";
 
 const VERSION = "0.1.4";
@@ -60,7 +61,8 @@ const program = new Command();
 program
   .name("plug")
   .description("Audio plugin manager for macOS")
-  .version(VERSION);
+  .version(VERSION)
+  .addHelpText("beforeAll", "");
 
 registerInstall(program);
 registerSearch(program);
@@ -68,5 +70,10 @@ registerList(program);
 registerInfo(program);
 registerUpgrade(program);
 registerUninstall(program);
+
+// Show banner when running `plug` with no args
+if (args.length === 0) {
+  printBanner();
+}
 
 await program.parseAsync();
