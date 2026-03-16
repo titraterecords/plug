@@ -72,8 +72,8 @@ function registerInstall(program: Command): void {
             shortcuts: { all: null, invert: null },
             theme: {
               style: {
-                keysHelpTip: (keys) =>
-                  chalk.dim(keys.map(([key, action]) => `${key} ${action}`).join(", ")),
+                keysHelpTip: (keys: [string, string][]) =>
+                  chalk.dim(keys.map(([key, action]: [string, string]) => `${key} ${action}`).join(", ")),
               },
             },
           });
