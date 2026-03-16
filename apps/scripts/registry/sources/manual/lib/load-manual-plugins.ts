@@ -22,7 +22,7 @@ interface ManualPlugin {
   downloads: Partial<Record<Platform, PlatformDownload>>;
 }
 
-const PLUGINS_PATH = join(import.meta.dirname, "plugins.json");
+const PLUGINS_PATH = join(import.meta.dirname, "../plugins.json");
 
 async function loadManualPlugins(): Promise<ManualPlugin[]> {
   const data = await readFile(PLUGINS_PATH, "utf-8");

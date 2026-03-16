@@ -1,4 +1,4 @@
-import type { RegistryPlugin } from "../studiorack/lib/build-registry-entry.js";
+import type { RegistryPlugin } from "../../studiorack/lib/build-registry-entry.js";
 
 // Merges manual plugins into the registry, overwriting platform entries.
 // Unlike the studiorack merge which preserves existing data, manual entries

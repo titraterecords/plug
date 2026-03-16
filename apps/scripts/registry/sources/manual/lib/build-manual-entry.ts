@@ -1,6 +1,6 @@
 import type { Platform } from "@titrate/registry-schema/schema";
-import type { RegistryPlugin } from "../studiorack/lib/build-registry-entry.js";
-import type { FoundArtifact } from "../studiorack/lib/scan-artifacts.js";
+import type { RegistryPlugin } from "../../studiorack/lib/build-registry-entry.js";
+import type { FoundArtifact } from "../../studiorack/lib/scan-artifacts.js";
 import type { ManualPlugin } from "./load-manual-plugins.js";
 
 interface PlatformScanResult {

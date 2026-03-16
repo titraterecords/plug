@@ -1,4 +1,4 @@
-import type { FoundArtifact } from "../studiorack/lib/scan-artifacts.js";
+import type { FoundArtifact } from "../../studiorack/lib/scan-artifacts.js";
 
 const EXTENSION_TO_FORMAT: Record<string, string> = {
   ".vst3": "vst3",

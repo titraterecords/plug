@@ -9,12 +9,12 @@
 import type { Platform } from "@titrate/registry-schema/schema";
 import { scanArtifactsFromUrl } from "../studiorack/lib/scan-artifacts.js";
 import { loadRegistry } from "../studiorack/lib/load-registry.js";
-import { mergeManualPlugins } from "./merge-manual-plugins.js";
+import { mergeManualPlugins } from "./lib/merge-manual-plugins.js";
 import { saveRegistry } from "../studiorack/lib/save-registry.js";
-import { loadManualPlugins } from "./load-manual-plugins.js";
-import { buildManualEntry, type PlatformScanResult } from "./build-manual-entry.js";
-import { artifactsFromNames } from "./artifacts-from-names.js";
-import { computeSha256FromUrl } from "./compute-sha256-from-url.js";
+import { loadManualPlugins } from "./lib/load-manual-plugins.js";
+import { buildManualEntry, type PlatformScanResult } from "./lib/build-manual-entry.js";
+import { artifactsFromNames } from "./lib/artifacts-from-names.js";
+import { computeSha256FromUrl } from "./lib/compute-sha256-from-url.js";
 
 async function main(): Promise<void> {
   const plugins = await loadManualPlugins();
