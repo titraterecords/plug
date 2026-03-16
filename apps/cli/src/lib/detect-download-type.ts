@@ -1,4 +1,4 @@
-type DownloadType = "zip" | "dmg" | "pkg";
+type DownloadType = "zip" | "dmg" | "pkg" | "exe";
 
 function detectDownloadType(data: Buffer): DownloadType {
   // ZIP: starts with PK (0x504B)
@@ -13,7 +13,10 @@ function detectDownloadType(data: Buffer): DownloadType {
   )
     return "pkg";
 
-  // DMG: zlib-compressed UDIF has no simple magic bytes, treat as default
+  // PE executable (EXE): starts with MZ (0x4D5A)
+  if (data[0] === 0x4d && data[1] === 0x5a) return "exe";
+
+  // DMG: zlib-compressed UDIF has no simple magic bytes, treat as default on macOS
   return "dmg";
 }
 

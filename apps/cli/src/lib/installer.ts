@@ -46,6 +46,33 @@ function extractZip(filePath: string, destDir: string): void {
   }
 }
 
+function find7z(): string | null {
+  const paths = [
+    "7z",
+    "C:\\Program Files\\7-Zip\\7z.exe",
+    "C:\\Program Files (x86)\\7-Zip\\7z.exe",
+  ];
+  for (const p of paths) {
+    try {
+      execSync(`"${p}" --help`, { stdio: "ignore" });
+      return p;
+    } catch {
+      continue;
+    }
+  }
+  return null;
+}
+
+function extractExe(filePath: string, destDir: string): void {
+  const sz = find7z();
+  if (!sz) {
+    throw new Error(
+      "This plugin requires 7-Zip to extract. Install from https://7-zip.org",
+    );
+  }
+  execSync(`"${sz}" x "${filePath}" -o"${destDir}" -y`, { stdio: "ignore" });
+}
+
 async function extractToDir(
   data: Buffer,
   tmpDir: string,
@@ -75,6 +102,15 @@ async function extractToDir(
     await writeFile(pkgPath, data);
     const expandDir = join(tmpDir, "pkg-expanded");
     expandPkg(pkgPath, expandDir);
+    return expandDir;
+  }
+
+  if (downloadType === "exe") {
+    const exePath = join(tmpDir, "download.exe");
+    await writeFile(exePath, data);
+    const expandDir = join(tmpDir, "exe-expanded");
+    await mkdir(expandDir, { recursive: true });
+    extractExe(exePath, expandDir);
     return expandDir;
   }
 
