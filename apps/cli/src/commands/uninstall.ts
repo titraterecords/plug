@@ -27,17 +27,20 @@ Examples:
 
       const removed: Array<{ format: string; path: string }> = [];
 
-      for (const [format, path] of Object.entries(entry.formats)) {
-        try {
-          await rm(path, { recursive: true });
-          removed.push({ format, path });
-          success(
-            `Removed ${chalk.bold(name)} ${format} from ${chalk.dim(path)}`,
-          );
-        } catch (err) {
-          error(
-            `Failed to remove ${path}: ${err instanceof Error ? err.message : String(err)}`,
-          );
+      for (const [format, pathOrPaths] of Object.entries(entry.formats)) {
+        const paths = Array.isArray(pathOrPaths) ? pathOrPaths : [pathOrPaths];
+        for (const path of paths) {
+          try {
+            await rm(path, { recursive: true });
+            removed.push({ format, path });
+            success(
+              `Removed ${chalk.bold(name)} ${format} from ${chalk.dim(path)}`,
+            );
+          } catch (err) {
+            error(
+              `Failed to remove ${path}: ${err instanceof Error ? err.message : String(err)}`,
+            );
+          }
         }
       }
 

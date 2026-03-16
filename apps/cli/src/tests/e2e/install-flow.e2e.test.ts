@@ -98,10 +98,10 @@ describe("e2e: install flow", () => {
       destDir,
     );
 
-    expect(destPath).toBe(join(destDir, "FakePlugin.vst3"));
-    expect(existsSync(destPath)).toBe(true);
+    expect(destPath).toStrictEqual([join(destDir, "FakePlugin.vst3")]);
+    expect(existsSync(destPath[0])).toBe(true);
     expect(
-      existsSync(join(destPath, "Contents", "Info.plist")),
+      existsSync(join(destPath[0], "Contents", "Info.plist")),
     ).toBe(true);
   });
 
@@ -117,7 +117,7 @@ describe("e2e: state tracking", () => {
       "fake-plugin",
       "1.0.0",
       "vst3",
-      join(TEST_ROOT, "plugins/vst3/FakePlugin.vst3"),
+      [join(TEST_ROOT, "plugins/vst3/FakePlugin.vst3")],
     );
 
     const state = await loadInstalled();
@@ -132,7 +132,7 @@ describe("e2e: state tracking", () => {
       "fake-plugin",
       "1.0.0",
       "vst3",
-      join(TEST_ROOT, "plugins/vst3/FakePlugin.vst3"),
+      [join(TEST_ROOT, "plugins/vst3/FakePlugin.vst3")],
     );
 
     await markUninstalled("fake-plugin");
@@ -157,18 +157,18 @@ describe("e2e: full install -> uninstall cycle", () => {
     await markInstalled("fake-plugin", "1.0.0", "vst3", destPath);
 
     // Plugin file exists on disk
-    expect(existsSync(destPath)).toBe(true);
+    expect(existsSync(destPath[0])).toBe(true);
 
     // State reflects the install
     const stateAfterInstall = await loadInstalled();
     expect(stateAfterInstall["fake-plugin"].version).toBe("1.0.0");
 
     // Uninstall: remove files and state
-    await rm(destPath, { recursive: true });
+    await rm(destPath[0], { recursive: true });
     await markUninstalled("fake-plugin");
 
     // Plugin file is gone
-    expect(existsSync(destPath)).toBe(false);
+    expect(existsSync(destPath[0])).toBe(false);
 
     // State reflects the removal
     const stateAfterUninstall = await loadInstalled();

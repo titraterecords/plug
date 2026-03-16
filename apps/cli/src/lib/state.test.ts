@@ -78,7 +78,7 @@ describe("markInstalled", () => {
   it("adds a new plugin to empty state", async () => {
     mockedReadFile.mockRejectedValue(new Error("ENOENT"));
 
-    await markInstalled("ott", "1.37", "vst3", "/path/to/OTT.vst3");
+    await markInstalled("ott", "1.37", "vst3", ["/path/to/OTT.vst3"]);
 
     expect(mockedWriteFile).toHaveBeenCalledOnce();
     const written = JSON.parse(mockedWriteFile.mock.calls[0][1] as string);
@@ -97,7 +97,7 @@ describe("markInstalled", () => {
     };
     mockedReadFile.mockResolvedValue(JSON.stringify(existing));
 
-    await markInstalled("ott", "1.37", "au", "/path/to/OTT.component");
+    await markInstalled("ott", "1.37", "au", ["/path/to/OTT.component"]);
 
     const written = JSON.parse(mockedWriteFile.mock.calls[0][1] as string);
     expect(written.ott.formats.vst3).toBe("/path/to/OTT.vst3");

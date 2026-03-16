@@ -57,7 +57,10 @@ Examples:
 
       if (installedEntry) {
         const fmts = Object.entries(installedEntry.formats)
-          .map(([fmt, path]) => `${fmt.toUpperCase()} -> ${path}`)
+          .map(([fmt, p]) => {
+            const paths = Array.isArray(p) ? p : [p];
+            return paths.map((path) => `${fmt.toUpperCase()} -> ${path}`).join(", ");
+          })
           .join(", ");
         console.log(`  Installed:    ${chalk.green(installedEntry.version)} (${fmts})`);
       } else {

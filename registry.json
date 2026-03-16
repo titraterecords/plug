@@ -3,6 +3,697 @@
   "updated": "2026-03-16",
   "plugins": [
     {
+      "id": "8-bit-shaper",
+      "name": "8-Bit Shaper",
+      "author": "Xfer Records",
+      "description": "Bit-crushing and sample rate reduction for retro 8-bit sound design",
+      "version": "1.106",
+      "license": "freeware",
+      "category": "effect",
+      "tags": [
+        "effect",
+        "bitcrusher",
+        "lo-fi",
+        "distortion"
+      ],
+      "homepage": "https://xferrecords.com/freeware",
+      "versions": {
+        "1.106": {
+          "formats": {
+            "vst3": {
+              "mac": {
+                "url": "https://xferrecords.com/product_downloads/28/freeware",
+                "sha256": "6d1b71aa0a2eebfdf2cdefad4b9610b1d6e5e75670950bdd3277f7512cbd067e",
+                "artifact": "8-Bit Shaper.vst3"
+              },
+              "win": {
+                "url": "https://xferrecords.com/product_downloads/29/freeware",
+                "sha256": "4401ec9c4c53ffe8c661741422d581b3b8bfdebfc9d6e9b2b521ecadb779a66c",
+                "artifact": "8-Bit Shaper.vst3"
+              }
+            },
+            "au": {
+              "mac": {
+                "url": "https://xferrecords.com/product_downloads/28/freeware",
+                "sha256": "6d1b71aa0a2eebfdf2cdefad4b9610b1d6e5e75670950bdd3277f7512cbd067e",
+                "artifact": "8-Bit Shaper.component"
+              }
+            }
+          }
+        }
+      },
+      "recommended": true
+    },
+    {
+      "id": "delta-modulator",
+      "name": "Delta Modulator",
+      "author": "Xfer Records",
+      "description": "Analog-style delta modulation effect for creative sound design",
+      "version": "1.06",
+      "license": "freeware",
+      "category": "effect",
+      "tags": [
+        "effect",
+        "modulation",
+        "distortion"
+      ],
+      "homepage": "https://xferrecords.com/freeware",
+      "versions": {
+        "1.06": {
+          "formats": {
+            "vst3": {
+              "mac": {
+                "url": "https://xferrecords.com/product_downloads/26/freeware",
+                "sha256": "0608ebc52f7d3b0fa5e8d59717e17c081b0f8bce05dee78af251aac793deeadd",
+                "artifact": "Delta Modulator.vst3"
+              },
+              "win": {
+                "url": "https://xferrecords.com/product_downloads/27/freeware",
+                "sha256": "6873a8395ee6c24e7b245730fbe6fa9f20a62ff35aa24ce40521d820954f546e",
+                "artifact": "Delta Modulator.vst3"
+              }
+            },
+            "au": {
+              "mac": {
+                "url": "https://xferrecords.com/product_downloads/26/freeware",
+                "sha256": "0608ebc52f7d3b0fa5e8d59717e17c081b0f8bce05dee78af251aac793deeadd",
+                "artifact": "Delta Modulator.component"
+              }
+            }
+          }
+        }
+      },
+      "recommended": true
+    },
+    {
+      "id": "dexed",
+      "name": "Dexed",
+      "author": "Pascal Gauthier",
+      "description": "Synthesizer closely modeled on the Yamaha DX7.",
+      "version": "0.9.8",
+      "license": "gpl-3.0",
+      "category": "synthesizer",
+      "tags": [
+        "instrument",
+        "synth",
+        "fm"
+      ],
+      "homepage": "https://github.com/asb2m10/dexed",
+      "versions": {
+        "0.9.8": {
+          "date": "2024-10-08",
+          "formats": {
+            "clap": {
+              "linux": {
+                "url": "https://github.com/asb2m10/dexed/releases/download/v0.9.8/dexed-0.9.8-lnx.zip",
+                "sha256": "5d026f53504f9303ae2a4a635cf6fdfc50ab9c947cbc0a20ecb5c8f323402dab",
+                "artifact": "Dexed.clap"
+              }
+            },
+            "vst3": {
+              "linux": {
+                "url": "https://github.com/asb2m10/dexed/releases/download/v0.9.8/dexed-0.9.8-lnx.zip",
+                "sha256": "5d026f53504f9303ae2a4a635cf6fdfc50ab9c947cbc0a20ecb5c8f323402dab",
+                "artifact": "Dexed.vst3"
+              }
+            }
+          }
+        },
+        "1.0.1": {
+          "formats": {
+            "clap": {
+              "mac": {
+                "url": "https://github.com/asb2m10/dexed/releases/download/v1.0.1/Dexed-1.0.1-macOS.zip",
+                "sha256": "4269448bc1312424cafd29aff615d891bc5905ebfc54b42ce70c56b9b10dc401",
+                "artifact": "Dexed.clap"
+              },
+              "win": {
+                "url": "https://github.com/asb2m10/dexed/releases/download/v1.0.1/Dexed-1.0.1-win.zip",
+                "sha256": "1f118445f2c5c411636bb41ddf8b456db09af74cd38f9ede8a93a01020505f05",
+                "artifact": "Dexed.clap"
+              }
+            },
+            "au": {
+              "mac": {
+                "url": "https://github.com/asb2m10/dexed/releases/download/v1.0.1/Dexed-1.0.1-macOS.zip",
+                "sha256": "4269448bc1312424cafd29aff615d891bc5905ebfc54b42ce70c56b9b10dc401",
+                "artifact": "Dexed.component"
+              }
+            },
+            "vst3": {
+              "mac": {
+                "url": "https://github.com/asb2m10/dexed/releases/download/v1.0.1/Dexed-1.0.1-macOS.zip",
+                "sha256": "4269448bc1312424cafd29aff615d891bc5905ebfc54b42ce70c56b9b10dc401",
+                "artifact": "Dexed.vst3"
+              },
+              "win": {
+                "url": "https://github.com/asb2m10/dexed/releases/download/v1.0.1/Dexed-1.0.1-win.zip",
+                "sha256": "1f118445f2c5c411636bb41ddf8b456db09af74cd38f9ede8a93a01020505f05",
+                "artifact": "Dexed.vst3"
+              }
+            }
+          }
+        }
+      },
+      "recommended": true
+    },
+    {
+      "id": "dimension-expander",
+      "name": "Dimension Expander",
+      "author": "Xfer Records",
+      "description": "Stereo widening effect for adding depth and space to audio",
+      "version": "1.24",
+      "license": "freeware",
+      "category": "effect",
+      "tags": [
+        "effect",
+        "stereo",
+        "widener",
+        "spatial"
+      ],
+      "homepage": "https://xferrecords.com/freeware",
+      "versions": {
+        "1.24": {
+          "formats": {
+            "vst3": {
+              "mac": {
+                "url": "https://xferrecords.com/product_downloads/32/freeware",
+                "sha256": "4e95a9a088c79aeaf44205f5c9cce748441940135b111891cccddf2d5cf8e7e4",
+                "artifact": "Dimension Expander.vst3"
+              },
+              "win": {
+                "url": "https://xferrecords.com/product_downloads/33/freeware",
+                "sha256": "b1054ce9b5407559be13b19e40ae6f2b1da77184e36f1ff228c8aacbd6e4c38c",
+                "artifact": "Dimension Expander.vst3"
+              }
+            },
+            "au": {
+              "mac": {
+                "url": "https://xferrecords.com/product_downloads/32/freeware",
+                "sha256": "4e95a9a088c79aeaf44205f5c9cce748441940135b111891cccddf2d5cf8e7e4",
+                "artifact": "Dimension Expander.component"
+              }
+            }
+          }
+        }
+      },
+      "recommended": true
+    },
+    {
+      "id": "djmfilter",
+      "name": "DJMFilter",
+      "author": "Xfer Records",
+      "description": "DJ-style filter effect with high-pass and low-pass modes",
+      "version": "1.25",
+      "license": "freeware",
+      "category": "filter",
+      "tags": [
+        "effect",
+        "filter",
+        "dj"
+      ],
+      "homepage": "https://xferrecords.com/freeware",
+      "versions": {
+        "1.25": {
+          "formats": {
+            "vst3": {
+              "mac": {
+                "url": "https://xferrecords.com/product_downloads/68/freeware",
+                "sha256": "4cf33265146fe9d8e38f3c72456a6bed2700c530b48c3810280c66852b054a33",
+                "artifact": "DJMFilter.vst3"
+              },
+              "win": {
+                "url": "https://xferrecords.com/product_downloads/69/freeware",
+                "sha256": "4722c29ee76cdde635cc6568fab8f02493674fe93912b429a0b0bfdbe25860e0",
+                "artifact": "DJMFilter.vst3"
+              }
+            },
+            "au": {
+              "mac": {
+                "url": "https://xferrecords.com/product_downloads/68/freeware",
+                "sha256": "4cf33265146fe9d8e38f3c72456a6bed2700c530b48c3810280c66852b054a33",
+                "artifact": "DJMFilter.component"
+              }
+            }
+          }
+        }
+      },
+      "recommended": true
+    },
+    {
+      "id": "dragonfly-reverb",
+      "name": "Dragonfly Reverb",
+      "author": "Michael Willis",
+      "description": "Dragonfly Reverb is a bundle of free audio effect plugins for Linux, MacOS, and Windows.",
+      "version": "3.2.10",
+      "license": "gpl-3.0",
+      "category": "effect",
+      "tags": [
+        "effect",
+        "reverb",
+        "plate"
+      ],
+      "homepage": "https://github.com/michaelwillis/dragonfly-reverb",
+      "versions": {
+        "3.2.10": {
+          "date": "2023-04-22",
+          "formats": {
+            "vst3": {
+              "mac": {
+                "url": "https://github.com/michaelwillis/dragonfly-reverb/releases/download/3.2.10/dragonfly-reverb-3.2.10-macos-universal.dmg",
+                "sha256": "e0b854b92a4e51ce5851320fb1a9f91ab1a4309f997de070e175b3e5cab4adaf",
+                "artifact": [
+                  "DragonflyEarlyReflections.vst3",
+                  "DragonflyHallReverb.vst3",
+                  "DragonflyPlateReverb.vst3",
+                  "DragonflyRoomReverb.vst3"
+                ]
+              },
+              "win": {
+                "url": "https://github.com/michaelwillis/dragonfly-reverb/releases/download/3.2.10/dragonfly-reverb-3.2.10-win64.zip",
+                "sha256": "ca5f35f9dcd9a33f06490d3c92f04061a1a798cb81257d5ca5851bdda0824c66",
+                "artifact": [
+                  "DragonflyEarlyReflections.vst3",
+                  "DragonflyHallReverb.vst3",
+                  "DragonflyPlateReverb.vst3",
+                  "DragonflyRoomReverb.vst3"
+                ]
+              }
+            },
+            "lv2": {
+              "mac": {
+                "url": "https://github.com/michaelwillis/dragonfly-reverb/releases/download/3.2.10/dragonfly-reverb-3.2.10-macos-universal.dmg",
+                "sha256": "e0b854b92a4e51ce5851320fb1a9f91ab1a4309f997de070e175b3e5cab4adaf",
+                "artifact": [
+                  "DragonflyEarlyReflections.lv2",
+                  "DragonflyHallReverb.lv2",
+                  "DragonflyPlateReverb.lv2",
+                  "DragonflyRoomReverb.lv2"
+                ]
+              },
+              "win": {
+                "url": "https://github.com/michaelwillis/dragonfly-reverb/releases/download/3.2.10/dragonfly-reverb-3.2.10-win64.zip",
+                "sha256": "ca5f35f9dcd9a33f06490d3c92f04061a1a798cb81257d5ca5851bdda0824c66",
+                "artifact": [
+                  "DragonflyEarlyReflections.lv2",
+                  "DragonflyHallReverb.lv2",
+                  "DragonflyPlateReverb.lv2",
+                  "DragonflyRoomReverb.lv2"
+                ]
+              }
+            },
+            "clap": {
+              "mac": {
+                "url": "https://github.com/michaelwillis/dragonfly-reverb/releases/download/3.2.10/dragonfly-reverb-3.2.10-macos-universal.dmg",
+                "sha256": "e0b854b92a4e51ce5851320fb1a9f91ab1a4309f997de070e175b3e5cab4adaf",
+                "artifact": [
+                  "DragonflyEarlyReflections.clap",
+                  "DragonflyHallReverb.clap",
+                  "DragonflyPlateReverb.clap",
+                  "DragonflyRoomReverb.clap"
+                ]
+              },
+              "win": {
+                "url": "https://github.com/michaelwillis/dragonfly-reverb/releases/download/3.2.10/dragonfly-reverb-3.2.10-win64.zip",
+                "sha256": "ca5f35f9dcd9a33f06490d3c92f04061a1a798cb81257d5ca5851bdda0824c66",
+                "artifact": [
+                  "DragonflyEarlyReflections.clap",
+                  "DragonflyHallReverb.clap",
+                  "DragonflyPlateReverb.clap",
+                  "DragonflyRoomReverb.clap"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "recommended": true
+    },
+    {
+      "id": "ott",
+      "name": "OTT",
+      "author": "Xfer Records",
+      "description": "Multiband upward/downward compressor, popular in electronic music",
+      "version": "1.37",
+      "license": "freeware",
+      "category": "compressor",
+      "tags": [
+        "effect",
+        "compressor",
+        "multiband",
+        "dynamics"
+      ],
+      "homepage": "https://xferrecords.com/freeware",
+      "versions": {
+        "1.37": {
+          "formats": {
+            "vst3": {
+              "mac": {
+                "url": "https://xferrecords.com/product_downloads/24/freeware",
+                "sha256": "fe1d10b79445c44a32f365fcbf2a420a2133ae205c8d75f09ba703c7dd42ec54",
+                "artifact": "OTT.vst3"
+              },
+              "win": {
+                "url": "https://xferrecords.com/product_downloads/25/freeware",
+                "sha256": "d4e1d3f62a1db904d3ab5c776ddcbb39ac74469e5ca3ed723e3dcef89ebcefeb",
+                "artifact": "OTT.vst3"
+              }
+            },
+            "au": {
+              "mac": {
+                "url": "https://xferrecords.com/product_downloads/24/freeware",
+                "sha256": "fe1d10b79445c44a32f365fcbf2a420a2133ae205c8d75f09ba703c7dd42ec54",
+                "artifact": "OTT.component"
+              }
+            }
+          }
+        }
+      },
+      "recommended": true
+    },
+    {
+      "id": "smartelectronix",
+      "name": "Smartelectronix",
+      "author": "Bram de Jong",
+      "description": "Vintage open-source plugin collection: Bouncy, CrazyIvan, Cyanide2, H2O, MadShifta, Smexoscope, SupaPhaser, SupaTrigga and more",
+      "version": "1.0.0",
+      "license": "gpl-3.0",
+      "category": "effect",
+      "tags": [
+        "effect",
+        "collection",
+        "open-source",
+        "vintage",
+        "delay",
+        "compressor",
+        "phaser",
+        "oscilloscope"
+      ],
+      "homepage": "https://github.com/bdejong/smartelectronix",
+      "versions": {
+        "1.0.0": {
+          "formats": {
+            "vst3": {
+              "mac": {
+                "url": "https://github.com/bdejong/smartelectronix/releases/download/latest/smartelectronix-macOS.zip",
+                "sha256": "ba20f7c1a59d1909579c7ab1bc96123fd55d75b48a10afc9a1fc2d163d585727",
+                "artifact": [
+                  "Anechoic Room Simulator.vst3",
+                  "Bitmurderer.vst3",
+                  "Bouncy.vst3",
+                  "Crazy Ivan.vst3",
+                  "Cyanide2.vst3",
+                  "H2O.vst3",
+                  "MadShifta.vst3",
+                  "One Ping Only.vst3",
+                  "Smexoscope.vst3",
+                  "SupaPhaser.vst3",
+                  "SupaTrigga.vst3"
+                ]
+              },
+              "win": {
+                "url": "https://github.com/bdejong/smartelectronix/releases/download/latest/smartelectronix-Windows.zip",
+                "sha256": "b7c4cbeec9a63a6ad15649b1f71118aa19327d3d67d34550198068205e2d262f",
+                "artifact": [
+                  "Anechoic Room Simulator.vst3",
+                  "Bitmurderer.vst3",
+                  "Bouncy.vst3",
+                  "Crazy Ivan.vst3",
+                  "Cyanide2.vst3",
+                  "H2O.vst3",
+                  "MadShifta.vst3",
+                  "One Ping Only.vst3",
+                  "Smexoscope.vst3",
+                  "SupaPhaser.vst3",
+                  "SupaTrigga.vst3"
+                ]
+              },
+              "linux": {
+                "url": "https://github.com/bdejong/smartelectronix/releases/download/latest/smartelectronix-Linux.zip",
+                "sha256": "794c214ab137c68d918b55a1f1a7d6f97757550507a9373f34c997b033889777",
+                "artifact": [
+                  "Anechoic Room Simulator.vst3",
+                  "Bitmurderer.vst3",
+                  "Bouncy.vst3",
+                  "Crazy Ivan.vst3",
+                  "Cyanide2.vst3",
+                  "H2O.vst3",
+                  "MadShifta.vst3",
+                  "One Ping Only.vst3",
+                  "Smexoscope.vst3",
+                  "SupaPhaser.vst3",
+                  "SupaTrigga.vst3"
+                ]
+              }
+            },
+            "lv2": {
+              "mac": {
+                "url": "https://github.com/bdejong/smartelectronix/releases/download/latest/smartelectronix-macOS.zip",
+                "sha256": "ba20f7c1a59d1909579c7ab1bc96123fd55d75b48a10afc9a1fc2d163d585727",
+                "artifact": [
+                  "Anechoic Room Simulator.lv2",
+                  "Bitmurderer.lv2",
+                  "Bouncy.lv2",
+                  "Crazy Ivan.lv2",
+                  "Cyanide2.lv2",
+                  "H2O.lv2",
+                  "MadShifta.lv2",
+                  "One Ping Only.lv2",
+                  "Smexoscope.lv2",
+                  "SupaPhaser.lv2",
+                  "SupaTrigga.lv2"
+                ]
+              },
+              "linux": {
+                "url": "https://github.com/bdejong/smartelectronix/releases/download/latest/smartelectronix-Linux.zip",
+                "sha256": "794c214ab137c68d918b55a1f1a7d6f97757550507a9373f34c997b033889777",
+                "artifact": [
+                  "Anechoic Room Simulator.lv2",
+                  "Bitmurderer.lv2",
+                  "Bouncy.lv2",
+                  "Crazy Ivan.lv2",
+                  "Cyanide2.lv2",
+                  "H2O.lv2",
+                  "MadShifta.lv2",
+                  "One Ping Only.lv2",
+                  "Smexoscope.lv2",
+                  "SupaPhaser.lv2",
+                  "SupaTrigga.lv2"
+                ]
+              }
+            },
+            "au": {
+              "mac": {
+                "url": "https://github.com/bdejong/smartelectronix/releases/download/latest/smartelectronix-macOS.zip",
+                "sha256": "ba20f7c1a59d1909579c7ab1bc96123fd55d75b48a10afc9a1fc2d163d585727",
+                "artifact": [
+                  "Anechoic Room Simulator.component",
+                  "Bitmurderer.component",
+                  "Bouncy.component",
+                  "Crazy Ivan.component",
+                  "Cyanide2.component",
+                  "H2O.component",
+                  "MadShifta.component",
+                  "One Ping Only.component",
+                  "Smexoscope.component",
+                  "SupaPhaser.component",
+                  "SupaTrigga.component"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "recommended": true
+    },
+    {
+      "id": "surge-xt",
+      "name": "Surge XT",
+      "author": "Surge Synth Team",
+      "description": "Hybrid synthesizer featuring many synthesis techniques, a great selection of filters, a flexible modulation engine, a smorgasbord of effects, and modern features like MPE and microtuning.",
+      "version": "1.3.4",
+      "license": "gpl-3.0",
+      "category": "synthesizer",
+      "tags": [
+        "instrument",
+        "synth",
+        "modulation"
+      ],
+      "homepage": "https://github.com/surge-synthesizer/surge",
+      "versions": {
+        "1.3.4": {
+          "date": "2024-08-11",
+          "formats": {
+            "vst3": {
+              "mac": {
+                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.4/surge-xt-macos-1.3.4-pluginsonly.zip",
+                "sha256": "37d8d809693adc86587b7bc75a2384fc4e905f259aa9b9a21777749d36fbf8aa",
+                "artifact": [
+                  "Surge XT Effects.vst3",
+                  "Surge XT.vst3"
+                ]
+              },
+              "win": {
+                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.4/surge-xt-win64-1.3.4-pluginsonly.zip",
+                "sha256": "564e162c560af07ad4ed47fe1bfcd827cf97a575de30d06c48249aad2e7c35e6",
+                "artifact": [
+                  "Surge XT Effects.vst3",
+                  "Surge XT.vst3"
+                ]
+              }
+            },
+            "clap": {
+              "mac": {
+                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.4/surge-xt-macos-1.3.4-pluginsonly.zip",
+                "sha256": "37d8d809693adc86587b7bc75a2384fc4e905f259aa9b9a21777749d36fbf8aa",
+                "artifact": [
+                  "Surge XT Effects.clap",
+                  "Surge XT.clap"
+                ]
+              },
+              "win": {
+                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.4/surge-xt-win64-1.3.4-pluginsonly.zip",
+                "sha256": "564e162c560af07ad4ed47fe1bfcd827cf97a575de30d06c48249aad2e7c35e6",
+                "artifact": [
+                  "Surge XT Effects.clap",
+                  "Surge XT.clap"
+                ]
+              }
+            },
+            "au": {
+              "mac": {
+                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.4/surge-xt-macos-1.3.4-pluginsonly.zip",
+                "sha256": "37d8d809693adc86587b7bc75a2384fc4e905f259aa9b9a21777749d36fbf8aa",
+                "artifact": [
+                  "Surge XT Effects.component",
+                  "Surge XT.component"
+                ]
+              }
+            }
+          }
+        },
+        "1.3.1": {
+          "date": "2024-03-02",
+          "formats": {
+            "vst3": {
+              "mac": {
+                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.1/surge-xt-macOS-1.3.1.dmg",
+                "sha256": "e30b218700d4067edb3a0eadb4128784e41f91f663cff19e3fbb38460883cf59",
+                "artifact": [
+                  "Surge XT.vst3",
+                  "Surge XT Effects.vst3"
+                ]
+              }
+            },
+            "clap": {
+              "mac": {
+                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.1/surge-xt-macOS-1.3.1.dmg",
+                "sha256": "e30b218700d4067edb3a0eadb4128784e41f91f663cff19e3fbb38460883cf59",
+                "artifact": [
+                  "Surge XT Effects.clap",
+                  "Surge XT.clap"
+                ]
+              }
+            },
+            "au": {
+              "mac": {
+                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.1/surge-xt-macOS-1.3.1.dmg",
+                "sha256": "e30b218700d4067edb3a0eadb4128784e41f91f663cff19e3fbb38460883cf59",
+                "artifact": [
+                  "Surge XT Effects.component",
+                  "Surge XT.component"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "recommended": true
+    },
+    {
+      "id": "tdr-nova",
+      "name": "TDR Nova",
+      "author": "Tokyo Dawn Records",
+      "description": "Dynamic equalizer combining parametric EQ with wideband dynamics",
+      "version": "2.2.1",
+      "license": "freeware",
+      "category": "equalizer",
+      "tags": [
+        "effect",
+        "equalizer",
+        "dynamics",
+        "mastering"
+      ],
+      "homepage": "https://www.tokyodawn.net/tdr-nova/",
+      "versions": {
+        "2.2.1": {
+          "formats": {
+            "vst3": {
+              "mac": {
+                "url": "https://www.tokyodawn.net/labs/Nova/2.2.1/TDR%20Nova.zip",
+                "sha256": "3f52e024b3aa49c75ce55c2c0fc18363ef4caac0dca0df60277372f66de9297b",
+                "artifact": "TDR Nova.vst3"
+              },
+              "win": {
+                "url": "https://www.tokyodawn.net/labs/Nova/2.2.1/TDR%20Nova%20(no%20installer).zip",
+                "sha256": "0696471cae37c3c5ce5afeb99a484aa49352f54a7ea304169fa53d34c869e90e",
+                "artifact": "TDR Nova.vst3"
+              }
+            },
+            "au": {
+              "mac": {
+                "url": "https://www.tokyodawn.net/labs/Nova/2.2.1/TDR%20Nova.zip",
+                "sha256": "3f52e024b3aa49c75ce55c2c0fc18363ef4caac0dca0df60277372f66de9297b",
+                "artifact": "TDR Nova.component"
+              }
+            }
+          }
+        }
+      },
+      "recommended": true
+    },
+    {
+      "id": "valhalla-supermassive",
+      "name": "Valhalla Supermassive",
+      "author": "Valhalla DSP",
+      "description": "Massive reverb and delay plugin with unique algorithms",
+      "version": "5.0.0",
+      "license": "freeware",
+      "category": "effect",
+      "tags": [
+        "effect",
+        "reverb",
+        "delay"
+      ],
+      "homepage": "https://valhalladsp.com/shop/reverb/valhalla-supermassive/",
+      "versions": {
+        "5.0.0": {
+          "formats": {
+            "vst3": {
+              "mac": {
+                "url": "https://valhallaproduction.s3.us-west-2.amazonaws.com/supermassive/ValhallaSupermassiveOSX_5_0_0.dmg",
+                "sha256": "eaac6d0a24ffed0a02afd1dd06124d12f94716d32a8ac376606aa2d701a70c3e",
+                "artifact": "ValhallaSupermassive.vst3"
+              },
+              "win": {
+                "url": "https://valhallaproduction.s3.us-west-2.amazonaws.com/supermassive/ValhallaSupermassiveWin_V5_0_0.zip",
+                "sha256": "67e0cedbed9e680b11dfb582618dd257e2dba8b8d10189d59811e4c10414911d",
+                "artifact": "ValhallaSupermassive.vst3"
+              }
+            },
+            "au": {
+              "mac": {
+                "url": "https://valhallaproduction.s3.us-west-2.amazonaws.com/supermassive/ValhallaSupermassiveOSX_5_0_0.dmg",
+                "sha256": "eaac6d0a24ffed0a02afd1dd06124d12f94716d32a8ac376606aa2d701a70c3e",
+                "artifact": "ValhallaSupermassive.component"
+              }
+            }
+          }
+        }
+      },
+      "recommended": true
+    },
+    {
       "id": "4k-eq",
       "name": "4K EQ",
       "author": "Luna Co. Audio",
@@ -55,48 +746,6 @@
           }
         }
       }
-    },
-    {
-      "id": "8-bit-shaper",
-      "name": "8-Bit Shaper",
-      "author": "Xfer Records",
-      "description": "Bit-crushing and sample rate reduction for retro 8-bit sound design",
-      "version": "1.106",
-      "license": "freeware",
-      "category": "effect",
-      "tags": [
-        "effect",
-        "bitcrusher",
-        "lo-fi",
-        "distortion"
-      ],
-      "homepage": "https://xferrecords.com/freeware",
-      "versions": {
-        "1.106": {
-          "formats": {
-            "vst3": {
-              "mac": {
-                "url": "https://xferrecords.com/product_downloads/28/freeware",
-                "sha256": "6d1b71aa0a2eebfdf2cdefad4b9610b1d6e5e75670950bdd3277f7512cbd067e",
-                "artifact": "8-Bit Shaper.vst3"
-              },
-              "win": {
-                "url": "https://xferrecords.com/product_downloads/29/freeware",
-                "sha256": "4401ec9c4c53ffe8c661741422d581b3b8bfdebfc9d6e9b2b521ecadb779a66c",
-                "artifact": "8-Bit Shaper.vst3"
-              }
-            },
-            "au": {
-              "mac": {
-                "url": "https://xferrecords.com/product_downloads/28/freeware",
-                "sha256": "6d1b71aa0a2eebfdf2cdefad4b9610b1d6e5e75670950bdd3277f7512cbd067e",
-                "artifact": "8-Bit Shaper.component"
-              }
-            }
-          }
-        }
-      },
-      "recommended": true
     },
     {
       "id": "actuate",
@@ -264,126 +913,6 @@
               "win": {
                 "url": "https://github.com/ardura/Actuate/releases/download/v1.3.5/Actuate_v135_windows_build.zip",
                 "sha256": "348a0f6c50bc5ef077573aff85cf5234c487df7fd5d3fe81c4bd9daaabfe0515",
-                "artifact": "Actuate.vst3"
-              }
-            }
-          }
-        },
-        "1.4.1": {
-          "date": "2025-10-13",
-          "source": "github",
-          "formats": {
-            "clap": {
-              "linux": {
-                "url": "https://github.com/ardura/Actuate/releases/download/v1.4.1/Actuate_v141_linux_build.zip",
-                "sha256": "6f5397f2430a992f3b869257f80f884d779c451b92fd1bdd5c0c577e23070232",
-                "artifact": "Actuate.clap"
-              },
-              "mac": {
-                "url": "https://github.com/ardura/Actuate/releases/download/v1.4.1/Actuate_v141_macos_build.zip",
-                "sha256": "48476065d879dc4a3949f831922ee1b508c6856a0165053aaeef89c19c9966ba",
-                "artifact": "Actuate.clap"
-              },
-              "win": {
-                "url": "https://github.com/ardura/Actuate/releases/download/v1.4.1/Actuate_v141_windows_build.zip",
-                "sha256": "e7943a49b92c1dde40b6d9a962ed851f96ab8093937c2f5defdd81a3e6838dd1",
-                "artifact": "Actuate.clap"
-              }
-            },
-            "vst3": {
-              "linux": {
-                "url": "https://github.com/ardura/Actuate/releases/download/v1.4.1/Actuate_v141_linux_build.zip",
-                "sha256": "6f5397f2430a992f3b869257f80f884d779c451b92fd1bdd5c0c577e23070232",
-                "artifact": "Actuate.vst3"
-              },
-              "mac": {
-                "url": "https://github.com/ardura/Actuate/releases/download/v1.4.1/Actuate_v141_macos_build.zip",
-                "sha256": "48476065d879dc4a3949f831922ee1b508c6856a0165053aaeef89c19c9966ba",
-                "artifact": "Actuate.vst3"
-              },
-              "win": {
-                "url": "https://github.com/ardura/Actuate/releases/download/v1.4.1/Actuate_v141_windows_build.zip",
-                "sha256": "e7943a49b92c1dde40b6d9a962ed851f96ab8093937c2f5defdd81a3e6838dd1",
-                "artifact": "Actuate.vst3"
-              }
-            }
-          }
-        },
-        "1.4.0": {
-          "date": "2025-08-22",
-          "source": "github",
-          "formats": {
-            "clap": {
-              "linux": {
-                "url": "https://github.com/ardura/Actuate/releases/download/v1.4.0/Actuate_v140_linux_build.zip",
-                "sha256": "a6f8813b5ba4a3d462b9a432c198eb5e161da8273bcc65610d6dd1a83889bb94",
-                "artifact": "Actuate.clap"
-              },
-              "mac": {
-                "url": "https://github.com/ardura/Actuate/releases/download/v1.4.0/Actuate_v140_macos_build.zip",
-                "sha256": "e5b13bf64c73a370d259aa0d3d557beda0825a86a48e8b2d700c551cf16ab5b2",
-                "artifact": "Actuate.clap"
-              },
-              "win": {
-                "url": "https://github.com/ardura/Actuate/releases/download/v1.4.0/Actuate_v140_windows_build.zip",
-                "sha256": "4392e5ea0fc734573b1e1f3c66bba609593f016d7d49bc2d04344f20b6fff10e",
-                "artifact": "Actuate.clap"
-              }
-            },
-            "vst3": {
-              "linux": {
-                "url": "https://github.com/ardura/Actuate/releases/download/v1.4.0/Actuate_v140_linux_build.zip",
-                "sha256": "a6f8813b5ba4a3d462b9a432c198eb5e161da8273bcc65610d6dd1a83889bb94",
-                "artifact": "Actuate.vst3"
-              },
-              "mac": {
-                "url": "https://github.com/ardura/Actuate/releases/download/v1.4.0/Actuate_v140_macos_build.zip",
-                "sha256": "e5b13bf64c73a370d259aa0d3d557beda0825a86a48e8b2d700c551cf16ab5b2",
-                "artifact": "Actuate.vst3"
-              },
-              "win": {
-                "url": "https://github.com/ardura/Actuate/releases/download/v1.4.0/Actuate_v140_windows_build.zip",
-                "sha256": "4392e5ea0fc734573b1e1f3c66bba609593f016d7d49bc2d04344f20b6fff10e",
-                "artifact": "Actuate.vst3"
-              }
-            }
-          }
-        },
-        "1.3.91": {
-          "date": "2025-05-23",
-          "source": "github",
-          "formats": {
-            "clap": {
-              "linux": {
-                "url": "https://github.com/ardura/Actuate/releases/download/v1.3.91/Actuate_v1391_linux_build.zip",
-                "sha256": "c7ff78ed34cc2ab0a07c2ddb2e55d709d7f0bb118e0e79e1f792247090b53943",
-                "artifact": "Actuate.clap"
-              },
-              "mac": {
-                "url": "https://github.com/ardura/Actuate/releases/download/v1.3.91/Actuate_v1391_macos_build.zip",
-                "sha256": "a42b012282bc9c3052f056e0231f9c5612c1f20861aff7070b97e606bd64f3a7",
-                "artifact": "Actuate.clap"
-              },
-              "win": {
-                "url": "https://github.com/ardura/Actuate/releases/download/v1.3.91/Actuate_v1391_windows_build.zip",
-                "sha256": "515ab3b029b5c24ed03d83a0fb23432fa994b1b46429519027a69be4cca2a959",
-                "artifact": "Actuate.clap"
-              }
-            },
-            "vst3": {
-              "linux": {
-                "url": "https://github.com/ardura/Actuate/releases/download/v1.3.91/Actuate_v1391_linux_build.zip",
-                "sha256": "c7ff78ed34cc2ab0a07c2ddb2e55d709d7f0bb118e0e79e1f792247090b53943",
-                "artifact": "Actuate.vst3"
-              },
-              "mac": {
-                "url": "https://github.com/ardura/Actuate/releases/download/v1.3.91/Actuate_v1391_macos_build.zip",
-                "sha256": "a42b012282bc9c3052f056e0231f9c5612c1f20861aff7070b97e606bd64f3a7",
-                "artifact": "Actuate.vst3"
-              },
-              "win": {
-                "url": "https://github.com/ardura/Actuate/releases/download/v1.3.91/Actuate_v1391_windows_build.zip",
-                "sha256": "515ab3b029b5c24ed03d83a0fb23432fa994b1b46429519027a69be4cca2a959",
                 "artifact": "Actuate.vst3"
               }
             }
@@ -699,202 +1228,6 @@
       }
     },
     {
-      "id": "delta-modulator",
-      "name": "Delta Modulator",
-      "author": "Xfer Records",
-      "description": "Analog-style delta modulation effect for creative sound design",
-      "version": "1.06",
-      "license": "freeware",
-      "category": "effect",
-      "tags": [
-        "effect",
-        "modulation",
-        "distortion"
-      ],
-      "homepage": "https://xferrecords.com/freeware",
-      "versions": {
-        "1.06": {
-          "formats": {
-            "vst3": {
-              "mac": {
-                "url": "https://xferrecords.com/product_downloads/26/freeware",
-                "sha256": "0608ebc52f7d3b0fa5e8d59717e17c081b0f8bce05dee78af251aac793deeadd",
-                "artifact": "Delta Modulator.vst3"
-              },
-              "win": {
-                "url": "https://xferrecords.com/product_downloads/27/freeware",
-                "sha256": "6873a8395ee6c24e7b245730fbe6fa9f20a62ff35aa24ce40521d820954f546e",
-                "artifact": "Delta Modulator.vst3"
-              }
-            },
-            "au": {
-              "mac": {
-                "url": "https://xferrecords.com/product_downloads/26/freeware",
-                "sha256": "0608ebc52f7d3b0fa5e8d59717e17c081b0f8bce05dee78af251aac793deeadd",
-                "artifact": "Delta Modulator.component"
-              }
-            }
-          }
-        }
-      },
-      "recommended": true
-    },
-    {
-      "id": "dexed",
-      "name": "Dexed",
-      "author": "Pascal Gauthier",
-      "description": "Synthesizer closely modeled on the Yamaha DX7.",
-      "version": "0.9.8",
-      "license": "gpl-3.0",
-      "category": "synthesizer",
-      "tags": [
-        "instrument",
-        "synth",
-        "fm"
-      ],
-      "homepage": "https://github.com/asb2m10/dexed",
-      "versions": {
-        "0.9.8": {
-          "date": "2024-10-08",
-          "formats": {
-            "clap": {
-              "linux": {
-                "url": "https://github.com/asb2m10/dexed/releases/download/v0.9.8/dexed-0.9.8-lnx.zip",
-                "sha256": "5d026f53504f9303ae2a4a635cf6fdfc50ab9c947cbc0a20ecb5c8f323402dab",
-                "artifact": "Dexed.clap"
-              }
-            },
-            "vst3": {
-              "linux": {
-                "url": "https://github.com/asb2m10/dexed/releases/download/v0.9.8/dexed-0.9.8-lnx.zip",
-                "sha256": "5d026f53504f9303ae2a4a635cf6fdfc50ab9c947cbc0a20ecb5c8f323402dab",
-                "artifact": "Dexed.vst3"
-              }
-            }
-          }
-        },
-        "1.0.1": {
-          "formats": {
-            "clap": {
-              "mac": {
-                "url": "https://github.com/asb2m10/dexed/releases/download/v1.0.1/Dexed-1.0.1-macOS.zip",
-                "sha256": "4269448bc1312424cafd29aff615d891bc5905ebfc54b42ce70c56b9b10dc401",
-                "artifact": "Dexed.clap"
-              },
-              "win": {
-                "url": "https://github.com/asb2m10/dexed/releases/download/v1.0.1/Dexed-1.0.1-win.zip",
-                "sha256": "1f118445f2c5c411636bb41ddf8b456db09af74cd38f9ede8a93a01020505f05",
-                "artifact": "Dexed.clap"
-              }
-            },
-            "au": {
-              "mac": {
-                "url": "https://github.com/asb2m10/dexed/releases/download/v1.0.1/Dexed-1.0.1-macOS.zip",
-                "sha256": "4269448bc1312424cafd29aff615d891bc5905ebfc54b42ce70c56b9b10dc401",
-                "artifact": "Dexed.component"
-              }
-            },
-            "vst3": {
-              "mac": {
-                "url": "https://github.com/asb2m10/dexed/releases/download/v1.0.1/Dexed-1.0.1-macOS.zip",
-                "sha256": "4269448bc1312424cafd29aff615d891bc5905ebfc54b42ce70c56b9b10dc401",
-                "artifact": "Dexed.vst3"
-              },
-              "win": {
-                "url": "https://github.com/asb2m10/dexed/releases/download/v1.0.1/Dexed-1.0.1-win.zip",
-                "sha256": "1f118445f2c5c411636bb41ddf8b456db09af74cd38f9ede8a93a01020505f05",
-                "artifact": "Dexed.vst3"
-              }
-            }
-          }
-        }
-      },
-      "recommended": true
-    },
-    {
-      "id": "dimension-expander",
-      "name": "Dimension Expander",
-      "author": "Xfer Records",
-      "description": "Stereo widening effect for adding depth and space to audio",
-      "version": "1.24",
-      "license": "freeware",
-      "category": "effect",
-      "tags": [
-        "effect",
-        "stereo",
-        "widener",
-        "spatial"
-      ],
-      "homepage": "https://xferrecords.com/freeware",
-      "versions": {
-        "1.24": {
-          "formats": {
-            "vst3": {
-              "mac": {
-                "url": "https://xferrecords.com/product_downloads/32/freeware",
-                "sha256": "4e95a9a088c79aeaf44205f5c9cce748441940135b111891cccddf2d5cf8e7e4",
-                "artifact": "Dimension Expander.vst3"
-              },
-              "win": {
-                "url": "https://xferrecords.com/product_downloads/33/freeware",
-                "sha256": "b1054ce9b5407559be13b19e40ae6f2b1da77184e36f1ff228c8aacbd6e4c38c",
-                "artifact": "Dimension Expander.vst3"
-              }
-            },
-            "au": {
-              "mac": {
-                "url": "https://xferrecords.com/product_downloads/32/freeware",
-                "sha256": "4e95a9a088c79aeaf44205f5c9cce748441940135b111891cccddf2d5cf8e7e4",
-                "artifact": "Dimension Expander.component"
-              }
-            }
-          }
-        }
-      },
-      "recommended": true
-    },
-    {
-      "id": "djmfilter",
-      "name": "DJMFilter",
-      "author": "Xfer Records",
-      "description": "DJ-style filter effect with high-pass and low-pass modes",
-      "version": "1.25",
-      "license": "freeware",
-      "category": "filter",
-      "tags": [
-        "effect",
-        "filter",
-        "dj"
-      ],
-      "homepage": "https://xferrecords.com/freeware",
-      "versions": {
-        "1.25": {
-          "formats": {
-            "vst3": {
-              "mac": {
-                "url": "https://xferrecords.com/product_downloads/68/freeware",
-                "sha256": "4cf33265146fe9d8e38f3c72456a6bed2700c530b48c3810280c66852b054a33",
-                "artifact": "DJMFilter.vst3"
-              },
-              "win": {
-                "url": "https://xferrecords.com/product_downloads/69/freeware",
-                "sha256": "4722c29ee76cdde635cc6568fab8f02493674fe93912b429a0b0bfdbe25860e0",
-                "artifact": "DJMFilter.vst3"
-              }
-            },
-            "au": {
-              "mac": {
-                "url": "https://xferrecords.com/product_downloads/68/freeware",
-                "sha256": "4cf33265146fe9d8e38f3c72456a6bed2700c530b48c3810280c66852b054a33",
-                "artifact": "DJMFilter.component"
-              }
-            }
-          }
-        }
-      },
-      "recommended": true
-    },
-    {
       "id": "dpf-plugins",
       "name": "DPF Plugins",
       "author": "Filipe Coelho",
@@ -1050,242 +1383,6 @@
       }
     },
     {
-      "id": "dragonfly-reverb",
-      "name": "Dragonfly Reverb",
-      "author": "Michael Willis",
-      "description": "Dragonfly Reverb is a bundle of free audio effect plugins for Linux, MacOS, and Windows.",
-      "version": "3.2.10",
-      "license": "gpl-3.0",
-      "category": "effect",
-      "tags": [
-        "effect",
-        "reverb",
-        "plate"
-      ],
-      "homepage": "https://github.com/michaelwillis/dragonfly-reverb",
-      "versions": {
-        "3.2.10": {
-          "date": "2023-04-22",
-          "formats": {
-            "vst3": {
-              "mac": {
-                "url": "https://github.com/michaelwillis/dragonfly-reverb/releases/download/3.2.10/dragonfly-reverb-3.2.10-macos-universal.dmg",
-                "sha256": "e0b854b92a4e51ce5851320fb1a9f91ab1a4309f997de070e175b3e5cab4adaf",
-                "artifact": [
-                  "DragonflyEarlyReflections.vst3",
-                  "DragonflyHallReverb.vst3",
-                  "DragonflyPlateReverb.vst3",
-                  "DragonflyRoomReverb.vst3"
-                ]
-              },
-              "win": {
-                "url": "https://github.com/michaelwillis/dragonfly-reverb/releases/download/3.2.10/dragonfly-reverb-3.2.10-win64.zip",
-                "sha256": "ca5f35f9dcd9a33f06490d3c92f04061a1a798cb81257d5ca5851bdda0824c66",
-                "artifact": [
-                  "DragonflyEarlyReflections.vst3",
-                  "DragonflyHallReverb.vst3",
-                  "DragonflyPlateReverb.vst3",
-                  "DragonflyRoomReverb.vst3"
-                ]
-              }
-            },
-            "lv2": {
-              "mac": {
-                "url": "https://github.com/michaelwillis/dragonfly-reverb/releases/download/3.2.10/dragonfly-reverb-3.2.10-macos-universal.dmg",
-                "sha256": "e0b854b92a4e51ce5851320fb1a9f91ab1a4309f997de070e175b3e5cab4adaf",
-                "artifact": [
-                  "DragonflyEarlyReflections.lv2",
-                  "DragonflyHallReverb.lv2",
-                  "DragonflyPlateReverb.lv2",
-                  "DragonflyRoomReverb.lv2"
-                ]
-              },
-              "win": {
-                "url": "https://github.com/michaelwillis/dragonfly-reverb/releases/download/3.2.10/dragonfly-reverb-3.2.10-win64.zip",
-                "sha256": "ca5f35f9dcd9a33f06490d3c92f04061a1a798cb81257d5ca5851bdda0824c66",
-                "artifact": [
-                  "DragonflyEarlyReflections.lv2",
-                  "DragonflyHallReverb.lv2",
-                  "DragonflyPlateReverb.lv2",
-                  "DragonflyRoomReverb.lv2"
-                ]
-              }
-            },
-            "clap": {
-              "mac": {
-                "url": "https://github.com/michaelwillis/dragonfly-reverb/releases/download/3.2.10/dragonfly-reverb-3.2.10-macos-universal.dmg",
-                "sha256": "e0b854b92a4e51ce5851320fb1a9f91ab1a4309f997de070e175b3e5cab4adaf",
-                "artifact": [
-                  "DragonflyEarlyReflections.clap",
-                  "DragonflyHallReverb.clap",
-                  "DragonflyPlateReverb.clap",
-                  "DragonflyRoomReverb.clap"
-                ]
-              },
-              "win": {
-                "url": "https://github.com/michaelwillis/dragonfly-reverb/releases/download/3.2.10/dragonfly-reverb-3.2.10-win64.zip",
-                "sha256": "ca5f35f9dcd9a33f06490d3c92f04061a1a798cb81257d5ca5851bdda0824c66",
-                "artifact": [
-                  "DragonflyEarlyReflections.clap",
-                  "DragonflyHallReverb.clap",
-                  "DragonflyPlateReverb.clap",
-                  "DragonflyRoomReverb.clap"
-                ]
-              }
-            }
-          }
-        },
-        "3.2.8": {
-          "date": "2022-12-28",
-          "source": "github",
-          "formats": {
-            "vst3": {
-              "mac": {
-                "url": "https://github.com/michaelwillis/dragonfly-reverb/releases/download/3.2.8/dragonfly-reverb-3.2.8-macos-intel.pkg",
-                "sha256": "83daf6bf7d85803b517701e105cf19c2799d2976c4a6bdb795ca22a5542da5a5",
-                "artifact": "DragonflyRoomReverb.vst3"
-              },
-              "win": {
-                "url": "https://github.com/michaelwillis/dragonfly-reverb/releases/download/3.2.8/dragonfly-reverb-3.2.8-win32.zip",
-                "sha256": "6284e80b88d0c3a22a4e7094cf1af3cd4cb318673201a000e9228777ade649da",
-                "artifact": "DragonflyRoomReverb.vst3"
-              }
-            },
-            "lv2": {
-              "mac": {
-                "url": "https://github.com/michaelwillis/dragonfly-reverb/releases/download/3.2.8/dragonfly-reverb-3.2.8-macos-intel.pkg",
-                "sha256": "83daf6bf7d85803b517701e105cf19c2799d2976c4a6bdb795ca22a5542da5a5",
-                "artifact": "DragonflyRoomReverb.lv2"
-              },
-              "win": {
-                "url": "https://github.com/michaelwillis/dragonfly-reverb/releases/download/3.2.8/dragonfly-reverb-3.2.8-win32.zip",
-                "sha256": "6284e80b88d0c3a22a4e7094cf1af3cd4cb318673201a000e9228777ade649da",
-                "artifact": "DragonflyRoomReverb.lv2"
-              }
-            },
-            "clap": {
-              "mac": {
-                "url": "https://github.com/michaelwillis/dragonfly-reverb/releases/download/3.2.8/dragonfly-reverb-3.2.8-macos-intel.pkg",
-                "sha256": "83daf6bf7d85803b517701e105cf19c2799d2976c4a6bdb795ca22a5542da5a5",
-                "artifact": "DragonflyRoomReverb.clap"
-              },
-              "win": {
-                "url": "https://github.com/michaelwillis/dragonfly-reverb/releases/download/3.2.8/dragonfly-reverb-3.2.8-win32.zip",
-                "sha256": "6284e80b88d0c3a22a4e7094cf1af3cd4cb318673201a000e9228777ade649da",
-                "artifact": "DragonflyRoomReverb.clap"
-              }
-            }
-          }
-        },
-        "3.2.7": {
-          "date": "2022-09-25",
-          "source": "github",
-          "formats": {
-            "clap": {
-              "linux": {
-                "url": "https://github.com/michaelwillis/dragonfly-reverb/releases/download/3.2.7/dragonfly-reverb-linux-arm64-3.2.7.zip",
-                "sha256": "81b371bb68d2fff00958df9ff8c1ef3e5f1721a0f1a167a5768a31aa2bafe833",
-                "artifact": "DragonflyRoomReverb.clap"
-              },
-              "win": {
-                "url": "https://github.com/michaelwillis/dragonfly-reverb/releases/download/3.2.7/dragonfly-reverb-win32-3.2.7.zip",
-                "sha256": "27cfd66fe026d0c98c1754560e4b44b78e8395ef45790c544e03f18f92747952",
-                "artifact": "DragonflyRoomReverb.clap"
-              }
-            },
-            "lv2": {
-              "linux": {
-                "url": "https://github.com/michaelwillis/dragonfly-reverb/releases/download/3.2.7/dragonfly-reverb-linux-arm64-3.2.7.zip",
-                "sha256": "81b371bb68d2fff00958df9ff8c1ef3e5f1721a0f1a167a5768a31aa2bafe833",
-                "artifact": "DragonflyRoomReverb.lv2"
-              },
-              "win": {
-                "url": "https://github.com/michaelwillis/dragonfly-reverb/releases/download/3.2.7/dragonfly-reverb-win32-3.2.7.zip",
-                "sha256": "27cfd66fe026d0c98c1754560e4b44b78e8395ef45790c544e03f18f92747952",
-                "artifact": "DragonflyRoomReverb.lv2"
-              }
-            },
-            "vst3": {
-              "linux": {
-                "url": "https://github.com/michaelwillis/dragonfly-reverb/releases/download/3.2.7/dragonfly-reverb-linux-arm64-3.2.7.zip",
-                "sha256": "81b371bb68d2fff00958df9ff8c1ef3e5f1721a0f1a167a5768a31aa2bafe833",
-                "artifact": "DragonflyRoomReverb.vst3"
-              },
-              "win": {
-                "url": "https://github.com/michaelwillis/dragonfly-reverb/releases/download/3.2.7/dragonfly-reverb-win32-3.2.7.zip",
-                "sha256": "27cfd66fe026d0c98c1754560e4b44b78e8395ef45790c544e03f18f92747952",
-                "artifact": "DragonflyRoomReverb.vst3"
-              }
-            }
-          }
-        },
-        "3.2.6": {
-          "date": "2022-03-31",
-          "source": "github",
-          "formats": {
-            "lv2": {
-              "linux": {
-                "url": "https://github.com/michaelwillis/dragonfly-reverb/releases/download/3.2.6/dragonfly-reverb-linux-arm64-v3.2.6.zip",
-                "sha256": "2852aa43ed4d63ad4d205465ddce862ca923299afa09d48e144313cdd0b79e33",
-                "artifact": "DragonflyRoomReverb.lv2"
-              },
-              "mac": {
-                "url": "https://github.com/michaelwillis/dragonfly-reverb/releases/download/3.2.6/dragonfly-reverb-macOS-universal-v3.2.6.zip",
-                "sha256": "321b80af5c66680644d00748ad6d09888a0b94cdde9ccb3fb774335773ed7d5f",
-                "artifact": "DragonflyRoomReverb.lv2"
-              },
-              "win": {
-                "url": "https://github.com/michaelwillis/dragonfly-reverb/releases/download/3.2.6/dragonfly-reverb-win32-v3.2.6.zip",
-                "sha256": "fc47d2a6d7d6ef1fe015d10521dea700429217a541ad65266f35b20e6cbf62f1",
-                "artifact": "DragonflyRoomReverb.lv2"
-              }
-            },
-            "vst3": {
-              "linux": {
-                "url": "https://github.com/michaelwillis/dragonfly-reverb/releases/download/3.2.6/dragonfly-reverb-linux-arm64-v3.2.6.zip",
-                "sha256": "2852aa43ed4d63ad4d205465ddce862ca923299afa09d48e144313cdd0b79e33",
-                "artifact": "DragonflyRoomReverb.vst3"
-              },
-              "mac": {
-                "url": "https://github.com/michaelwillis/dragonfly-reverb/releases/download/3.2.6/dragonfly-reverb-macOS-universal-v3.2.6.zip",
-                "sha256": "321b80af5c66680644d00748ad6d09888a0b94cdde9ccb3fb774335773ed7d5f",
-                "artifact": "DragonflyRoomReverb.vst3"
-              },
-              "win": {
-                "url": "https://github.com/michaelwillis/dragonfly-reverb/releases/download/3.2.6/dragonfly-reverb-win32-v3.2.6.zip",
-                "sha256": "fc47d2a6d7d6ef1fe015d10521dea700429217a541ad65266f35b20e6cbf62f1",
-                "artifact": "DragonflyRoomReverb.vst3"
-              }
-            }
-          }
-        },
-        "3.2.5": {
-          "date": "2021-03-05",
-          "source": "github",
-          "formats": {
-            "lv2": {
-              "linux": {
-                "url": "https://github.com/michaelwillis/dragonfly-reverb/releases/download/3.2.5/DragonflyReverb-Linux-64bit-v3.2.5.tgz",
-                "sha256": "c5bbfcf98f17cacbdcbc3346f2c9e25e0c0a0ab9967d27be70bf455c5862c239",
-                "artifact": "DragonflyRoomReverb.lv2"
-              },
-              "mac": {
-                "url": "https://github.com/michaelwillis/dragonfly-reverb/releases/download/3.2.5/DragonflyReverb-MacOS-64bit-v3.2.5.zip",
-                "sha256": "56175dc6330c30ac4a776e2adf1821a8a42bdf228aae5a120335197892686591",
-                "artifact": "DragonflyRoomReverb.lv2"
-              },
-              "win": {
-                "url": "https://github.com/michaelwillis/dragonfly-reverb/releases/download/3.2.5/DragonflyReverb-Windows-32bit-v3.2.5.zip",
-                "sha256": "e678ac452da98083f97ee9b5a14b097686bb5c680b9346c5e5781ace38f25d3b",
-                "artifact": "DragonflyRoomReverb.lv2"
-              }
-            }
-          }
-        }
-      },
-      "recommended": true
-    },
-    {
       "id": "drops",
       "name": "Drops",
       "author": "Clearly Broken",
@@ -1406,194 +1503,6 @@
               "mac": {
                 "url": "https://github.com/tiagolr/filtr/releases/download/v1.0.9/filtr-macos-v1.0.9.zip",
                 "sha256": "7e3531ceb801249e15d3a5885bef1d7b9b2f67ebdd382c5b382a77d30fc42dbd",
-                "artifact": "FILT-R.component"
-              }
-            }
-          }
-        },
-        "1.1.0": {
-          "date": "2025-11-06",
-          "source": "github",
-          "formats": {
-            "vst3": {
-              "linux": {
-                "url": "https://github.com/tiagolr/filtr/releases/download/v1.1.0/filtr-linux-v1.1.0.zip",
-                "sha256": "b6388c7869f7f9ea9ee33e055f2768ba734d4e3e4b35770222f314ce000ac57f",
-                "artifact": "FILT-R.vst3"
-              },
-              "mac": {
-                "url": "https://github.com/tiagolr/filtr/releases/download/v1.1.0/filtr-macos-v1.1.0.zip",
-                "sha256": "5c1d3995e870bd28b854f104a24dbea3e56754d16a0a37a553c865d0671ab21b",
-                "artifact": "FILT-R.vst3"
-              },
-              "win": {
-                "url": "https://github.com/tiagolr/filtr/releases/download/v1.1.0/filtr-win-v1.1.0.zip",
-                "sha256": "67981cf69f2ad5f95e49888db67f80bcb4eb8fa3f14da636222f1bde1b52a4f3",
-                "artifact": "FILT-R.vst3"
-              }
-            },
-            "lv2": {
-              "linux": {
-                "url": "https://github.com/tiagolr/filtr/releases/download/v1.1.0/filtr-linux-v1.1.0.zip",
-                "sha256": "b6388c7869f7f9ea9ee33e055f2768ba734d4e3e4b35770222f314ce000ac57f",
-                "artifact": "FILT-R.lv2"
-              },
-              "mac": {
-                "url": "https://github.com/tiagolr/filtr/releases/download/v1.1.0/filtr-macos-v1.1.0.zip",
-                "sha256": "5c1d3995e870bd28b854f104a24dbea3e56754d16a0a37a553c865d0671ab21b",
-                "artifact": "FILT-R.lv2"
-              },
-              "win": {
-                "url": "https://github.com/tiagolr/filtr/releases/download/v1.1.0/filtr-win-v1.1.0.zip",
-                "sha256": "67981cf69f2ad5f95e49888db67f80bcb4eb8fa3f14da636222f1bde1b52a4f3",
-                "artifact": "FILT-R.lv2"
-              }
-            },
-            "au": {
-              "mac": {
-                "url": "https://github.com/tiagolr/filtr/releases/download/v1.1.0/filtr-macos-v1.1.0.zip",
-                "sha256": "5c1d3995e870bd28b854f104a24dbea3e56754d16a0a37a553c865d0671ab21b",
-                "artifact": "FILT-R.component"
-              }
-            }
-          }
-        },
-        "1.0.8": {
-          "date": "2025-06-08",
-          "source": "github",
-          "formats": {
-            "vst3": {
-              "linux": {
-                "url": "https://github.com/tiagolr/filtr/releases/download/v1.0.8/filtr-linux-v1.0.8.zip",
-                "sha256": "db8e31783e9860a2e71bad84ed3ae31a32f78e0bce3effd3b2a8d5f7b8db5c52",
-                "artifact": "FILT-R.vst3"
-              },
-              "mac": {
-                "url": "https://github.com/tiagolr/filtr/releases/download/v1.0.8/filtr-macos-v1.0.8.zip",
-                "sha256": "2c1c9e019580b902f4fb3a91f90f363c4807abd9506537173563f6837b595efc",
-                "artifact": "FILT-R.vst3"
-              },
-              "win": {
-                "url": "https://github.com/tiagolr/filtr/releases/download/v1.0.8/filtr-win-v1.0.8.zip",
-                "sha256": "2cc3cba2f190912c1a1c1fde230f5d06c6b69e50a42de3a93889f5bed2e114c3",
-                "artifact": "FILT-R.vst3"
-              }
-            },
-            "lv2": {
-              "linux": {
-                "url": "https://github.com/tiagolr/filtr/releases/download/v1.0.8/filtr-linux-v1.0.8.zip",
-                "sha256": "db8e31783e9860a2e71bad84ed3ae31a32f78e0bce3effd3b2a8d5f7b8db5c52",
-                "artifact": "FILT-R.lv2"
-              },
-              "mac": {
-                "url": "https://github.com/tiagolr/filtr/releases/download/v1.0.8/filtr-macos-v1.0.8.zip",
-                "sha256": "2c1c9e019580b902f4fb3a91f90f363c4807abd9506537173563f6837b595efc",
-                "artifact": "FILT-R.lv2"
-              },
-              "win": {
-                "url": "https://github.com/tiagolr/filtr/releases/download/v1.0.8/filtr-win-v1.0.8.zip",
-                "sha256": "2cc3cba2f190912c1a1c1fde230f5d06c6b69e50a42de3a93889f5bed2e114c3",
-                "artifact": "FILT-R.lv2"
-              }
-            },
-            "au": {
-              "mac": {
-                "url": "https://github.com/tiagolr/filtr/releases/download/v1.0.8/filtr-macos-v1.0.8.zip",
-                "sha256": "2c1c9e019580b902f4fb3a91f90f363c4807abd9506537173563f6837b595efc",
-                "artifact": "FILT-R.component"
-              }
-            }
-          }
-        },
-        "1.0.7": {
-          "date": "2025-06-05",
-          "source": "github",
-          "formats": {
-            "vst3": {
-              "linux": {
-                "url": "https://github.com/tiagolr/filtr/releases/download/v1.0.7/filtr-linux-v1.0.7.zip",
-                "sha256": "466fa364da5a931b0f7437f96ff783d083a502009d535144a4b9b622922c3dda",
-                "artifact": "FILT-R.vst3"
-              },
-              "mac": {
-                "url": "https://github.com/tiagolr/filtr/releases/download/v1.0.7/filtr-macos-v1.0.7.zip",
-                "sha256": "2e7d183e34067dfb0b32eee37b8c4a9abfe2370d274708ee90287bdb81526e2d",
-                "artifact": "FILT-R.vst3"
-              },
-              "win": {
-                "url": "https://github.com/tiagolr/filtr/releases/download/v1.0.7/filtr-win-v1.0.7.zip",
-                "sha256": "5814700d52005c630c30e3edb7dfa19caf75cff1d62891e5e9c60c2ea2c791d2",
-                "artifact": "FILT-R.vst3"
-              }
-            },
-            "lv2": {
-              "linux": {
-                "url": "https://github.com/tiagolr/filtr/releases/download/v1.0.7/filtr-linux-v1.0.7.zip",
-                "sha256": "466fa364da5a931b0f7437f96ff783d083a502009d535144a4b9b622922c3dda",
-                "artifact": "FILT-R.lv2"
-              },
-              "mac": {
-                "url": "https://github.com/tiagolr/filtr/releases/download/v1.0.7/filtr-macos-v1.0.7.zip",
-                "sha256": "2e7d183e34067dfb0b32eee37b8c4a9abfe2370d274708ee90287bdb81526e2d",
-                "artifact": "FILT-R.lv2"
-              },
-              "win": {
-                "url": "https://github.com/tiagolr/filtr/releases/download/v1.0.7/filtr-win-v1.0.7.zip",
-                "sha256": "5814700d52005c630c30e3edb7dfa19caf75cff1d62891e5e9c60c2ea2c791d2",
-                "artifact": "FILT-R.lv2"
-              }
-            },
-            "au": {
-              "mac": {
-                "url": "https://github.com/tiagolr/filtr/releases/download/v1.0.7/filtr-macos-v1.0.7.zip",
-                "sha256": "2e7d183e34067dfb0b32eee37b8c4a9abfe2370d274708ee90287bdb81526e2d",
-                "artifact": "FILT-R.component"
-              }
-            }
-          }
-        },
-        "1.0.6": {
-          "date": "2025-06-05",
-          "source": "github",
-          "formats": {
-            "vst3": {
-              "linux": {
-                "url": "https://github.com/tiagolr/filtr/releases/download/v1.0.6/filtr-linux-v1.0.6.zip",
-                "sha256": "fe8f1329e4c20d271a701fd00fedae9f76c5efe6058a0fbf4709da528b0a5ca5",
-                "artifact": "FILT-R.vst3"
-              },
-              "mac": {
-                "url": "https://github.com/tiagolr/filtr/releases/download/v1.0.6/filtr-macos-v1.0.6.zip",
-                "sha256": "7723781c9414d4909dcf25f1ee0d9e96f94e1a2b37b53e3eb4d1d2c5607e04ec",
-                "artifact": "FILT-R.vst3"
-              },
-              "win": {
-                "url": "https://github.com/tiagolr/filtr/releases/download/v1.0.6/filtr-win-v1.0.6.zip",
-                "sha256": "80a7787f4ffd8f00dd20bec67e2d72d9667aeef9358feff3520a41e53448e253",
-                "artifact": "FILT-R.vst3"
-              }
-            },
-            "lv2": {
-              "linux": {
-                "url": "https://github.com/tiagolr/filtr/releases/download/v1.0.6/filtr-linux-v1.0.6.zip",
-                "sha256": "fe8f1329e4c20d271a701fd00fedae9f76c5efe6058a0fbf4709da528b0a5ca5",
-                "artifact": "FILT-R.lv2"
-              },
-              "mac": {
-                "url": "https://github.com/tiagolr/filtr/releases/download/v1.0.6/filtr-macos-v1.0.6.zip",
-                "sha256": "7723781c9414d4909dcf25f1ee0d9e96f94e1a2b37b53e3eb4d1d2c5607e04ec",
-                "artifact": "FILT-R.lv2"
-              },
-              "win": {
-                "url": "https://github.com/tiagolr/filtr/releases/download/v1.0.6/filtr-win-v1.0.6.zip",
-                "sha256": "80a7787f4ffd8f00dd20bec67e2d72d9667aeef9358feff3520a41e53448e253",
-                "artifact": "FILT-R.lv2"
-              }
-            },
-            "au": {
-              "mac": {
-                "url": "https://github.com/tiagolr/filtr/releases/download/v1.0.6/filtr-macos-v1.0.6.zip",
-                "sha256": "7723781c9414d4909dcf25f1ee0d9e96f94e1a2b37b53e3eb4d1d2c5607e04ec",
                 "artifact": "FILT-R.component"
               }
             }
@@ -1796,194 +1705,6 @@
               "mac": {
                 "url": "https://github.com/tiagolr/gate12/releases/download/v1.1.8/gate12-macos-v1.1.8.zip",
                 "sha256": "8a9187a9a1b837ca342c9bd7a42606651b6925096f6e9646b52de374d217e692",
-                "artifact": "GATE-12.component"
-              }
-            }
-          }
-        },
-        "1.3.2": {
-          "date": "2026-01-20",
-          "source": "github",
-          "formats": {
-            "vst3": {
-              "linux": {
-                "url": "https://github.com/tiagolr/gate12/releases/download/v1.3.2/gate12-linux-v1.3.2.zip",
-                "sha256": "580e4728ee9e4cfa32321c6f22783b7ddb570640a4dee398c704613a527656de",
-                "artifact": "GATE-12.vst3"
-              },
-              "mac": {
-                "url": "https://github.com/tiagolr/gate12/releases/download/v1.3.2/gate12-macos-v1.3.2.zip",
-                "sha256": "1edc8651811b2d6bf412b5d00d28de46559f2b3d170ffea182206bae95a00b1f",
-                "artifact": "GATE-12.vst3"
-              },
-              "win": {
-                "url": "https://github.com/tiagolr/gate12/releases/download/v1.3.2/gate12-win-v1.3.2.zip",
-                "sha256": "18135fe98d46ac359bf73d7d1929e9141a151663afd7f29479def5c44d85b78f",
-                "artifact": "GATE-12.vst3"
-              }
-            },
-            "lv2": {
-              "linux": {
-                "url": "https://github.com/tiagolr/gate12/releases/download/v1.3.2/gate12-linux-v1.3.2.zip",
-                "sha256": "580e4728ee9e4cfa32321c6f22783b7ddb570640a4dee398c704613a527656de",
-                "artifact": "GATE-12.lv2"
-              },
-              "mac": {
-                "url": "https://github.com/tiagolr/gate12/releases/download/v1.3.2/gate12-macos-v1.3.2.zip",
-                "sha256": "1edc8651811b2d6bf412b5d00d28de46559f2b3d170ffea182206bae95a00b1f",
-                "artifact": "GATE-12.lv2"
-              },
-              "win": {
-                "url": "https://github.com/tiagolr/gate12/releases/download/v1.3.2/gate12-win-v1.3.2.zip",
-                "sha256": "18135fe98d46ac359bf73d7d1929e9141a151663afd7f29479def5c44d85b78f",
-                "artifact": "GATE-12.lv2"
-              }
-            },
-            "au": {
-              "mac": {
-                "url": "https://github.com/tiagolr/gate12/releases/download/v1.3.2/gate12-macos-v1.3.2.zip",
-                "sha256": "1edc8651811b2d6bf412b5d00d28de46559f2b3d170ffea182206bae95a00b1f",
-                "artifact": "GATE-12.component"
-              }
-            }
-          }
-        },
-        "1.3.1": {
-          "date": "2026-01-20",
-          "source": "github",
-          "formats": {
-            "vst3": {
-              "linux": {
-                "url": "https://github.com/tiagolr/gate12/releases/download/v1.3.1/gate12-linux-v1.3.1.zip",
-                "sha256": "dc7d18405b87e526a20340c02194a73c2249164ae595fb59f0c80132d5151c48",
-                "artifact": "GATE-12.vst3"
-              },
-              "mac": {
-                "url": "https://github.com/tiagolr/gate12/releases/download/v1.3.1/gate12-macos-v1.3.1.zip",
-                "sha256": "488130fc924a0caea7fc1c5ed9a6d77f4dfbbba01f03d21d1a0ea4420f44d9a9",
-                "artifact": "GATE-12.vst3"
-              },
-              "win": {
-                "url": "https://github.com/tiagolr/gate12/releases/download/v1.3.1/gate12-win-v1.3.1.zip",
-                "sha256": "b5bd7c47c1ce4da61c67dcb9e8ce581c63124688010889a713219fc22a727fcb",
-                "artifact": "GATE-12.vst3"
-              }
-            },
-            "lv2": {
-              "linux": {
-                "url": "https://github.com/tiagolr/gate12/releases/download/v1.3.1/gate12-linux-v1.3.1.zip",
-                "sha256": "dc7d18405b87e526a20340c02194a73c2249164ae595fb59f0c80132d5151c48",
-                "artifact": "GATE-12.lv2"
-              },
-              "mac": {
-                "url": "https://github.com/tiagolr/gate12/releases/download/v1.3.1/gate12-macos-v1.3.1.zip",
-                "sha256": "488130fc924a0caea7fc1c5ed9a6d77f4dfbbba01f03d21d1a0ea4420f44d9a9",
-                "artifact": "GATE-12.lv2"
-              },
-              "win": {
-                "url": "https://github.com/tiagolr/gate12/releases/download/v1.3.1/gate12-win-v1.3.1.zip",
-                "sha256": "b5bd7c47c1ce4da61c67dcb9e8ce581c63124688010889a713219fc22a727fcb",
-                "artifact": "GATE-12.lv2"
-              }
-            },
-            "au": {
-              "mac": {
-                "url": "https://github.com/tiagolr/gate12/releases/download/v1.3.1/gate12-macos-v1.3.1.zip",
-                "sha256": "488130fc924a0caea7fc1c5ed9a6d77f4dfbbba01f03d21d1a0ea4420f44d9a9",
-                "artifact": "GATE-12.component"
-              }
-            }
-          }
-        },
-        "1.3.0": {
-          "date": "2026-01-19",
-          "source": "github",
-          "formats": {
-            "vst3": {
-              "linux": {
-                "url": "https://github.com/tiagolr/gate12/releases/download/v1.3.0/gate12-linux-v1.3.0.zip",
-                "sha256": "8c3ca82ede17d2f9391e7a35867f81139453f6f78840944a4febc59940e1d52a",
-                "artifact": "GATE-12.vst3"
-              },
-              "mac": {
-                "url": "https://github.com/tiagolr/gate12/releases/download/v1.3.0/gate12-macos-v1.3.0.zip",
-                "sha256": "c10e6413add517084be6831f67b58c7f562fc197743e080927978c5a33dc45c4",
-                "artifact": "GATE-12.vst3"
-              },
-              "win": {
-                "url": "https://github.com/tiagolr/gate12/releases/download/v1.3.0/gate12-win-v1.3.0.zip",
-                "sha256": "0f45dfa057526d253fbc7520a085cb3412f059a75f9992b3911d2b737a9a96cb",
-                "artifact": "GATE-12.vst3"
-              }
-            },
-            "lv2": {
-              "linux": {
-                "url": "https://github.com/tiagolr/gate12/releases/download/v1.3.0/gate12-linux-v1.3.0.zip",
-                "sha256": "8c3ca82ede17d2f9391e7a35867f81139453f6f78840944a4febc59940e1d52a",
-                "artifact": "GATE-12.lv2"
-              },
-              "mac": {
-                "url": "https://github.com/tiagolr/gate12/releases/download/v1.3.0/gate12-macos-v1.3.0.zip",
-                "sha256": "c10e6413add517084be6831f67b58c7f562fc197743e080927978c5a33dc45c4",
-                "artifact": "GATE-12.lv2"
-              },
-              "win": {
-                "url": "https://github.com/tiagolr/gate12/releases/download/v1.3.0/gate12-win-v1.3.0.zip",
-                "sha256": "0f45dfa057526d253fbc7520a085cb3412f059a75f9992b3911d2b737a9a96cb",
-                "artifact": "GATE-12.lv2"
-              }
-            },
-            "au": {
-              "mac": {
-                "url": "https://github.com/tiagolr/gate12/releases/download/v1.3.0/gate12-macos-v1.3.0.zip",
-                "sha256": "c10e6413add517084be6831f67b58c7f562fc197743e080927978c5a33dc45c4",
-                "artifact": "GATE-12.component"
-              }
-            }
-          }
-        },
-        "1.2.3": {
-          "date": "2025-12-13",
-          "source": "github",
-          "formats": {
-            "vst3": {
-              "linux": {
-                "url": "https://github.com/tiagolr/gate12/releases/download/v1.2.3/gate12-linux-v1.2.3.zip",
-                "sha256": "30eadd4b99ff7545bb270d69889e4bd989db385cc5202813ef26519e834c96ab",
-                "artifact": "GATE-12.vst3"
-              },
-              "mac": {
-                "url": "https://github.com/tiagolr/gate12/releases/download/v1.2.3/gate12-macos-v1.2.3.zip",
-                "sha256": "4a951b90be5c3f590a143af78a6e1ba7209a1a83b7fc975d66a006ff172df8e5",
-                "artifact": "GATE-12.vst3"
-              },
-              "win": {
-                "url": "https://github.com/tiagolr/gate12/releases/download/v1.2.3/gate12-win-v1.2.3.zip",
-                "sha256": "2ae3e690baee65014ff010b45f06ecc58759dd576e1ebf94429fb1affd0f4ec5",
-                "artifact": "GATE-12.vst3"
-              }
-            },
-            "lv2": {
-              "linux": {
-                "url": "https://github.com/tiagolr/gate12/releases/download/v1.2.3/gate12-linux-v1.2.3.zip",
-                "sha256": "30eadd4b99ff7545bb270d69889e4bd989db385cc5202813ef26519e834c96ab",
-                "artifact": "GATE-12.lv2"
-              },
-              "mac": {
-                "url": "https://github.com/tiagolr/gate12/releases/download/v1.2.3/gate12-macos-v1.2.3.zip",
-                "sha256": "4a951b90be5c3f590a143af78a6e1ba7209a1a83b7fc975d66a006ff172df8e5",
-                "artifact": "GATE-12.lv2"
-              },
-              "win": {
-                "url": "https://github.com/tiagolr/gate12/releases/download/v1.2.3/gate12-win-v1.2.3.zip",
-                "sha256": "2ae3e690baee65014ff010b45f06ecc58759dd576e1ebf94429fb1affd0f4ec5",
-                "artifact": "GATE-12.lv2"
-              }
-            },
-            "au": {
-              "mac": {
-                "url": "https://github.com/tiagolr/gate12/releases/download/v1.2.3/gate12-macos-v1.2.3.zip",
-                "sha256": "4a951b90be5c3f590a143af78a6e1ba7209a1a83b7fc975d66a006ff172df8e5",
                 "artifact": "GATE-12.component"
               }
             }
@@ -2846,48 +2567,6 @@
       }
     },
     {
-      "id": "ott",
-      "name": "OTT",
-      "author": "Xfer Records",
-      "description": "Multiband upward/downward compressor, popular in electronic music",
-      "version": "1.37",
-      "license": "freeware",
-      "category": "compressor",
-      "tags": [
-        "effect",
-        "compressor",
-        "multiband",
-        "dynamics"
-      ],
-      "homepage": "https://xferrecords.com/freeware",
-      "versions": {
-        "1.37": {
-          "formats": {
-            "vst3": {
-              "mac": {
-                "url": "https://xferrecords.com/product_downloads/24/freeware",
-                "sha256": "fe1d10b79445c44a32f365fcbf2a420a2133ae205c8d75f09ba703c7dd42ec54",
-                "artifact": "OTT.vst3"
-              },
-              "win": {
-                "url": "https://xferrecords.com/product_downloads/25/freeware",
-                "sha256": "d4e1d3f62a1db904d3ab5c776ddcbb39ac74469e5ca3ed723e3dcef89ebcefeb",
-                "artifact": "OTT.vst3"
-              }
-            },
-            "au": {
-              "mac": {
-                "url": "https://xferrecords.com/product_downloads/24/freeware",
-                "sha256": "fe1d10b79445c44a32f365fcbf2a420a2133ae205c8d75f09ba703c7dd42ec54",
-                "artifact": "OTT.component"
-              }
-            }
-          }
-        }
-      },
-      "recommended": true
-    },
-    {
       "id": "peakeater",
       "name": "PeakEater",
       "author": "vvvar",
@@ -3412,126 +3091,6 @@
               }
             }
           }
-        },
-        "1.0.5": {
-          "date": "2025-02-04",
-          "source": "github",
-          "formats": {
-            "clap": {
-              "linux": {
-                "url": "https://github.com/baconpaul/six-sines/releases/download/v1.0.5/six-sines-linux-2025-02-04-6ae6bbf.tgz",
-                "sha256": "659d94393d974cece1a67a60d665f3c50928620723962d6057893354ef31dd75",
-                "artifact": "Six Sines.clap"
-              },
-              "win": {
-                "url": "https://github.com/baconpaul/six-sines/releases/download/v1.0.5/six-sines-windows-2025-02-04-6ae6bbf.zip",
-                "sha256": "114b20beb26028252f8af4af3a42a26f1275374ccaee3411ee7f4f8ae5f03785",
-                "artifact": "Six Sines.clap"
-              }
-            },
-            "vst3": {
-              "linux": {
-                "url": "https://github.com/baconpaul/six-sines/releases/download/v1.0.5/six-sines-linux-2025-02-04-6ae6bbf.tgz",
-                "sha256": "659d94393d974cece1a67a60d665f3c50928620723962d6057893354ef31dd75",
-                "artifact": "Six Sines.vst3"
-              },
-              "win": {
-                "url": "https://github.com/baconpaul/six-sines/releases/download/v1.0.5/six-sines-windows-2025-02-04-6ae6bbf.zip",
-                "sha256": "114b20beb26028252f8af4af3a42a26f1275374ccaee3411ee7f4f8ae5f03785",
-                "artifact": "Six Sines.vst3"
-              }
-            }
-          }
-        },
-        "1.0.4": {
-          "date": "2025-01-27",
-          "source": "github",
-          "formats": {
-            "clap": {
-              "linux": {
-                "url": "https://github.com/baconpaul/six-sines/releases/download/v1.0.4/six-sines-linux-2025-01-27-a9b5a0f.tgz",
-                "sha256": "0756aa1358202eef7108450f8188b22bb661e83a9e6ee228f82643da5adea7b2",
-                "artifact": "Six Sines.clap"
-              },
-              "win": {
-                "url": "https://github.com/baconpaul/six-sines/releases/download/v1.0.4/six-sines-windows-2025-01-27-a9b5a0f.zip",
-                "sha256": "9c4a04866a827839acaa0cbb1b50876aa42b3a9c40c95c0e17b9646cca64bd1f",
-                "artifact": "Six Sines.clap"
-              }
-            },
-            "vst3": {
-              "linux": {
-                "url": "https://github.com/baconpaul/six-sines/releases/download/v1.0.4/six-sines-linux-2025-01-27-a9b5a0f.tgz",
-                "sha256": "0756aa1358202eef7108450f8188b22bb661e83a9e6ee228f82643da5adea7b2",
-                "artifact": "Six Sines.vst3"
-              },
-              "win": {
-                "url": "https://github.com/baconpaul/six-sines/releases/download/v1.0.4/six-sines-windows-2025-01-27-a9b5a0f.zip",
-                "sha256": "9c4a04866a827839acaa0cbb1b50876aa42b3a9c40c95c0e17b9646cca64bd1f",
-                "artifact": "Six Sines.vst3"
-              }
-            }
-          }
-        },
-        "1.0.3": {
-          "date": "2025-01-25",
-          "source": "github",
-          "formats": {
-            "clap": {
-              "linux": {
-                "url": "https://github.com/baconpaul/six-sines/releases/download/v1.0.3/six-sines-linux-2025-01-25-c6dbb43.tgz",
-                "sha256": "cd348e1e6fbb844b9b9d7010aca1d9a37112fdffb1221268bcb282f0a310c681",
-                "artifact": "Six Sines.clap"
-              },
-              "win": {
-                "url": "https://github.com/baconpaul/six-sines/releases/download/v1.0.3/six-sines-windows-2025-01-25-c6dbb43.zip",
-                "sha256": "26745ac04aa51741b0b74fbd73ff8743d6e93531ec6d1a6670a12be5ca1a8573",
-                "artifact": "Six Sines.clap"
-              }
-            },
-            "vst3": {
-              "linux": {
-                "url": "https://github.com/baconpaul/six-sines/releases/download/v1.0.3/six-sines-linux-2025-01-25-c6dbb43.tgz",
-                "sha256": "cd348e1e6fbb844b9b9d7010aca1d9a37112fdffb1221268bcb282f0a310c681",
-                "artifact": "Six Sines.vst3"
-              },
-              "win": {
-                "url": "https://github.com/baconpaul/six-sines/releases/download/v1.0.3/six-sines-windows-2025-01-25-c6dbb43.zip",
-                "sha256": "26745ac04aa51741b0b74fbd73ff8743d6e93531ec6d1a6670a12be5ca1a8573",
-                "artifact": "Six Sines.vst3"
-              }
-            }
-          }
-        },
-        "1.0.2": {
-          "date": "2025-01-23",
-          "source": "github",
-          "formats": {
-            "clap": {
-              "linux": {
-                "url": "https://github.com/baconpaul/six-sines/releases/download/v1.0.2/six-sines-linux-2025-01-23-c087dd7.tgz",
-                "sha256": "fc7eb860be1205d486b79051bba87909379651d013c8d27d77a335051c4b1b8c",
-                "artifact": "Six Sines.clap"
-              },
-              "win": {
-                "url": "https://github.com/baconpaul/six-sines/releases/download/v1.0.2/six-sines-windows-2025-01-23-c087dd7.zip",
-                "sha256": "3a637c89013e50204d26a10b7ef879faba6d7623068d1fc35cf7f236648f6dc9",
-                "artifact": "Six Sines.clap"
-              }
-            },
-            "vst3": {
-              "linux": {
-                "url": "https://github.com/baconpaul/six-sines/releases/download/v1.0.2/six-sines-linux-2025-01-23-c087dd7.tgz",
-                "sha256": "fc7eb860be1205d486b79051bba87909379651d013c8d27d77a335051c4b1b8c",
-                "artifact": "Six Sines.vst3"
-              },
-              "win": {
-                "url": "https://github.com/baconpaul/six-sines/releases/download/v1.0.2/six-sines-windows-2025-01-23-c087dd7.zip",
-                "sha256": "3a637c89013e50204d26a10b7ef879faba6d7623068d1fc35cf7f236648f6dc9",
-                "artifact": "Six Sines.vst3"
-              }
-            }
-          }
         }
       }
     },
@@ -3570,183 +3129,6 @@
           }
         }
       }
-    },
-    {
-      "id": "smartelectronix",
-      "name": "Smartelectronix",
-      "author": "Bram de Jong",
-      "description": "Vintage open-source plugin collection: Bouncy, CrazyIvan, Cyanide2, H2O, MadShifta, Smexoscope, SupaPhaser, SupaTrigga and more",
-      "version": "1.0.0",
-      "license": "gpl-3.0",
-      "category": "effect",
-      "tags": [
-        "effect",
-        "collection",
-        "open-source",
-        "vintage",
-        "delay",
-        "compressor",
-        "phaser",
-        "oscilloscope"
-      ],
-      "homepage": "https://github.com/bdejong/smartelectronix",
-      "versions": {
-        "1.0.0": {
-          "formats": {
-            "vst3": {
-              "mac": {
-                "url": "https://github.com/bdejong/smartelectronix/releases/download/latest/smartelectronix-macOS.zip",
-                "sha256": "ba20f7c1a59d1909579c7ab1bc96123fd55d75b48a10afc9a1fc2d163d585727",
-                "artifact": [
-                  "Anechoic Room Simulator.vst3",
-                  "Bitmurderer.vst3",
-                  "Bouncy.vst3",
-                  "Crazy Ivan.vst3",
-                  "Cyanide2.vst3",
-                  "H2O.vst3",
-                  "MadShifta.vst3",
-                  "One Ping Only.vst3",
-                  "Smexoscope.vst3",
-                  "SupaPhaser.vst3",
-                  "SupaTrigga.vst3"
-                ]
-              },
-              "win": {
-                "url": "https://github.com/bdejong/smartelectronix/releases/download/latest/smartelectronix-Windows.zip",
-                "sha256": "b7c4cbeec9a63a6ad15649b1f71118aa19327d3d67d34550198068205e2d262f",
-                "artifact": [
-                  "Anechoic Room Simulator.vst3",
-                  "Bitmurderer.vst3",
-                  "Bouncy.vst3",
-                  "Crazy Ivan.vst3",
-                  "Cyanide2.vst3",
-                  "H2O.vst3",
-                  "MadShifta.vst3",
-                  "One Ping Only.vst3",
-                  "Smexoscope.vst3",
-                  "SupaPhaser.vst3",
-                  "SupaTrigga.vst3"
-                ]
-              },
-              "linux": {
-                "url": "https://github.com/bdejong/smartelectronix/releases/download/latest/smartelectronix-Linux.zip",
-                "sha256": "794c214ab137c68d918b55a1f1a7d6f97757550507a9373f34c997b033889777",
-                "artifact": [
-                  "Anechoic Room Simulator.vst3",
-                  "Bitmurderer.vst3",
-                  "Bouncy.vst3",
-                  "Crazy Ivan.vst3",
-                  "Cyanide2.vst3",
-                  "H2O.vst3",
-                  "MadShifta.vst3",
-                  "One Ping Only.vst3",
-                  "Smexoscope.vst3",
-                  "SupaPhaser.vst3",
-                  "SupaTrigga.vst3"
-                ]
-              }
-            },
-            "lv2": {
-              "mac": {
-                "url": "https://github.com/bdejong/smartelectronix/releases/download/latest/smartelectronix-macOS.zip",
-                "sha256": "ba20f7c1a59d1909579c7ab1bc96123fd55d75b48a10afc9a1fc2d163d585727",
-                "artifact": [
-                  "Anechoic Room Simulator.lv2",
-                  "Bitmurderer.lv2",
-                  "Bouncy.lv2",
-                  "Crazy Ivan.lv2",
-                  "Cyanide2.lv2",
-                  "H2O.lv2",
-                  "MadShifta.lv2",
-                  "One Ping Only.lv2",
-                  "Smexoscope.lv2",
-                  "SupaPhaser.lv2",
-                  "SupaTrigga.lv2"
-                ]
-              },
-              "linux": {
-                "url": "https://github.com/bdejong/smartelectronix/releases/download/latest/smartelectronix-Linux.zip",
-                "sha256": "794c214ab137c68d918b55a1f1a7d6f97757550507a9373f34c997b033889777",
-                "artifact": [
-                  "Anechoic Room Simulator.lv2",
-                  "Bitmurderer.lv2",
-                  "Bouncy.lv2",
-                  "Crazy Ivan.lv2",
-                  "Cyanide2.lv2",
-                  "H2O.lv2",
-                  "MadShifta.lv2",
-                  "One Ping Only.lv2",
-                  "Smexoscope.lv2",
-                  "SupaPhaser.lv2",
-                  "SupaTrigga.lv2"
-                ]
-              }
-            },
-            "au": {
-              "mac": {
-                "url": "https://github.com/bdejong/smartelectronix/releases/download/latest/smartelectronix-macOS.zip",
-                "sha256": "ba20f7c1a59d1909579c7ab1bc96123fd55d75b48a10afc9a1fc2d163d585727",
-                "artifact": [
-                  "Anechoic Room Simulator.component",
-                  "Bitmurderer.component",
-                  "Bouncy.component",
-                  "Crazy Ivan.component",
-                  "Cyanide2.component",
-                  "H2O.component",
-                  "MadShifta.component",
-                  "One Ping Only.component",
-                  "Smexoscope.component",
-                  "SupaPhaser.component",
-                  "SupaTrigga.component"
-                ]
-              }
-            }
-          }
-        },
-        "2026.02.13": {
-          "date": "2026-02-13",
-          "source": "github",
-          "formats": {
-            "vst3": {
-              "linux": {
-                "url": "https://github.com/bdejong/smartelectronix/releases/download/latest/smartelectronix-Linux.zip",
-                "sha256": "794c214ab137c68d918b55a1f1a7d6f97757550507a9373f34c997b033889777",
-                "artifact": "SupaTrigga.vst3"
-              },
-              "mac": {
-                "url": "https://github.com/bdejong/smartelectronix/releases/download/latest/smartelectronix-macOS.zip",
-                "sha256": "ba20f7c1a59d1909579c7ab1bc96123fd55d75b48a10afc9a1fc2d163d585727",
-                "artifact": "SupaTrigga.vst3"
-              },
-              "win": {
-                "url": "https://github.com/bdejong/smartelectronix/releases/download/latest/smartelectronix-Windows.zip",
-                "sha256": "b7c4cbeec9a63a6ad15649b1f71118aa19327d3d67d34550198068205e2d262f",
-                "artifact": "SupaTrigga.vst3"
-              }
-            },
-            "lv2": {
-              "linux": {
-                "url": "https://github.com/bdejong/smartelectronix/releases/download/latest/smartelectronix-Linux.zip",
-                "sha256": "794c214ab137c68d918b55a1f1a7d6f97757550507a9373f34c997b033889777",
-                "artifact": "SupaTrigga.lv2"
-              },
-              "mac": {
-                "url": "https://github.com/bdejong/smartelectronix/releases/download/latest/smartelectronix-macOS.zip",
-                "sha256": "ba20f7c1a59d1909579c7ab1bc96123fd55d75b48a10afc9a1fc2d163d585727",
-                "artifact": "SupaTrigga.lv2"
-              }
-            },
-            "au": {
-              "mac": {
-                "url": "https://github.com/bdejong/smartelectronix/releases/download/latest/smartelectronix-macOS.zip",
-                "sha256": "ba20f7c1a59d1909579c7ab1bc96123fd55d75b48a10afc9a1fc2d163d585727",
-                "artifact": "SupaTrigga.component"
-              }
-            }
-          }
-        }
-      },
-      "recommended": true
     },
     {
       "id": "spectralshift",
@@ -3908,351 +3290,6 @@
           }
         }
       }
-    },
-    {
-      "id": "surge-xt",
-      "name": "Surge XT",
-      "author": "Surge Synth Team",
-      "description": "Hybrid synthesizer featuring many synthesis techniques, a great selection of filters, a flexible modulation engine, a smorgasbord of effects, and modern features like MPE and microtuning.",
-      "version": "1.3.4",
-      "license": "gpl-3.0",
-      "category": "synthesizer",
-      "tags": [
-        "instrument",
-        "synth",
-        "modulation"
-      ],
-      "homepage": "https://github.com/surge-synthesizer/surge",
-      "versions": {
-        "1.3.4": {
-          "date": "2024-08-11",
-          "formats": {
-            "vst3": {
-              "mac": {
-                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.4/surge-xt-macos-1.3.4-pluginsonly.zip",
-                "sha256": "37d8d809693adc86587b7bc75a2384fc4e905f259aa9b9a21777749d36fbf8aa",
-                "artifact": [
-                  "Surge XT Effects.vst3",
-                  "Surge XT.vst3"
-                ]
-              },
-              "win": {
-                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.4/surge-xt-win64-1.3.4-pluginsonly.zip",
-                "sha256": "564e162c560af07ad4ed47fe1bfcd827cf97a575de30d06c48249aad2e7c35e6",
-                "artifact": [
-                  "Surge XT Effects.vst3",
-                  "Surge XT.vst3"
-                ]
-              },
-              "linux": {
-                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.4/surge-xt-linux-1.3.4-pluginsonly.tar.gz",
-                "sha256": "dd431b75f5fa197c4bffa6ca27ca46970f0a94c834119bb1db7decdeec4c28db",
-                "artifact": "Surge XT.vst3"
-              }
-            },
-            "clap": {
-              "mac": {
-                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.4/surge-xt-macos-1.3.4-pluginsonly.zip",
-                "sha256": "37d8d809693adc86587b7bc75a2384fc4e905f259aa9b9a21777749d36fbf8aa",
-                "artifact": [
-                  "Surge XT Effects.clap",
-                  "Surge XT.clap"
-                ]
-              },
-              "win": {
-                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.4/surge-xt-win64-1.3.4-pluginsonly.zip",
-                "sha256": "564e162c560af07ad4ed47fe1bfcd827cf97a575de30d06c48249aad2e7c35e6",
-                "artifact": [
-                  "Surge XT Effects.clap",
-                  "Surge XT.clap"
-                ]
-              },
-              "linux": {
-                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.4/surge-xt-linux-1.3.4-pluginsonly.tar.gz",
-                "sha256": "dd431b75f5fa197c4bffa6ca27ca46970f0a94c834119bb1db7decdeec4c28db",
-                "artifact": "Surge XT.clap"
-              }
-            },
-            "au": {
-              "mac": {
-                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.4/surge-xt-macos-1.3.4-pluginsonly.zip",
-                "sha256": "37d8d809693adc86587b7bc75a2384fc4e905f259aa9b9a21777749d36fbf8aa",
-                "artifact": [
-                  "Surge XT Effects.component",
-                  "Surge XT.component"
-                ]
-              }
-            },
-            "lv2": {
-              "linux": {
-                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.4/surge-xt-linux-1.3.4-pluginsonly.tar.gz",
-                "sha256": "dd431b75f5fa197c4bffa6ca27ca46970f0a94c834119bb1db7decdeec4c28db",
-                "artifact": "Surge XT.lv2"
-              }
-            }
-          }
-        },
-        "1.3.1": {
-          "date": "2024-03-02",
-          "formats": {
-            "vst3": {
-              "mac": {
-                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.1/surge-xt-macOS-1.3.1.dmg",
-                "sha256": "e30b218700d4067edb3a0eadb4128784e41f91f663cff19e3fbb38460883cf59",
-                "artifact": [
-                  "Surge XT.vst3",
-                  "Surge XT Effects.vst3"
-                ]
-              },
-              "linux": {
-                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.1/surge-xt-linux-1.3.1-pluginsonly.tar.gz",
-                "sha256": "7b496b677da8fa6abf609e8a3d14d73ad1758cfeff42f1d41037e1e12ecb4be7",
-                "artifact": "Surge XT.vst3"
-              },
-              "win": {
-                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.1/surge-xt-win32-1.3.1-pluginsonly.zip",
-                "sha256": "c4e33ba8ab6ebb8ded56591f899a1e40b7760d82fd93bdf824a08ae630df635d",
-                "artifact": "Surge XT Effects (32-bit).vst3"
-              }
-            },
-            "clap": {
-              "mac": {
-                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.1/surge-xt-macOS-1.3.1.dmg",
-                "sha256": "e30b218700d4067edb3a0eadb4128784e41f91f663cff19e3fbb38460883cf59",
-                "artifact": [
-                  "Surge XT Effects.clap",
-                  "Surge XT.clap"
-                ]
-              },
-              "linux": {
-                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.1/surge-xt-linux-1.3.1-pluginsonly.tar.gz",
-                "sha256": "7b496b677da8fa6abf609e8a3d14d73ad1758cfeff42f1d41037e1e12ecb4be7",
-                "artifact": "Surge XT.clap"
-              },
-              "win": {
-                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.1/surge-xt-win32-1.3.1-pluginsonly.zip",
-                "sha256": "c4e33ba8ab6ebb8ded56591f899a1e40b7760d82fd93bdf824a08ae630df635d",
-                "artifact": "Surge XT Effects (32-bit).clap"
-              }
-            },
-            "au": {
-              "mac": {
-                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.1/surge-xt-macOS-1.3.1.dmg",
-                "sha256": "e30b218700d4067edb3a0eadb4128784e41f91f663cff19e3fbb38460883cf59",
-                "artifact": [
-                  "Surge XT Effects.component",
-                  "Surge XT.component"
-                ]
-              }
-            },
-            "lv2": {
-              "linux": {
-                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.1/surge-xt-linux-1.3.1-pluginsonly.tar.gz",
-                "sha256": "7b496b677da8fa6abf609e8a3d14d73ad1758cfeff42f1d41037e1e12ecb4be7",
-                "artifact": "Surge XT.lv2"
-              }
-            }
-          }
-        },
-        "1.3.3": {
-          "date": "2024-08-09",
-          "source": "github",
-          "formats": {
-            "clap": {
-              "linux": {
-                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.3/surge-xt-linux-1.3.3-pluginsonly.tar.gz",
-                "sha256": "0d4f89339ab59e1947e8d381f8fec6356e37fa0dad1cca50373443ea77fa4e72",
-                "artifact": "Surge XT.clap"
-              },
-              "mac": {
-                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.3/surge-xt-macos-1.3.3-pluginsonly.zip",
-                "sha256": "099622ce48d9f6b2110a88bad86b74d42cd66493b5d64833b9d96fbe601e70af",
-                "artifact": "Surge XT.clap"
-              },
-              "win": {
-                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.3/surge-xt-win32-1.3.3-pluginsonly.zip",
-                "sha256": "d3cd1b0e6529e7f976909fca3255f5c3832c93569e3f87883217ed1c3f1d2c1c",
-                "artifact": "Surge XT Effects (32-bit).clap"
-              }
-            },
-            "lv2": {
-              "linux": {
-                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.3/surge-xt-linux-1.3.3-pluginsonly.tar.gz",
-                "sha256": "0d4f89339ab59e1947e8d381f8fec6356e37fa0dad1cca50373443ea77fa4e72",
-                "artifact": "Surge XT.lv2"
-              }
-            },
-            "vst3": {
-              "linux": {
-                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.3/surge-xt-linux-1.3.3-pluginsonly.tar.gz",
-                "sha256": "0d4f89339ab59e1947e8d381f8fec6356e37fa0dad1cca50373443ea77fa4e72",
-                "artifact": "Surge XT.vst3"
-              },
-              "mac": {
-                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.3/surge-xt-macos-1.3.3-pluginsonly.zip",
-                "sha256": "099622ce48d9f6b2110a88bad86b74d42cd66493b5d64833b9d96fbe601e70af",
-                "artifact": "Surge XT.vst3"
-              },
-              "win": {
-                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.3/surge-xt-win32-1.3.3-pluginsonly.zip",
-                "sha256": "d3cd1b0e6529e7f976909fca3255f5c3832c93569e3f87883217ed1c3f1d2c1c",
-                "artifact": "Surge XT Effects (32-bit).vst3"
-              }
-            },
-            "au": {
-              "mac": {
-                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.3/surge-xt-macos-1.3.3-pluginsonly.zip",
-                "sha256": "099622ce48d9f6b2110a88bad86b74d42cd66493b5d64833b9d96fbe601e70af",
-                "artifact": "Surge XT.component"
-              }
-            }
-          }
-        },
-        "1.3.2": {
-          "date": "2024-05-08",
-          "source": "github",
-          "formats": {
-            "clap": {
-              "linux": {
-                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.2/surge-xt-linux-1.3.2-pluginsonly.tar.gz",
-                "sha256": "c91ccd1fe9ddc40499a599716a6e384a50e72b643d393178fb23f75cd8b6d4b1",
-                "artifact": "Surge XT.clap"
-              },
-              "mac": {
-                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.2/surge-xt-macos-1.3.2-pluginsonly.zip",
-                "sha256": "64ce924b1c3414f31393599f9e2752dcdff9f8a239058a1adedf73493979a00e",
-                "artifact": "Surge XT.clap"
-              },
-              "win": {
-                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.2/surge-xt-win32-1.3.2-pluginsonly.zip",
-                "sha256": "6fa72f77f5afb228ede385bb18664d842612265d062a2ea743ac9c7cf8f5190c",
-                "artifact": "Surge XT Effects (32-bit).clap"
-              }
-            },
-            "lv2": {
-              "linux": {
-                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.2/surge-xt-linux-1.3.2-pluginsonly.tar.gz",
-                "sha256": "c91ccd1fe9ddc40499a599716a6e384a50e72b643d393178fb23f75cd8b6d4b1",
-                "artifact": "Surge XT.lv2"
-              }
-            },
-            "vst3": {
-              "linux": {
-                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.2/surge-xt-linux-1.3.2-pluginsonly.tar.gz",
-                "sha256": "c91ccd1fe9ddc40499a599716a6e384a50e72b643d393178fb23f75cd8b6d4b1",
-                "artifact": "Surge XT.vst3"
-              },
-              "mac": {
-                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.2/surge-xt-macos-1.3.2-pluginsonly.zip",
-                "sha256": "64ce924b1c3414f31393599f9e2752dcdff9f8a239058a1adedf73493979a00e",
-                "artifact": "Surge XT.vst3"
-              },
-              "win": {
-                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.2/surge-xt-win32-1.3.2-pluginsonly.zip",
-                "sha256": "6fa72f77f5afb228ede385bb18664d842612265d062a2ea743ac9c7cf8f5190c",
-                "artifact": "Surge XT Effects (32-bit).vst3"
-              }
-            },
-            "au": {
-              "mac": {
-                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.2/surge-xt-macos-1.3.2-pluginsonly.zip",
-                "sha256": "64ce924b1c3414f31393599f9e2752dcdff9f8a239058a1adedf73493979a00e",
-                "artifact": "Surge XT.component"
-              }
-            }
-          }
-        },
-        "1.3.0": {
-          "date": "2023-12-08",
-          "source": "github",
-          "formats": {
-            "clap": {
-              "linux": {
-                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.0/surge-xt-linux-1.3.0-pluginsonly.tar.gz",
-                "sha256": "c221350c26539ef66a529c671e51ea73e2830db99351e32f4d4be670d1a9ab94",
-                "artifact": "Surge XT.clap"
-              },
-              "mac": {
-                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.0/surge-xt-macos-1.3.0-pluginsonly.zip",
-                "sha256": "b98d193c47396c07b36201cfd01616e35a4c48529684450eab1d88d3a418e8bf",
-                "artifact": "Surge XT.clap"
-              },
-              "win": {
-                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.0/surge-xt-win32-1.3.0-pluginsonly.zip",
-                "sha256": "49209de1bff75e8d710d5b7c906d5360e9689319bf2b949bff9ce041044722b9",
-                "artifact": "Surge XT Effects (32-bit).clap"
-              }
-            },
-            "vst3": {
-              "linux": {
-                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.0/surge-xt-linux-1.3.0-pluginsonly.tar.gz",
-                "sha256": "c221350c26539ef66a529c671e51ea73e2830db99351e32f4d4be670d1a9ab94",
-                "artifact": "Surge XT.vst3"
-              },
-              "mac": {
-                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.0/surge-xt-macos-1.3.0-pluginsonly.zip",
-                "sha256": "b98d193c47396c07b36201cfd01616e35a4c48529684450eab1d88d3a418e8bf",
-                "artifact": "Surge XT.vst3"
-              },
-              "win": {
-                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.0/surge-xt-win32-1.3.0-pluginsonly.zip",
-                "sha256": "49209de1bff75e8d710d5b7c906d5360e9689319bf2b949bff9ce041044722b9",
-                "artifact": "Surge XT Effects (32-bit).vst3"
-              }
-            },
-            "au": {
-              "mac": {
-                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.0/surge-xt-macos-1.3.0-pluginsonly.zip",
-                "sha256": "b98d193c47396c07b36201cfd01616e35a4c48529684450eab1d88d3a418e8bf",
-                "artifact": "Surge XT.component"
-              }
-            }
-          }
-        }
-      },
-      "recommended": true
-    },
-    {
-      "id": "tdr-nova",
-      "name": "TDR Nova",
-      "author": "Tokyo Dawn Records",
-      "description": "Dynamic equalizer combining parametric EQ with wideband dynamics",
-      "version": "2.2.1",
-      "license": "freeware",
-      "category": "equalizer",
-      "tags": [
-        "effect",
-        "equalizer",
-        "dynamics",
-        "mastering"
-      ],
-      "homepage": "https://www.tokyodawn.net/tdr-nova/",
-      "versions": {
-        "2.2.1": {
-          "formats": {
-            "vst3": {
-              "mac": {
-                "url": "https://www.tokyodawn.net/labs/Nova/2.2.1/TDR%20Nova.zip",
-                "sha256": "3f52e024b3aa49c75ce55c2c0fc18363ef4caac0dca0df60277372f66de9297b",
-                "artifact": "TDR Nova.vst3"
-              },
-              "win": {
-                "url": "https://www.tokyodawn.net/labs/Nova/2.2.1/TDR%20Nova%20(no%20installer).zip",
-                "sha256": "0696471cae37c3c5ce5afeb99a484aa49352f54a7ea304169fa53d34c869e90e",
-                "artifact": "TDR Nova.vst3"
-              }
-            },
-            "au": {
-              "mac": {
-                "url": "https://www.tokyodawn.net/labs/Nova/2.2.1/TDR%20Nova.zip",
-                "sha256": "3f52e024b3aa49c75ce55c2c0fc18363ef4caac0dca0df60277372f66de9297b",
-                "artifact": "TDR Nova.component"
-              }
-            }
-          }
-        }
-      },
-      "recommended": true
     },
     {
       "id": "temper",
@@ -4469,147 +3506,6 @@
               }
             }
           }
-        },
-        "1.2.2": {
-          "date": "2025-11-16",
-          "source": "github",
-          "formats": {
-            "vst3": {
-              "linux": {
-                "url": "https://github.com/tiagolr/time12/releases/download/v1.2.2/time12-linux-v1.2.2.zip",
-                "sha256": "50b0683162221b445cc447afdb4bbe1a87354d7f2282e33d7c8943b78b913b3a",
-                "artifact": "TIME-12.vst3"
-              },
-              "mac": {
-                "url": "https://github.com/tiagolr/time12/releases/download/v1.2.2/time12-macos-v1.2.2.zip",
-                "sha256": "154270fb6d1a30ac65c5642849f1445ff8531572d82ae77feaf78d38ae244a0b",
-                "artifact": "TIME-12.vst3"
-              },
-              "win": {
-                "url": "https://github.com/tiagolr/time12/releases/download/v1.2.2/time12-win-v1.2.2.zip",
-                "sha256": "1c80421cda934a5a0c7f75af427d24358921e182b953ad92a120d19d095f0a4e",
-                "artifact": "TIME-12.vst3"
-              }
-            },
-            "lv2": {
-              "linux": {
-                "url": "https://github.com/tiagolr/time12/releases/download/v1.2.2/time12-linux-v1.2.2.zip",
-                "sha256": "50b0683162221b445cc447afdb4bbe1a87354d7f2282e33d7c8943b78b913b3a",
-                "artifact": "TIME-12.lv2"
-              },
-              "mac": {
-                "url": "https://github.com/tiagolr/time12/releases/download/v1.2.2/time12-macos-v1.2.2.zip",
-                "sha256": "154270fb6d1a30ac65c5642849f1445ff8531572d82ae77feaf78d38ae244a0b",
-                "artifact": "TIME-12.lv2"
-              },
-              "win": {
-                "url": "https://github.com/tiagolr/time12/releases/download/v1.2.2/time12-win-v1.2.2.zip",
-                "sha256": "1c80421cda934a5a0c7f75af427d24358921e182b953ad92a120d19d095f0a4e",
-                "artifact": "TIME-12.lv2"
-              }
-            },
-            "au": {
-              "mac": {
-                "url": "https://github.com/tiagolr/time12/releases/download/v1.2.2/time12-macos-v1.2.2.zip",
-                "sha256": "154270fb6d1a30ac65c5642849f1445ff8531572d82ae77feaf78d38ae244a0b",
-                "artifact": "TIME-12.component"
-              }
-            }
-          }
-        },
-        "1.2.1": {
-          "date": "2025-11-06",
-          "source": "github",
-          "formats": {
-            "vst3": {
-              "linux": {
-                "url": "https://github.com/tiagolr/time12/releases/download/v1.2.1/time12-linux-v1.2.1.zip",
-                "sha256": "87c454ad4f1f5637ad9b9811c09602c80a32d38ac16c36aedca7e5a86601a7e1",
-                "artifact": "TIME-12.vst3"
-              },
-              "mac": {
-                "url": "https://github.com/tiagolr/time12/releases/download/v1.2.1/time12-macos-v1.2.1.zip",
-                "sha256": "405cdc3745cbdb383e70592cc215b7e2cd73c60933ad42d2981fd339e301fedf",
-                "artifact": "TIME-12.vst3"
-              },
-              "win": {
-                "url": "https://github.com/tiagolr/time12/releases/download/v1.2.1/time12-win-v1.2.1.zip",
-                "sha256": "946220e02499551ca10ad6abbf4734acaf2c75936e9ba0c3e8250ef79dab9a51",
-                "artifact": "TIME-12.vst3"
-              }
-            },
-            "lv2": {
-              "linux": {
-                "url": "https://github.com/tiagolr/time12/releases/download/v1.2.1/time12-linux-v1.2.1.zip",
-                "sha256": "87c454ad4f1f5637ad9b9811c09602c80a32d38ac16c36aedca7e5a86601a7e1",
-                "artifact": "TIME-12.lv2"
-              },
-              "mac": {
-                "url": "https://github.com/tiagolr/time12/releases/download/v1.2.1/time12-macos-v1.2.1.zip",
-                "sha256": "405cdc3745cbdb383e70592cc215b7e2cd73c60933ad42d2981fd339e301fedf",
-                "artifact": "TIME-12.lv2"
-              },
-              "win": {
-                "url": "https://github.com/tiagolr/time12/releases/download/v1.2.1/time12-win-v1.2.1.zip",
-                "sha256": "946220e02499551ca10ad6abbf4734acaf2c75936e9ba0c3e8250ef79dab9a51",
-                "artifact": "TIME-12.lv2"
-              }
-            },
-            "au": {
-              "mac": {
-                "url": "https://github.com/tiagolr/time12/releases/download/v1.2.1/time12-macos-v1.2.1.zip",
-                "sha256": "405cdc3745cbdb383e70592cc215b7e2cd73c60933ad42d2981fd339e301fedf",
-                "artifact": "TIME-12.component"
-              }
-            }
-          }
-        },
-        "1.2.0": {
-          "date": "2025-11-06",
-          "source": "github",
-          "formats": {
-            "vst3": {
-              "linux": {
-                "url": "https://github.com/tiagolr/time12/releases/download/v1.2.0/time12-linux-v1.2.0.zip",
-                "sha256": "a82cd45ddff2e54bfd49126ec17bd464c9fd557f8e6411ae4d75ccee4be84e41",
-                "artifact": "TIME-12.vst3"
-              },
-              "mac": {
-                "url": "https://github.com/tiagolr/time12/releases/download/v1.2.0/time12-macos-v1.2.0.zip",
-                "sha256": "63fac9a9b96d5d006777193065873f8c496702aa05f1e60269ab140157ef3b3c",
-                "artifact": "TIME-12.vst3"
-              },
-              "win": {
-                "url": "https://github.com/tiagolr/time12/releases/download/v1.2.0/time12-win-v1.2.0.zip",
-                "sha256": "012097a6013c2f318639aeda31c62f2e90d1693e1d44d4b71251c337d0a72f63",
-                "artifact": "TIME-12.vst3"
-              }
-            },
-            "lv2": {
-              "linux": {
-                "url": "https://github.com/tiagolr/time12/releases/download/v1.2.0/time12-linux-v1.2.0.zip",
-                "sha256": "a82cd45ddff2e54bfd49126ec17bd464c9fd557f8e6411ae4d75ccee4be84e41",
-                "artifact": "TIME-12.lv2"
-              },
-              "mac": {
-                "url": "https://github.com/tiagolr/time12/releases/download/v1.2.0/time12-macos-v1.2.0.zip",
-                "sha256": "63fac9a9b96d5d006777193065873f8c496702aa05f1e60269ab140157ef3b3c",
-                "artifact": "TIME-12.lv2"
-              },
-              "win": {
-                "url": "https://github.com/tiagolr/time12/releases/download/v1.2.0/time12-win-v1.2.0.zip",
-                "sha256": "012097a6013c2f318639aeda31c62f2e90d1693e1d44d4b71251c337d0a72f63",
-                "artifact": "TIME-12.lv2"
-              }
-            },
-            "au": {
-              "mac": {
-                "url": "https://github.com/tiagolr/time12/releases/download/v1.2.0/time12-macos-v1.2.0.zip",
-                "sha256": "63fac9a9b96d5d006777193065873f8c496702aa05f1e60269ab140157ef3b3c",
-                "artifact": "TIME-12.component"
-              }
-            }
-          }
         }
       }
     },
@@ -4761,47 +3657,6 @@
           }
         }
       }
-    },
-    {
-      "id": "valhalla-supermassive",
-      "name": "Valhalla Supermassive",
-      "author": "Valhalla DSP",
-      "description": "Massive reverb and delay plugin with unique algorithms",
-      "version": "5.0.0",
-      "license": "freeware",
-      "category": "effect",
-      "tags": [
-        "effect",
-        "reverb",
-        "delay"
-      ],
-      "homepage": "https://valhalladsp.com/shop/reverb/valhalla-supermassive/",
-      "versions": {
-        "5.0.0": {
-          "formats": {
-            "vst3": {
-              "mac": {
-                "url": "https://valhallaproduction.s3.us-west-2.amazonaws.com/supermassive/ValhallaSupermassiveOSX_5_0_0.dmg",
-                "sha256": "eaac6d0a24ffed0a02afd1dd06124d12f94716d32a8ac376606aa2d701a70c3e",
-                "artifact": "ValhallaSupermassive.vst3"
-              },
-              "win": {
-                "url": "https://valhallaproduction.s3.us-west-2.amazonaws.com/supermassive/ValhallaSupermassiveWin_V5_0_0.zip",
-                "sha256": "67e0cedbed9e680b11dfb582618dd257e2dba8b8d10189d59811e4c10414911d",
-                "artifact": "ValhallaSupermassive.vst3"
-              }
-            },
-            "au": {
-              "mac": {
-                "url": "https://valhallaproduction.s3.us-west-2.amazonaws.com/supermassive/ValhallaSupermassiveOSX_5_0_0.dmg",
-                "sha256": "eaac6d0a24ffed0a02afd1dd06124d12f94716d32a8ac376606aa2d701a70c3e",
-                "artifact": "ValhallaSupermassive.component"
-              }
-            }
-          }
-        }
-      },
-      "recommended": true
     },
     {
       "id": "wolf-shaper",

@@ -10,6 +10,7 @@
     "import:github": "tsx registry/sources/github/import.ts",
     "import:manual": "tsx registry/sources/manual/import.ts",
     "build:registry": "tsx registry/build.ts",
+    "build:registry:fresh": "tsx registry/reset.ts && pnpm import:studiorack:mac && pnpm import:studiorack:linux && pnpm import:studiorack:win && pnpm import:manual && pnpm build:registry",
     "validate:registry": "tsx registry/validate.ts",
     "knip": "echo 'Run knip from repo root (pnpm knip)'",
     "lint": "eslint . --fix",

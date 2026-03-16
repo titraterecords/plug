@@ -97,13 +97,13 @@ Examples:
               }
 
               const destDir = paths[format][target];
-              const destPath = await extractAndInstall(
+              const destPaths = await extractAndInstall(
                 data,
                 formatEntry.artifact,
                 destDir,
               );
 
-              await markInstalled(plugin.id, plugin.version, format, destPath);
+              await markInstalled(plugin.id, plugin.version, format, destPaths);
               spinner.stop();
               success(
                 `${chalk.bold(plugin.name)} ${entry.version} -> ${plugin.version}`,

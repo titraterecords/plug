@@ -7,7 +7,7 @@ const PLATFORMS = ["mac", "win", "linux"] as const;
 const FormatEntrySchema = z.object({
   url: z.string().url(),
   sha256: z.string().min(64).max(64),
-  artifact: z.string(),
+  artifact: z.union([z.string(), z.array(z.string())]),
 });
 
 // Maps platform -> download entry, so one format can have different binaries per OS

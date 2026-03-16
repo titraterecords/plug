@@ -45,7 +45,8 @@
     "dexed",
     "tdr-nova",
     "dragonfly-reverb",
-    "valhalla-supermassive"
+    "valhalla-supermassive",
+    "smartelectronix"
   ],
   "exclude": []
 }
