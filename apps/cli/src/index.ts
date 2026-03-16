@@ -12,7 +12,17 @@ const VERSION = "0.1.3";
 
 // Show cached update notice (fast, no network)
 const cached = await loadVersionCache();
-if (cached && cached.latest !== VERSION) {
+function isNewer(latest: string, current: string): boolean {
+  const l = latest.split(".").map(Number);
+  const c = current.split(".").map(Number);
+  for (let i = 0; i < 3; i++) {
+    if ((l[i] ?? 0) > (c[i] ?? 0)) return true;
+    if ((l[i] ?? 0) < (c[i] ?? 0)) return false;
+  }
+  return false;
+}
+
+if (cached && isNewer(cached.latest, VERSION)) {
   const isStandalone = process.argv[1]?.includes(".plug/bin");
   const updateCmd = isStandalone
     ? "curl -fsSL plug.audio/install.sh | sh"

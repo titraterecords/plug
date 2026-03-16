@@ -64,9 +64,8 @@ main() {
   # If already installed via npm, update through npm instead
   if command -v npm >/dev/null 2>&1 && npm list -g @titrate/plug >/dev/null 2>&1; then
     echo "plug installed via npm, updating..."
-    npm update -g @titrate/plug
-    echo "Updated."
-    plug --version
+    npm update -g @titrate/plug --silent
+    echo "plug $(plug --version)"
     return
   fi
 
