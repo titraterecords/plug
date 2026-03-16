@@ -3,6 +3,89 @@
   "updated": "2026-03-16",
   "plugins": [
     {
+      "id": "8-bit-shaper",
+      "name": "8-Bit Shaper",
+      "author": "Xfer Records",
+      "description": "Bit-crushing and sample rate reduction for retro 8-bit sound design",
+      "version": "1.106",
+      "license": "freeware",
+      "category": "effect",
+      "tags": [
+        "effect",
+        "bitcrusher",
+        "lo-fi",
+        "distortion"
+      ],
+      "homepage": "https://xferrecords.com/freeware",
+      "versions": {
+        "1.106": {
+          "formats": {
+            "vst3": {
+              "mac": {
+                "url": "https://xferrecords.com/product_downloads/28/freeware",
+                "sha256": "6d1b71aa0a2eebfdf2cdefad4b9610b1d6e5e75670950bdd3277f7512cbd067e",
+                "artifact": "8-Bit Shaper.vst3"
+              },
+              "win": {
+                "url": "https://xferrecords.com/product_downloads/29/freeware",
+                "sha256": "4401ec9c4c53ffe8c661741422d581b3b8bfdebfc9d6e9b2b521ecadb779a66c",
+                "artifact": "8-Bit Shaper.vst3"
+              }
+            },
+            "au": {
+              "mac": {
+                "url": "https://xferrecords.com/product_downloads/28/freeware",
+                "sha256": "6d1b71aa0a2eebfdf2cdefad4b9610b1d6e5e75670950bdd3277f7512cbd067e",
+                "artifact": "8-Bit Shaper.component"
+              }
+            }
+          }
+        }
+      },
+      "recommended": true
+    },
+    {
+      "id": "delta-modulator",
+      "name": "Delta Modulator",
+      "author": "Xfer Records",
+      "description": "Analog-style delta modulation effect for creative sound design",
+      "version": "1.06",
+      "license": "freeware",
+      "category": "effect",
+      "tags": [
+        "effect",
+        "modulation",
+        "distortion"
+      ],
+      "homepage": "https://xferrecords.com/freeware",
+      "versions": {
+        "1.06": {
+          "formats": {
+            "vst3": {
+              "mac": {
+                "url": "https://xferrecords.com/product_downloads/26/freeware",
+                "sha256": "0608ebc52f7d3b0fa5e8d59717e17c081b0f8bce05dee78af251aac793deeadd",
+                "artifact": "Delta Modulator.vst3"
+              },
+              "win": {
+                "url": "https://xferrecords.com/product_downloads/27/freeware",
+                "sha256": "6873a8395ee6c24e7b245730fbe6fa9f20a62ff35aa24ce40521d820954f546e",
+                "artifact": "Delta Modulator.vst3"
+              }
+            },
+            "au": {
+              "mac": {
+                "url": "https://xferrecords.com/product_downloads/26/freeware",
+                "sha256": "0608ebc52f7d3b0fa5e8d59717e17c081b0f8bce05dee78af251aac793deeadd",
+                "artifact": "Delta Modulator.component"
+              }
+            }
+          }
+        }
+      },
+      "recommended": true
+    },
+    {
       "id": "dexed",
       "name": "Dexed",
       "author": "Digital Suburban",
@@ -67,6 +150,48 @@
       "recommended": true
     },
     {
+      "id": "dimension-expander",
+      "name": "Dimension Expander",
+      "author": "Xfer Records",
+      "description": "Stereo widening effect for adding depth and space to audio",
+      "version": "1.24",
+      "license": "freeware",
+      "category": "effect",
+      "tags": [
+        "effect",
+        "stereo",
+        "widener",
+        "spatial"
+      ],
+      "homepage": "https://xferrecords.com/freeware",
+      "versions": {
+        "1.24": {
+          "formats": {
+            "vst3": {
+              "mac": {
+                "url": "https://xferrecords.com/product_downloads/32/freeware",
+                "sha256": "4e95a9a088c79aeaf44205f5c9cce748441940135b111891cccddf2d5cf8e7e4",
+                "artifact": "Dimension Expander.vst3"
+              },
+              "win": {
+                "url": "https://xferrecords.com/product_downloads/33/freeware",
+                "sha256": "b1054ce9b5407559be13b19e40ae6f2b1da77184e36f1ff228c8aacbd6e4c38c",
+                "artifact": "Dimension Expander.vst3"
+              }
+            },
+            "au": {
+              "mac": {
+                "url": "https://xferrecords.com/product_downloads/32/freeware",
+                "sha256": "4e95a9a088c79aeaf44205f5c9cce748441940135b111891cccddf2d5cf8e7e4",
+                "artifact": "Dimension Expander.component"
+              }
+            }
+          }
+        }
+      },
+      "recommended": true
+    },
+    {
       "id": "djmfilter",
       "name": "DJMFilter",
       "author": "Xfer Records",
@@ -87,6 +212,11 @@
               "mac": {
                 "url": "https://xferrecords.com/product_downloads/68/freeware",
                 "sha256": "4cf33265146fe9d8e38f3c72456a6bed2700c530b48c3810280c66852b054a33",
+                "artifact": "DJMFilter.vst3"
+              },
+              "win": {
+                "url": "https://xferrecords.com/product_downloads/69/freeware",
+                "sha256": "4722c29ee76cdde635cc6568fab8f02493674fe93912b429a0b0bfdbe25860e0",
                 "artifact": "DJMFilter.vst3"
               }
             },
@@ -183,6 +313,11 @@
               "mac": {
                 "url": "https://xferrecords.com/product_downloads/24/freeware",
                 "sha256": "fe1d10b79445c44a32f365fcbf2a420a2133ae205c8d75f09ba703c7dd42ec54",
+                "artifact": "OTT.vst3"
+              },
+              "win": {
+                "url": "https://xferrecords.com/product_downloads/25/freeware",
+                "sha256": "d4e1d3f62a1db904d3ab5c776ddcbb39ac74469e5ca3ed723e3dcef89ebcefeb",
                 "artifact": "OTT.vst3"
               }
             },

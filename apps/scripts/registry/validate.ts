@@ -5,10 +5,10 @@
 //
 // Usage: pnpm validate:registry
 
-import { checkUrl } from "./validate/check-url.js";
-import { loadHomepageCache, type HomepageCache } from "./validate/load-homepage-cache.js";
-import { saveHomepageCache } from "./validate/save-homepage-cache.js";
-import { searchHomepage } from "./validate/search-homepage.js";
+import { checkUrl } from "./lib/validate/check-url.js";
+import { loadHomepageCache, type HomepageCache } from "./lib/validate/load-homepage-cache.js";
+import { saveHomepageCache } from "./lib/validate/save-homepage-cache.js";
+import { searchHomepage } from "./lib/validate/search-homepage.js";
 import { loadRegistry } from "./sources/studiorack/lib/load-registry.js";
 import { saveRegistry } from "./sources/studiorack/lib/save-registry.js";
 

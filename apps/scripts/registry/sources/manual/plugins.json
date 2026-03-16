@@ -8,7 +8,7 @@
     "license": "freeware",
     "category": "effect",
     "tags": ["effect", "reverb", "delay"],
-    "homepage": "https://valhalladsp.com/shop/supermassive/",
+    "homepage": "https://valhalladsp.com/shop/reverb/valhalla-supermassive/",
     "downloads": {
       "mac": {
         "url": "https://valhallaproduction.s3.us-west-2.amazonaws.com/supermassive/ValhallaSupermassiveOSX_5_0_0.dmg",
@@ -17,6 +17,111 @@
       "win": {
         "url": "https://valhallaproduction.s3.us-west-2.amazonaws.com/supermassive/ValhallaSupermassiveWin_V5_0_0.zip",
         "artifacts": ["ValhallaSupermassive.vst3"]
+      }
+    }
+  },
+  {
+    "id": "ott",
+    "name": "OTT",
+    "author": "Xfer Records",
+    "description": "Multiband upward/downward compressor, popular in electronic music",
+    "version": "1.37",
+    "license": "freeware",
+    "category": "compressor",
+    "tags": ["effect", "compressor", "multiband", "dynamics"],
+    "homepage": "https://xferrecords.com/freeware",
+    "downloads": {
+      "mac": {
+        "url": "https://xferrecords.com/product_downloads/24/freeware",
+        "artifacts": ["OTT.vst3", "OTT.component"]
+      },
+      "win": {
+        "url": "https://xferrecords.com/product_downloads/25/freeware",
+        "artifacts": ["OTT.vst3"]
+      }
+    }
+  },
+  {
+    "id": "djmfilter",
+    "name": "DJMFilter",
+    "author": "Xfer Records",
+    "description": "DJ-style filter effect with high-pass and low-pass modes",
+    "version": "1.25",
+    "license": "freeware",
+    "category": "filter",
+    "tags": ["effect", "filter", "dj"],
+    "homepage": "https://xferrecords.com/freeware",
+    "downloads": {
+      "mac": {
+        "url": "https://xferrecords.com/product_downloads/68/freeware",
+        "artifacts": ["DJMFilter.vst3", "DJMFilter.component"]
+      },
+      "win": {
+        "url": "https://xferrecords.com/product_downloads/69/freeware",
+        "artifacts": ["DJMFilter.vst3"]
+      }
+    }
+  },
+  {
+    "id": "delta-modulator",
+    "name": "Delta Modulator",
+    "author": "Xfer Records",
+    "description": "Analog-style delta modulation effect for creative sound design",
+    "version": "1.06",
+    "license": "freeware",
+    "category": "effect",
+    "tags": ["effect", "modulation", "distortion"],
+    "homepage": "https://xferrecords.com/freeware",
+    "downloads": {
+      "mac": {
+        "url": "https://xferrecords.com/product_downloads/26/freeware",
+        "artifacts": ["Delta Modulator.vst3", "Delta Modulator.component"]
+      },
+      "win": {
+        "url": "https://xferrecords.com/product_downloads/27/freeware",
+        "artifacts": ["Delta Modulator.vst3"]
+      }
+    }
+  },
+  {
+    "id": "8-bit-shaper",
+    "name": "8-Bit Shaper",
+    "author": "Xfer Records",
+    "description": "Bit-crushing and sample rate reduction for retro 8-bit sound design",
+    "version": "1.106",
+    "license": "freeware",
+    "category": "effect",
+    "tags": ["effect", "bitcrusher", "lo-fi", "distortion"],
+    "homepage": "https://xferrecords.com/freeware",
+    "downloads": {
+      "mac": {
+        "url": "https://xferrecords.com/product_downloads/28/freeware",
+        "artifacts": ["8-Bit Shaper.vst3", "8-Bit Shaper.component"]
+      },
+      "win": {
+        "url": "https://xferrecords.com/product_downloads/29/freeware",
+        "artifacts": ["8-Bit Shaper.vst3"]
+      }
+    }
+  },
+  {
+    "id": "dimension-expander",
+    "name": "Dimension Expander",
+    "author": "Xfer Records",
+    "description": "Stereo widening effect for adding depth and space to audio",
+    "version": "1.24",
+    "license": "freeware",
+    "category": "effect",
+    "tags": ["effect", "stereo", "widener", "spatial"],
+    "homepage": "https://xferrecords.com/freeware",
+    "downloads": {
+      "mac": {
+        "url": "https://xferrecords.com/product_downloads/32/freeware",
+        "artifacts": ["Dimension Expander.vst3", "Dimension Expander.component"]
+      },
+      "win": {
+        "url": "https://xferrecords.com/product_downloads/33/freeware",
+        "artifacts": ["Dimension Expander.vst3"]
       }
     }
   }
