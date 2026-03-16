@@ -1,4 +1,5 @@
 {
+  "_comment": "We are still going through the plugins and doing a better curation. If a plugin is not recommended it does not mean it is not good, it just means we have not tested it yet.",
   "idOverrides": {
     "surge-synthesizer/surge": "surge-xt",
     "surge-synthesizer/monique-monosynth": "monique",
@@ -40,7 +41,8 @@
     "djmfilter",
     "dexed",
     "tdr-nova",
-    "dragonfly-reverb"
+    "dragonfly-reverb",
+    "valhalla-supermassive"
   ],
   "exclude": []
 }

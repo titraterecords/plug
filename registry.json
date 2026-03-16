@@ -3131,6 +3131,49 @@
       }
     },
     {
+      "id": "valhalla-supermassive",
+      "name": "Valhalla Supermassive",
+      "author": "Valhalla DSP",
+      "description": "Massive reverbs and delays with 18+ algorithms for lush ambient, shimmer, and infinite space effects",
+      "version": "5.0.0",
+      "license": "freeware",
+      "category": "reverb",
+      "tags": [
+        "effect",
+        "reverb",
+        "delay",
+        "ambient",
+        "shimmer"
+      ],
+      "homepage": "https://valhalladsp.com/shop/supermassive/",
+      "versions": {
+        "5.0.0": {
+          "date": "2025-11-26",
+          "formats": {
+            "vst3": {
+              "mac": {
+                "url": "https://valhallaproduction.s3.us-west-2.amazonaws.com/supermassive/ValhallaSupermassiveOSX_5_0_0.dmg",
+                "sha256": "eaac6d0a24ffed0a02afd1dd06124d12f94716d32a8ac376606aa2d701a70c3e",
+                "artifact": "ValhallaSupermassive.vst3"
+              },
+              "win": {
+                "url": "https://valhallaproduction.s3.us-west-2.amazonaws.com/supermassive/ValhallaSupermassiveWin_V5_0_0.zip",
+                "sha256": "",
+                "artifact": "ValhallaSupermassive.vst3"
+              }
+            },
+            "au": {
+              "mac": {
+                "url": "https://valhallaproduction.s3.us-west-2.amazonaws.com/supermassive/ValhallaSupermassiveOSX_5_0_0.dmg",
+                "sha256": "eaac6d0a24ffed0a02afd1dd06124d12f94716d32a8ac376606aa2d701a70c3e",
+                "artifact": "ValhallaSupermassive.component"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "id": "wolf-shaper",
       "name": "Wolf Shaper",
       "author": "Wolf Plugins",
