@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/assets/plug.audio.png" alt="plug.audio" />
+  <img src="https://raw.githubusercontent.com/titraterecords/plug/main/docs/assets/plug.audio.png" alt="plug.audio" />
 </p>
 
 # plug
