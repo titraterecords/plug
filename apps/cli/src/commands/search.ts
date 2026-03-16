@@ -1,11 +1,13 @@
 import type { Command } from "commander";
 import chalk from "chalk";
 import type { Plugin } from "@titrate/registry-schema/schema";
-import { getRegistry, searchPlugins } from "../lib/registry.js";
+import { currentPlatform } from "../lib/platform.js";
+import { availableFormats, getRegistry, searchPlugins } from "../lib/registry.js";
 import { dim } from "../lib/logger.js";
 
 function formatPluginRow(plugin: Plugin): string {
-  const formats = Object.keys(plugin.formats).join(", ");
+  const platform = currentPlatform();
+  const formats = availableFormats(plugin, platform).join(", ");
   return [
     chalk.bold(plugin.id.padEnd(24)),
     chalk.dim(plugin.version.padEnd(8)),
@@ -19,18 +21,20 @@ function registerSearch(program: Command): void {
     .command("search [query]")
     .description("Search for audio plugins")
     .option("-c, --category <category>", "Filter by category")
-    .option("-f, --format <format>", "Filter by format (vst3, au, clap)")
+    .option("-f, --format <format>", "Filter by format (vst3, au, clap, lv2)")
     .option("--json", "Output as JSON")
     .action(
       async (
         query: string | undefined,
         options: { category?: string; format?: string; json?: boolean },
       ) => {
+        const platform = currentPlatform();
         const registry = await getRegistry();
         const results = query
           ? searchPlugins(registry, query, {
               category: options.category,
               format: options.format,
+              platform,
             })
           : registry.plugins;
 

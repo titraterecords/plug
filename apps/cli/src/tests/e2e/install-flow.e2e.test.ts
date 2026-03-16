@@ -11,17 +11,17 @@ import { afterAll, beforeAll, describe, expect, it } from "vitest";
 const TEST_ROOT = join(tmpdir(), `plug-e2e-${Date.now()}`);
 process.env.PLUG_HOME = TEST_ROOT;
 
-import { computeChecksum, verifyChecksum } from "../lib/checksum.js";
+import { computeChecksum, verifyChecksum } from "../../lib/checksum.js";
 import {
   downloadFile,
   extractAndInstall,
-  resolvePluginPath,
-} from "../lib/installer.js";
+} from "../../lib/installer.js";
+import { pluginPaths } from "../../constants.js";
 import {
   loadInstalled,
   markInstalled,
   markUninstalled,
-} from "../lib/state.js";
+} from "../../lib/state.js";
 
 let server: ReturnType<typeof createServer>;
 let serverUrl: string;
@@ -90,7 +90,8 @@ describe("e2e: install flow", () => {
 
   it("extracts and installs the plugin to the target path", async () => {
     const data = await downloadFile(serverUrl);
-    const destDir = resolvePluginPath("vst3", "user");
+    const paths = pluginPaths("mac");
+    const destDir = paths.vst3.user;
     const destPath = await extractAndInstall(
       data,
       "FakePlugin.vst3",
@@ -146,7 +147,8 @@ describe("e2e: full install -> uninstall cycle", () => {
     const data = await downloadFile(serverUrl);
     expect(verifyChecksum(data, fixtureSha256)).toBe(true);
 
-    const destDir = resolvePluginPath("vst3", "user");
+    const paths = pluginPaths("mac");
+    const destDir = paths.vst3.user;
     const destPath = await extractAndInstall(
       data,
       "FakePlugin.vst3",

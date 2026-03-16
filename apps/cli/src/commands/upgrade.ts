@@ -2,15 +2,16 @@ import type { Command } from "commander";
 import chalk from "chalk";
 import ora from "ora";
 import type { PluginFormat } from "@titrate/registry-schema/schema";
-import { type InstallTarget } from "../constants.js";
+import { pluginPaths, type InstallTarget } from "../constants.js";
 import { verifyChecksum } from "../lib/checksum.js";
 import {
   downloadFile,
   extractAndInstall,
-  resolvePluginPath,
 } from "../lib/installer.js";
 import { dim, error, success } from "../lib/logger.js";
+import { currentPlatform } from "../lib/platform.js";
 import { findPlugin, getRegistry } from "../lib/registry.js";
+import { resolveVersion } from "../lib/resolve-version.js";
 import { loadInstalled, markInstalled } from "../lib/state.js";
 
 function registerUpgrade(program: Command): void {
@@ -24,11 +25,12 @@ function registerUpgrade(program: Command): void {
         name: string | undefined,
         options: { target: string; json?: boolean },
       ) => {
+        const platform = currentPlatform();
         const registry = await getRegistry();
         const installed = await loadInstalled();
         const target = options.target as InstallTarget;
+        const paths = pluginPaths(platform);
 
-        // Determine which plugins to upgrade
         const ids = name ? [name] : Object.keys(installed);
 
         if (ids.length === 0) {
@@ -66,29 +68,34 @@ function registerUpgrade(program: Command): void {
           const plugin = findPlugin(registry, id)!;
           const entry = installed[id];
           const formats = Object.keys(entry.formats) as PluginFormat[];
+          const versionEntry = resolveVersion(plugin);
 
           for (const format of formats) {
-            const formatInfo = plugin.formats[format];
-            if (!formatInfo) continue;
+            // Skip formats that don't have a download for this platform -
+            // the user may have installed on mac but the new version only ships linux
+            const platformFormats = versionEntry.formats[format];
+            if (!platformFormats) continue;
+            const formatEntry = platformFormats[platform];
+            if (!formatEntry) continue;
 
             const spinner = ora(
               `Upgrading ${chalk.bold(plugin.name)} (${format}) ${entry.version} -> ${plugin.version}`,
             ).start();
 
             try {
-              const data = await downloadFile(formatInfo.url);
+              const data = await downloadFile(formatEntry.url);
 
-              if (!verifyChecksum(data, formatInfo.sha256)) {
+              if (!verifyChecksum(data, formatEntry.sha256)) {
                 spinner.fail(
                   `Checksum mismatch for ${plugin.name} (${format})`,
                 );
                 process.exit(1);
               }
 
-              const destDir = resolvePluginPath(format, target);
+              const destDir = paths[format][target];
               const destPath = await extractAndInstall(
                 data,
-                formatInfo.artifact,
+                formatEntry.artifact,
                 destDir,
               );
 
