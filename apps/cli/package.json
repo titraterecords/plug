@@ -1,6 +1,6 @@
 {
   "name": "@titrate/plug",
-  "version": "0.1.2",
+  "version": "0.1.5",
   "type": "module",
   "bin": {
     "plug": "dist/index.js"
@@ -19,6 +19,7 @@
     "test:watch": "vitest"
   },
   "dependencies": {
+    "@inquirer/prompts": "^8.3.2",
     "chalk": "^5.4.0",
     "commander": "^13.1.0",
     "ora": "^8.2.0"

@@ -1,11 +1,14 @@
 #!/bin/sh
-# Install plug - audio plugin manager for macOS and Linux.
+# Install or update plug - audio plugin manager for macOS and Linux.
 # Usage: curl -fsSL plug.audio/install.sh | sh
 #
-# Downloads a standalone binary from the latest GitHub release
-# and adds it to PATH. No Node.js or other dependencies required.
+# What this script does:
+# 1. Checks if plug was previously installed via npm - if so, updates via npm
+# 2. Otherwise, detects your OS and architecture (macOS/Linux, arm64/x64)
+# 3. Downloads the matching standalone binary from the latest GitHub release
+# 4. Installs to ~/.plug/bin/ and adds it to your PATH
 #
-# Binaries: darwin-arm64, darwin-x64, linux-x64, linux-arm64
+# No Node.js or other dependencies required for the binary install.
 # Windows users: npm install -g @titrate/plug
 
 set -e
@@ -57,22 +60,52 @@ add_to_path() {
   fi
 }
 
+# Braille art generated with drawille (npm) from favicon-transparent.png
+# Text generated with figlet (npm) using the "Calvin S" font
+banner() {
+  cat <<'BANNER'
+
+       ⣀⣠⣤⣴⣶⣶⣶⣦⣤⣀
+    ⢀⣴⠟⠛⠛⠛⠿⣿⣿⣿⣿⣿⣿⣿⣦⡄
+   ⣴⠋      ⠈⠻⣿⣿⣿⣿⣿⣿⣿⣦
+  ⣸⠇         ⢹⣿⣿⣿⣿⣿⣿⣿⣇
+  ⣿          ⠈⣿⣿⣿⣿⣿⣿⣿⣿   ┌─┐┬  ┬ ┬┌─┐ ┌─┐┬ ┬┌┬┐┬┌─┐
+  ⣿          ⢀⣿⣿⣿⣿⣿⣿⣿⡿   ├─┘│  │ ││ ┬ ├─┤│ │ ││││ │
+  ⠸⡆         ⣸⣿⣿⣿⣿⣿⣿⣿⠇   ┴  ┴─┘└─┘└─┘o┴ ┴└─┘─┴┘┴└─┘
+   ⠹⣦⡀     ⢀⣴⣿⣿⣿⣿⣿⣿⡿⠋
+    ⠈⠻⢶⣤⣤⣤⣶⣿⣿⣿⣿⣿⣿⠿⠋
+       ⠈⠉⠛⠛⠛⠛⠛⠉⠉
+
+BANNER
+}
+
 main() {
+  # If already installed via npm, update through npm instead
+  if command -v npm >/dev/null 2>&1 && npm list -g @titrate/plug >/dev/null 2>&1; then
+    current=$(plug --version 2>/dev/null || echo "unknown")
+    npm update -g @titrate/plug --silent
+    updated=$(plug --version)
+    echo "plug updated from ${current} to ${updated}"
+    return
+  fi
+
+  banner
+
   platform=$(detect_platform)
   artifact="plug-${platform}"
 
-  echo "Downloading plug for ${platform}..."
-
-  # Fetch the latest release from GitHub API and extract the download URL
-  download_url=$(curl -fsSL "https://api.github.com/repos/${REPO}/releases/latest" \
-    | grep "browser_download_url.*${artifact}\"" \
-    | cut -d '"' -f 4)
+  # Fetch the latest release version and download URL
+  release_json=$(curl -fsSL "https://api.github.com/repos/${REPO}/releases/latest")
+  version=$(echo "$release_json" | grep '"tag_name"' | cut -d '"' -f 4)
+  download_url=$(echo "$release_json" | grep "browser_download_url.*${artifact}\"" | cut -d '"' -f 4)
 
   if [ -z "$download_url" ]; then
     echo "No binary found for ${platform}" >&2
     echo "Try: npm install -g @titrate/plug" >&2
     exit 1
   fi
+
+  echo "  Installing plug ${version}..."
 
   mkdir -p "$INSTALL_DIR"
 
@@ -81,8 +114,8 @@ main() {
 
   add_to_path
 
-  echo "plug installed to ${INSTALL_DIR}/plug"
-  "${INSTALL_DIR}/plug" --version
+  echo "  Installed. See you at plug.audio"
+  echo
 }
 
 main
