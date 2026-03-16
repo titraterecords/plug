@@ -1,9 +1,19 @@
 #!/bin/sh
+# Install plug - audio plugin manager for macOS and Linux.
+# Usage: curl -fsSL plug.audio/install.sh | sh
+#
+# Downloads a standalone binary from the latest GitHub release
+# and adds it to PATH. No Node.js or other dependencies required.
+#
+# Binaries: darwin-arm64, darwin-x64, linux-x64, linux-arm64
+# Windows users: npm install -g @titrate/plug
+
 set -e
 
 REPO="titraterecords/plug"
 INSTALL_DIR="${HOME}/.plug/bin"
 
+# Maps uname output to GitHub release artifact names
 detect_platform() {
   os=$(uname -s)
   arch=$(uname -m)
@@ -31,6 +41,7 @@ detect_platform() {
   esac
 }
 
+# Appends ~/.plug/bin to PATH in the user's shell profile if not already present
 add_to_path() {
   case "$SHELL" in
     */zsh) profile="$HOME/.zshrc" ;;
@@ -52,6 +63,7 @@ main() {
 
   echo "Downloading plug for ${platform}..."
 
+  # Fetch the latest release from GitHub API and extract the download URL
   download_url=$(curl -fsSL "https://api.github.com/repos/${REPO}/releases/latest" \
     | grep "browser_download_url.*${artifact}\"" \
     | cut -d '"' -f 4)
