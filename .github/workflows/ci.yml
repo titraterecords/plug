@@ -55,10 +55,22 @@ jobs:
       - run: pnpm type-check
       - run: pnpm test
 
-      - name: e2e - install OTT on Windows
+      - name: e2e - install from zip (Valhalla Supermassive)
         shell: pwsh
         env:
-          PLUG_HOME: ${{ runner.temp }}\plug-e2e
+          PLUG_HOME: ${{ runner.temp }}\plug-e2e-zip
+        run: |
+          cd apps/cli; pnpm exec tsx src/index.ts install valhalla-supermassive -f vst3
+          if (!(Test-Path "$env:PLUG_HOME\plugins\vst3\ValhallaSupermassive.vst3")) {
+            Write-Error "ValhallaSupermassive.vst3 not found after install"
+            exit 1
+          }
+          Write-Host "ValhallaSupermassive.vst3 installed successfully"
+
+      - name: e2e - install from exe (OTT)
+        shell: pwsh
+        env:
+          PLUG_HOME: ${{ runner.temp }}\plug-e2e-exe
         run: |
           cd apps/cli; pnpm exec tsx src/index.ts install ott -f vst3
           if (!(Test-Path "$env:PLUG_HOME\plugins\vst3\OTT.vst3")) {
