@@ -15,8 +15,8 @@ import { computeChecksum, verifyChecksum } from "../lib/checksum.js";
 import {
   downloadFile,
   extractAndInstall,
-  resolvePluginPath,
 } from "../lib/installer.js";
+import { pluginPaths } from "../constants.js";
 import {
   loadInstalled,
   markInstalled,
@@ -90,7 +90,8 @@ describe("e2e: install flow", () => {
 
   it("extracts and installs the plugin to the target path", async () => {
     const data = await downloadFile(serverUrl);
-    const destDir = resolvePluginPath("vst3", "user");
+    const paths = pluginPaths("mac");
+    const destDir = paths.vst3.user;
     const destPath = await extractAndInstall(
       data,
       "FakePlugin.vst3",
@@ -146,7 +147,8 @@ describe("e2e: full install -> uninstall cycle", () => {
     const data = await downloadFile(serverUrl);
     expect(verifyChecksum(data, fixtureSha256)).toBe(true);
 
-    const destDir = resolvePluginPath("vst3", "user");
+    const paths = pluginPaths("mac");
+    const destDir = paths.vst3.user;
     const destPath = await extractAndInstall(
       data,
       "FakePlugin.vst3",

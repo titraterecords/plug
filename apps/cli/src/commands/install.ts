@@ -2,33 +2,37 @@ import type { Command } from "commander";
 import chalk from "chalk";
 import ora from "ora";
 import type { PluginFormat } from "@titrate/registry-schema/schema";
-import { FORMAT_PREFERENCE, type InstallTarget } from "../constants.js";
+import { FORMAT_PREFERENCE, pluginPaths, type InstallTarget } from "../constants.js";
 import { verifyChecksum } from "../lib/checksum.js";
 import {
   downloadFile,
   extractAndInstall,
-  resolvePluginPath,
 } from "../lib/installer.js";
 import { error, success } from "../lib/logger.js";
-import { findPlugin, getRegistry } from "../lib/registry.js";
+import { parsePluginRef } from "../lib/parse-plugin-ref.js";
+import { currentPlatform } from "../lib/platform.js";
+import { availableFormats, findPlugin, getRegistry } from "../lib/registry.js";
+import { resolveVersion } from "../lib/resolve-version.js";
 import { markInstalled } from "../lib/state.js";
 
 function registerInstall(program: Command): void {
   program
     .command("install <name>")
-    .description("Install an audio plugin")
-    .option("-f, --format <format>", "Plugin format (vst3, au, clap)")
+    .description("Install an audio plugin (supports name@version)")
+    .option("-f, --format <format>", "Plugin format (vst3, au, clap, lv2)")
     .option("-t, --target <target>", "Install target (user, system)", "user")
     .option("--json", "Output as JSON")
     .action(
       async (
-        name: string,
+        input: string,
         options: {
           format?: string;
           target: string;
           json?: boolean;
         },
       ) => {
+        const { name, version: requestedVersion } = parsePluginRef(input);
+        const platform = currentPlatform();
         const registry = await getRegistry();
         const plugin = findPlugin(registry, name);
 
@@ -40,39 +44,57 @@ function registerInstall(program: Command): void {
           return;
         }
 
-        const target = options.target as InstallTarget;
-        const availableFormats = Object.keys(plugin.formats) as PluginFormat[];
+        const version = requestedVersion ?? plugin.version;
+        let versionEntry;
+        try {
+          versionEntry = resolveVersion(plugin, version);
+        } catch (err) {
+          error(err instanceof Error ? err.message : String(err));
+          process.exit(1);
+          return;
+        }
 
-        // Determine which formats to install
+        const target = options.target as InstallTarget;
+        const paths = pluginPaths(platform);
+        const available = availableFormats(plugin, platform, version);
+
+        if (available.length === 0) {
+          error(
+            `"${plugin.name}" has no downloads available for ${platform}.`,
+          );
+          process.exit(1);
+          return;
+        }
+
         let formats: PluginFormat[];
         if (options.format) {
           const fmt = options.format as PluginFormat;
-          if (!plugin.formats[fmt]) {
+          if (!available.includes(fmt)) {
             error(
-              `"${plugin.name}" is not available as ${fmt}. Available: ${availableFormats.join(", ")}`,
+              `"${plugin.name}" is not available as ${fmt} on ${platform}. Available: ${available.join(", ")}`,
             );
             process.exit(1);
           }
           formats = [fmt];
         } else {
-          // Install all available formats, ordered by preference
-          formats = FORMAT_PREFERENCE.filter((f) =>
-            availableFormats.includes(f),
+          formats = FORMAT_PREFERENCE[platform].filter((f) =>
+            available.includes(f),
           );
         }
 
         const results: Array<{ format: string; path: string }> = [];
 
         for (const format of formats) {
-          const formatInfo = plugin.formats[format]!;
+          // Safe to assert - availableFormats already confirmed this format+platform exists
+          const formatEntry = versionEntry.formats[format]![platform]!;
           const spinner = ora(
-            `Installing ${chalk.bold(plugin.name)} (${format})`,
+            `Installing ${chalk.bold(plugin.name)} ${version} (${format})`,
           ).start();
 
           try {
-            const data = await downloadFile(formatInfo.url);
+            const data = await downloadFile(formatEntry.url);
 
-            if (!verifyChecksum(data, formatInfo.sha256)) {
+            if (!verifyChecksum(data, formatEntry.sha256)) {
               spinner.fail(`Checksum mismatch for ${plugin.name} (${format})`);
               error(
                 "The download does not match the expected checksum. This could indicate a corrupted or tampered file.",
@@ -80,18 +102,18 @@ function registerInstall(program: Command): void {
               process.exit(1);
             }
 
-            const destDir = resolvePluginPath(format, target);
+            const destDir = paths[format][target];
             const destPath = await extractAndInstall(
               data,
-              formatInfo.artifact,
+              formatEntry.artifact,
               destDir,
             );
 
-            await markInstalled(plugin.id, plugin.version, format, destPath);
+            await markInstalled(plugin.id, version, format, destPath);
             results.push({ format, path: destPath });
             spinner.stop();
             success(
-              `${chalk.bold(plugin.name)} ${format} -> ${chalk.dim(destPath)}`,
+              `${chalk.bold(plugin.name)} ${version} ${format} -> ${chalk.dim(destPath)}`,
             );
           } catch (err) {
             spinner.fail(`Failed to install ${plugin.name} (${format})`);
@@ -106,7 +128,7 @@ function registerInstall(program: Command): void {
               {
                 id: plugin.id,
                 name: plugin.name,
-                version: plugin.version,
+                version,
                 installed: results,
               },
               null,

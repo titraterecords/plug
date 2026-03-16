@@ -1,11 +1,21 @@
 import { z } from "zod";
 
-const FORMATS = ["vst3", "au", "clap"] as const;
+const FORMATS = ["vst3", "au", "clap", "lv2"] as const;
+const PLATFORMS = ["mac", "win", "linux"] as const;
 
-const FormatSchema = z.object({
+// A single downloadable file for one format on one platform
+const FormatEntrySchema = z.object({
   url: z.string().url(),
   sha256: z.string().min(64).max(64),
   artifact: z.string(),
+});
+
+// Maps platform -> download entry, so one format can have different binaries per OS
+const PlatformFormatsSchema = z.record(z.enum(PLATFORMS), FormatEntrySchema);
+
+const VersionEntrySchema = z.object({
+  date: z.string().optional(),
+  formats: z.record(z.enum(FORMATS), PlatformFormatsSchema),
 });
 
 const PluginSchema = z.object({
@@ -13,11 +23,14 @@ const PluginSchema = z.object({
   name: z.string().min(1),
   author: z.string(),
   description: z.string(),
+  // Points to latest version - shared metadata (author, license, etc.) lives
+  // at the top level to avoid repeating it in every version entry
   version: z.string(),
   license: z.string(),
   category: z.string(),
+  tags: z.array(z.string()).optional(),
   homepage: z.string().url(),
-  formats: z.record(z.enum(FORMATS), FormatSchema),
+  versions: z.record(z.string(), VersionEntrySchema),
 });
 
 const RegistrySchema = z.object({
@@ -26,9 +39,27 @@ const RegistrySchema = z.object({
   plugins: z.array(PluginSchema),
 });
 
+type FormatEntry = z.infer<typeof FormatEntrySchema>;
+type VersionEntry = z.infer<typeof VersionEntrySchema>;
 type Plugin = z.infer<typeof PluginSchema>;
 type Registry = z.infer<typeof RegistrySchema>;
 type PluginFormat = (typeof FORMATS)[number];
+type Platform = (typeof PLATFORMS)[number];
 
-export { FormatSchema, PluginSchema, RegistrySchema };
-export type { Plugin, PluginFormat, Registry };
+export {
+  FORMATS,
+  FormatEntrySchema,
+  PLATFORMS,
+  PlatformFormatsSchema,
+  PluginSchema,
+  RegistrySchema,
+  VersionEntrySchema,
+};
+export type {
+  FormatEntry,
+  Platform,
+  Plugin,
+  PluginFormat,
+  Registry,
+  VersionEntry,
+};

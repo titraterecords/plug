@@ -1,7 +1,9 @@
 import { mkdir, readFile, stat, writeFile } from "node:fs/promises";
 import {
   RegistrySchema,
+  type Platform,
   type Plugin,
+  type PluginFormat,
   type Registry,
 } from "@titrate/registry-schema/schema";
 import { CACHE_DIR, REGISTRY_CACHE_PATH, REGISTRY_URL } from "../constants.js";
@@ -50,9 +52,26 @@ function findPlugin(registry: Registry, id: string): Plugin | undefined {
   return registry.plugins.find((p) => p.id === id);
 }
 
+// Returns formats that have a download available for this platform.
+// A format like AU only exists on mac, so linux would filter it out.
+function availableFormats(
+  plugin: Plugin,
+  platform: Platform,
+  version?: string,
+): PluginFormat[] {
+  const v = version ?? plugin.version;
+  const entry = plugin.versions[v];
+  if (!entry) return [];
+
+  return (Object.keys(entry.formats) as PluginFormat[]).filter(
+    (fmt) => platform in (entry.formats[fmt] ?? {}),
+  );
+}
+
 interface SearchOptions {
   category?: string;
   format?: string;
+  platform?: Platform;
 }
 
 function searchPlugins(
@@ -67,7 +86,8 @@ function searchPlugins(
       p.id.includes(lower) ||
       p.name.toLowerCase().includes(lower) ||
       p.description.toLowerCase().includes(lower) ||
-      p.category.toLowerCase().includes(lower),
+      p.category.toLowerCase().includes(lower) ||
+      (p.tags ?? []).some((t) => t.toLowerCase().includes(lower)),
   );
 
   if (options.category) {
@@ -75,11 +95,22 @@ function searchPlugins(
     results = results.filter((p) => p.category.toLowerCase() === cat);
   }
 
-  if (options.format) {
-    results = results.filter((p) => options.format! in p.formats);
+  if (options.format && options.platform) {
+    // With platform context, only show plugins that have this format for this OS
+    const fmt = options.format as PluginFormat;
+    results = results.filter((p) =>
+      availableFormats(p, options.platform!).includes(fmt),
+    );
+  } else if (options.format) {
+    // Without platform, check if the format exists on any platform
+    const fmt = options.format as PluginFormat;
+    results = results.filter((p) => {
+      const entry = p.versions[p.version];
+      return entry && fmt in entry.formats;
+    });
   }
 
   return results;
 }
 
-export { findPlugin, getRegistry, searchPlugins };
+export { availableFormats, findPlugin, getRegistry, searchPlugins };

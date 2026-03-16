@@ -2,8 +2,6 @@ import { mkdir, readdir, writeFile } from "node:fs/promises";
 import { execSync } from "node:child_process";
 import { join } from "node:path";
 import { tmpdir } from "node:os";
-import type { PluginFormat } from "@titrate/registry-schema/schema";
-import { PLUGIN_PATHS, type InstallTarget } from "../constants.js";
 import { detectDownloadType } from "./detect-download-type.js";
 import { ejectDmg, mountDmg } from "./dmg.js";
 import { expandPkg, findArtifactInPkg } from "./pkg.js";
@@ -16,13 +14,6 @@ async function downloadFile(url: string): Promise<Buffer> {
     );
   }
   return Buffer.from(await response.arrayBuffer());
-}
-
-function resolvePluginPath(
-  format: PluginFormat,
-  target: InstallTarget,
-): string {
-  return PLUGIN_PATHS[format][target];
 }
 
 async function findArtifact(
@@ -134,4 +125,4 @@ async function extractAndInstall(
   }
 }
 
-export { downloadFile, extractAndInstall, resolvePluginPath };
+export { downloadFile, extractAndInstall };

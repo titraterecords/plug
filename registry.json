@@ -1,5 +1,5 @@
 {
-  "version": "1",
+  "version": "2",
   "updated": "2026-03-16",
   "plugins": [
     {
@@ -10,17 +10,26 @@
       "version": "1.37",
       "license": "freeware",
       "category": "compressor",
+      "tags": ["effect", "compressor", "multiband", "dynamics"],
       "homepage": "https://xferrecords.com/freeware",
-      "formats": {
-        "vst3": {
-          "url": "https://xferrecords.com/product_downloads/24/freeware",
-          "sha256": "fe1d10b79445c44a32f365fcbf2a420a2133ae205c8d75f09ba703c7dd42ec54",
-          "artifact": "OTT.vst3"
-        },
-        "au": {
-          "url": "https://xferrecords.com/product_downloads/24/freeware",
-          "sha256": "fe1d10b79445c44a32f365fcbf2a420a2133ae205c8d75f09ba703c7dd42ec54",
-          "artifact": "OTT.component"
+      "versions": {
+        "1.37": {
+          "formats": {
+            "vst3": {
+              "mac": {
+                "url": "https://xferrecords.com/product_downloads/24/freeware",
+                "sha256": "fe1d10b79445c44a32f365fcbf2a420a2133ae205c8d75f09ba703c7dd42ec54",
+                "artifact": "OTT.vst3"
+              }
+            },
+            "au": {
+              "mac": {
+                "url": "https://xferrecords.com/product_downloads/24/freeware",
+                "sha256": "fe1d10b79445c44a32f365fcbf2a420a2133ae205c8d75f09ba703c7dd42ec54",
+                "artifact": "OTT.component"
+              }
+            }
+          }
         }
       }
     },
@@ -32,17 +41,26 @@
       "version": "1.25",
       "license": "freeware",
       "category": "filter",
+      "tags": ["effect", "filter", "dj"],
       "homepage": "https://xferrecords.com/freeware",
-      "formats": {
-        "vst3": {
-          "url": "https://xferrecords.com/product_downloads/68/freeware",
-          "sha256": "4cf33265146fe9d8e38f3c72456a6bed2700c530b48c3810280c66852b054a33",
-          "artifact": "DJMFilter.vst3"
-        },
-        "au": {
-          "url": "https://xferrecords.com/product_downloads/68/freeware",
-          "sha256": "4cf33265146fe9d8e38f3c72456a6bed2700c530b48c3810280c66852b054a33",
-          "artifact": "DJMFilter.component"
+      "versions": {
+        "1.25": {
+          "formats": {
+            "vst3": {
+              "mac": {
+                "url": "https://xferrecords.com/product_downloads/68/freeware",
+                "sha256": "4cf33265146fe9d8e38f3c72456a6bed2700c530b48c3810280c66852b054a33",
+                "artifact": "DJMFilter.vst3"
+              }
+            },
+            "au": {
+              "mac": {
+                "url": "https://xferrecords.com/product_downloads/68/freeware",
+                "sha256": "4cf33265146fe9d8e38f3c72456a6bed2700c530b48c3810280c66852b054a33",
+                "artifact": "DJMFilter.component"
+              }
+            }
+          }
         }
       }
     },
@@ -54,22 +72,60 @@
       "version": "1.3.4",
       "license": "gpl-3.0",
       "category": "synthesizer",
+      "tags": ["instrument", "effect", "synthesizer", "modulation", "open-source"],
       "homepage": "https://surge-synthesizer.github.io",
-      "formats": {
-        "vst3": {
-          "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.4/surge-xt-macos-1.3.4-pluginsonly.zip",
-          "sha256": "37d8d809693adc86587b7bc75a2384fc4e905f259aa9b9a21777749d36fbf8aa",
-          "artifact": "Surge XT.vst3"
+      "versions": {
+        "1.3.4": {
+          "date": "2024-08-11",
+          "formats": {
+            "vst3": {
+              "mac": {
+                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.4/surge-xt-macos-1.3.4-pluginsonly.zip",
+                "sha256": "37d8d809693adc86587b7bc75a2384fc4e905f259aa9b9a21777749d36fbf8aa",
+                "artifact": "Surge XT.vst3"
+              }
+            },
+            "au": {
+              "mac": {
+                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.4/surge-xt-macos-1.3.4-pluginsonly.zip",
+                "sha256": "37d8d809693adc86587b7bc75a2384fc4e905f259aa9b9a21777749d36fbf8aa",
+                "artifact": "Surge XT.component"
+              }
+            },
+            "clap": {
+              "mac": {
+                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.4/surge-xt-macos-1.3.4-pluginsonly.zip",
+                "sha256": "37d8d809693adc86587b7bc75a2384fc4e905f259aa9b9a21777749d36fbf8aa",
+                "artifact": "Surge XT.clap"
+              }
+            }
+          }
         },
-        "au": {
-          "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.4/surge-xt-macos-1.3.4-pluginsonly.zip",
-          "sha256": "37d8d809693adc86587b7bc75a2384fc4e905f259aa9b9a21777749d36fbf8aa",
-          "artifact": "Surge XT.component"
-        },
-        "clap": {
-          "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.4/surge-xt-macos-1.3.4-pluginsonly.zip",
-          "sha256": "37d8d809693adc86587b7bc75a2384fc4e905f259aa9b9a21777749d36fbf8aa",
-          "artifact": "Surge XT.clap"
+        "1.3.1": {
+          "date": "2024-03-02",
+          "formats": {
+            "vst3": {
+              "mac": {
+                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.1/surge-xt-macos-1.3.1-pluginsonly.zip",
+                "sha256": "729d92b5a4288f4c22587b8e84244c26aef34e58312ab5b4f4d1f196699b802e",
+                "artifact": "Surge XT.vst3"
+              }
+            },
+            "au": {
+              "mac": {
+                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.1/surge-xt-macos-1.3.1-pluginsonly.zip",
+                "sha256": "729d92b5a4288f4c22587b8e84244c26aef34e58312ab5b4f4d1f196699b802e",
+                "artifact": "Surge XT.component"
+              }
+            },
+            "clap": {
+              "mac": {
+                "url": "https://github.com/surge-synthesizer/releases-xt/releases/download/1.3.1/surge-xt-macos-1.3.1-pluginsonly.zip",
+                "sha256": "729d92b5a4288f4c22587b8e84244c26aef34e58312ab5b4f4d1f196699b802e",
+                "artifact": "Surge XT.clap"
+              }
+            }
+          }
         }
       }
     },
@@ -81,22 +137,33 @@
       "version": "1.0.1",
       "license": "gpl-3.0",
       "category": "synthesizer",
+      "tags": ["instrument", "synthesizer", "fm", "dx7", "open-source"],
       "homepage": "https://asb2m10.github.io/dexed",
-      "formats": {
-        "vst3": {
-          "url": "https://github.com/asb2m10/dexed/releases/download/v1.0.1/Dexed-1.0.1-macOS.zip",
-          "sha256": "4269448bc1312424cafd29aff615d891bc5905ebfc54b42ce70c56b9b10dc401",
-          "artifact": "Dexed.vst3"
-        },
-        "au": {
-          "url": "https://github.com/asb2m10/dexed/releases/download/v1.0.1/Dexed-1.0.1-macOS.zip",
-          "sha256": "4269448bc1312424cafd29aff615d891bc5905ebfc54b42ce70c56b9b10dc401",
-          "artifact": "Dexed.component"
-        },
-        "clap": {
-          "url": "https://github.com/asb2m10/dexed/releases/download/v1.0.1/Dexed-1.0.1-macOS.zip",
-          "sha256": "4269448bc1312424cafd29aff615d891bc5905ebfc54b42ce70c56b9b10dc401",
-          "artifact": "Dexed.clap"
+      "versions": {
+        "1.0.1": {
+          "formats": {
+            "vst3": {
+              "mac": {
+                "url": "https://github.com/asb2m10/dexed/releases/download/v1.0.1/Dexed-1.0.1-macOS.zip",
+                "sha256": "4269448bc1312424cafd29aff615d891bc5905ebfc54b42ce70c56b9b10dc401",
+                "artifact": "Dexed.vst3"
+              }
+            },
+            "au": {
+              "mac": {
+                "url": "https://github.com/asb2m10/dexed/releases/download/v1.0.1/Dexed-1.0.1-macOS.zip",
+                "sha256": "4269448bc1312424cafd29aff615d891bc5905ebfc54b42ce70c56b9b10dc401",
+                "artifact": "Dexed.component"
+              }
+            },
+            "clap": {
+              "mac": {
+                "url": "https://github.com/asb2m10/dexed/releases/download/v1.0.1/Dexed-1.0.1-macOS.zip",
+                "sha256": "4269448bc1312424cafd29aff615d891bc5905ebfc54b42ce70c56b9b10dc401",
+                "artifact": "Dexed.clap"
+              }
+            }
+          }
         }
       }
     },
@@ -108,17 +175,26 @@
       "version": "2.2.1",
       "license": "freeware",
       "category": "equalizer",
+      "tags": ["effect", "equalizer", "dynamics", "mastering"],
       "homepage": "https://www.tokyodawn.net/tdr-nova",
-      "formats": {
-        "vst3": {
-          "url": "https://www.tokyodawn.net/labs/Nova/2.2.1/TDR%20Nova.zip",
-          "sha256": "3f52e024b3aa49c75ce55c2c0fc18363ef4caac0dca0df60277372f66de9297b",
-          "artifact": "TDR Nova.vst3"
-        },
-        "au": {
-          "url": "https://www.tokyodawn.net/labs/Nova/2.2.1/TDR%20Nova.zip",
-          "sha256": "3f52e024b3aa49c75ce55c2c0fc18363ef4caac0dca0df60277372f66de9297b",
-          "artifact": "TDR Nova.component"
+      "versions": {
+        "2.2.1": {
+          "formats": {
+            "vst3": {
+              "mac": {
+                "url": "https://www.tokyodawn.net/labs/Nova/2.2.1/TDR%20Nova.zip",
+                "sha256": "3f52e024b3aa49c75ce55c2c0fc18363ef4caac0dca0df60277372f66de9297b",
+                "artifact": "TDR Nova.vst3"
+              }
+            },
+            "au": {
+              "mac": {
+                "url": "https://www.tokyodawn.net/labs/Nova/2.2.1/TDR%20Nova.zip",
+                "sha256": "3f52e024b3aa49c75ce55c2c0fc18363ef4caac0dca0df60277372f66de9297b",
+                "artifact": "TDR Nova.component"
+              }
+            }
+          }
         }
       }
     }
