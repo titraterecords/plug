@@ -55,17 +55,17 @@ jobs:
       - run: pnpm type-check
       - run: pnpm test
 
-      - name: e2e - install from zip (Valhalla Supermassive)
+      - name: e2e - install from zip (wolf-shaper)
         shell: pwsh
         env:
           PLUG_HOME: ${{ runner.temp }}\plug-e2e-zip
         run: |
-          cd apps/cli; pnpm exec tsx src/index.ts install valhalla-supermassive -f vst3
-          if (!(Test-Path "$env:PLUG_HOME\plugins\vst3\ValhallaSupermassive.vst3")) {
-            Write-Error "ValhallaSupermassive.vst3 not found after install"
+          cd apps/cli; pnpm exec tsx src/index.ts install wolf-shaper -f vst3
+          if (!(Test-Path "$env:PLUG_HOME\plugins\vst3\wolf-shaper.vst3")) {
+            Write-Error "wolf-shaper.vst3 not found after install"
             exit 1
           }
-          Write-Host "ValhallaSupermassive.vst3 installed successfully"
+          Write-Host "wolf-shaper.vst3 installed successfully"
 
       - name: e2e - install from exe (OTT)
         shell: pwsh
