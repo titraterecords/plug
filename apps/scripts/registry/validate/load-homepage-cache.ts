@@ -1,7 +1,5 @@
 import { readFile } from "node:fs/promises";
-import { join } from "node:path";
-
-const CACHE_PATH = join(import.meta.dirname, "../cache/homepage-search-cache.json");
+import { HOMEPAGE_CACHE_PATH } from "./homepage-cache-path.js";
 
 // Maps dead homepage URL -> search result.
 // Prevents re-spending tokens on URLs we already searched for.
@@ -14,12 +12,12 @@ type HomepageCache = Record<string, HomepageCacheEntry>;
 
 async function loadHomepageCache(): Promise<HomepageCache> {
   try {
-    const data = await readFile(CACHE_PATH, "utf-8");
+    const data = await readFile(HOMEPAGE_CACHE_PATH, "utf-8");
     return JSON.parse(data) as HomepageCache;
   } catch {
     return {};
   }
 }
 
-export { loadHomepageCache, CACHE_PATH };
+export { loadHomepageCache };
 export type { HomepageCache, HomepageCacheEntry };

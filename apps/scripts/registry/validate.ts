@@ -1,44 +1,19 @@
 // Validates all URLs in the registry.
 // - Download URLs: 404 entries get removed from registry
-// - Homepage URLs: 404s trigger a web search via Claude Code SDK
+// - Homepage URLs: 404s trigger a web search via Claude Code CLI
 //   to find the current URL. Results are cached to avoid repeat searches.
 //
 // Usage: pnpm validate:registry
 
-import { readFile, writeFile } from "node:fs/promises";
-import { join } from "node:path";
 import { checkUrl } from "./validate/check-url.js";
 import { loadHomepageCache, type HomepageCache } from "./validate/load-homepage-cache.js";
 import { saveHomepageCache } from "./validate/save-homepage-cache.js";
 import { searchHomepage } from "./validate/search-homepage.js";
-
-const REGISTRY_PATH = join(import.meta.dirname, "../../../registry.json");
-
-interface FormatEntry {
-  url: string;
-  sha256: string;
-  artifact: string;
-}
-
-interface RegistryPlugin {
-  id: string;
-  name: string;
-  author: string;
-  homepage: string;
-  versions: Record<string, {
-    formats: Record<string, Record<string, FormatEntry>>;
-  }>;
-}
-
-interface RegistryJson {
-  version: string;
-  updated: string;
-  plugins: RegistryPlugin[];
-}
+import { loadRegistry } from "./sources/studiorack/lib/load-registry.js";
+import { saveRegistry } from "./sources/studiorack/lib/save-registry.js";
 
 async function main(): Promise<void> {
-  const data = await readFile(REGISTRY_PATH, "utf-8");
-  const registry = JSON.parse(data) as RegistryJson;
+  const registry = await loadRegistry();
   const cache = await loadHomepageCache();
 
   let removedDownloads = 0;
@@ -126,8 +101,7 @@ async function main(): Promise<void> {
   const removedPlugins = before - registry.plugins.length;
 
   if (modified || removedPlugins > 0) {
-    registry.updated = new Date().toISOString().split("T")[0];
-    await writeFile(REGISTRY_PATH, JSON.stringify(registry, null, 2) + "\n");
+    await saveRegistry(registry);
   }
 
   await saveHomepageCache(cache);

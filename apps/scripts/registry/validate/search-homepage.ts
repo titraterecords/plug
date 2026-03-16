@@ -8,8 +8,8 @@ const SCHEMA = JSON.stringify({
   required: ["url"],
 });
 
-// Uses Claude Code CLI with structured output to web search for a plugin's homepage.
-// Returns a validated URL or undefined. Uses the user's subscription - no API key needed.
+// Uses Claude Code CLI with structured JSON output to web search for a plugin's homepage.
+// Uses the user's subscription - no API key needed.
 async function searchHomepage(
   pluginName: string,
   author: string,
