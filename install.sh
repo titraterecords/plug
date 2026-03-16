@@ -89,21 +89,23 @@ main() {
     return
   fi
 
+  banner
+
   platform=$(detect_platform)
   artifact="plug-${platform}"
 
-  echo "Downloading plug for ${platform}..."
-
-  # Fetch the latest release from GitHub API and extract the download URL
-  download_url=$(curl -fsSL "https://api.github.com/repos/${REPO}/releases/latest" \
-    | grep "browser_download_url.*${artifact}\"" \
-    | cut -d '"' -f 4)
+  # Fetch the latest release version and download URL
+  release_json=$(curl -fsSL "https://api.github.com/repos/${REPO}/releases/latest")
+  version=$(echo "$release_json" | grep '"tag_name"' | cut -d '"' -f 4)
+  download_url=$(echo "$release_json" | grep "browser_download_url.*${artifact}\"" | cut -d '"' -f 4)
 
   if [ -z "$download_url" ]; then
     echo "No binary found for ${platform}" >&2
     echo "Try: npm install -g @titrate/plug" >&2
     exit 1
   fi
+
+  echo "  Installing plug ${version}..."
 
   mkdir -p "$INSTALL_DIR"
 
@@ -112,9 +114,7 @@ main() {
 
   add_to_path
 
-  banner
-  echo "  plug installed to ${INSTALL_DIR}/plug"
-  echo "  $("${INSTALL_DIR}/plug" --version)"
+  echo "  Installed. See you at plug.audio"
   echo
 }
 
