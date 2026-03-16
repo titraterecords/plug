@@ -1,11 +1,13 @@
 {
   "name": "@titrate/plug",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.1",
   "type": "module",
   "bin": {
-    "plug": "./dist/index.js"
+    "plug": "dist/index.js"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "tsx src/index.ts",
     "build": "tsup",
@@ -17,12 +19,12 @@
     "test:watch": "vitest"
   },
   "dependencies": {
-    "@titrate/registry-schema": "workspace:*",
     "chalk": "^5.4.0",
     "commander": "^13.1.0",
     "ora": "^8.2.0"
   },
   "devDependencies": {
+    "@titrate/registry-schema": "workspace:*",
     "eslint": "^9.22.0",
     "prettier": "^3.5.0",
     "tsup": "^8.4.0",

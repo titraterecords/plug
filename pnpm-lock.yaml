@@ -32,9 +32,6 @@ importers:
 
   apps/cli:
     dependencies:
-      '@titrate/registry-schema':
-        specifier: workspace:*
-        version: link:../../packages/registry-schema
       chalk:
         specifier: ^5.4.0
         version: 5.6.2
@@ -45,6 +42,9 @@ importers:
         specifier: ^8.2.0
         version: 8.2.0
     devDependencies:
+      '@titrate/registry-schema':
+        specifier: workspace:*
+        version: link:../../packages/registry-schema
       eslint:
         specifier: ^9.22.0
         version: 9.39.4(jiti@2.6.1)
