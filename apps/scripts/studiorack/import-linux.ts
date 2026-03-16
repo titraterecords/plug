@@ -8,15 +8,17 @@
 import type { Platform } from "@titrate/registry-schema/schema";
 import { fetchOasRegistry } from "./lib/fetch-oas-registry.js";
 import { scanArtifactsFromUrl, type FoundArtifact } from "./lib/scan-artifacts.js";
-import { buildRegistryEntry, findFileForPlatform } from "./lib/build-registry-entry.js";
-import { loadRegistry, mergePlugins, saveRegistry } from "./lib/merge-registry.js";
-import { hasVersionPlatformData, loadIdOverrides, resolveId } from "./lib/should-skip.js";
+import { buildRegistryEntry } from "./lib/build-registry-entry.js";
+import { findFileForPlatform } from "./lib/find-file-for-platform.js";
+import { isSfzOnly } from "./lib/is-sfz-only.js";
+import { loadRegistry } from "./lib/load-registry.js";
+import { mergePlugins } from "./lib/merge-plugins.js";
+import { saveRegistry } from "./lib/save-registry.js";
+import { hasVersionPlatformData } from "./lib/has-version-platform-data.js";
+import { loadIdOverrides } from "./lib/load-id-overrides.js";
+import { resolveId } from "./lib/resolve-id.js";
 
 const PLATFORM: Platform = "linux";
-
-function isSfzOnly(contains: string[]): boolean {
-  return contains.every((c) => ["sfz", "sf2"].includes(c));
-}
 
 async function main(): Promise<void> {
   console.log(`Fetching Open Audio Stack registry...`);

@@ -1,5 +1,7 @@
 import type { Platform, PluginFormat } from "@titrate/registry-schema/schema";
-import type { OasPackage, OasVersionEntry, OasFileEntry } from "./fetch-oas-registry.js";
+import type { OasPackage, OasVersionEntry } from "./fetch-oas-registry.js";
+import { findFileForPlatform } from "./find-file-for-platform.js";
+import { slugToId } from "./slug-to-id.js";
 import type { FoundArtifact } from "./scan-artifacts.js";
 
 // Maps OAS "contains" values to our format names
@@ -43,11 +45,6 @@ interface RegistryPlugin {
   versions: Record<string, RegistryVersionEntry>;
 }
 
-// Converts an OAS slug like "surge-synthesizer/surge" to a flat id like "surge"
-function slugToId(slug: string): string {
-  return slug.split("/").pop() ?? slug;
-}
-
 // Builds tags from OAS type + tags, normalized to lowercase.
 // Includes "instrument" or "effect" as tags instead of a separate type field.
 function buildTags(oasVersion: OasVersionEntry): string[] {
@@ -62,17 +59,6 @@ function buildTags(oasVersion: OasVersionEntry): string[] {
   }
 
   return [...tags];
-}
-
-// Finds the OAS file entry that targets the given platform.
-// A file entry matches if any of its systems[].type matches the platform.
-function findFileForPlatform(
-  files: OasFileEntry[],
-  platform: Platform,
-): OasFileEntry | undefined {
-  return files.find((f) =>
-    f.systems.some((s) => s.type === platform),
-  );
 }
 
 // Builds a registry plugin entry from OAS data + scanned artifacts.
@@ -143,5 +129,5 @@ function buildRegistryEntry(
   };
 }
 
-export { buildRegistryEntry, findFileForPlatform, slugToId };
+export { buildRegistryEntry };
 export type { RegistryPlugin };

@@ -7,6 +7,7 @@
 
 import { readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
+import type { RegistryPlugin } from "../studiorack/lib/build-registry-entry.js";
 
 const REGISTRY_PATH = join(import.meta.dirname, "../../../registry.json");
 const CURATION_PATH = join(import.meta.dirname, "curation.json");
@@ -17,24 +18,15 @@ interface Curation {
   exclude: string[];
 }
 
-interface RegistryPlugin {
-  id: string;
-  name: string;
-  author: string;
-  description: string;
-  version: string;
-  license: string;
-  category: string;
-  tags?: string[];
+// Extends the imported type with the optional recommended field set by curation
+interface CuratedPlugin extends RegistryPlugin {
   recommended?: boolean;
-  homepage: string;
-  versions: Record<string, unknown>;
 }
 
 interface RegistryJson {
   version: string;
   updated: string;
-  plugins: RegistryPlugin[];
+  plugins: CuratedPlugin[];
 }
 
 async function main(): Promise<void> {
@@ -67,7 +59,7 @@ async function main(): Promise<void> {
 
   // Deduplicate - when a manual entry and an import end up with the same ID,
   // merge their version data. The first occurrence keeps its metadata.
-  const byId = new Map<string, RegistryPlugin>();
+  const byId = new Map<string, CuratedPlugin>();
   for (const plugin of registry.plugins) {
     const existing = byId.get(plugin.id);
     if (!existing) {
@@ -81,10 +73,8 @@ async function main(): Promise<void> {
         existing.versions[ver] = entry;
       } else {
         // Merge format/platform entries within the version
-        const existingVer = existing.versions[ver] as Record<string, unknown>;
-        const incomingVer = entry as Record<string, unknown>;
-        const existingFormats = (existingVer.formats ?? {}) as Record<string, Record<string, unknown>>;
-        const incomingFormats = (incomingVer.formats ?? {}) as Record<string, Record<string, unknown>>;
+        const existingFormats = existing.versions[ver].formats;
+        const incomingFormats = entry.formats;
 
         for (const [fmt, platforms] of Object.entries(incomingFormats)) {
           if (!existingFormats[fmt]) {
@@ -97,10 +87,12 @@ async function main(): Promise<void> {
     }
   }
 
-  // Apply recommended flags and exclusions
+  // Apply recommended flags and exclusions.
+  // Clear all existing flags first so removed recommendations don't persist.
   const plugins = [...byId.values()]
     .filter((p) => !excludeSet.has(p.id))
     .map((p) => {
+      delete p.recommended;
       if (recommendedSet.has(p.id)) {
         p.recommended = true;
       }

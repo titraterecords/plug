@@ -3,43 +3,6 @@
   "updated": "2026-03-16",
   "plugins": [
     {
-      "id": "chow-tape-model",
-      "name": "Chow Tape Model",
-      "author": "Chowdhury DSP",
-      "description": "Chow Tape Model is a digital emulation of a reel-to-reel analog tape machine. The original algorithm was developed to emulate the Sony TC-260, but has since been expanded to be able to model a wide variety of tape machines.",
-      "version": "2.11.4",
-      "license": "gpl-3.0",
-      "category": "effect",
-      "tags": [
-        "effect",
-        "filter",
-        "tape"
-      ],
-      "homepage": "https://github.com/jatinchowdhury18/AnalogTapeModel",
-      "versions": {
-        "2.11.4": {
-          "date": "2023-11-05",
-          "formats": {
-            "vst3": {
-              "mac": {
-                "url": "https://github.com/jatinchowdhury18/AnalogTapeModel/releases/download/v2.11.4/ChowTapeModel-Mac-2.11.4.dmg",
-                "sha256": "9b37e2b6cb6c0a839ee9c65e1a958834ca647b3edfc4bd144115c483b4d64f82",
-                "artifact": "CHOWTapeModel.vst3"
-              }
-            },
-            "au": {
-              "mac": {
-                "url": "https://github.com/jatinchowdhury18/AnalogTapeModel/releases/download/v2.11.4/ChowTapeModel-Mac-2.11.4.dmg",
-                "sha256": "9b37e2b6cb6c0a839ee9c65e1a958834ca647b3edfc4bd144115c483b4d64f82",
-                "artifact": "CHOWTapeModel.component"
-              }
-            }
-          }
-        }
-      },
-      "recommended": true
-    },
-    {
       "id": "dexed",
       "name": "Dexed",
       "author": "Digital Suburban",
@@ -163,86 +126,6 @@
       "recommended": true
     },
     {
-      "id": "helm",
-      "name": "Helm",
-      "author": "Matt Tytel",
-      "description": "Polyphonic semi-modular synthesizer with a flexible modulation system.",
-      "version": "0.9.0",
-      "license": "gpl-3.0",
-      "category": "synthesizer",
-      "tags": [
-        "instrument",
-        "synth",
-        "modulation"
-      ],
-      "homepage": "https://github.com/mtytel/helm",
-      "versions": {
-        "0.9.0": {
-          "date": "2017-07-08",
-          "formats": {
-            "vst3": {
-              "mac": {
-                "url": "https://tytel.org/static/dist/Helm_v0_9_0_r.pkg",
-                "sha256": "1bfac2c016d7dd5cd51e714fa6d9facef4e1db52617ff7dd52748dbec1400ebf",
-                "artifact": "helm.vst3"
-              }
-            },
-            "au": {
-              "mac": {
-                "url": "https://tytel.org/static/dist/Helm_v0_9_0_r.pkg",
-                "sha256": "1bfac2c016d7dd5cd51e714fa6d9facef4e1db52617ff7dd52748dbec1400ebf",
-                "artifact": "helm.component"
-              }
-            }
-          }
-        }
-      },
-      "recommended": true
-    },
-    {
-      "id": "nam",
-      "name": "Neural Amp Modeler",
-      "author": "sdatkinson",
-      "description": "Plugin for Neural Amp Modeler.",
-      "version": "0.7.13",
-      "license": "mit",
-      "category": "effect",
-      "tags": [
-        "effect",
-        "amp",
-        "emulation",
-        "noise gate"
-      ],
-      "homepage": "https://github.com/sdatkinson/NeuralAmpModelerPlugin",
-      "versions": {
-        "0.7.13": {
-          "date": "2024-12-21",
-          "formats": {
-            "vst3": {
-              "mac": {
-                "url": "https://github.com/sdatkinson/NeuralAmpModelerPlugin/releases/download/v0.7.13/NeuralAmpModeler-v0.7.13-mac.dmg",
-                "sha256": "e9cea7a409fd167e05314d423a298ecb3b2c915eba2f8a514ee0c48a70f39173",
-                "artifact": "NeuralAmpModeler.vst3"
-              }
-            }
-          }
-        },
-        "0.7.12": {
-          "date": "2024-12-02",
-          "formats": {
-            "vst3": {
-              "mac": {
-                "url": "https://github.com/sdatkinson/NeuralAmpModelerPlugin/releases/download/v0.7.12/NeuralAmpModeler-v0.7.12-mac.dmg",
-                "sha256": "284bbc02b29dc0e10cc9bab77de4f8eac6c0b181c403c4e5e29f6854165d3a14",
-                "artifact": "NeuralAmpModeler.vst3"
-              }
-            }
-          }
-        }
-      },
-      "recommended": true
-    },
-    {
       "id": "ott",
       "name": "OTT",
       "author": "Xfer Records",
@@ -272,70 +155,6 @@
                 "url": "https://xferrecords.com/product_downloads/24/freeware",
                 "sha256": "fe1d10b79445c44a32f365fcbf2a420a2133ae205c8d75f09ba703c7dd42ec54",
                 "artifact": "OTT.component"
-              }
-            }
-          }
-        }
-      },
-      "recommended": true
-    },
-    {
-      "id": "six-sines",
-      "name": "Six Sines",
-      "author": "BaconPaul",
-      "description": "Obtuse? Expressive? Amazing? FM? RM? AM? PM? YES!. As one fellow dev said, \"With my synth its hard to make a bad sound, and its nice that Six Sines is the opposite\"",
-      "version": "1.1.0",
-      "license": "mit",
-      "category": "synthesizer",
-      "tags": [
-        "instrument",
-        "synth",
-        "fm"
-      ],
-      "homepage": "https://github.com/baconpaul/six-sines",
-      "versions": {
-        "1.1.0": {
-          "date": "2025-03-18",
-          "formats": {
-            "vst3": {
-              "mac": {
-                "url": "https://github.com/baconpaul/six-sines/releases/download/v1.1.0/six-sines-macOS-2025-03-18-43d10b2.dmg",
-                "sha256": "d6fdf29179cd5b35aa024f25912a50bd14df59fa73cea9ce3da6f3fbf1abe55a",
-                "artifact": "Six Sines.vst3"
-              },
-              "linux": {
-                "url": "https://github.com/baconpaul/six-sines/releases/download/v1.1.0/six-sines-linux-2025-03-18-43d10b2.tgz",
-                "sha256": "fae7c1c325fde7ed49c978358397cb4bcf69012c4e6eefe2a5968fe6a36d0421",
-                "artifact": "Six Sines.vst3"
-              },
-              "win": {
-                "url": "https://github.com/baconpaul/six-sines/releases/download/v1.1.0/six-sines-windows-2025-03-18-43d10b2.zip",
-                "sha256": "7af26e3a4674fac3eecf72061a6f8d9aa13a677c511f116f4f507e6959e002ad",
-                "artifact": "Six Sines.vst3"
-              }
-            },
-            "clap": {
-              "mac": {
-                "url": "https://github.com/baconpaul/six-sines/releases/download/v1.1.0/six-sines-macOS-2025-03-18-43d10b2.dmg",
-                "sha256": "d6fdf29179cd5b35aa024f25912a50bd14df59fa73cea9ce3da6f3fbf1abe55a",
-                "artifact": "Six Sines.clap"
-              },
-              "linux": {
-                "url": "https://github.com/baconpaul/six-sines/releases/download/v1.1.0/six-sines-linux-2025-03-18-43d10b2.tgz",
-                "sha256": "fae7c1c325fde7ed49c978358397cb4bcf69012c4e6eefe2a5968fe6a36d0421",
-                "artifact": "Six Sines.clap"
-              },
-              "win": {
-                "url": "https://github.com/baconpaul/six-sines/releases/download/v1.1.0/six-sines-windows-2025-03-18-43d10b2.zip",
-                "sha256": "7af26e3a4674fac3eecf72061a6f8d9aa13a677c511f116f4f507e6959e002ad",
-                "artifact": "Six Sines.clap"
-              }
-            },
-            "au": {
-              "mac": {
-                "url": "https://github.com/baconpaul/six-sines/releases/download/v1.1.0/six-sines-macOS-2025-03-18-43d10b2.dmg",
-                "sha256": "d6fdf29179cd5b35aa024f25912a50bd14df59fa73cea9ce3da6f3fbf1abe55a",
-                "artifact": "Six Sines.component"
               }
             }
           }
@@ -886,6 +705,42 @@
       }
     },
     {
+      "id": "chow-tape-model",
+      "name": "Chow Tape Model",
+      "author": "Chowdhury DSP",
+      "description": "Chow Tape Model is a digital emulation of a reel-to-reel analog tape machine. The original algorithm was developed to emulate the Sony TC-260, but has since been expanded to be able to model a wide variety of tape machines.",
+      "version": "2.11.4",
+      "license": "gpl-3.0",
+      "category": "effect",
+      "tags": [
+        "effect",
+        "filter",
+        "tape"
+      ],
+      "homepage": "https://github.com/jatinchowdhury18/AnalogTapeModel",
+      "versions": {
+        "2.11.4": {
+          "date": "2023-11-05",
+          "formats": {
+            "vst3": {
+              "mac": {
+                "url": "https://github.com/jatinchowdhury18/AnalogTapeModel/releases/download/v2.11.4/ChowTapeModel-Mac-2.11.4.dmg",
+                "sha256": "9b37e2b6cb6c0a839ee9c65e1a958834ca647b3edfc4bd144115c483b4d64f82",
+                "artifact": "CHOWTapeModel.vst3"
+              }
+            },
+            "au": {
+              "mac": {
+                "url": "https://github.com/jatinchowdhury18/AnalogTapeModel/releases/download/v2.11.4/ChowTapeModel-Mac-2.11.4.dmg",
+                "sha256": "9b37e2b6cb6c0a839ee9c65e1a958834ca647b3edfc4bd144115c483b4d64f82",
+                "artifact": "CHOWTapeModel.component"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "id": "crunchy",
       "name": "crunchy",
       "author": "Garneek",
@@ -1421,6 +1276,42 @@
       }
     },
     {
+      "id": "helm",
+      "name": "Helm",
+      "author": "Matt Tytel",
+      "description": "Polyphonic semi-modular synthesizer with a flexible modulation system.",
+      "version": "0.9.0",
+      "license": "gpl-3.0",
+      "category": "synthesizer",
+      "tags": [
+        "instrument",
+        "synth",
+        "modulation"
+      ],
+      "homepage": "https://github.com/mtytel/helm",
+      "versions": {
+        "0.9.0": {
+          "date": "2017-07-08",
+          "formats": {
+            "vst3": {
+              "mac": {
+                "url": "https://tytel.org/static/dist/Helm_v0_9_0_r.pkg",
+                "sha256": "1bfac2c016d7dd5cd51e714fa6d9facef4e1db52617ff7dd52748dbec1400ebf",
+                "artifact": "helm.vst3"
+              }
+            },
+            "au": {
+              "mac": {
+                "url": "https://tytel.org/static/dist/Helm_v0_9_0_r.pkg",
+                "sha256": "1bfac2c016d7dd5cd51e714fa6d9facef4e1db52617ff7dd52748dbec1400ebf",
+                "artifact": "helm.component"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "id": "iempluginsuite",
       "name": "IEM Plugin Suite",
       "author": "Institute of Electronic Music and Acoustics",
@@ -1939,6 +1830,48 @@
                 "url": "https://rekkerd.org/bin/martineastwood/MVerb_MAC.zip",
                 "sha256": "648bd13355a3b8c40c0ce2fba3ec62c09e222ed291af44444b72d3cf29ebf7aa",
                 "artifact": "MVerb.component"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "nam",
+      "name": "Neural Amp Modeler",
+      "author": "sdatkinson",
+      "description": "Plugin for Neural Amp Modeler.",
+      "version": "0.7.13",
+      "license": "mit",
+      "category": "effect",
+      "tags": [
+        "effect",
+        "amp",
+        "emulation",
+        "noise gate"
+      ],
+      "homepage": "https://github.com/sdatkinson/NeuralAmpModelerPlugin",
+      "versions": {
+        "0.7.13": {
+          "date": "2024-12-21",
+          "formats": {
+            "vst3": {
+              "mac": {
+                "url": "https://github.com/sdatkinson/NeuralAmpModelerPlugin/releases/download/v0.7.13/NeuralAmpModeler-v0.7.13-mac.dmg",
+                "sha256": "e9cea7a409fd167e05314d423a298ecb3b2c915eba2f8a514ee0c48a70f39173",
+                "artifact": "NeuralAmpModeler.vst3"
+              }
+            }
+          }
+        },
+        "0.7.12": {
+          "date": "2024-12-02",
+          "formats": {
+            "vst3": {
+              "mac": {
+                "url": "https://github.com/sdatkinson/NeuralAmpModelerPlugin/releases/download/v0.7.12/NeuralAmpModeler-v0.7.12-mac.dmg",
+                "sha256": "284bbc02b29dc0e10cc9bab77de4f8eac6c0b181c403c4e5e29f6854165d3a14",
+                "artifact": "NeuralAmpModeler.vst3"
               }
             }
           }
@@ -2563,6 +2496,69 @@
                 "url": "https://github.com/sfztools/sfizz/releases/download/1.2.1/sfizz-1.2.1-macos.pkg",
                 "sha256": "78f89627fd0685be3c8eacaed79311d8063e2981f8dad96f99a194704e1b383c",
                 "artifact": "sfizz.component"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "six-sines",
+      "name": "Six Sines",
+      "author": "BaconPaul",
+      "description": "Obtuse? Expressive? Amazing? FM? RM? AM? PM? YES!. As one fellow dev said, \"With my synth its hard to make a bad sound, and its nice that Six Sines is the opposite\"",
+      "version": "1.1.0",
+      "license": "mit",
+      "category": "synthesizer",
+      "tags": [
+        "instrument",
+        "synth",
+        "fm"
+      ],
+      "homepage": "https://github.com/baconpaul/six-sines",
+      "versions": {
+        "1.1.0": {
+          "date": "2025-03-18",
+          "formats": {
+            "vst3": {
+              "mac": {
+                "url": "https://github.com/baconpaul/six-sines/releases/download/v1.1.0/six-sines-macOS-2025-03-18-43d10b2.dmg",
+                "sha256": "d6fdf29179cd5b35aa024f25912a50bd14df59fa73cea9ce3da6f3fbf1abe55a",
+                "artifact": "Six Sines.vst3"
+              },
+              "linux": {
+                "url": "https://github.com/baconpaul/six-sines/releases/download/v1.1.0/six-sines-linux-2025-03-18-43d10b2.tgz",
+                "sha256": "fae7c1c325fde7ed49c978358397cb4bcf69012c4e6eefe2a5968fe6a36d0421",
+                "artifact": "Six Sines.vst3"
+              },
+              "win": {
+                "url": "https://github.com/baconpaul/six-sines/releases/download/v1.1.0/six-sines-windows-2025-03-18-43d10b2.zip",
+                "sha256": "7af26e3a4674fac3eecf72061a6f8d9aa13a677c511f116f4f507e6959e002ad",
+                "artifact": "Six Sines.vst3"
+              }
+            },
+            "clap": {
+              "mac": {
+                "url": "https://github.com/baconpaul/six-sines/releases/download/v1.1.0/six-sines-macOS-2025-03-18-43d10b2.dmg",
+                "sha256": "d6fdf29179cd5b35aa024f25912a50bd14df59fa73cea9ce3da6f3fbf1abe55a",
+                "artifact": "Six Sines.clap"
+              },
+              "linux": {
+                "url": "https://github.com/baconpaul/six-sines/releases/download/v1.1.0/six-sines-linux-2025-03-18-43d10b2.tgz",
+                "sha256": "fae7c1c325fde7ed49c978358397cb4bcf69012c4e6eefe2a5968fe6a36d0421",
+                "artifact": "Six Sines.clap"
+              },
+              "win": {
+                "url": "https://github.com/baconpaul/six-sines/releases/download/v1.1.0/six-sines-windows-2025-03-18-43d10b2.zip",
+                "sha256": "7af26e3a4674fac3eecf72061a6f8d9aa13a677c511f116f4f507e6959e002ad",
+                "artifact": "Six Sines.clap"
+              }
+            },
+            "au": {
+              "mac": {
+                "url": "https://github.com/baconpaul/six-sines/releases/download/v1.1.0/six-sines-macOS-2025-03-18-43d10b2.dmg",
+                "sha256": "d6fdf29179cd5b35aa024f25912a50bd14df59fa73cea9ce3da6f3fbf1abe55a",
+                "artifact": "Six Sines.component"
               }
             }
           }

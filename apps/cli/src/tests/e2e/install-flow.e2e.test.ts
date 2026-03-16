@@ -11,17 +11,17 @@ import { afterAll, beforeAll, describe, expect, it } from "vitest";
 const TEST_ROOT = join(tmpdir(), `plug-e2e-${Date.now()}`);
 process.env.PLUG_HOME = TEST_ROOT;
 
-import { computeChecksum, verifyChecksum } from "../lib/checksum.js";
+import { computeChecksum, verifyChecksum } from "../../lib/checksum.js";
 import {
   downloadFile,
   extractAndInstall,
-} from "../lib/installer.js";
-import { pluginPaths } from "../constants.js";
+} from "../../lib/installer.js";
+import { pluginPaths } from "../../constants.js";
 import {
   loadInstalled,
   markInstalled,
   markUninstalled,
-} from "../lib/state.js";
+} from "../../lib/state.js";
 
 let server: ReturnType<typeof createServer>;
 let serverUrl: string;

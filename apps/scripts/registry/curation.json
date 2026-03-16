@@ -39,12 +39,7 @@
     "ott",
     "dexed",
     "tdr-nova",
-    "dragonfly-reverb",
-    "helm",
-    "nam",
-    "chow-tape-model",
-    "six-sines",
-    "vital"
+    "dragonfly-reverb"
   ],
   "exclude": []
 }

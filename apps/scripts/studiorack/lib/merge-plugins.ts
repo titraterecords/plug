@@ -1,20 +1,4 @@
-import { readFile, writeFile } from "node:fs/promises";
-import { join } from "node:path";
 import type { RegistryPlugin } from "./build-registry-entry.js";
-
-const REGISTRY_PATH = join(import.meta.dirname, "../../../../registry.json");
-
-interface RegistryJson {
-  version: string;
-  updated: string;
-  plugins: RegistryPlugin[];
-}
-
-// Reads the current registry.json from the repo root
-async function loadRegistry(): Promise<RegistryJson> {
-  const data = await readFile(REGISTRY_PATH, "utf-8");
-  return JSON.parse(data) as RegistryJson;
-}
 
 // Merges new plugins into the registry, skipping any that already exist by id.
 // For existing plugins, merges new platform entries into existing version format maps.
@@ -44,7 +28,6 @@ function mergePlugins(
         continue;
       }
 
-      // Version exists - merge format/platform entries
       for (const [fmt, platforms] of Object.entries(versionEntry.formats)) {
         if (!current.versions[ver].formats[fmt]) {
           current.versions[ver].formats[fmt] = platforms;
@@ -71,11 +54,4 @@ function mergePlugins(
   };
 }
 
-// Writes the updated registry back to disk
-async function saveRegistry(registry: RegistryJson): Promise<void> {
-  const today = new Date().toISOString().split("T")[0];
-  registry.updated = today;
-  await writeFile(REGISTRY_PATH, JSON.stringify(registry, null, 2) + "\n");
-}
-
-export { loadRegistry, mergePlugins, saveRegistry };
+export { mergePlugins };
