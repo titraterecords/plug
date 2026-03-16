@@ -63,9 +63,10 @@ add_to_path() {
 main() {
   # If already installed via npm, update through npm instead
   if command -v npm >/dev/null 2>&1 && npm list -g @titrate/plug >/dev/null 2>&1; then
-    echo "plug installed via npm, updating..."
+    current=$(plug --version 2>/dev/null || echo "unknown")
     npm update -g @titrate/plug --silent
-    echo "plug $(plug --version)"
+    updated=$(plug --version)
+    echo "plug updated from ${current} to ${updated}"
     return
   fi
 
