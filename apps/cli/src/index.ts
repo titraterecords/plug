@@ -8,10 +8,12 @@ import { registerUpgrade } from "./commands/upgrade.js";
 import chalk from "chalk";
 import { checkForUpdate, loadVersionCache } from "./lib/version.js";
 
-const VERSION = "0.1.3";
+const VERSION = "0.1.4";
 
-// Show cached update notice (fast, no network)
-const cached = await loadVersionCache();
+// Skip update banner for --version and --help
+const args = process.argv.slice(2);
+const skipBanner = args.includes("--version") || args.includes("-V") || args.includes("--help") || args.includes("-h") || args.length === 0;
+
 function isNewer(latest: string, current: string): boolean {
   const l = latest.split(".").map(Number);
   const c = current.split(".").map(Number);
@@ -22,7 +24,8 @@ function isNewer(latest: string, current: string): boolean {
   return false;
 }
 
-if (cached && isNewer(cached.latest, VERSION)) {
+const cached = await loadVersionCache();
+if (!skipBanner && cached && isNewer(cached.latest, VERSION)) {
   const isStandalone = process.argv[1]?.includes(".plug/bin");
   const updateCmd = isStandalone
     ? "curl -fsSL plug.audio/install.sh | sh"
