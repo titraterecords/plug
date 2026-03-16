@@ -1,13 +1,53 @@
-// Builds the final registry.json by applying curation overrides.
-// Renames IDs per the mapping, sets recommended flags, removes excluded
-// plugins, and deduplicates entries that share the same final ID by
-// merging their version/platform data.
+// Registry build pipeline
+//
+// The registry is assembled from multiple sources, curated, then validated.
+// Each step writes to registry.json. Later steps stack on top of earlier ones.
+//
+// 1. IMPORT: STUDIORACK (sources/studiorack/)
+//    Fetches the Open Audio Stack registry (CC0 licensed, ~100 plugins).
+//    Downloads each archive, extracts it, scans for .vst3/.component/.clap/.lv2
+//    artifacts. Writes entries with verified artifact names and sha256 hashes.
+//    Runs per-platform: import:studiorack:mac, import:studiorack:linux, import:studiorack:win
+//    Skips versions already in the registry (keyed by plugin ID + version + platform).
+//
+// 2. IMPORT: MANUAL (sources/manual/)
+//    Hand-curated plugins not in OAS (Valhalla, Xfer, etc.).
+//    Reads plugins.json, downloads archives, computes sha256, scans artifacts.
+//    Overwrites existing entries for the same plugin - used to fix broken data
+//    or add plugins from vendor sites that OAS doesn't cover.
+//    Run: import:manual
+//
+// 3. BUILD (this file)
+//    Applies curation from curation.json:
+//    - Renames IDs (OAS slug "surge" -> our ID "surge-xt")
+//    - Deduplicates entries that map to the same final ID (merges version data)
+//    - Sets recommended flags
+//    - Removes excluded plugins
+//    - Sorts: recommended first, then alphabetical
+//    Run: build:registry
+//
+// 4. VALIDATE (validate.ts)
+//    Checks every URL in the registry:
+//    - Download URLs: HEAD request, falls back to GET for signed CDN URLs.
+//      404/unreachable entries get removed from the registry.
+//    - Homepage URLs: HEAD/GET check. If broken, uses Claude Code CLI to
+//      web search for the current URL. Results cached in cache/ to avoid
+//      repeat searches.
+//    Run: validate:registry
+//
+// Full pipeline:
+//   pnpm import:studiorack:mac
+//   pnpm import:studiorack:linux
+//   pnpm import:studiorack:win
+//   pnpm import:manual
+//   pnpm build:registry
+//   pnpm validate:registry
 //
 // Usage: pnpm build:registry
 
 import { readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
-import type { RegistryPlugin } from "../studiorack/lib/build-registry-entry.js";
+import type { RegistryPlugin } from "./sources/studiorack/lib/build-registry-entry.js";
 
 const REGISTRY_PATH = join(import.meta.dirname, "../../../registry.json");
 const CURATION_PATH = join(import.meta.dirname, "curation.json");
