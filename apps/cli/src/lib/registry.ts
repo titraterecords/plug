@@ -1,4 +1,5 @@
 import { mkdir, readFile, rm, stat, writeFile } from "node:fs/promises";
+import { execSync } from "node:child_process";
 import {
   RegistrySchema,
   type Platform,
@@ -10,14 +11,34 @@ import { CACHE_DIR, REGISTRY_CACHE_PATH, REGISTRY_URL } from "../constants.js";
 
 const CACHE_MAX_AGE_MS = 10 * 60 * 1000; // 10 minutes
 
+class RegistrySchemaError extends Error {
+  constructor() {
+    super("Registry format has changed.");
+  }
+}
+
 function parseRegistry(data: unknown): Registry {
   const result = RegistrySchema.safeParse(data);
   if (result.success) return result.data;
+  throw new RegistrySchemaError();
+}
 
-  throw new Error(
-    "Registry format has changed. Run: plug clear-cache\n" +
-      "If the error persists, update plug to the latest version.",
-  );
+function selfUpdate(): never {
+  const isStandalone = process.argv[1]?.includes(".plug/bin");
+  const cmd = isStandalone
+    ? "curl -fsSL plug.audio/install.sh | sh"
+    : "npm update -g @titrate/plug";
+
+  console.log("\nplug needs to update to read the latest registry.\n");
+  console.log(`Running: ${cmd}\n`);
+
+  try {
+    execSync(cmd, { stdio: "inherit" });
+    console.log("\nUpdated. Please run your command again.");
+  } catch {
+    console.error(`\nAuto-update failed. Run manually: ${cmd}`);
+  }
+  process.exit(1);
 }
 
 async function fetchRegistry(): Promise<Registry> {
@@ -54,9 +75,14 @@ async function getRegistry(): Promise<Registry> {
   const cached = await loadCachedRegistry();
   if (cached) return cached;
 
-  const registry = await fetchRegistry();
-  await cacheRegistry(registry);
-  return registry;
+  try {
+    const registry = await fetchRegistry();
+    await cacheRegistry(registry);
+    return registry;
+  } catch (err) {
+    if (err instanceof RegistrySchemaError) selfUpdate();
+    throw err;
+  }
 }
 
 function findPlugin(registry: Registry, id: string): Plugin | undefined {
