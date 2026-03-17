@@ -28,11 +28,14 @@ jobs:
       - run: pnpm lint
       - run: pnpm test
 
+      - name: Build CLI
+        run: cd apps/cli && pnpm build
+
       - name: e2e - install OTT on macOS
         env:
           PLUG_HOME: ${{ runner.temp }}/plug-e2e
         run: |
-          cd apps/cli && pnpm exec tsx src/index.ts install ott -f vst3
+          cd apps/cli && node dist/index.js install ott -f vst3
           test -d "$PLUG_HOME/plugins/vst3/OTT.vst3" || (echo "OTT.vst3 not found" && exit 1)
           echo "OTT.vst3 installed successfully"
 
@@ -55,12 +58,15 @@ jobs:
       - run: pnpm type-check
       - run: pnpm test
 
+      - name: Build CLI
+        run: cd apps/cli && pnpm build
+
       - name: e2e - install from zip (wolf-shaper)
         shell: pwsh
         env:
           PLUG_HOME: ${{ runner.temp }}\plug-e2e-zip
         run: |
-          cd apps/cli; pnpm exec tsx src/index.ts install wolf-shaper -f vst3
+          cd apps/cli; node dist/index.js install wolf-shaper -f vst3
           if (!(Test-Path "$env:PLUG_HOME\plugins\vst3\wolf-shaper.vst3")) {
             Write-Error "wolf-shaper.vst3 not found after install"
             exit 1
@@ -72,7 +78,7 @@ jobs:
         env:
           PLUG_HOME: ${{ runner.temp }}\plug-e2e-exe
         run: |
-          cd apps/cli; pnpm exec tsx src/index.ts install ott -f vst3
+          cd apps/cli; node dist/index.js install ott -f vst3
           if (!(Test-Path "$env:PLUG_HOME\plugins\vst3\OTT.vst3")) {
             Write-Error "OTT.vst3 not found after install"
             exit 1

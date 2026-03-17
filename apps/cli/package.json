@@ -1,6 +1,6 @@
 {
   "name": "@titrate/plug",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "type": "module",
   "bin": {
     "plug": "dist/index.js"
@@ -11,6 +11,7 @@
   "scripts": {
     "dev": "tsx src/index.ts",
     "build": "tsup",
+    "prepublishOnly": "pnpm build",
     "knip": "echo 'Run knip from repo root (pnpm knip)'",
     "lint": "eslint . --fix",
     "format": "prettier --write . --ignore-path ../../.prettierignore",
