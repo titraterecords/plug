@@ -81,21 +81,27 @@ Examples:
 
       const registry = await getRegistry();
 
-      const selected = await select({
-        message: "Select a plugin to uninstall",
-        choices: ids.map((id) => {
-          const entry = installed[id];
-          const plugin = findPlugin(registry, id);
-          const label = plugin ? `${plugin.author} - ${plugin.name}` : id;
-          const formats = Object.keys(entry.formats)
-            .map((f) => f.toUpperCase())
-            .join(", ");
-          return {
-            name: `[${formats}] ${label}`,
-            value: id,
-          };
-        }),
-      });
+      let selected: string;
+      try {
+        selected = await select({
+          message: "Select a plugin to uninstall",
+          choices: ids.map((id) => {
+            const entry = installed[id];
+            const plugin = findPlugin(registry, id);
+            const label = plugin ? `${plugin.author} - ${plugin.name}` : id;
+            const formats = Object.keys(entry.formats)
+              .map((f) => f.toUpperCase())
+              .join(", ");
+            return {
+              name: `[${formats}] ${label}`,
+              value: id,
+            };
+          }),
+        });
+      } catch {
+        // User pressed Ctrl+C or ESC
+        return;
+      }
 
       await uninstallPlugin(selected, installed, options.json);
     });

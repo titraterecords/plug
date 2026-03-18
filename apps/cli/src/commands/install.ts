@@ -94,27 +94,32 @@ Examples:
           const ordered = FORMAT_PREFERENCE[platform].filter((f) =>
             available.includes(f),
           );
-          formats = await checkbox<PluginFormat>({
-            message: `${chalk.bold(plugin.name)} ${chalk.dim(plugin.version)} formats`,
-            choices: ordered.map((f) => ({
-              name: f.toUpperCase(),
-              value: f,
-              checked: f === "vst3",
-            })),
-            shortcuts: { all: null, invert: null },
-            theme: {
-              style: {
-                keysHelpTip: (keys: [string, string][]) =>
-                  chalk.dim(
-                    keys
-                      .map(
-                        ([key, action]: [string, string]) => `${key} ${action}`,
-                      )
-                      .join(", "),
-                  ),
+          try {
+            formats = await checkbox<PluginFormat>({
+              message: `${chalk.bold(plugin.name)} ${chalk.dim(plugin.version)} formats`,
+              choices: ordered.map((f) => ({
+                name: f.toUpperCase(),
+                value: f,
+                checked: f === "vst3",
+              })),
+              shortcuts: { all: null, invert: null },
+              theme: {
+                style: {
+                  keysHelpTip: (keys: [string, string][]) =>
+                    chalk.dim(
+                      keys
+                        .map(
+                          ([key, action]: [string, string]) =>
+                            `${key} ${action}`,
+                        )
+                        .join(", "),
+                    ),
+                },
               },
-            },
-          });
+            });
+          } catch {
+            return;
+          }
 
           if (formats.length === 0) {
             error("No formats selected.");
