@@ -46,7 +46,8 @@
     "tdr-nova",
     "dragonfly-reverb",
     "valhalla-supermassive",
-    "smartelectronix"
+    "smartelectronix",
+    "cardinal"
   ],
   "exclude": []
 }
