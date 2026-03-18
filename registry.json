@@ -163,12 +163,22 @@
                 "url": "https://github.com/asb2m10/dexed/releases/download/v1.0.1a/Dexed-1.0.1-macOS.dmg",
                 "sha256": "75ed57333cc603325d7f3f0ef6820cbfa2e50fdb9508beb728953c203b6984f6",
                 "artifact": "Dexed.vst3"
+              },
+              "win": {
+                "url": "https://github.com/asb2m10/dexed/releases/download/v1.0.1a/Dexed-1.0.1-win.zip",
+                "sha256": "4f308ffabc4699dffe45ac6aa17f09cd5f1efa0a6ca3122bbe7e001aa5c6c115",
+                "artifact": "Dexed.vst3"
               }
             },
             "clap": {
               "mac": {
                 "url": "https://github.com/asb2m10/dexed/releases/download/v1.0.1a/Dexed-1.0.1-macOS.dmg",
                 "sha256": "75ed57333cc603325d7f3f0ef6820cbfa2e50fdb9508beb728953c203b6984f6",
+                "artifact": "Dexed.clap"
+              },
+              "win": {
+                "url": "https://github.com/asb2m10/dexed/releases/download/v1.0.1a/Dexed-1.0.1-win.zip",
+                "sha256": "4f308ffabc4699dffe45ac6aa17f09cd5f1efa0a6ca3122bbe7e001aa5c6c115",
                 "artifact": "Dexed.clap"
               }
             },
@@ -1117,6 +1127,15 @@
                 "url": "https://github.com/DISTRHO/Cardinal/releases/download/26.02/Cardinal-macOS-universal-26.02.pkg",
                 "sha256": "5f62f020aab3987aea4bf7bfde4caf09b4c41ab555f485c0e7ebf46944bdb415",
                 "artifact": "CardinalSynth.clap"
+              },
+              "win": {
+                "url": "https://github.com/DISTRHO/Cardinal/releases/download/26.02/Cardinal-win32-26.02.zip",
+                "sha256": "767452f3dc43cd3da494e2b1b52c31ea3380ff3b3d65128a0edaffba9dffca87",
+                "artifact": [
+                  "Cardinal.clap",
+                  "CardinalFX.clap",
+                  "CardinalSynth.clap"
+                ]
               }
             },
             "lv2": {
@@ -1129,6 +1148,16 @@
                 "url": "https://github.com/DISTRHO/Cardinal/releases/download/26.02/Cardinal-macOS-universal-26.02.pkg",
                 "sha256": "5f62f020aab3987aea4bf7bfde4caf09b4c41ab555f485c0e7ebf46944bdb415",
                 "artifact": "CardinalSynth.lv2"
+              },
+              "win": {
+                "url": "https://github.com/DISTRHO/Cardinal/releases/download/26.02/Cardinal-win32-26.02.zip",
+                "sha256": "767452f3dc43cd3da494e2b1b52c31ea3380ff3b3d65128a0edaffba9dffca87",
+                "artifact": [
+                  "Cardinal.lv2",
+                  "CardinalFX.lv2",
+                  "CardinalMini.lv2",
+                  "CardinalSynth.lv2"
+                ]
               }
             },
             "vst3": {
@@ -1141,6 +1170,15 @@
                 "url": "https://github.com/DISTRHO/Cardinal/releases/download/26.02/Cardinal-macOS-universal-26.02.pkg",
                 "sha256": "5f62f020aab3987aea4bf7bfde4caf09b4c41ab555f485c0e7ebf46944bdb415",
                 "artifact": "CardinalSynth.vst3"
+              },
+              "win": {
+                "url": "https://github.com/DISTRHO/Cardinal/releases/download/26.02/Cardinal-win32-26.02.zip",
+                "sha256": "767452f3dc43cd3da494e2b1b52c31ea3380ff3b3d65128a0edaffba9dffca87",
+                "artifact": [
+                  "Cardinal.vst3",
+                  "CardinalFX.vst3",
+                  "CardinalSynth.vst3"
+                ]
               }
             },
             "au": {
@@ -2895,12 +2933,22 @@
                 "url": "https://github.com/surge-synthesizer/OB-Xf/releases/download/v1.0.0/ob-xf-macOS-2026-03-16-5044e2e.dmg",
                 "sha256": "fa47fd4ab29da49b517beb987cf1140f29b94d12f2b1d35e55862ab84f7be476",
                 "artifact": "OB-Xf.vst3"
+              },
+              "win": {
+                "url": "https://github.com/surge-synthesizer/OB-Xf/releases/download/v1.0.0/ob-xf-Windows-2026-03-16-5044e2e.zip",
+                "sha256": "469e1ee9be4f3295c54ad9a64f18b60fe5bdd1c99ce1724ffeba44da9b1619c4",
+                "artifact": "OB-Xf.vst3"
               }
             },
             "clap": {
               "mac": {
                 "url": "https://github.com/surge-synthesizer/OB-Xf/releases/download/v1.0.0/ob-xf-macOS-2026-03-16-5044e2e.dmg",
                 "sha256": "fa47fd4ab29da49b517beb987cf1140f29b94d12f2b1d35e55862ab84f7be476",
+                "artifact": "OB-Xf.clap"
+              },
+              "win": {
+                "url": "https://github.com/surge-synthesizer/OB-Xf/releases/download/v1.0.0/ob-xf-Windows-2026-03-16-5044e2e.zip",
+                "sha256": "469e1ee9be4f3295c54ad9a64f18b60fe5bdd1c99ce1724ffeba44da9b1619c4",
                 "artifact": "OB-Xf.clap"
               }
             },

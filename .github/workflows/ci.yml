@@ -105,6 +105,18 @@ jobs:
           }
           Write-Host "OTT.vst3 installed successfully"
 
+      - name: e2e - install from zip with resources (Cardinal)
+        shell: pwsh
+        env:
+          PLUG_HOME: ${{ runner.temp }}\plug-e2e-cardinal
+        run: |
+          cd apps/cli; node dist/index.js install cardinal -f vst3
+          if (!(Test-Path "$env:PLUG_HOME\plugins\vst3\Cardinal.vst3")) {
+            Write-Error "Cardinal.vst3 not found after install"
+            exit 1
+          }
+          Write-Host "Cardinal.vst3 installed successfully"
+
       - name: e2e - auto-install 7-Zip via winget
         shell: pwsh
         env:
