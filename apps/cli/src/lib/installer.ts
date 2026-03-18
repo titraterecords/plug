@@ -2,9 +2,12 @@ import { cp, mkdir, readdir, rm, writeFile } from "node:fs/promises";
 import { execSync } from "node:child_process";
 import { join } from "node:path";
 import { tmpdir } from "node:os";
+import chalk from "chalk";
+import { confirm } from "@inquirer/prompts";
+import ora from "ora";
 import { detectDownloadType } from "./detect-download-type.js";
 import { ejectDmg, mountDmg } from "./dmg.js";
-import { warn } from "./logger.js";
+import { dim, warn } from "./logger.js";
 import { expandPkg, findArtifactInPkg } from "./pkg.js";
 
 const isWin = process.platform === "win32";
@@ -66,47 +69,84 @@ function find7z(): string | null {
 
 interface InstallOptions {
   skipWinget?: boolean;
+  pluginLabel?: string;
+  onInteractive?: () => void;
 }
 
-function tryInstall7z(options: InstallOptions = {}): boolean {
-  if (options.skipWinget) return false;
-
-  // Try winget (ships with Windows 10 1809+ and all Windows 11)
+function tryInstall7zWithWinget(): boolean {
   try {
     execSync("winget --version", { stdio: "ignore" });
-    warn(
-      "Installing plugins packaged as .exe requires a one-time install of 7-Zip. It's tiny and quick — installing with winget now. Hold on!",
-    );
     execSync(
       "winget install 7zip.7zip --accept-package-agreements --accept-source-agreements",
       { stdio: "ignore" },
     );
-    if (find7z()) return true;
+    return find7z() !== null;
   } catch {
-    // winget not available or install failed
+    return false;
   }
-
-  return false;
 }
 
-function ensure7z(options: InstallOptions = {}): string {
+async function ensure7z(options: InstallOptions = {}): Promise<string> {
   const sz = find7z();
   if (sz) return sz;
 
-  if (tryInstall7z(options)) return find7z()!;
+  options.onInteractive?.();
+
+  const label = options.pluginLabel ?? "This plugin";
+  console.log();
+  warn(`${label} is packaged as an .exe file.`);
+  warn(
+    `To unpack it we need a tiny dependency called ${chalk.bold("7-Zip")}.`,
+  );
+
+  // Try winget
+  if (!options.skipWinget) {
+    try {
+      execSync("winget --version", { stdio: "ignore" });
+      dim(
+        "  Don't worry, it's a tiny reputable dependency and we're installing it for you.",
+      );
+      console.log();
+      const spinner = ora("Installing 7-Zip").start();
+      const ok = tryInstall7zWithWinget();
+      spinner.stop();
+      if (ok) return find7z()!;
+    } catch {
+      // winget not available
+    }
+  }
+
+  // Manual fallback: open browser
+  console.log();
+  const open = await confirm({
+    message: "Open the 7-Zip download page?",
+    default: true,
+  });
+
+  if (open) {
+    try {
+      execSync('start "" "https://7-zip.org"', { stdio: "ignore" });
+    } catch {
+      dim("  https://7-zip.org");
+    }
+  }
+
+  console.log();
+  await confirm({
+    message: "Press ENTER once you've installed 7-Zip",
+    default: true,
+  });
+
+  const after = find7z();
+  if (after) return after;
 
   throw new Error(
-    [
-      "This plugin is packaged as an EXE installer and requires 7-Zip to extract.",
-      "",
-      "Install 7-Zip (one-time setup, free & open source):",
-      "  winget install 7zip.7zip",
-    ].join("\n"),
+    "7-Zip not found. Try opening a new terminal tab and running the command again.",
   );
 }
 
-function extractExe(filePath: string, destDir: string, options: InstallOptions = {}): void {
-  const sz = ensure7z(options);
+async function extractExe(filePath: string, destDir: string, options: InstallOptions = {}): Promise<void> {
+  const sz = await ensure7z(options);
   execSync(`"${sz}" x "${filePath}" -o"${destDir}" -y`, { stdio: "ignore" });
 }
 
@@ -148,7 +188,7 @@ async function extractToDir(
     await writeFile(exePath, data);
     const expandDir = join(tmpDir, "exe-expanded");
     await mkdir(expandDir, { recursive: true });
-    extractExe(exePath, expandDir, options);
+    await extractExe(exePath, expandDir, options);
     return expandDir;
   }
 
@@ -183,7 +223,7 @@ async function findInExtracted(
     if (exe) {
       const expandDir = join(tmpDir, `exe-expanded-${Date.now()}`);
       await mkdir(expandDir, { recursive: true });
-      extractExe(join(searchDir, exe), expandDir, options);
+      await extractExe(join(searchDir, exe), expandDir, options);
       const exeFound = await findArtifact(expandDir, artifactName);
       if (exeFound) return exeFound;
     }
