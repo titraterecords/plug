@@ -92,9 +92,7 @@ jobs:
         run: |
           # Properly uninstall 7-Zip so winget auto-install is exercised
           winget uninstall 7zip.7zip --accept-source-agreements --silent 2>$null
-          if (Test-Path "C:\Program Files\7-Zip") {
-            Remove-Item "C:\Program Files\7-Zip" -Recurse -Force
-          }
+          Remove-Item "C:\Program Files\7-Zip" -Recurse -Force -ErrorAction SilentlyContinue
           cd apps/cli; node dist/index.js install ott -f vst3
           if (!(Test-Path "$env:PLUG_HOME\plugins\vst3\OTT.vst3")) {
             Write-Error "OTT.vst3 not found after auto-install of 7-Zip"
