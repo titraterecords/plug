@@ -78,11 +78,12 @@ describe.skipIf(!isMac)("resolvePkgDest without PLUG_HOME", () => {
     );
   });
 
-  it("rewrites Application Support for user target", () => {
+  it("keeps Application Support at system path for user target", () => {
+    // Plugins hardcode resource paths like /Library/Application Support/Cardinal
     withoutPlugHome();
     expect(
       resolvePkgDest("/Library/Application Support/Cardinal", "user"),
-    ).toBe(join(home, "Library/Application Support/Cardinal"));
+    ).toBe("/Library/Application Support/Cardinal");
   });
 
   it("keeps /Applications as-is regardless of target", () => {
