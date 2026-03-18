@@ -73,8 +73,12 @@ async function main(): Promise<void> {
         const platform = matchPlatform(asset.name);
         if (!platform) continue;
 
-        // Keep the first match per platform per release
-        if (!platformAssets.has(platform)) {
+        const existing = platformAssets.get(platform);
+        const isExtractable = /\.(zip|tar\.gz|tgz|dmg|pkg)$/i.test(asset.name);
+
+        // Prefer extractable archives over exe/msi installers.
+        // If we already have an extractable asset, don't replace it.
+        if (!existing || (isExtractable && /\.(exe|msi)$/i.test(existing.name))) {
           platformAssets.set(platform, {
             name: asset.name,
             url: asset.browser_download_url,
