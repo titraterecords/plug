@@ -1,6 +1,6 @@
 {
   "version": "2",
-  "updated": "2026-03-16",
+  "updated": "2026-03-18",
   "plugins": [
     {
       "id": "8-bit-shaper",
@@ -3745,6 +3745,60 @@
                 "url": "https://github.com/GuitarML/SmartGuitarPedal/releases/download/v1.5/Install-SmartPedal-v1.5-Mac.dmg",
                 "sha256": "6aeb668f8f8d9b777121894bcc0b4735e569c242d8fbcf5630c9f62755967cb9",
                 "artifact": "SmartPedal.component"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "soundmagic-spectral",
+      "name": "SoundMagic Spectral Bundle",
+      "author": "Michael Norris",
+      "description": "Suite of 23 spectral audio processing effects including blurring, freezing, granulation, pitch shifting, and more",
+      "version": "1.5",
+      "license": "freeware",
+      "category": "effect",
+      "tags": [
+        "effect",
+        "spectral",
+        "bundle",
+        "granular",
+        "creative"
+      ],
+      "homepage": "https://www.michaelnorris.info/software/soundmagic-spectral",
+      "versions": {
+        "1.5": {
+          "formats": {
+            "au": {
+              "mac": {
+                "url": "https://www.michaelnorris.info/downloads/soundmagicspectral15.dmg",
+                "sha256": "386f380f3a78b55e24dd08cd4fe77160b908b76664deeb9b4180448e63240413",
+                "artifact": [
+                  "Chorus.component",
+                  "GrainStreamer.component",
+                  "IdeeFixer.component",
+                  "MNSpectralAveraging.component",
+                  "MNSpectralBinShift.component",
+                  "MNSpectralBlurring.component",
+                  "MNSpectralDroneMaker.component",
+                  "MNSpectralEmergence.component",
+                  "MNSpectralFilterbank.component",
+                  "MNSpectralFreezing.component",
+                  "MNSpectralGateAndHold.component",
+                  "MNSpectralGlidingFilters.component",
+                  "MNSpectralGranulation.component",
+                  "MNSpectralHarmonizer.component",
+                  "MNSpectralPartialGlide.component",
+                  "MNSpectralPitchShift.component",
+                  "MNSpectralPulsing.component",
+                  "MNSpectralShimmer.component",
+                  "MNSpectralShuffle.component",
+                  "MNSpectralStretch.component",
+                  "MNSpectralTracing.component",
+                  "MNSpectralWeave.component",
+                  "MNSuperFilterBank.component"
+                ]
               }
             }
           }

@@ -11,6 +11,8 @@ import {
 import { verifyChecksum } from "../lib/checksum.js";
 import { downloadFile } from "../lib/installer/download.js";
 import { extractAndInstall } from "../lib/installer/install.js";
+import { isPkg } from "../lib/installer/is-pkg.js";
+import { installPkg } from "../lib/installer/mac/install-pkg.js";
 import { error, success } from "../lib/logger.js";
 import { parsePluginRef } from "../lib/parse-plugin-ref.js";
 import { currentPlatform } from "../lib/platform.js";
@@ -145,6 +147,28 @@ Examples:
                 "The download does not match the expected checksum. This could indicate a corrupted or tampered file.",
               );
               process.exit(1);
+            }
+
+            // PKGs contain sub-packages with install-location metadata
+            // that determines where each artifact goes. Route to the
+            // multi-destination PKG installer instead of the generic flow.
+            if (isPkg(data)) {
+              const pkgResult = await installPkg(data, [format], target);
+              const allPaths = [...pkgResult.plugins, ...pkgResult.resources];
+              await markInstalled(plugin.id, version, format, allPaths);
+              results.push({ format, paths: allPaths });
+              spinner.stop();
+              for (const p of pkgResult.plugins) {
+                success(
+                  `${chalk.bold(plugin.name)} ${version} ${format} -> ${chalk.dim(p)}`,
+                );
+              }
+              for (const p of pkgResult.resources) {
+                success(
+                  `${chalk.bold(plugin.name)} ${version} resource -> ${chalk.dim(p)}`,
+                );
+              }
+              continue;
             }
 
             const destDir = paths[format][target];

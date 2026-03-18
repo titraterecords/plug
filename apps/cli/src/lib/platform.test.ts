@@ -7,14 +7,15 @@ describe("currentPlatform", () => {
     expect(["mac", "win", "linux"]).toContain(platform);
   });
 
-  it("returns mac on darwin", () => {
-    // This test only runs on macOS
-    if (process.platform !== "darwin") return;
+  it.skipIf(process.platform !== "darwin")("returns mac on darwin", () => {
     expect(currentPlatform()).toBe("mac");
   });
 
-  it("returns linux on linux", () => {
-    if (process.platform !== "linux") return;
+  it.skipIf(process.platform !== "linux")("returns linux on linux", () => {
     expect(currentPlatform()).toBe("linux");
+  });
+
+  it.skipIf(process.platform !== "win32")("returns win on windows", () => {
+    expect(currentPlatform()).toBe("win");
   });
 });

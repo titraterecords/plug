@@ -145,5 +145,22 @@
         "artifacts": ["TDR Nova.vst3"]
       }
     }
+  },
+  {
+    "id": "soundmagic-spectral",
+    "name": "SoundMagic Spectral Bundle",
+    "author": "Michael Norris",
+    "description": "Suite of 23 spectral audio processing effects including blurring, freezing, granulation, pitch shifting, and more",
+    "version": "1.5",
+    "license": "freeware",
+    "category": "effect",
+    "tags": ["effect", "spectral", "bundle", "granular", "creative"],
+    "homepage": "https://www.michaelnorris.info/software/soundmagic-spectral",
+    "downloads": {
+      "mac": {
+        "url": "https://www.michaelnorris.info/downloads/soundmagicspectral15.dmg",
+        "artifacts": []
+      }
+    }
   }
 ]
