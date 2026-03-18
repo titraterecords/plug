@@ -3,7 +3,10 @@ import { homedir } from "node:os";
 import { join } from "node:path";
 import { resolvePkgDest } from "./resolve-pkg-dest.js";
 
-describe("resolvePkgDest with PLUG_HOME", () => {
+const isMac = process.platform === "darwin";
+
+// PKG path resolution is macOS-only
+describe.skipIf(!isMac)("resolvePkgDest with PLUG_HOME", () => {
   const testHome = "/tmp/plug-test-home";
 
   afterEach(() => {
@@ -50,7 +53,7 @@ describe("resolvePkgDest with PLUG_HOME", () => {
   });
 });
 
-describe("resolvePkgDest without PLUG_HOME", () => {
+describe.skipIf(!isMac)("resolvePkgDest without PLUG_HOME", () => {
   const home = homedir();
 
   afterEach(() => {

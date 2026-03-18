@@ -8,6 +8,8 @@ import {
   extractInstallLocation,
 } from "./parse-pkg-layout.js";
 
+const isMac = process.platform === "darwin";
+
 describe("classifyPath", () => {
   it("classifies VST3 plugin path", () => {
     expect(classifyPath("/Library/Audio/Plug-Ins/VST3/Surge XT.vst3")).toBe(
@@ -79,7 +81,8 @@ describe("extractInstallLocation", () => {
   });
 });
 
-describe("parsePkgLayout", () => {
+// PKG filesystem tests only run on macOS - paths are macOS-specific
+describe.skipIf(!isMac)("parsePkgLayout", () => {
   let tmpDir: string;
 
   beforeEach(async () => {
