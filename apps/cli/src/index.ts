@@ -11,7 +11,7 @@ import chalk from "chalk";
 import { printBanner } from "./lib/banner.js";
 import { checkForUpdate, loadVersionCache } from "./lib/version.js";
 
-const VERSION = "0.3.2";
+const VERSION = "0.3.3";
 
 // Skip update banner for --version and --help
 const args = process.argv.slice(2);
