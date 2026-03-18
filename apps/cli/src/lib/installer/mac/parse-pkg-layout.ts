@@ -113,8 +113,8 @@ async function parsePkgLayout(expandedDir: string): Promise<PkgPayloadItem[]> {
       continue;
     }
 
-    const installLocation = extractInstallLocation(pkgInfo);
-    if (!installLocation) continue;
+    // Missing install-location means root-relative payload (same as "/")
+    const installLocation = extractInstallLocation(pkgInfo) ?? "/";
 
     const payloadDir = join(subPkgDir, "Payload");
     const payloadExists = await stat(payloadDir).catch(() => null);
