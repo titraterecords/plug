@@ -1,4 +1,4 @@
-import type { Command } from "commander";
+import { Option, type Command } from "commander";
 import chalk from "chalk";
 import { checkbox } from "@inquirer/prompts";
 import ora from "ora";
@@ -23,6 +23,7 @@ function registerInstall(program: Command): void {
     .option("-f, --format <format>", "Plugin format (vst3, au, clap, lv2)")
     .option("-t, --target <target>", "Install target (user, system)", "user")
     .option("--json", "Output as JSON")
+    .addOption(new Option("--skip-winget").default(false).hideHelp())
     .addHelpText("after", `
 Examples:
   plug install ott
@@ -35,6 +36,7 @@ Examples:
           format?: string;
           target: string;
           json?: boolean;
+          skipWinget?: boolean;
         },
       ) => {
         const { name, version: requestedVersion } = parsePluginRef(input);
@@ -136,6 +138,7 @@ Examples:
               data,
               formatEntry.artifact,
               destDir,
+              { skipWinget: options.skipWinget },
             );
 
             await markInstalled(plugin.id, version, format, destPaths);

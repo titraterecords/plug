@@ -4,6 +4,7 @@ import { join } from "node:path";
 import { tmpdir } from "node:os";
 import { detectDownloadType } from "./detect-download-type.js";
 import { ejectDmg, mountDmg } from "./dmg.js";
+import { warn } from "./logger.js";
 import { expandPkg, findArtifactInPkg } from "./pkg.js";
 
 const isWin = process.platform === "win32";
@@ -63,19 +64,56 @@ function find7z(): string | null {
   return null;
 }
 
-function extractExe(filePath: string, destDir: string): void {
-  const sz = find7z();
-  if (!sz) {
-    throw new Error(
-      "This plugin requires 7-Zip to extract. Install from https://7-zip.org",
+interface InstallOptions {
+  skipWinget?: boolean;
+}
+
+function tryInstall7z(options: InstallOptions = {}): boolean {
+  if (options.skipWinget) return false;
+
+  // Try winget (ships with Windows 10 1809+ and all Windows 11)
+  try {
+    execSync("winget --version", { stdio: "ignore" });
+    warn(
+      "Installing plugins packaged as .exe requires a one-time install of 7-Zip. It's tiny and quick — installing with winget now. Hold on!",
     );
+    execSync(
+      "winget install 7zip.7zip --accept-package-agreements --accept-source-agreements",
+      { stdio: "ignore" },
+    );
+    if (find7z()) return true;
+  } catch {
+    // winget not available or install failed
   }
+
+  return false;
+}
+
+function ensure7z(options: InstallOptions = {}): string {
+  const sz = find7z();
+  if (sz) return sz;
+
+  if (tryInstall7z(options)) return find7z()!;
+
+  throw new Error(
+    [
+      "This plugin is packaged as an EXE installer and requires 7-Zip to extract.",
+      "",
+      "Install 7-Zip (one-time setup, free & open source):",
+      "  winget install 7zip.7zip",
+    ].join("\n"),
+  );
+}
+
+function extractExe(filePath: string, destDir: string, options: InstallOptions = {}): void {
+  const sz = ensure7z(options);
   execSync(`"${sz}" x "${filePath}" -o"${destDir}" -y`, { stdio: "ignore" });
 }
 
 async function extractToDir(
   data: Buffer,
   tmpDir: string,
+  options: InstallOptions = {},
 ): Promise<string> {
   const downloadType = detectDownloadType(data);
 
@@ -110,7 +148,7 @@ async function extractToDir(
     await writeFile(exePath, data);
     const expandDir = join(tmpDir, "exe-expanded");
     await mkdir(expandDir, { recursive: true });
-    extractExe(exePath, expandDir);
+    extractExe(exePath, expandDir, options);
     return expandDir;
   }
 
@@ -121,6 +159,7 @@ async function findInExtracted(
   searchDir: string,
   tmpDir: string,
   artifactName: string,
+  options: InstallOptions = {},
 ): Promise<string> {
   const found = await findArtifact(searchDir, artifactName);
   if (found) return found;
@@ -144,7 +183,7 @@ async function findInExtracted(
     if (exe) {
       const expandDir = join(tmpDir, `exe-expanded-${Date.now()}`);
       await mkdir(expandDir, { recursive: true });
-      extractExe(join(searchDir, exe), expandDir);
+      extractExe(join(searchDir, exe), expandDir, options);
       const exeFound = await findArtifact(expandDir, artifactName);
       if (exeFound) return exeFound;
     }
@@ -157,13 +196,14 @@ async function extractAndInstall(
   data: Buffer,
   artifact: string | string[],
   destDir: string,
+  options: InstallOptions = {},
 ): Promise<string[]> {
   const artifacts = Array.isArray(artifact) ? artifact : [artifact];
   const tmpDir = join(tmpdir(), `plug-${Date.now()}`);
   await mkdir(tmpDir, { recursive: true });
 
   try {
-    const searchDir = await extractToDir(data, tmpDir);
+    const searchDir = await extractToDir(data, tmpDir, options);
     const isDmg = searchDir.endsWith("/mount");
 
     try {
@@ -171,7 +211,7 @@ async function extractAndInstall(
       const destPaths: string[] = [];
 
       for (const name of artifacts) {
-        const artifactPath = await findInExtracted(searchDir, tmpDir, name);
+        const artifactPath = await findInExtracted(searchDir, tmpDir, name, options);
         const destPath = join(destDir, name);
         removeQuarantine(artifactPath);
         await cp(artifactPath, destPath, { recursive: true });
