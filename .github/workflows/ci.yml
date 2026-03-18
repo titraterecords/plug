@@ -23,15 +23,35 @@ jobs:
           cache: pnpm
 
       - run: pnpm install
-
       - run: pnpm type-check
       - run: pnpm lint
       - run: pnpm test
 
+  check-mac:
+    runs-on: macos-latest
+    needs: check
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install
+
       - name: Build CLI
         run: cd apps/cli && pnpm build
 
-      - name: e2e - install OTT on macOS
+      - name: e2e - PKG/DMG install tests (vitest)
+        run: cd apps/cli && pnpm test:e2e
+
+      - name: e2e - install OTT via built CLI
         env:
           PLUG_HOME: ${{ runner.temp }}/plug-e2e
         run: |
