@@ -90,12 +90,10 @@ jobs:
         env:
           PLUG_HOME: ${{ runner.temp }}\plug-e2e-winget
         run: |
-          # Remove 7-Zip so the auto-install path is exercised
+          # Properly uninstall 7-Zip so winget auto-install is exercised
+          winget uninstall 7zip.7zip --accept-source-agreements --silent 2>$null
           if (Test-Path "C:\Program Files\7-Zip") {
             Remove-Item "C:\Program Files\7-Zip" -Recurse -Force
-          }
-          if (Test-Path "C:\Program Files (x86)\7-Zip") {
-            Remove-Item "C:\Program Files (x86)\7-Zip" -Recurse -Force
           }
           cd apps/cli; node dist/index.js install ott -f vst3
           if (!(Test-Path "$env:PLUG_HOME\plugins\vst3\OTT.vst3")) {

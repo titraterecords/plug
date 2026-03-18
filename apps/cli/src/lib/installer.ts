@@ -116,6 +116,13 @@ async function ensure7z(options: InstallOptions = {}): Promise<string> {
     }
   }
 
+  // Non-interactive (CI) — just fail with instructions
+  if (!process.stdin.isTTY) {
+    throw new Error(
+      "7-Zip is required but could not be installed automatically. Run: winget install 7zip.7zip",
+    );
+  }
+
   // Manual fallback: open browser
   console.log();
   const open = await confirm({
