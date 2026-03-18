@@ -54,8 +54,17 @@ function buildGithubEntry(
 
   if (Object.keys(versions).length === 0) return null;
 
-  // Pick the latest version string (first scan is from newest release)
-  const latestVersion = scans[0].version;
+  // Pick the highest version by semver, not by release date.
+  // Some repos publish patch releases for old branches after newer majors.
+  const latestVersion = Object.keys(versions).sort((a, b) => {
+    const pa = a.replace(/[^0-9.]/g, "").split(".").map(Number);
+    const pb = b.replace(/[^0-9.]/g, "").split(".").map(Number);
+    for (let i = 0; i < Math.max(pa.length, pb.length); i++) {
+      const diff = (pb[i] ?? 0) - (pa[i] ?? 0);
+      if (diff !== 0) return diff;
+    }
+    return 0;
+  })[0];
 
   return {
     id: repoEntry.id,

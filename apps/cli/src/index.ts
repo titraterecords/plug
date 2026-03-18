@@ -73,7 +73,45 @@ program
   .name("plug")
   .description("Audio plugin manager")
   .version(VERSION)
-  .addHelpText("beforeAll", "");
+  .helpOption("-h, --help", "Display help for command")
+  .configureHelp({ showGlobalOptions: false })
+  .addHelpText("beforeAll", "")
+  .addHelpText("after", () => {
+    const col = 34;
+    const pad = (s: string) => s.padEnd(col);
+
+    const pluginCmds = [
+      ["install [options] <name>", "Install an audio plugin"],
+      ["search [options] [query]", "Search for audio plugins"],
+      ["list [options]", "List installed plugins"],
+      ["info [options] <name>", "Show plugin details"],
+      ["upgrade [options] [name]", "Upgrade installed plugins"],
+      ["uninstall [options] [name]", "Remove an installed plugin"],
+    ];
+
+    const cliCmds = [
+      ["update", "Update plug to the latest version"],
+      ["clear-cache", "Clear cached registry and version data"],
+      ["help [command]", "Display help for command"],
+    ];
+
+    const lines = [
+      "",
+      "Plugin commands:",
+      ...pluginCmds.map(([cmd, desc]) => `  ${pad(cmd)}${desc}`),
+      "",
+      "CLI commands:",
+      ...cliCmds.map(([cmd, desc]) => `  ${pad(cmd)}${desc}`),
+      "",
+    ];
+
+    return lines.join("\n");
+  });
+
+// Disable default command listing since we render our own grouped help
+program.configureHelp({
+  visibleCommands: () => [],
+});
 
 registerInstall(program);
 registerSearch(program);
