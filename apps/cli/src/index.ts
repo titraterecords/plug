@@ -15,7 +15,12 @@ const VERSION = "0.2.9";
 
 // Skip update banner for --version and --help
 const args = process.argv.slice(2);
-const skipBanner = args.includes("--version") || args.includes("-V") || args.includes("--help") || args.includes("-h") || args.length === 0;
+const skipBanner =
+  args.includes("--version") ||
+  args.includes("-V") ||
+  args.includes("--help") ||
+  args.includes("-h") ||
+  args.length === 0;
 
 function isNewer(latest: string, current: string): boolean {
   const l = latest.split(".").map(Number);
@@ -47,11 +52,15 @@ if (!skipBanner && cached && isNewer(cached.latest, VERSION)) {
   };
 
   console.log();
-  console.log(`  ${chalk.green("╭")}${"─".repeat(maxLen + 2)}${chalk.green("╮")}`);
+  console.log(
+    `  ${chalk.green("╭")}${"─".repeat(maxLen + 2)}${chalk.green("╮")}`,
+  );
   for (const line of content) {
     console.log(`  ${chalk.green("│")} ${pad(line)} ${chalk.green("│")}`);
   }
-  console.log(`  ${chalk.green("╰")}${"─".repeat(maxLen + 2)}${chalk.green("╯")}`);
+  console.log(
+    `  ${chalk.green("╰")}${"─".repeat(maxLen + 2)}${chalk.green("╯")}`,
+  );
   console.log();
 }
 

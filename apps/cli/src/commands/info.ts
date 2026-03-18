@@ -10,10 +10,13 @@ function registerInfo(program: Command): void {
     .command("info <name>")
     .description("Show plugin details")
     .option("--json", "Output as JSON")
-    .addHelpText("after", `
+    .addHelpText(
+      "after",
+      `
 Examples:
   plug info ott
-  plug info surge-xt`)
+  plug info surge-xt`,
+    )
     .action(async (name: string, options: { json?: boolean }) => {
       const platform = currentPlatform();
       const registry = await getRegistry();
@@ -59,10 +62,14 @@ Examples:
         const fmts = Object.entries(installedEntry.formats)
           .map(([fmt, p]) => {
             const paths = Array.isArray(p) ? p : [p];
-            return paths.map((path) => `${fmt.toUpperCase()} -> ${path}`).join(", ");
+            return paths
+              .map((path) => `${fmt.toUpperCase()} -> ${path}`)
+              .join(", ");
           })
           .join(", ");
-        console.log(`  Installed:    ${chalk.green(installedEntry.version)} (${fmts})`);
+        console.log(
+          `  Installed:    ${chalk.green(installedEntry.version)} (${fmts})`,
+        );
       } else {
         console.log(`  Installed:    ${chalk.dim("No")}`);
       }

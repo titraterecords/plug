@@ -50,9 +50,7 @@ async function ensure7z(options: InstallOptions = {}): Promise<string> {
   const label = options.pluginLabel ?? "This plugin";
   console.log();
   warn(`${label} is packaged as an .exe file.`);
-  warn(
-    `To unpack it we need a tiny dependency called ${chalk.bold("7-Zip")}.`,
-  );
+  warn(`To unpack it we need a tiny dependency called ${chalk.bold("7-Zip")}.`);
 
   if (!options.skipWinget) {
     try {

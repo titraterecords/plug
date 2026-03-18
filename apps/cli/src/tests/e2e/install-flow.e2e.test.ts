@@ -90,17 +90,11 @@ describe("e2e: install flow", () => {
     const data = await downloadFile(serverUrl);
     const paths = pluginPaths("mac");
     const destDir = paths.vst3.user;
-    const destPath = await extractAndInstall(
-      data,
-      "FakePlugin.vst3",
-      destDir,
-    );
+    const destPath = await extractAndInstall(data, "FakePlugin.vst3", destDir);
 
     expect(destPath).toStrictEqual([join(destDir, "FakePlugin.vst3")]);
     expect(existsSync(destPath[0])).toBe(true);
-    expect(
-      existsSync(join(destPath[0], "Contents", "Info.plist")),
-    ).toBe(true);
+    expect(existsSync(join(destPath[0], "Contents", "Info.plist"))).toBe(true);
   });
 
   it("computes the correct checksum for the downloaded file", async () => {
@@ -111,12 +105,9 @@ describe("e2e: install flow", () => {
 
 describe("e2e: state tracking", () => {
   it("marks a plugin as installed and persists to disk", async () => {
-    await markInstalled(
-      "fake-plugin",
-      "1.0.0",
-      "vst3",
-      [join(TEST_ROOT, "plugins/vst3/FakePlugin.vst3")],
-    );
+    await markInstalled("fake-plugin", "1.0.0", "vst3", [
+      join(TEST_ROOT, "plugins/vst3/FakePlugin.vst3"),
+    ]);
 
     const state = await loadInstalled();
     expect(state["fake-plugin"].version).toBe("1.0.0");
@@ -126,12 +117,9 @@ describe("e2e: state tracking", () => {
   });
 
   it("removes a plugin from state on uninstall", async () => {
-    await markInstalled(
-      "fake-plugin",
-      "1.0.0",
-      "vst3",
-      [join(TEST_ROOT, "plugins/vst3/FakePlugin.vst3")],
-    );
+    await markInstalled("fake-plugin", "1.0.0", "vst3", [
+      join(TEST_ROOT, "plugins/vst3/FakePlugin.vst3"),
+    ]);
 
     await markUninstalled("fake-plugin");
 
@@ -147,11 +135,7 @@ describe("e2e: full install -> uninstall cycle", () => {
 
     const paths = pluginPaths("mac");
     const destDir = paths.vst3.user;
-    const destPath = await extractAndInstall(
-      data,
-      "FakePlugin.vst3",
-      destDir,
-    );
+    const destPath = await extractAndInstall(data, "FakePlugin.vst3", destDir);
     await markInstalled("fake-plugin", "1.0.0", "vst3", destPath);
 
     // Plugin file exists on disk

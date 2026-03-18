@@ -8,7 +8,10 @@ import { loadInstalled, markUninstalled } from "../lib/state.js";
 
 async function uninstallPlugin(
   name: string,
-  installed: Record<string, { version: string; formats: Record<string, string | string[]> }>,
+  installed: Record<
+    string,
+    { version: string; formats: Record<string, string | string[]> }
+  >,
   json?: boolean,
 ): Promise<void> {
   const entry = installed[name];
@@ -52,11 +55,14 @@ function registerUninstall(program: Command): void {
     .command("uninstall [name]")
     .description("Remove an installed plugin")
     .option("--json", "Output as JSON")
-    .addHelpText("after", `
+    .addHelpText(
+      "after",
+      `
 Examples:
   plug uninstall ott
   plug uninstall surge-xt
-  plug uninstall            (interactive)`)
+  plug uninstall            (interactive)`,
+    )
     .action(async (name: string | undefined, options: { json?: boolean }) => {
       const installed = await loadInstalled();
 
@@ -80,9 +86,7 @@ Examples:
         choices: ids.map((id) => {
           const entry = installed[id];
           const plugin = findPlugin(registry, id);
-          const label = plugin
-            ? `${plugin.author} - ${plugin.name}`
-            : id;
+          const label = plugin ? `${plugin.author} - ${plugin.name}` : id;
           const formats = Object.keys(entry.formats)
             .map((f) => f.toUpperCase())
             .join(", ");

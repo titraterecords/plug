@@ -7,7 +7,7 @@ const isWin = process.platform === "win32";
 function extractZip(filePath: string, destDir: string): void {
   if (isWin) {
     execSync(
-      `powershell -NoProfile -Command "Expand-Archive -Force -LiteralPath '${filePath.replaceAll("'", "''")}' -DestinationPath '${destDir.replaceAll("'", "''")}'"`
+      `powershell -NoProfile -Command "Expand-Archive -Force -LiteralPath '${filePath.replaceAll("'", "''")}' -DestinationPath '${destDir.replaceAll("'", "''")}'"`,
     );
   } else {
     execSync(`unzip -o -q "${filePath}" -d "${destDir}"`);

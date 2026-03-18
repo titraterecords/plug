@@ -6,10 +6,7 @@ import type { InstallOptions } from "./install.js";
 
 const isWin = process.platform === "win32";
 
-async function findArtifact(
-  dir: string,
-  name: string,
-): Promise<string | null> {
+async function findArtifact(dir: string, name: string): Promise<string | null> {
   const entries = await readdir(dir, { withFileTypes: true, recursive: true });
   for (const entry of entries) {
     if (entry.name === name) {
@@ -39,7 +36,11 @@ async function findInExtracted(
     if (pkg) {
       const expandDir = join(tmpDir, `pkg-expanded-${Date.now()}`);
       expandPkg(join(searchDir, pkg), expandDir);
-      const pkgFound = await findArtifactInPkg(expandDir, artifactName, findArtifact);
+      const pkgFound = await findArtifactInPkg(
+        expandDir,
+        artifactName,
+        findArtifact,
+      );
       if (pkgFound) return pkgFound;
     }
   }

@@ -88,7 +88,12 @@ async function extractAndInstall(
       const destPaths: string[] = [];
 
       for (const name of artifacts) {
-        const artifactPath = await findInExtracted(searchDir, tmpDir, name, options);
+        const artifactPath = await findInExtracted(
+          searchDir,
+          tmpDir,
+          name,
+          options,
+        );
         const destPath = join(destDir, name);
         removeQuarantine(artifactPath);
         await cp(artifactPath, destPath, { recursive: true });

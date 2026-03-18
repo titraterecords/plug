@@ -3,7 +3,11 @@ import chalk from "chalk";
 import { checkbox } from "@inquirer/prompts";
 import ora from "ora";
 import type { PluginFormat } from "@titrate/registry-schema/schema";
-import { FORMAT_PREFERENCE, pluginPaths, type InstallTarget } from "../constants.js";
+import {
+  FORMAT_PREFERENCE,
+  pluginPaths,
+  type InstallTarget,
+} from "../constants.js";
 import { verifyChecksum } from "../lib/checksum.js";
 import { downloadFile } from "../lib/installer/download.js";
 import { extractAndInstall } from "../lib/installer/install.js";
@@ -22,11 +26,14 @@ function registerInstall(program: Command): void {
     .option("-t, --target <target>", "Install target (user, system)", "user")
     .option("--json", "Output as JSON")
     .addOption(new Option("--skip-winget").default(false).hideHelp())
-    .addHelpText("after", `
+    .addHelpText(
+      "after",
+      `
 Examples:
   plug install ott
   plug install surge-xt -f vst3
-  plug install dexed@1.0.1`)
+  plug install dexed@1.0.1`,
+    )
     .action(
       async (
         input: string,
@@ -65,9 +72,7 @@ Examples:
         const available = availableFormats(plugin, platform, version);
 
         if (available.length === 0) {
-          error(
-            `"${plugin.name}" has no downloads available for ${platform}.`,
-          );
+          error(`"${plugin.name}" has no downloads available for ${platform}.`);
           process.exit(1);
           return;
         }
@@ -100,7 +105,13 @@ Examples:
             theme: {
               style: {
                 keysHelpTip: (keys: [string, string][]) =>
-                  chalk.dim(keys.map(([key, action]: [string, string]) => `${key} ${action}`).join(", ")),
+                  chalk.dim(
+                    keys
+                      .map(
+                        ([key, action]: [string, string]) => `${key} ${action}`,
+                      )
+                      .join(", "),
+                  ),
               },
             },
           });

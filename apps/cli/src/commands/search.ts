@@ -2,7 +2,11 @@ import type { Command } from "commander";
 import chalk from "chalk";
 import type { Plugin } from "@titrate/registry-schema/schema";
 import { currentPlatform } from "../lib/platform.js";
-import { availableFormats, getRegistry, searchPlugins } from "../lib/registry.js";
+import {
+  availableFormats,
+  getRegistry,
+  searchPlugins,
+} from "../lib/registry.js";
 import { dim } from "../lib/logger.js";
 
 function formatPluginRow(plugin: Plugin): string {
@@ -20,11 +24,14 @@ function registerSearch(program: Command): void {
     .option("-c, --category <category>", "Filter by category")
     .option("-f, --format <format>", "Filter by format (vst3, au, clap, lv2)")
     .option("--json", "Output as JSON")
-    .addHelpText("after", `
+    .addHelpText(
+      "after",
+      `
 Examples:
   plug search reverb
   plug search --category synthesizer
-  plug search --format au`)
+  plug search --format au`,
+    )
     .action(
       async (
         query: string | undefined,

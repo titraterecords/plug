@@ -18,10 +18,13 @@ function registerUpgrade(program: Command): void {
     .description("Upgrade installed plugins")
     .option("-t, --target <target>", "Install target (user, system)", "user")
     .option("--json", "Output as JSON")
-    .addHelpText("after", `
+    .addHelpText(
+      "after",
+      `
 Examples:
   plug upgrade
-  plug upgrade ott`)
+  plug upgrade ott`,
+    )
     .action(
       async (
         name: string | undefined,

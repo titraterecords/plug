@@ -10,10 +10,13 @@ function registerList(program: Command): void {
     .description("List installed plugins")
     .option("--outdated", "Show only plugins with updates available")
     .option("--json", "Output as JSON")
-    .addHelpText("after", `
+    .addHelpText(
+      "after",
+      `
 Examples:
   plug list
-  plug list --outdated`)
+  plug list --outdated`,
+    )
     .action(async (options: { outdated?: boolean; json?: boolean }) => {
       const installed = await loadInstalled();
       const ids = Object.keys(installed);
@@ -62,9 +65,10 @@ Examples:
           : row.version;
         const formats = row.formats.map((f) => f.toUpperCase()).join(", ");
 
-        const formatLine = row.formats.length === 1
-          ? `  Format:  ${formats}`
-          : `  Formats: ${formats}`;
+        const formatLine =
+          row.formats.length === 1
+            ? `  Format:  ${formats}`
+            : `  Formats: ${formats}`;
         console.log(`${author}${chalk.bold(row.name)}`);
         console.log(`  Version: ${version}`);
         console.log(formatLine);

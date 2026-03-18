@@ -32,9 +32,7 @@ function ejectDmg(mountPoint: string): void {
       return;
     } catch {
       if (attempt === 2) {
-        execSync(
-          `diskutil unmount force "${mountPoint}" 2>/dev/null || true`,
-        );
+        execSync(`diskutil unmount force "${mountPoint}" 2>/dev/null || true`);
       }
     }
   }
