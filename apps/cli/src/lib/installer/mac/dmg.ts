@@ -1,7 +1,10 @@
 import { execSync } from "node:child_process";
 
-// DMG mounting/ejection uses macOS hdiutil and diskutil.
-// For edge case reference: github.com/Homebrew/homebrew-cask/blob/main/Library/Homebrew/unpack_strategy/dmg.rb
+// macOS DMG mounting via hdiutil.
+// Some DMGs have license agreements that block non-interactive attach.
+// Piping "qn\n" (quit + no) dismisses the EULA prompt. If that still
+// fails, converting to CDR strips the agreement entirely.
+// Reference: github.com/Homebrew/homebrew-cask/blob/main/Library/Homebrew/unpack_strategy/dmg.rb
 
 function mountDmg(dmgPath: string, mountPoint: string): void {
   try {
@@ -10,7 +13,6 @@ function mountDmg(dmgPath: string, mountPoint: string): void {
       { input: "qn\n" },
     );
   } catch {
-    // EULA present - convert to CDR and retry
     const cdrPath = `${dmgPath}.cdr`;
     execSync(
       `hdiutil convert "${dmgPath}" -format UDTO -o "${cdrPath}" 2>/dev/null`,
@@ -21,6 +23,8 @@ function mountDmg(dmgPath: string, mountPoint: string): void {
   }
 }
 
+// Retries eject up to 3 times - the volume may be briefly busy if
+// the OS is still indexing files from the mount.
 function ejectDmg(mountPoint: string): void {
   for (let attempt = 0; attempt < 3; attempt++) {
     try {

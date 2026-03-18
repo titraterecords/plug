@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { homedir } from "node:os";
 import { join } from "node:path";
-import { pluginPaths } from "../constants.js";
+import { pluginPaths } from "./constants.js";
 
 describe("pluginPaths", () => {
   const plugHome = process.env.PLUG_HOME;

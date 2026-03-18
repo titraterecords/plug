@@ -4,10 +4,8 @@ import ora from "ora";
 import type { PluginFormat } from "@titrate/registry-schema/schema";
 import { pluginPaths, type InstallTarget } from "../constants.js";
 import { verifyChecksum } from "../lib/checksum.js";
-import {
-  downloadFile,
-  extractAndInstall,
-} from "../lib/installer.js";
+import { downloadFile } from "../lib/installer/download.js";
+import { extractAndInstall } from "../lib/installer/install.js";
 import { dim, error, success } from "../lib/logger.js";
 import { currentPlatform } from "../lib/platform.js";
 import { findPlugin, getRegistry } from "../lib/registry.js";

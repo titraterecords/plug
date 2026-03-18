@@ -12,10 +12,8 @@ const TEST_ROOT = join(tmpdir(), `plug-e2e-${Date.now()}`);
 process.env.PLUG_HOME = TEST_ROOT;
 
 import { computeChecksum, verifyChecksum } from "../../lib/checksum.js";
-import {
-  downloadFile,
-  extractAndInstall,
-} from "../../lib/installer.js";
+import { downloadFile } from "../../lib/installer/download.js";
+import { extractAndInstall } from "../../lib/installer/install.js";
 import { pluginPaths } from "../../constants.js";
 import {
   loadInstalled,
