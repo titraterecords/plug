@@ -65,7 +65,9 @@ async function walkRootPayload(
 
     for (const entry of entries) {
       const fullPath = join(dir, entry.name);
-      const destPath = "/" + relative(payloadDir, fullPath);
+      // Normalize to forward slashes - these are macOS install paths regardless
+      // of what OS the test suite runs on
+      const destPath = "/" + relative(payloadDir, fullPath).replaceAll("\\", "/");
 
       // At a known container (e.g. /Library/Audio/Plug-Ins/VST3),
       // each child is an installable item
