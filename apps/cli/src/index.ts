@@ -11,7 +11,7 @@ import chalk from "chalk";
 import { printBanner } from "./lib/banner.js";
 import { checkForUpdate, loadVersionCache } from "./lib/version.js";
 
-const VERSION = "0.2.9";
+const VERSION = "0.3.1";
 
 // Skip update banner for --version and --help
 const args = process.argv.slice(2);
@@ -37,7 +37,7 @@ if (!skipBanner && cached && isNewer(cached.latest, VERSION)) {
   const isStandalone = process.argv[1]?.includes(".plug/bin");
   const updateCmd = isStandalone
     ? "curl -fsSL plug.audio/install.sh | sh"
-    : "npm update -g @titrate/plug";
+    : "npm install -g @titrate/plug@latest";
 
   const line1 = `Update available  ${chalk.dim(VERSION)} ${chalk.white("→")} ${chalk.green(cached.latest)}`;
   const line2 = `Run: ${chalk.cyan(updateCmd)}`;

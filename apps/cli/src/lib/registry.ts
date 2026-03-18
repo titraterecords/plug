@@ -27,7 +27,7 @@ function selfUpdate(): never {
   const isStandalone = process.argv[1]?.includes(".plug/bin");
   const cmd = isStandalone
     ? "curl -fsSL plug.audio/install.sh | sh"
-    : "npm update -g @titrate/plug";
+    : "npm install -g @titrate/plug@latest";
 
   console.log("\nplug needs to update to read the latest registry.\n");
   console.log(`Running: ${cmd}\n`);
