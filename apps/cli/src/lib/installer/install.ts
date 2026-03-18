@@ -9,6 +9,7 @@ import { expandPkg } from "./mac/pkg.js";
 import { removeQuarantine } from "./mac/quarantine.js";
 import { extractExe } from "./win/extract-exe.js";
 
+const isMac = process.platform === "darwin";
 const isWin = process.platform === "win32";
 
 interface InstallOptions {
@@ -34,7 +35,7 @@ async function extractToDir(
   }
 
   if (downloadType === "dmg") {
-    if (isWin) throw new Error("DMG files are not supported on Windows");
+    if (!isMac) throw new Error("DMG files are only supported on macOS");
     const dmgPath = join(tmpDir, "download.dmg");
     await writeFile(dmgPath, data);
     const mountPoint = join(tmpDir, "mount");
@@ -44,7 +45,7 @@ async function extractToDir(
   }
 
   if (downloadType === "pkg") {
-    if (isWin) throw new Error("PKG files are not supported on Windows");
+    if (!isMac) throw new Error("PKG files are only supported on macOS");
     const pkgPath = join(tmpDir, "download.pkg");
     await writeFile(pkgPath, data);
     const expandDir = join(tmpDir, "pkg-expanded");
@@ -53,6 +54,7 @@ async function extractToDir(
   }
 
   if (downloadType === "exe") {
+    if (!isWin) throw new Error("EXE files are only supported on Windows");
     const exePath = join(tmpDir, "download.exe");
     await writeFile(exePath, data);
     const expandDir = join(tmpDir, "exe-expanded");
