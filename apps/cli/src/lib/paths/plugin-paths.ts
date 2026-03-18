@@ -1,18 +1,13 @@
 import { homedir } from "node:os";
 import { join } from "node:path";
 import type { Platform, PluginFormat } from "@titrate/registry-schema/schema";
+import { HOME_DIR, IS_CUSTOM_HOME } from "./home.js";
 
 type InstallTarget = "user" | "system";
-
-// PLUG_HOME overrides all derived paths - used for e2e testing and custom installs
-const PLUG_HOME = process.env.PLUG_HOME;
-const IS_CUSTOM_HOME = Boolean(PLUG_HOME);
-const HOME_DIR = PLUG_HOME ?? join(homedir(), ".plug");
 
 type PluginPaths = Record<PluginFormat, Record<InstallTarget, string>>;
 
 // When PLUG_HOME is set, all formats install to subdirectories under it.
-// Used for e2e testing and custom installs.
 const CUSTOM_PATHS: PluginPaths = {
   vst3: {
     user: join(HOME_DIR, "plugins/vst3"),
@@ -104,28 +99,5 @@ function pluginPaths(platform: Platform): PluginPaths {
   return PLATFORM_PATHS[platform];
 }
 
-// Install order when no --format flag is given.
-// Only formats that actually exist on each platform are listed.
-const FORMAT_PREFERENCE: Record<Platform, PluginFormat[]> = {
-  mac: ["vst3", "au", "clap"],
-  linux: ["vst3", "clap", "lv2"],
-  win: ["vst3", "clap"],
-};
-
-const REGISTRY_URL =
-  "https://raw.githubusercontent.com/titraterecords/plug/main/registry.json";
-const CACHE_DIR = HOME_DIR;
-const REGISTRY_CACHE_PATH = join(CACHE_DIR, "registry.json");
-const INSTALLED_PATH = join(CACHE_DIR, "installed.json");
-const VERSION_CACHE_PATH = join(CACHE_DIR, "version-check.json");
-
-export {
-  CACHE_DIR,
-  FORMAT_PREFERENCE,
-  INSTALLED_PATH,
-  REGISTRY_CACHE_PATH,
-  REGISTRY_URL,
-  VERSION_CACHE_PATH,
-  pluginPaths,
-};
+export { pluginPaths };
 export type { InstallTarget };

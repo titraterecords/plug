@@ -2,7 +2,7 @@ import { cp, mkdir, rm, writeFile } from "node:fs/promises";
 import { join, dirname } from "node:path";
 import { tmpdir } from "node:os";
 import type { PluginFormat } from "@titrate/registry-schema/schema";
-import type { InstallTarget } from "../../../constants.js";
+import type { InstallTarget } from "../../paths/plugin-paths.js";
 import { expandPkg } from "./pkg.js";
 import { parsePkgLayout } from "./parse-pkg-layout.js";
 import type { PkgItemType } from "./parse-pkg-layout.js";

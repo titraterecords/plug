@@ -3,11 +3,8 @@ import chalk from "chalk";
 import { checkbox } from "@inquirer/prompts";
 import ora from "ora";
 import type { PluginFormat } from "@titrate/registry-schema/schema";
-import {
-  FORMAT_PREFERENCE,
-  pluginPaths,
-  type InstallTarget,
-} from "../constants.js";
+import { FORMAT_PREFERENCE } from "../lib/paths/format-preference.js";
+import { pluginPaths, type InstallTarget } from "../lib/paths/plugin-paths.js";
 import { verifyChecksum } from "../lib/checksum.js";
 import { downloadFile } from "../lib/installer/download.js";
 import { extractAndInstall } from "../lib/installer/install.js";

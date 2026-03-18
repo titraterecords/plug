@@ -7,7 +7,7 @@ import {
   type PluginFormat,
   type Registry,
 } from "@titrate/registry-schema/schema";
-import { CACHE_DIR, REGISTRY_CACHE_PATH, REGISTRY_URL } from "../constants.js";
+import { CACHE_DIR, REGISTRY_CACHE_PATH, REGISTRY_URL } from "./paths/cache.js";
 import { chownToUser } from "./fix-permissions.js";
 
 const CACHE_MAX_AGE_MS = 10 * 60 * 1000; // 10 minutes
