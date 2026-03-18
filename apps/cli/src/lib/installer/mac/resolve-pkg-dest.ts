@@ -2,11 +2,13 @@ import { homedir } from "node:os";
 import { join } from "node:path";
 import type { InstallTarget } from "../../../constants.js";
 
-// Plugin paths that can safely install under ~/Library/ for user target.
-// Resources (Application Support, Presets) stay at system paths because
-// plugins hardcode those locations (e.g. Cardinal expects /Library/Application Support/Cardinal/).
+// Paths that can safely install under ~/Library/ for user target.
+// Application Support stays at system /Library/ because plugins hardcode
+// those paths (e.g. Cardinal expects /Library/Application Support/Cardinal/).
+// Presets are rewritable because DAWs scan both system and user preset folders.
 const USER_REWRITABLE = [
   "/Library/Audio/Plug-Ins/",
+  "/Library/Audio/Presets/",
 ];
 
 // Resolves where a PKG sub-package's contents should be installed.
