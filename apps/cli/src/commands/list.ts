@@ -62,10 +62,12 @@ Examples:
           : row.version;
         const formats = row.formats.map((f) => f.toUpperCase()).join(", ");
 
-        const formatLabel = row.formats.length === 1 ? "Format: " : "Formats:";
+        const formatLine = row.formats.length === 1
+          ? `  Format:  ${formats}`
+          : `  Formats: ${formats}`;
         console.log(`${author}${chalk.bold(row.name)}`);
         console.log(`  Version: ${version}`);
-        console.log(`  ${formatLabel} ${formats}`);
+        console.log(formatLine);
         console.log();
       }
     });
