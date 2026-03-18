@@ -33,6 +33,9 @@ const PluginSchema = z.object({
   category: z.string(),
   tags: z.array(z.string()).optional(),
   recommended: z.boolean().optional(),
+  // Plugins that install resources to system paths (e.g. /Library/Application Support/)
+  // need sudo on macOS. The CLI checks this before downloading.
+  systemInstall: z.boolean().optional(),
   homepage: z.string().url(),
   versions: z.record(z.string(), VersionEntrySchema),
 });

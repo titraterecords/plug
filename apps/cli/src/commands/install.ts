@@ -59,6 +59,16 @@ Examples:
           return;
         }
 
+        // Some plugins need system paths (e.g. /Library/Application Support/)
+        // which require admin permissions on macOS
+        if (plugin.systemInstall && platform === "mac" && process.getuid?.() !== 0 && !process.env.PLUG_HOME) {
+          error(
+            `"${plugin.name}" requires system-level installation for its resources.\nRun: sudo plug install ${name}`,
+          );
+          process.exit(1);
+          return;
+        }
+
         const version = requestedVersion ?? plugin.version;
         let versionEntry;
         try {

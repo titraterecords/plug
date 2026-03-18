@@ -1095,6 +1095,7 @@
       "version": "26.02",
       "license": "",
       "category": "synthesizer",
+      "systemInstall": true,
       "tags": [
         "instrument",
         "modular",
