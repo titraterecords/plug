@@ -61,7 +61,16 @@ async function installPkg(
       if (item.type === "unknown") continue;
 
       const destPath = resolvePkgDest(item.destPath, target);
-      await mkdir(dirname(destPath), { recursive: true });
+      try {
+        await mkdir(dirname(destPath), { recursive: true });
+      } catch (err: unknown) {
+        if ((err as NodeJS.ErrnoException).code === "EACCES") {
+          throw new Error(
+            `Permission denied creating ${dirname(destPath)}. This plugin requires system-level resources. Run with sudo or use --target system.`,
+          );
+        }
+        throw err;
+      }
       await cp(item.sourcePath, destPath, { recursive: true });
 
       if (isPluginType(item.type)) {
