@@ -33,6 +33,11 @@ interface RegistryVersionEntry {
   formats: Record<string, Record<string, RegistryFormatEntry>>;
 }
 
+interface LocaleMeta {
+  description: string;
+  tags?: string[];
+}
+
 interface RegistryPlugin {
   id: string;
   name: string;
@@ -42,6 +47,7 @@ interface RegistryPlugin {
   license: string;
   category: string;
   tags: string[];
+  meta?: Record<string, LocaleMeta>;
   homepage: string;
   versions: Record<string, RegistryVersionEntry>;
 }
