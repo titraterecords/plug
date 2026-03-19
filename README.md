@@ -15,8 +15,6 @@ plug upgrade
 plug uninstall ott
 ```
 
-All commands support `--json` for scripted and agent use.
-
 ## Install
 
 macOS / Linux:
@@ -25,11 +23,36 @@ macOS / Linux:
 curl -fsSL plug.audio/install.sh | sh
 ```
 
-npm:
+Windows:
 
 ```bash
 npm install -g @titrate/plug
 ```
+
+## Plugin registry
+
+Plugins are sourced from a curated list of developer websites, GitHub repositories, and [Open Audio Stack](https://github.com/open-audio-stack) registries.
+
+To request a plugin listing or delisting, [create an issue](https://github.com/titraterecords/plug/issues/new).
+
+## Plugin paths
+
+Plugins install to user-writable locations when possible to avoid password prompts.
+
+| Format | macOS | Windows | Linux |
+|--------|-------|---------|-------|
+| VST3 | `~/Library/Audio/Plug-Ins/VST3/` | `C:\Program Files\Common Files\VST3\` | `~/.vst3/` |
+| AU | `~/Library/Audio/Plug-Ins/Components/` | - | - |
+| CLAP | `/Library/Audio/Plug-Ins/CLAP/` | `C:\Program Files\Common Files\CLAP\` | `~/.clap/` |
+| LV2 | - | - | `~/.lv2/` |
+
+On Windows, if write permissions are missing, plug prompts you to run your terminal as administrator.
+
+Ableton Live on Windows can override the default VST3 scan path. Plug reads Ableton's preferences (Live 10, 11, 12) and installs to the active scan folder.
+
+Some plugins require presets or auxiliary files in system folders, which may require your password.
+
+If something goes wrong with path resolution, [open an issue](https://github.com/titraterecords/plug/issues/new).
 
 ## Structure
 
@@ -70,8 +93,8 @@ The install script (`install.sh`) always fetches the latest release - no manual 
 
 ## Thank you
 
-To the plugin developers who build and give away their work for free - Xfer Records, Surge Synth Team, Digital Suburban, Tokyo Dawn Labs, and everyone else making tools for musicians without asking for anything in return. This project exists because of your generosity.
+To the plugin developers who build and give away their work for free - [Xfer Records](https://xferrecords.com), [Surge Synth Team](https://surge-synth-team.org), [Digital Suburban](https://asb2m10.github.io/dexed/), [Tokyo Dawn Labs](https://www.tokyodawn.net), and everyone else making tools for musicians without asking for anything in return. This project exists because of your generosity.
 
 To the maintainers of Homebrew, npm, and the broader ecosystem of package managers whose design and decades of work shaped how we think about software distribution. The DMG and PKG handling in plug draws directly from patterns established by Homebrew Cask.
 
-To [StudioRack](https://studiorack.github.io/studiorack-site/) and the [Open Audio Stack](https://github.com/open-audio-stack) project for building an open, CC0-licensed plugin registry and specification. Their registry data and cross-platform thinking directly shaped our multi-platform support. The import scripts in `apps/scripts/studiorack/` pull from their registry. If you care about open audio infrastructure, check out their work.
+To [StudioRack](https://studiorack.github.io/studiorack-site/) and the [Open Audio Stack](https://github.com/open-audio-stack) project for working on an open plugin registry standard. Important work for the community.
