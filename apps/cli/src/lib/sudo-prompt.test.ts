@@ -7,11 +7,12 @@ const isWin = process.platform === "win32";
 describe("isPermissionError", () => {
   // CI runners often have admin/root privileges, so we can't reliably
   // trigger permission errors there. Skip when running as admin.
-  const isRoot = isWin ? false : process.getuid?.() === 0;
+  // Real filesystem permission test only works on Unix when not root.
+  // Windows has no /etc/hosts and CI runners have admin privileges.
+  const canTestRealPerms = !isWin && process.getuid?.() !== 0;
 
-  it.skipIf(isRoot)("returns true for a real EACCES filesystem error", () => {
+  it.skipIf(!canTestRealPerms)("returns true for a real EACCES filesystem error", () => {
     try {
-      // /etc/hosts is readable but not writable without sudo
       writeFileSync("/etc/hosts", "");
       expect.unreachable("should have thrown");
     } catch (err) {
