@@ -2,9 +2,9 @@ import { execSync } from "node:child_process";
 import chalk from "chalk";
 
 // Re-runs the current command with sudo after explaining why.
-// Some plugins install to system folders (e.g. /Library/Audio/Plug-Ins)
-// which need admin permissions. Rather than failing with a cryptic
-// EACCES error, explain the situation in plain language and prompt.
+// Some plugins install to system folders that need admin permissions.
+// Rather than failing with a cryptic EACCES error, explain the
+// situation in plain language and prompt. Works on macOS and Linux.
 function rerunWithSudo(pluginName: string): void {
   console.log();
   console.log(
