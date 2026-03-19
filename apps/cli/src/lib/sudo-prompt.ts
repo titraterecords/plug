@@ -1,22 +1,35 @@
 import { execSync } from "node:child_process";
 import chalk from "chalk";
+import { confirm } from "@inquirer/prompts";
 
-// Re-runs the current command with sudo after explaining why.
-// Some plugins install to system folders that need admin permissions.
-// Rather than failing with a cryptic EACCES error, explain the
-// situation in plain language and prompt. Works on macOS and Linux.
-function rerunWithSudo(pluginName: string): void {
+// Explains why admin permissions are needed and re-runs the command
+// with sudo after the user confirms. The password prompt comes from
+// the OS, not from plug - we make that clear in the messaging.
+// Works on macOS and Linux. Windows uses a separate flow since it
+// has no sudo equivalent.
+async function confirmAndRerunWithSudo(
+  pluginName: string,
+  author: string,
+): Promise<void> {
   console.log();
   console.log(
-    `  ${chalk.bold(pluginName)} needs to install files in a system folder.`,
+    `  ${chalk.bold(pluginName)} by ${author} includes presets and resources`,
   );
-  console.log(
-    `  You'll be asked for your password - it's only used by your`,
-  );
-  console.log(
-    `  computer to allow the install. plug never sees your password.`,
-  );
+  console.log(`  that need to be installed in a system folder.`);
   console.log();
+  console.log(`  Your computer will ask for your password to allow this.`);
+  console.log(`  plug never sees your password.`);
+  console.log();
+
+  try {
+    await confirm({
+      message: "Press ENTER to continue, or Ctrl+C to cancel",
+      default: true,
+    });
+  } catch {
+    // User pressed Ctrl+C
+    process.exit(0);
+  }
 
   const cmdArgs = process.argv.slice(1).join(" ");
   execSync(`sudo ${process.argv[0]} ${cmdArgs}`, { stdio: "inherit" });
@@ -31,4 +44,4 @@ function isPermissionError(err: unknown): boolean {
   );
 }
 
-export { isPermissionError, rerunWithSudo };
+export { confirmAndRerunWithSudo, isPermissionError };

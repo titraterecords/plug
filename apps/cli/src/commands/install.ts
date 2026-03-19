@@ -14,7 +14,10 @@ import { extractAndInstall } from "../lib/installer/install.js";
 import { isPkg } from "../lib/installer/is-pkg.js";
 import { installPkg } from "../lib/installer/mac/install-pkg.js";
 import { error, success } from "../lib/logger.js";
-import { isPermissionError, rerunWithSudo } from "../lib/sudo-prompt.js";
+import {
+  confirmAndRerunWithSudo,
+  isPermissionError,
+} from "../lib/sudo-prompt.js";
 import { parsePluginRef } from "../lib/parse-plugin-ref.js";
 import { currentPlatform } from "../lib/platform.js";
 import { availableFormats, findPlugin, getRegistry } from "../lib/registry.js";
@@ -64,7 +67,7 @@ Examples:
         // which require admin permissions on macOS
         if (plugin.systemInstall && platform === "mac" && process.getuid?.() !== 0 && !process.env.PLUG_HOME) {
           try {
-            rerunWithSudo(plugin.name);
+            await confirmAndRerunWithSudo(plugin.name, plugin.author);
             return;
           } catch {
             process.exit(1);
@@ -229,7 +232,7 @@ Examples:
             if (isPermissionError(err) && process.platform !== "win32" && process.getuid?.() !== 0) {
               spinner.stop();
               try {
-                rerunWithSudo(plugin.name);
+                await confirmAndRerunWithSudo(plugin.name, plugin.author);
                 return;
               } catch {
                 process.exit(1);
