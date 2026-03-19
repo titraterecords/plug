@@ -118,9 +118,9 @@ main() {
   echo
 
   if [ -n "$NEEDS_SOURCE" ]; then
-    echo "  To start using plug, run:"
+    echo "  To start using plug now, restart your shell:"
     echo ""
-    echo "    source ${NEEDS_SOURCE}"
+    echo "    exec $SHELL"
     echo ""
   fi
 }
