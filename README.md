@@ -23,7 +23,7 @@ macOS / Linux:
 curl -fsSL plug.audio/install.sh | sh
 ```
 
-npm:
+Windows:
 
 ```bash
 npm install -g @titrate/plug
