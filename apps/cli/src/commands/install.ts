@@ -141,7 +141,8 @@ Examples:
           }
         }
 
-        // Check write permissions before downloading (Windows)
+        // Check write permissions before downloading (Windows).
+        // Windows has no sudo - the user needs to open an admin terminal.
         if (platform === "win" && !process.env.PLUG_HOME) {
           const testDir = paths[formats[0]][target];
           try {
@@ -151,9 +152,17 @@ Examples:
             writeFileSync(testFile, "");
             unlinkSync(testFile);
           } catch {
-            error(
-              "Cannot write to the plugin directory. Right-click your terminal and select \"Run as administrator\", then try again.",
+            console.log();
+            console.log(
+              `  plug needs permission to install plugins in the system folder.`,
             );
+            console.log(
+              `  Close this window, then right-click your terminal app`,
+            );
+            console.log(
+              `  and choose "Run as administrator" to try again.`,
+            );
+            console.log();
             process.exit(1);
           }
         }
