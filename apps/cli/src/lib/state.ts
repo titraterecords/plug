@@ -1,5 +1,6 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { CACHE_DIR, INSTALLED_PATH } from "../constants.js";
+import { chownToUser } from "./fix-permissions.js";
 
 interface InstalledPlugin {
   version: string;
@@ -20,7 +21,9 @@ async function loadInstalled(): Promise<InstalledState> {
 
 async function saveInstalled(state: InstalledState): Promise<void> {
   await mkdir(CACHE_DIR, { recursive: true });
+  await chownToUser(CACHE_DIR);
   await writeFile(INSTALLED_PATH, JSON.stringify(state, null, 2));
+  await chownToUser(INSTALLED_PATH);
 }
 
 async function markInstalled(

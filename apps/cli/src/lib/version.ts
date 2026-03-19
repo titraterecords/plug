@@ -1,5 +1,6 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { CACHE_DIR, VERSION_CACHE_PATH } from "../constants.js";
+import { chownToUser } from "./fix-permissions.js";
 
 interface VersionCache {
   latest: string;
@@ -31,6 +32,7 @@ async function checkForUpdate(currentVersion: string): Promise<string | null> {
     const data = (await response.json()) as { version: string };
 
     await mkdir(CACHE_DIR, { recursive: true });
+    await chownToUser(CACHE_DIR);
     await writeFile(
       VERSION_CACHE_PATH,
       JSON.stringify({
@@ -38,6 +40,7 @@ async function checkForUpdate(currentVersion: string): Promise<string | null> {
         checkedAt: Date.now(),
       }),
     );
+    await chownToUser(VERSION_CACHE_PATH);
 
     return data.version !== currentVersion ? data.version : null;
   } catch {

@@ -118,9 +118,11 @@ main() {
   echo
 
   if [ -n "$NEEDS_SOURCE" ]; then
-    echo "  To start using plug now, restart your shell:"
+    echo "  Almost there! Copy and paste this to get started:"
     echo ""
     echo "    exec $SHELL"
+    echo ""
+    echo "  (This only needs to happen once.)"
     echo ""
   fi
 }

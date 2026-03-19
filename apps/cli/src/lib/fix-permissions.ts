@@ -1,39 +1,19 @@
-import { chown, mkdir, readdir, stat } from "node:fs/promises";
-import { join } from "node:path";
-import { CACHE_DIR } from "../constants.js";
+import { chown } from "node:fs/promises";
 
-// When plug is run with sudo, files in ~/.plug/ get created as root.
-// This locks out normal usage with EACCES errors. Fix by resetting
-// ownership to the real user (SUDO_USER) on every run.
-async function fixPermissions(): Promise<void> {
-  const sudoUser = process.env.SUDO_UID;
-  const sudoGroup = process.env.SUDO_GID;
-
-  // Not running as sudo, or on Windows - nothing to fix
-  if (!sudoUser || process.platform === "win32") return;
-
-  const uid = parseInt(sudoUser, 10);
-  const gid = parseInt(sudoGroup ?? sudoUser, 10);
+// When running under sudo, Node.js creates files as root.
+// This resets ownership to the real user so subsequent runs
+// without sudo don't get EACCES errors.
+// Call after any file/directory creation in ~/.plug/.
+async function chownToUser(path: string): Promise<void> {
+  const uid = process.env.SUDO_UID;
+  const gid = process.env.SUDO_GID;
+  if (!uid || process.platform === "win32") return;
 
   try {
-    await mkdir(CACHE_DIR, { recursive: true });
-    await chown(CACHE_DIR, uid, gid);
-
-    const entries = await readdir(CACHE_DIR);
-    for (const entry of entries) {
-      const path = join(CACHE_DIR, entry);
-      try {
-        const s = await stat(path);
-        if (s.uid === 0) {
-          await chown(path, uid, gid);
-        }
-      } catch {
-        // Skip files we can't stat
-      }
-    }
+    await chown(path, parseInt(uid, 10), parseInt(gid ?? uid, 10));
   } catch {
-    // Best effort - don't crash if we can't fix permissions
+    // Best effort
   }
 }
 
-export { fixPermissions };
+export { chownToUser };

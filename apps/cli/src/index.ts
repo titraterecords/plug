@@ -9,11 +9,7 @@ import { registerClearCache } from "./commands/clear-cache.js";
 import { registerUpdate } from "./commands/update.js";
 import chalk from "chalk";
 import { printBanner } from "./lib/banner.js";
-import { fixPermissions } from "./lib/fix-permissions.js";
 import { checkForUpdate, loadVersionCache } from "./lib/version.js";
-
-// Fix root-owned files in ~/.plug/ when previously run with sudo
-await fixPermissions();
 
 const VERSION = "0.3.3";
 
