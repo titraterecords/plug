@@ -1,5 +1,4 @@
 import { Option, type Command } from "commander";
-import { execSync } from "node:child_process";
 import chalk from "chalk";
 import { checkbox } from "@inquirer/prompts";
 import ora from "ora";
@@ -15,6 +14,7 @@ import { extractAndInstall } from "../lib/installer/install.js";
 import { isPkg } from "../lib/installer/is-pkg.js";
 import { installPkg } from "../lib/installer/mac/install-pkg.js";
 import { error, success } from "../lib/logger.js";
+import { isPermissionError, rerunWithSudo } from "../lib/sudo-prompt.js";
 import { parsePluginRef } from "../lib/parse-plugin-ref.js";
 import { currentPlatform } from "../lib/platform.js";
 import { availableFormats, findPlugin, getRegistry } from "../lib/registry.js";
@@ -63,11 +63,12 @@ Examples:
         // Some plugins need system paths (e.g. /Library/Application Support/)
         // which require admin permissions on macOS
         if (plugin.systemInstall && platform === "mac" && process.getuid?.() !== 0 && !process.env.PLUG_HOME) {
-          error(
-            `"${plugin.name}" requires system-level installation for its resources.\nRun: sudo plug install ${name}`,
-          );
-          process.exit(1);
-          return;
+          try {
+            rerunWithSudo(plugin.name);
+            return;
+          } catch {
+            process.exit(1);
+          }
         }
 
         const version = requestedVersion ?? plugin.version;
@@ -216,31 +217,10 @@ Examples:
               );
             }
           } catch (err) {
-            const isPermError =
-              err instanceof Error &&
-              "code" in err &&
-              (err as NodeJS.ErrnoException).code === "EACCES";
-
-            // Permission denied on macOS/Linux: explain why and re-run with sudo
-            if (isPermError && process.platform !== "win32" && process.getuid?.() !== 0) {
+            if (isPermissionError(err) && process.platform !== "win32" && process.getuid?.() !== 0) {
               spinner.stop();
-              console.log();
-              console.log(
-                `  This plugin needs to be installed in a system folder.`,
-              );
-              console.log(
-                `  You'll be asked for your password - it's only used by your`,
-              );
-              console.log(
-                `  computer to allow the install. plug never sees your password.`,
-              );
-              console.log();
-
               try {
-                const args = process.argv.slice(1).join(" ");
-                execSync(`sudo ${process.argv[0]} ${args}`, {
-                  stdio: "inherit",
-                });
+                rerunWithSudo(plugin.name);
                 return;
               } catch {
                 process.exit(1);
