@@ -48,7 +48,7 @@ Plugins install to user-writable locations when possible to avoid password promp
 | CLAP | `/Library/Audio/Plug-Ins/CLAP/` | `C:\Program Files\Common Files\CLAP\` | `~/.clap/` |
 | LV2 | - | - | `~/.lv2/` |
 
-On Windows, if write permissions are missing, plug prompts you to run your terminal as administrator. Windows `.exe` installers (NSIS format) are extracted using [7-Zip](https://7-zip.org), installed automatically via `winget` if needed.
+On Windows, if write permissions are missing, plug prompts you to run your terminal as administrator.
 
 Ableton Live on Windows can override the default VST3 scan path. Plug reads Ableton's preferences (Live 10, 11, 12) and installs to the active scan folder.
 
