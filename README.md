@@ -15,8 +15,6 @@ plug upgrade
 plug uninstall ott
 ```
 
-All commands support `--json` for scripted and agent use.
-
 ## Install
 
 macOS / Linux:
@@ -95,7 +93,7 @@ The install script (`install.sh`) always fetches the latest release - no manual 
 
 ## Thank you
 
-To the plugin developers who build and give away their work for free - Xfer Records, Surge Synth Team, Digital Suburban, Tokyo Dawn Labs, and everyone else making tools for musicians without asking for anything in return. This project exists because of your generosity.
+To the plugin developers who build and give away their work for free - [Xfer Records](https://xferrecords.com), [Surge Synth Team](https://surge-synth-team.org), [Digital Suburban](https://asb2m10.github.io/dexed/), [Tokyo Dawn Labs](https://www.tokyodawn.net), and everyone else making tools for musicians without asking for anything in return. This project exists because of your generosity.
 
 To the maintainers of Homebrew, npm, and the broader ecosystem of package managers whose design and decades of work shaped how we think about software distribution. The DMG and PKG handling in plug draws directly from patterns established by Homebrew Cask.
 
