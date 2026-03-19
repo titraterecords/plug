@@ -2,11 +2,17 @@ import { writeFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { isPermissionError } from "./sudo-prompt.js";
 
+const isWin = process.platform === "win32";
+
+// Write-protected file that exists on each platform
+const PROTECTED_FILE = isWin
+  ? "C:\\Windows\\System32\\drivers\\etc\\hosts"
+  : "/etc/hosts";
+
 describe("isPermissionError", () => {
   it("returns true for a real EACCES filesystem error", () => {
     try {
-      // /etc/hosts is readable but not writable without sudo
-      writeFileSync("/etc/hosts", "");
+      writeFileSync(PROTECTED_FILE, "");
       expect.unreachable("should have thrown");
     } catch (err) {
       expect(isPermissionError(err)).toBe(true);
@@ -15,7 +21,7 @@ describe("isPermissionError", () => {
 
   it("returns false for a real ENOENT filesystem error", () => {
     try {
-      writeFileSync("/nonexistent-dir/file.txt", "");
+      writeFileSync("/nonexistent-dir-abc123/file.txt", "");
       expect.unreachable("should have thrown");
     } catch (err) {
       expect(isPermissionError(err)).toBe(false);
