@@ -55,8 +55,7 @@ add_to_path() {
   if ! echo "$PATH" | tr ':' '\n' | grep -qx "$INSTALL_DIR"; then
     echo "" >> "$profile"
     echo "export PATH=\"${INSTALL_DIR}:\$PATH\"" >> "$profile"
-    echo "Added ${INSTALL_DIR} to PATH in ${profile}"
-    echo "Run: source ${profile} (or open a new terminal)"
+    NEEDS_SOURCE="$profile"
   fi
 }
 
@@ -83,7 +82,7 @@ main() {
   # If already installed via npm, update through npm instead
   if command -v npm >/dev/null 2>&1 && npm list -g @titrate/plug >/dev/null 2>&1; then
     current=$(plug --version 2>/dev/null || echo "unknown")
-    npm update -g @titrate/plug --silent
+    npm install -g @titrate/plug@latest --silent
     updated=$(plug --version)
     echo "plug updated from ${current} to ${updated}"
     return
@@ -112,10 +111,18 @@ main() {
   curl -fsSL "$download_url" -o "${INSTALL_DIR}/plug"
   chmod +x "${INSTALL_DIR}/plug"
 
+  NEEDS_SOURCE=""
   add_to_path
 
   echo "  Installed. See you at plug.audio"
   echo
+
+  if [ -n "$NEEDS_SOURCE" ]; then
+    echo "  To start using plug, run:"
+    echo ""
+    echo "    source ${NEEDS_SOURCE}"
+    echo ""
+  fi
 }
 
 main
