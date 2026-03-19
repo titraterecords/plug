@@ -1,7 +1,9 @@
 import type { Command } from "commander";
 import chalk from "chalk";
+import { loadConfig } from "../lib/config.js";
 import { error } from "../lib/logger.js";
 import { currentPlatform } from "../lib/platform.js";
+import { pluginDescription, pluginTags } from "../lib/plugin-meta.js";
 import { availableFormats, findPlugin, getRegistry } from "../lib/registry.js";
 import { loadInstalled } from "../lib/state.js";
 
@@ -19,6 +21,8 @@ Examples:
     )
     .action(async (name: string, options: { json?: boolean }) => {
       const platform = currentPlatform();
+      const config = await loadConfig();
+      const locale = config.language ?? "en";
       const registry = await getRegistry();
       const plugin = findPlugin(registry, name);
 
@@ -44,10 +48,11 @@ Examples:
 
       const formats = availableFormats(plugin, platform);
       const versions = Object.keys(plugin.versions);
-      const tags = plugin.tags ?? [];
+      const description = pluginDescription(plugin, locale);
+      const tags = pluginTags(plugin, locale);
 
       console.log(chalk.bold(plugin.name));
-      console.log(`  Description:  ${plugin.description}`);
+      console.log(`  Description:  ${description}`);
       console.log(`  Version:      ${plugin.version}`);
       console.log(`  Versions:     ${versions.join(", ")}`);
       console.log(`  Formats:      ${formats.join(", ").toUpperCase()}`);

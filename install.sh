@@ -114,6 +114,11 @@ main() {
   NEEDS_SOURCE=""
   add_to_path
 
+  # Write language preference from localized install scripts
+  if [ -n "$PLUG_LANG" ]; then
+    printf '{"language":"%s"}\n' "$PLUG_LANG" > "${HOME}/.plug/config.json"
+  fi
+
   echo "  Installed. See you at plug.audio"
   echo
 

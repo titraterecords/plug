@@ -20,7 +20,12 @@ import {
 } from "../lib/sudo-prompt.js";
 import { parsePluginRef } from "../lib/parse-plugin-ref.js";
 import { currentPlatform } from "../lib/platform.js";
-import { availableFormats, findPlugin, getRegistry } from "../lib/registry.js";
+import {
+  availableFormats,
+  findPlugin,
+  getRegistry,
+} from "../lib/registry.js";
+import { searchPlugins } from "../lib/search-plugins.js";
 import { resolveVersion } from "../lib/resolve-version.js";
 import { markInstalled } from "../lib/state.js";
 
@@ -53,14 +58,28 @@ Examples:
         const { name, version: requestedVersion } = parsePluginRef(input);
         const platform = currentPlatform();
         const registry = await getRegistry();
-        const plugin = findPlugin(registry, name);
+        let plugin = findPlugin(registry, name);
 
         if (!plugin) {
-          error(
-            `Plugin "${name}" not found. Run \`plug search ${name}\` to browse.`,
-          );
-          process.exit(1);
-          return;
+          const matches = searchPlugins(registry, name);
+          if (matches.length === 1) {
+            plugin = matches[0];
+          } else {
+            if (matches.length > 1) {
+              error(
+                `Plugin "${name}" not found. Did you mean one of these?`,
+              );
+              for (const m of matches) {
+                console.log(`  ${chalk.bold(m.id)} - ${m.description}`);
+              }
+            } else {
+              error(
+                `Plugin "${name}" not found. Run \`plug search ${name}\` to browse.`,
+              );
+            }
+            process.exit(1);
+            return;
+          }
         }
 
         // Some plugins need system paths (e.g. /Library/Application Support/)
