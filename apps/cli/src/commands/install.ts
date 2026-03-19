@@ -139,6 +139,23 @@ Examples:
           }
         }
 
+        // Check write permissions before downloading (Windows)
+        if (platform === "win" && !process.env.PLUG_HOME) {
+          const testDir = paths[formats[0]][target];
+          try {
+            const { mkdirSync, writeFileSync, unlinkSync } = await import("node:fs");
+            mkdirSync(testDir, { recursive: true });
+            const testFile = `${testDir}\\.plug-perm-check`;
+            writeFileSync(testFile, "");
+            unlinkSync(testFile);
+          } catch {
+            error(
+              "Cannot write to the plugin directory. Right-click your terminal and select \"Run as administrator\", then try again.",
+            );
+            process.exit(1);
+          }
+        }
+
         const results: Array<{ format: string; paths: string[] }> = [];
 
         for (const format of formats) {
