@@ -1,4 +1,5 @@
 import { Option, type Command } from "commander";
+import { execSync } from "node:child_process";
 import chalk from "chalk";
 import { checkbox } from "@inquirer/prompts";
 import ora from "ora";
@@ -215,6 +216,37 @@ Examples:
               );
             }
           } catch (err) {
+            const isPermError =
+              err instanceof Error &&
+              "code" in err &&
+              (err as NodeJS.ErrnoException).code === "EACCES";
+
+            // Permission denied on macOS/Linux: explain why and re-run with sudo
+            if (isPermError && process.platform !== "win32" && process.getuid?.() !== 0) {
+              spinner.stop();
+              console.log();
+              console.log(
+                `  This plugin needs to be installed in a system folder.`,
+              );
+              console.log(
+                `  You'll be asked for your password - it's only used by your`,
+              );
+              console.log(
+                `  computer to allow the install. plug never sees your password.`,
+              );
+              console.log();
+
+              try {
+                const args = process.argv.slice(1).join(" ");
+                execSync(`sudo ${process.argv[0]} ${args}`, {
+                  stdio: "inherit",
+                });
+                return;
+              } catch {
+                process.exit(1);
+              }
+            }
+
             spinner.fail(`Failed to install ${plugin.name} (${format})`);
             error(err instanceof Error ? err.message : String(err));
             process.exit(1);
