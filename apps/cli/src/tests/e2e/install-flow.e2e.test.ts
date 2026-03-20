@@ -14,7 +14,7 @@ process.env.PLUG_HOME = TEST_ROOT;
 import { computeChecksum, verifyChecksum } from "../../lib/checksum.js";
 import { downloadFile } from "../../lib/installer/download.js";
 import { extractAndInstall } from "../../lib/installer/install.js";
-import { pluginPaths } from "../../constants.js";
+import { pluginPaths } from "../../lib/paths/plugin-paths.js";
 import {
   loadInstalled,
   markInstalled,

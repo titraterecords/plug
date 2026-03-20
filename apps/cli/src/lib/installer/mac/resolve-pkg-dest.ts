@@ -1,6 +1,6 @@
 import { homedir } from "node:os";
 import { join } from "node:path";
-import type { InstallTarget } from "../../../constants.js";
+import type { InstallTarget } from "../../paths/plugin-paths.js";
 
 // Paths that can safely install under ~/Library/ for user target.
 // Application Support stays at system /Library/ because plugins hardcode

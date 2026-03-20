@@ -972,6 +972,40 @@
       }
     },
     {
+      "id": "chain-selector",
+      "name": "Chain Selector",
+      "author": "Robert Henke",
+      "description": "Instrument rack chain selector with crossfade for Ableton Live",
+      "version": "1.0",
+      "license": "freeware",
+      "category": "utility",
+      "tags": [
+        "utility",
+        "rack",
+        "selector"
+      ],
+      "homepage": "https://roberthenke.com/technology/m4l.html",
+      "versions": {
+        "1.0": {
+          "source": "manual",
+          "formats": {
+            "m4l-midi-effect": {
+              "mac": {
+                "url": "https://roberthenke.com/files_software/m4l/ChainSelectorProject.zip",
+                "sha256": "8973c031e1f15d3793674f4d530df68672ec7d981cbc641f9e27b8ed2b03a4a5",
+                "artifact": "PGMChain.amxd"
+              },
+              "win": {
+                "url": "https://roberthenke.com/files_software/m4l/ChainSelectorProject.zip",
+                "sha256": "8973c031e1f15d3793674f4d530df68672ec7d981cbc641f9e27b8ed2b03a4a5",
+                "artifact": "PGMChain.amxd"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "id": "chorus-ex-machina",
       "name": "Chorus Ex Machina",
       "author": "Peter Eastman",
@@ -1786,6 +1820,40 @@
             "混响",
             "算法"
           ]
+        }
+      }
+    },
+    {
+      "id": "control-change",
+      "name": "ControlChange 8.5",
+      "author": "Robert Henke",
+      "description": "MIDI CC controller with 8 assignable knobs for Ableton Live",
+      "version": "8.5",
+      "license": "freeware",
+      "category": "midi",
+      "tags": [
+        "midi",
+        "controller",
+        "cc"
+      ],
+      "homepage": "https://roberthenke.com/technology/m4l.html",
+      "versions": {
+        "8.5": {
+          "source": "manual",
+          "formats": {
+            "m4l-midi-effect": {
+              "mac": {
+                "url": "https://roberthenke.com/files_software/m4l/ControlChange8.5.amxd.zip",
+                "sha256": "d51161a09b192e1c7c1b779979495ba96cf33d58969e206c8724309559a24d6d",
+                "artifact": "ControlChange8.5.amxd"
+              },
+              "win": {
+                "url": "https://roberthenke.com/files_software/m4l/ControlChange8.5.amxd.zip",
+                "sha256": "d51161a09b192e1c7c1b779979495ba96cf33d58969e206c8724309559a24d6d",
+                "artifact": "ControlChange8.5.amxd"
+              }
+            }
+          }
         }
       }
     },
@@ -2996,6 +3064,41 @@
       }
     },
     {
+      "id": "filter-delays",
+      "name": "Filter Delays",
+      "author": "Robert Henke",
+      "description": "Three stereo delays with rhythmic timing and filter processing",
+      "version": "1.06",
+      "license": "freeware",
+      "category": "delay",
+      "tags": [
+        "effect",
+        "delay",
+        "filter",
+        "stereo"
+      ],
+      "homepage": "https://roberthenke.com/technology/filterdelays.html",
+      "versions": {
+        "1.06": {
+          "source": "manual",
+          "formats": {
+            "m4l-audio-effect": {
+              "mac": {
+                "url": "https://roberthenke.com/files_software/m4l/FilterDelay.zip",
+                "sha256": "5ad5e7b29497185f0baeb16dcbd842a611b33ec95d126474780403c2453f0c2f",
+                "artifact": "FilterStereoDelays.amxd"
+              },
+              "win": {
+                "url": "https://roberthenke.com/files_software/m4l/FilterDelay.zip",
+                "sha256": "5ad5e7b29497185f0baeb16dcbd842a611b33ec95d126474780403c2453f0c2f",
+                "artifact": "FilterStereoDelays.amxd"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "id": "filtr",
       "name": "FILT-R",
       "author": "TiagoLr",
@@ -3683,6 +3786,58 @@
             "调音台",
             "模拟"
           ]
+        }
+      }
+    },
+    {
+      "id": "granulator-ii",
+      "name": "Granulator II",
+      "author": "Robert Henke",
+      "description": "Granular synthesizer based on quasi-synchronous granular synthesis",
+      "version": "1.3",
+      "license": "cc-by-nc-3.0",
+      "category": "synthesizer",
+      "tags": [
+        "instrument",
+        "granular",
+        "synthesizer"
+      ],
+      "homepage": "https://roberthenke.com/technology/granulator.html",
+      "versions": {
+        "1.3": {
+          "source": "manual",
+          "formats": {
+            "m4l-instrument": {
+              "mac": {
+                "url": "https://roberthenke.com/files_software/free/M4LGranulatorII_r57382_v1.3.alp.zip",
+                "sha256": "f9e4d38ac4e11406b4ea1b72388c976022b41a70fb1e8c215d8993ae28740424",
+                "artifact": [
+                  "device_0.amxd",
+                  "device_1.amxd"
+                ]
+              },
+              "win": {
+                "url": "https://roberthenke.com/files_software/free/M4LGranulatorII_r57382_v1.3.alp.zip",
+                "sha256": "f9e4d38ac4e11406b4ea1b72388c976022b41a70fb1e8c215d8993ae28740424",
+                "artifact": [
+                  "device_0.amxd",
+                  "device_1.amxd"
+                ]
+              }
+            },
+            "m4l-audio-effect": {
+              "mac": {
+                "url": "https://roberthenke.com/files_software/free/M4LGranulatorII_r57382_v1.3.alp.zip",
+                "sha256": "f9e4d38ac4e11406b4ea1b72388c976022b41a70fb1e8c215d8993ae28740424",
+                "artifact": "device_2.amxd"
+              },
+              "win": {
+                "url": "https://roberthenke.com/files_software/free/M4LGranulatorII_r57382_v1.3.alp.zip",
+                "sha256": "f9e4d38ac4e11406b4ea1b72388c976022b41a70fb1e8c215d8993ae28740424",
+                "artifact": "device_2.amxd"
+              }
+            }
+          }
         }
       }
     },
@@ -4565,6 +4720,74 @@
       }
     },
     {
+      "id": "lanzarote-verb",
+      "name": "Lanzarote Verb",
+      "author": "Robert Henke",
+      "description": "Allpass and comb-filter reverb with rough scattered reflections",
+      "version": "1.2",
+      "license": "freeware",
+      "category": "reverb",
+      "tags": [
+        "effect",
+        "reverb",
+        "creative"
+      ],
+      "homepage": "https://roberthenke.com/technology/lanzaroteVerb.html",
+      "versions": {
+        "1.2": {
+          "source": "manual",
+          "formats": {
+            "m4l-audio-effect": {
+              "mac": {
+                "url": "https://roberthenke.com/files_software/m4l/LanzaroteVerbDemo.zip",
+                "sha256": "87cfbd4c6bc4a805543bd646c8c066e518697b38d2c5eb5dd3dc562df2b8cc75",
+                "artifact": "LanzaroteVerb.amxd"
+              },
+              "win": {
+                "url": "https://roberthenke.com/files_software/m4l/LanzaroteVerbDemo.zip",
+                "sha256": "87cfbd4c6bc4a805543bd646c8c066e518697b38d2c5eb5dd3dc562df2b8cc75",
+                "artifact": "LanzaroteVerb.amxd"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "lfo",
+      "name": "LFO 2.2",
+      "author": "Robert Henke",
+      "description": "Versatile LFO modulator for Ableton Live",
+      "version": "2.2",
+      "license": "freeware",
+      "category": "modulation",
+      "tags": [
+        "effect",
+        "lfo",
+        "modulation"
+      ],
+      "homepage": "https://roberthenke.com/technology/m4l.html",
+      "versions": {
+        "2.2": {
+          "source": "manual",
+          "formats": {
+            "m4l-audio-effect": {
+              "mac": {
+                "url": "https://roberthenke.com/files_software/m4l/LFO_2.2.amxd.zip",
+                "sha256": "4891348941a29359f06cb7007aebe3c4612aa977a8f158df0d575dae9354ec20",
+                "artifact": "LFO_2.2.amxd"
+              },
+              "win": {
+                "url": "https://roberthenke.com/files_software/m4l/LFO_2.2.amxd.zip",
+                "sha256": "4891348941a29359f06cb7007aebe3c4612aa977a8f158df0d575dae9354ec20",
+                "artifact": "LFO_2.2.amxd"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "id": "maim",
       "name": "Maim",
       "author": "Arden Butterfield",
@@ -5342,6 +5565,40 @@
             "采样器",
             "切片器"
           ]
+        }
+      }
+    },
+    {
+      "id": "note-modulator",
+      "name": "Note Modulator 2",
+      "author": "Robert Henke",
+      "description": "MIDI note modulation device for Ableton Live",
+      "version": "2.0",
+      "license": "freeware",
+      "category": "modulation",
+      "tags": [
+        "midi",
+        "modulation",
+        "note"
+      ],
+      "homepage": "https://roberthenke.com/technology/m4l.html",
+      "versions": {
+        "2.0": {
+          "source": "manual",
+          "formats": {
+            "m4l-midi-effect": {
+              "mac": {
+                "url": "https://roberthenke.com/files_software/m4l/NoteModulator_2.amxd.zip",
+                "sha256": "d045c7dd587e5e10bd5b37efb6156ca42ece577bef6f2412449fae5ced72e09b",
+                "artifact": "NoteModulator_2.amxd"
+              },
+              "win": {
+                "url": "https://roberthenke.com/files_software/m4l/NoteModulator_2.amxd.zip",
+                "sha256": "d045c7dd587e5e10bd5b37efb6156ca42ece577bef6f2412449fae5ced72e09b",
+                "artifact": "NoteModulator_2.amxd"
+              }
+            }
+          }
         }
       }
     },
@@ -6843,6 +7100,40 @@
             "人声",
             "RNNoise"
           ]
+        }
+      }
+    },
+    {
+      "id": "sample-capture",
+      "name": "SampleCapture",
+      "author": "Robert Henke",
+      "description": "Recording helper for capturing short samples in Ableton Live",
+      "version": "1.0",
+      "license": "freeware",
+      "category": "utility",
+      "tags": [
+        "utility",
+        "sampler",
+        "recording"
+      ],
+      "homepage": "https://roberthenke.com/technology/samplecapture.html",
+      "versions": {
+        "1.0": {
+          "source": "manual",
+          "formats": {
+            "m4l-audio-effect": {
+              "mac": {
+                "url": "https://roberthenke.com/files_software/m4l/SampleCapture.zip",
+                "sha256": "5300b2917a155cdb768222896c7e8d4e9ec9091e2f0962c2a5a4f930d6068cc3",
+                "artifact": "SampleCapture.amxd"
+              },
+              "win": {
+                "url": "https://roberthenke.com/files_software/m4l/SampleCapture.zip",
+                "sha256": "5300b2917a155cdb768222896c7e8d4e9ec9091e2f0962c2a5a4f930d6068cc3",
+                "artifact": "SampleCapture.amxd"
+              }
+            }
+          }
         }
       }
     },

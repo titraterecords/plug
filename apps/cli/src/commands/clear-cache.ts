@@ -1,6 +1,6 @@
 import type { Command } from "commander";
 import { rm } from "node:fs/promises";
-import { REGISTRY_CACHE_PATH, VERSION_CACHE_PATH } from "../constants.js";
+import { REGISTRY_CACHE_PATH, VERSION_CACHE_PATH } from "../lib/paths/cache.js";
 
 function registerClearCache(program: Command): void {
   program
