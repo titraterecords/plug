@@ -1,5 +1,4 @@
-import { homedir } from "node:os";
-import { join } from "node:path";
+import { basename } from "node:path";
 import { findAbletonPrefs } from "./find-ableton-prefs.js";
 import { parseUserLibrary } from "./parse-library-cfg.js";
 import { parseScanPaths } from "./parse-scan-paths.js";
@@ -16,11 +15,6 @@ interface AbletonPaths {
   vst3Prefs: CustomVstPrefs;
 }
 
-const DEFAULT_USER_LIBRARY: Record<string, string> = {
-  mac: join(homedir(), "Music/Ableton/User Library"),
-  win: join(homedir(), "Documents\\Ableton\\User Library"),
-};
-
 // Detects Ableton Live installation and returns configured paths.
 // Returns null when Ableton Live is not installed.
 function findAbletonPaths(
@@ -29,9 +23,7 @@ function findAbletonPaths(
   const prefsDir = findAbletonPrefs(platform);
   if (!prefsDir) return null;
 
-  // Extract version from directory name ("Live 12.3.6" -> "12.3.6")
-  const dirName = prefsDir.split("/").pop() ?? prefsDir.split("\\").pop() ?? "";
-  const version = dirName.replace(/^Live\s+/, "");
+  const version = basename(prefsDir).replace(/^Live\s+/, "");
 
   return {
     prefsDir,
@@ -43,5 +35,5 @@ function findAbletonPaths(
   };
 }
 
-export { DEFAULT_USER_LIBRARY, findAbletonPaths };
+export { findAbletonPaths };
 export type { AbletonPaths };
