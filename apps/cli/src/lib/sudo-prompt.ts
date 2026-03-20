@@ -35,13 +35,12 @@ async function confirmAndRerunWithSudo(
   execSync(`sudo ${process.argv[0]} ${cmdArgs}`, { stdio: "inherit" });
 }
 
-// Checks if an error is a filesystem permission denial
+// Checks if an error is a filesystem permission denial.
+// macOS/Linux use EACCES, Windows uses EPERM.
 function isPermissionError(err: unknown): boolean {
-  return (
-    err instanceof Error &&
-    "code" in err &&
-    (err as NodeJS.ErrnoException).code === "EACCES"
-  );
+  if (!(err instanceof Error) || !("code" in err)) return false;
+  const code = (err as NodeJS.ErrnoException).code;
+  return code === "EACCES" || code === "EPERM";
 }
 
 export { confirmAndRerunWithSudo, isPermissionError };

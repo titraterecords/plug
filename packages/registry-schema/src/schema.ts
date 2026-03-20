@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-const FORMATS = ["vst3", "au", "clap", "lv2"] as const;
+const FORMATS = ["vst3", "au", "clap", "lv2", "m4l-instrument", "m4l-audio-effect", "m4l-midi-effect"] as const;
 const PLATFORMS = ["mac", "win", "linux"] as const;
 
 // A single downloadable file for one format on one platform
@@ -21,6 +21,25 @@ const VersionEntrySchema = z.object({
   formats: z.record(z.enum(FORMATS), PlatformFormatsSchema),
 });
 
+const LOCALES = ["de", "en", "es", "fr", "it", "ja", "pt", "zh"] as const;
+
+const LocaleMetaSchema = z.object({
+  description: z.string(),
+  tags: z.array(z.string()).optional(),
+});
+
+// en is always present as the fallback language
+const MetaSchema = z.object({
+  en: LocaleMetaSchema,
+  de: LocaleMetaSchema.optional(),
+  es: LocaleMetaSchema.optional(),
+  fr: LocaleMetaSchema.optional(),
+  it: LocaleMetaSchema.optional(),
+  ja: LocaleMetaSchema.optional(),
+  pt: LocaleMetaSchema.optional(),
+  zh: LocaleMetaSchema.optional(),
+});
+
 const PluginSchema = z.object({
   id: z.string().min(1),
   name: z.string().min(1),
@@ -32,6 +51,7 @@ const PluginSchema = z.object({
   license: z.string(),
   category: z.string(),
   tags: z.array(z.string()).optional(),
+  meta: MetaSchema.optional(),
   recommended: z.boolean().optional(),
   // Plugins that install resources to system paths (e.g. /Library/Application Support/)
   // need sudo on macOS. The CLI checks this before downloading.
@@ -53,10 +73,15 @@ type Registry = z.infer<typeof RegistrySchema>;
 type PluginFormat = (typeof FORMATS)[number];
 type Platform = (typeof PLATFORMS)[number];
 type Source = (typeof SOURCES)[number];
+type Locale = (typeof LOCALES)[number];
+type LocaleMeta = z.infer<typeof LocaleMetaSchema>;
 
 export {
   FORMATS,
   FormatEntrySchema,
+  LOCALES,
+  LocaleMetaSchema,
+  MetaSchema,
   PLATFORMS,
   PlatformFormatsSchema,
   PluginSchema,
@@ -66,6 +91,8 @@ export {
 };
 export type {
   FormatEntry,
+  Locale,
+  LocaleMeta,
   Platform,
   Plugin,
   PluginFormat,

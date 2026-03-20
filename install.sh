@@ -111,8 +111,16 @@ main() {
   curl -fsSL "$download_url" -o "${INSTALL_DIR}/plug"
   chmod +x "${INSTALL_DIR}/plug"
 
+  # Clear stale cache so the new version fetches a fresh registry
+  rm -f "${HOME}/.plug/registry.json" "${HOME}/.plug/version-check.json"
+
   NEEDS_SOURCE=""
   add_to_path
+
+  # Write language preference from localized install scripts
+  if [ -n "$PLUG_LANG" ]; then
+    printf '{"language":"%s"}\n' "$PLUG_LANG" > "${HOME}/.plug/config.json"
+  fi
 
   echo "  Installed. See you at plug.audio"
   echo

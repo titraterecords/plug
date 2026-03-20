@@ -7,11 +7,12 @@ import { registerUninstall } from "./commands/uninstall.js";
 import { registerUpgrade } from "./commands/upgrade.js";
 import { registerClearCache } from "./commands/clear-cache.js";
 import { registerUpdate } from "./commands/update.js";
+import { registerLanguage } from "./commands/language.js";
 import chalk from "chalk";
 import { printBanner } from "./lib/banner.js";
 import { checkForUpdate, loadVersionCache } from "./lib/version.js";
 
-const VERSION = "0.3.3";
+const VERSION = "0.4.0";
 
 // Skip update banner for --version and --help
 const args = process.argv.slice(2);
@@ -77,31 +78,34 @@ program
   .configureHelp({ showGlobalOptions: false })
   .addHelpText("beforeAll", "")
   .addHelpText("after", () => {
-    const col = 34;
-    const pad = (s: string) => s.padEnd(col);
+    const cmdCol = 13;
+    const argsCol = 18;
+    const row = (cmd: string, args: string, desc: string) =>
+      `  ${cmd.padEnd(cmdCol)}${args.padEnd(argsCol)}${desc}`;
 
     const pluginCmds = [
-      ["install [options] <name>", "Install an audio plugin"],
-      ["search [options] [query]", "Search for audio plugins"],
-      ["list [options]", "List installed plugins"],
-      ["info [options] <name>", "Show plugin details"],
-      ["upgrade [options] [name]", "Upgrade installed plugins"],
-      ["uninstall [options] [name]", "Remove an installed plugin"],
+      ["install", "[options] <name>", "Install an audio plugin"],
+      ["search", "[options] [query]", "Search for audio plugins"],
+      ["list", "[options]", "List installed plugins"],
+      ["info", "[options] <name>", "Show plugin details"],
+      ["upgrade", "[options] [name]", "Upgrade installed plugins"],
+      ["uninstall", "[options] [name]", "Remove an installed plugin"],
     ];
 
     const cliCmds = [
-      ["update", "Update plug to the latest version"],
-      ["clear-cache", "Clear cached registry and version data"],
-      ["help [command]", "Display help for command"],
+      ["language", "", "Set display language"],
+      ["update", "", "Update plug to the latest version"],
+      ["clear-cache", "", "Clear cached registry and version data"],
+      ["help", "[command]", "Display help for command"],
     ];
 
     const lines = [
       "",
       "Plugin commands:",
-      ...pluginCmds.map(([cmd, desc]) => `  ${pad(cmd)}${desc}`),
+      ...pluginCmds.map(([cmd, args, desc]) => row(cmd, args, desc)),
       "",
       "CLI commands:",
-      ...cliCmds.map(([cmd, desc]) => `  ${pad(cmd)}${desc}`),
+      ...cliCmds.map(([cmd, args, desc]) => row(cmd, args, desc)),
       "",
     ];
 
@@ -121,6 +125,7 @@ registerUpgrade(program);
 registerUninstall(program);
 registerClearCache(program);
 registerUpdate(program);
+registerLanguage(program);
 
 // Show banner when running `plug` with no args
 if (args.length === 0) {
