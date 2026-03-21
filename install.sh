@@ -84,7 +84,18 @@ main() {
     current=$(plug --version 2>/dev/null || echo "unknown")
     npm install -g @titrate/plug@latest --silent
     updated=$(plug --version)
-    echo "plug updated from ${current} to ${updated}"
+
+    if [ "$current" = "$updated" ]; then
+      echo "plug ${current} is already the latest version."
+    else
+      echo "plug updated from ${current} to ${updated}"
+    fi
+
+    # Set language and clear cache (same as fresh install)
+    LANG_CODE="${PLUG_LANG:-en}"
+    mkdir -p "${HOME}/.plug"
+    printf '{"language":"%s"}\n' "$LANG_CODE" > "${HOME}/.plug/config.json"
+    rm -f "${HOME}/.plug/registry.json" "${HOME}/.plug/version-check.json"
     return
   fi
 
