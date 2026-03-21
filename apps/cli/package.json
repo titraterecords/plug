@@ -1,6 +1,6 @@
 {
   "name": "@titrate/plug",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "type": "module",
   "bin": {
     "plug": "dist/index.js"
