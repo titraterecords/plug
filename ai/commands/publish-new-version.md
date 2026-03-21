@@ -55,9 +55,10 @@ Keep it concise. One line per change. No filler.
 
 ## 4. Publish to npm
 
-The user runs this manually (requires npm 2FA):
+The user runs this manually (requires npm login + 2FA):
 
 ```bash
+npm login
 cd apps/cli && npm publish --access public
 ```
 
