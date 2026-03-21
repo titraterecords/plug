@@ -1,0 +1,98 @@
+[
+  {
+    "id": "lfo",
+    "name": "LFO 2.2",
+    "author": "Robert Henke",
+    "description": "Versatile LFO modulator for Ableton Live",
+    "version": "2.2",
+    "license": "freeware",
+    "category": "modulation",
+    "tags": ["effect", "lfo", "modulation"],
+    "homepage": "https://roberthenke.com/technology/m4l.html",
+    "url": "https://roberthenke.com/files_software/m4l/LFO_2.2.amxd.zip"
+  },
+  {
+    "id": "note-modulator",
+    "name": "Note Modulator 2",
+    "author": "Robert Henke",
+    "description": "MIDI note modulation device for Ableton Live",
+    "version": "2.0",
+    "license": "freeware",
+    "category": "modulation",
+    "tags": ["midi", "modulation", "note"],
+    "homepage": "https://roberthenke.com/technology/m4l.html",
+    "url": "https://roberthenke.com/files_software/m4l/NoteModulator_2.amxd.zip"
+  },
+  {
+    "id": "control-change",
+    "name": "ControlChange 8.5",
+    "author": "Robert Henke",
+    "description": "MIDI CC controller with 8 assignable knobs for Ableton Live",
+    "version": "8.5",
+    "license": "freeware",
+    "category": "midi",
+    "tags": ["midi", "controller", "cc"],
+    "homepage": "https://roberthenke.com/technology/m4l.html",
+    "url": "https://roberthenke.com/files_software/m4l/ControlChange8.5.amxd.zip"
+  },
+  {
+    "id": "chain-selector",
+    "name": "Chain Selector",
+    "author": "Robert Henke",
+    "description": "Instrument rack chain selector with crossfade for Ableton Live",
+    "version": "1.0",
+    "license": "freeware",
+    "category": "utility",
+    "tags": ["utility", "rack", "selector"],
+    "homepage": "https://roberthenke.com/technology/m4l.html",
+    "url": "https://roberthenke.com/files_software/m4l/ChainSelectorProject.zip"
+  },
+  {
+    "id": "sample-capture",
+    "name": "SampleCapture",
+    "author": "Robert Henke",
+    "description": "Recording helper for capturing short samples in Ableton Live",
+    "version": "1.0",
+    "license": "freeware",
+    "category": "utility",
+    "tags": ["utility", "sampler", "recording"],
+    "homepage": "https://roberthenke.com/technology/samplecapture.html",
+    "url": "https://roberthenke.com/files_software/m4l/SampleCapture.zip"
+  },
+  {
+    "id": "filter-delays",
+    "name": "Filter Delays",
+    "author": "Robert Henke",
+    "description": "Three stereo delays with rhythmic timing and filter processing",
+    "version": "1.06",
+    "license": "freeware",
+    "category": "delay",
+    "tags": ["effect", "delay", "filter", "stereo"],
+    "homepage": "https://roberthenke.com/technology/filterdelays.html",
+    "url": "https://roberthenke.com/files_software/m4l/FilterDelay.zip"
+  },
+  {
+    "id": "lanzarote-verb",
+    "name": "Lanzarote Verb",
+    "author": "Robert Henke",
+    "description": "Allpass and comb-filter reverb with rough scattered reflections",
+    "version": "1.2",
+    "license": "freeware",
+    "category": "reverb",
+    "tags": ["effect", "reverb", "creative"],
+    "homepage": "https://roberthenke.com/technology/lanzaroteVerb.html",
+    "url": "https://roberthenke.com/files_software/m4l/LanzaroteVerbDemo.zip"
+  },
+  {
+    "id": "granulator-ii",
+    "name": "Granulator II",
+    "author": "Robert Henke",
+    "description": "Granular synthesizer based on quasi-synchronous granular synthesis",
+    "version": "1.3",
+    "license": "cc-by-nc-3.0",
+    "category": "synthesizer",
+    "tags": ["instrument", "granular", "synthesizer"],
+    "homepage": "https://roberthenke.com/technology/granulator.html",
+    "url": "https://roberthenke.com/files_software/free/M4LGranulatorII_r57382_v1.3.alp.zip"
+  }
+]
