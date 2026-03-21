@@ -53,7 +53,15 @@ Examples:
         },
       ) => {
         const osFlag = options.os ?? options.platform;
-        const os = osFlag ? (osFlag as Platform) : currentPlatform();
+        const osAliases: Record<string, Platform> = {
+          windows: "win",
+          macos: "mac",
+          osx: "mac",
+          darwin: "mac",
+        };
+        const os = osFlag
+          ? (osAliases[osFlag.toLowerCase()] ?? osFlag) as Platform
+          : currentPlatform();
         const config = await loadConfig();
         const locale = config.language ?? "en";
         const registry = await getRegistry();
