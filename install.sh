@@ -117,10 +117,11 @@ main() {
   NEEDS_SOURCE=""
   add_to_path
 
-  # Write language preference from localized install scripts
-  if [ -n "$PLUG_LANG" ]; then
-    printf '{"language":"%s"}\n' "$PLUG_LANG" > "${HOME}/.plug/config.json"
-  fi
+  # Every installer sets the language - including English, so users
+  # can switch back from a localized install by running the default one.
+  LANG_CODE="${PLUG_LANG:-en}"
+  mkdir -p "${HOME}/.plug"
+  printf '{"language":"%s"}\n' "$LANG_CODE" > "${HOME}/.plug/config.json"
 
   echo "  Installed. See you at plug.audio"
   echo
