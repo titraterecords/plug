@@ -128,13 +128,19 @@ const testRegistry: Registry = {
 };
 
 describe("searchPlugins", () => {
-  it("matches by plugin id", () => {
+  it("returns only the exact match when query matches a plugin ID", () => {
     const results = searchPlugins(testRegistry, "ott");
     expect(results).toHaveLength(1);
     expect(results[0].id).toBe("ott");
   });
 
-  it("matches by plugin name (case-insensitive)", () => {
+  it("exact ID match is case-insensitive", () => {
+    const results = searchPlugins(testRegistry, "OTT");
+    expect(results).toHaveLength(1);
+    expect(results[0].id).toBe("ott");
+  });
+
+  it("matches by plugin name when no exact ID match", () => {
     const results = searchPlugins(testRegistry, "Vital");
     expect(results).toHaveLength(1);
     expect(results[0].id).toBe("vital");
