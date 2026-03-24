@@ -47,6 +47,10 @@ function searchPlugins(
 ): Plugin[] {
   const lower = query.toLowerCase();
 
+  // Exact ID match returns just that plugin
+  const exact = registry.plugins.find((p) => p.id === lower);
+  if (exact) return [exact];
+
   let results = registry.plugins.filter((p) => matchesQuery(p, lower));
 
   if (options.category) {
