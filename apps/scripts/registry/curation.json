@@ -47,7 +47,15 @@
     "dragonfly-reverb",
     "valhalla-supermassive",
     "smartelectronix",
-    "cardinal"
+    "cardinal",
+    "lfo",
+    "note-modulator",
+    "control-change",
+    "chain-selector",
+    "sample-capture",
+    "filter-delays",
+    "lanzarote-verb",
+    "granulator-ii"
   ],
   "exclude": []
 }

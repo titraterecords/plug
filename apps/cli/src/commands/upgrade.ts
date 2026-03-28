@@ -2,7 +2,7 @@ import type { Command } from "commander";
 import chalk from "chalk";
 import ora from "ora";
 import type { PluginFormat } from "@titrate/registry-schema/schema";
-import { pluginPaths, type InstallTarget } from "../constants.js";
+import { pluginPaths, type InstallTarget } from "../lib/paths/plugin-paths.js";
 import { verifyChecksum } from "../lib/checksum.js";
 import { downloadFile } from "../lib/installer/download.js";
 import { extractAndInstall } from "../lib/installer/install.js";

@@ -1,5 +1,5 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
-import { CACHE_DIR, CONFIG_PATH } from "../constants.js";
+import { CACHE_DIR, CONFIG_PATH } from "./paths/cache.js";
 import { chownToUser } from "./fix-permissions.js";
 
 interface Config {

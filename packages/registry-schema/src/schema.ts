@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-const FORMATS = ["vst3", "au", "clap", "lv2"] as const;
+const FORMATS = ["vst3", "au", "clap", "lv2", "m4l-instrument", "m4l-audio-effect", "m4l-midi-effect"] as const;
 const PLATFORMS = ["mac", "win", "linux"] as const;
 
 // A single downloadable file for one format on one platform
